@@ -57,14 +57,12 @@
 
 .sendButton{	
 	border:0px;
-
 	padding: 10px 40px;
 	margin: 0px 10px 10px 0px;
 	border-radius: 20px;
 	font-size: 20px;
 	color: #FFF;
 	text-decoration: none;
-
 	background-color: #3498DB;
 }
 
