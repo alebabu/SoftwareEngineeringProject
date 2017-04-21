@@ -44,11 +44,16 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Default.aspx" />
+    <Content Include="Style\StyleSheet.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Style\" />
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
