@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortCDM.Tests", "PortCDM.Tests\PortCDM.Tests.csproj", "{C948288E-396C-45FE-A912-12FA8206C01A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortCDM", "PortCDM\PortCDM.csproj", "{35BDC540-9F9E-4968-9A97-2D79E15F9B3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C948288E-396C-45FE-A912-12FA8206C01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C948288E-396C-45FE-A912-12FA8206C01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C948288E-396C-45FE-A912-12FA8206C01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C948288E-396C-45FE-A912-12FA8206C01A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35BDC540-9F9E-4968-9A97-2D79E15F9B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35BDC540-9F9E-4968-9A97-2D79E15F9B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35BDC540-9F9E-4968-9A97-2D79E15F9B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35BDC540-9F9E-4968-9A97-2D79E15F9B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
