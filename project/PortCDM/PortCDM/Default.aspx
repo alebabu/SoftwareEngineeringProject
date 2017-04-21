@@ -16,7 +16,7 @@
 					<td align="left">1347</td>
 				</tr>
 				<tr>
-					<td align="right">Reference Object</td>
+					<td align="right">Reference Object:</td>
 					<td align="left">Vessel</td>
 				</tr>
 				<tr>

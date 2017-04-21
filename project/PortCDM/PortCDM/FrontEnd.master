@@ -11,12 +11,7 @@
 		<div>
           	  <header id="navMenu">
             	    <ul>
-                	    <li>
-                    	    <a href="../Default.aspx">Message to PortCDM</a>
-                    	</li>
-     	               <li>
-             	           <a href="../Inbox.aspx">Inbox</a>
-            	        </li>
+                	    <li><a href="../Default.aspx">Message to PortCDM</a></li><li><a href="../Inbox.aspx">Inbox</a></li>
             	    </ul>
           	  </header>
            	 <section id="MainContent" class="content">
