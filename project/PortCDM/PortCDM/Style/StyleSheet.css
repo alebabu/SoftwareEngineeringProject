@@ -35,13 +35,22 @@
 
 #navMenu ul li {
     display:inline-block;
-    border-right:1px solid #fff;
+    border-right:1px solid #3498DB;
+    border-bottom:1px solid #fff;
+}
+
+@media (min-width: 581px) {
+	#navMenu ul li {
+		border-right:1px solid #fff;
+		border-bottom:none;
+	}
+
 }
 
 
 #navMenu li:last-child {
     border-right:none;
-
+    border-bottom:none;
 }
 
 
