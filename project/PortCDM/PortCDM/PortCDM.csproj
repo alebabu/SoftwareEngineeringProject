@@ -45,10 +45,18 @@
     <Content Include="Global.asax" />
     <Content Include="Default.aspx" />
     <Content Include="Style\StyleSheet.css" />
+    <Content Include="FrontEnd.master" />
+    <Content Include="Inbox.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd.master.cs">
+      <DependentUpon>FrontEnd.master</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd.master.designer.cs">
+      <DependentUpon>FrontEnd.master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
