@@ -17,8 +17,7 @@ namespace PortCDM
 
 		protected void sendMessage(object sender, EventArgs e)
         {
-            id = RestHandler.getPortCalls()[0].id;
-            messageConfirmationLiteral.Text = id;
+            messageConfirmationLiteral.Text = "Your message has been sent";
 		}
 	}
 }

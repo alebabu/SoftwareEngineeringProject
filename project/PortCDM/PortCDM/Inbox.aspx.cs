@@ -3,21 +3,24 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections.Generic;
+using PortCDM_RestStructs;
+using PortCDM_App_Code;
 namespace PortCDM
 {
 	public partial class Inbox : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			List<Message> list = new List<Message>();
+			List<PortCall> portCallList = RestHandler.getPortCalls();
+			/*List<Message> list = new List<Message>();
 			list.Add(new Message("1", "hej"));
 			list.Add(new Message("2", "da"));
-			list.Add(new Message("3", "bla"));
-			messageRepeater.DataSource = list;
+			list.Add(new Message("3", "bla"));*/
+			messageRepeater.DataSource = portCallList;
 			messageRepeater.DataBind();
 		}
 
-		public class Message
+		/*public class Message
 		{
 			private String _id;
 			public String id;
@@ -39,7 +42,7 @@ namespace PortCDM
 				this.content = content;
 			}
 			
-		}
+		}*/
 	}
 
 
