@@ -101,8 +101,6 @@
     <Compile Include="FrontEnd.master.designer.cs">
       <DependentUpon>FrontEnd.master</DependentUpon>
     </Compile>
-    <Compile Include="Code\Vessel.cs" />
-    <Compile Include="Code\PortCall.cs" />
     <Compile Include="Code\RestHandler.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -111,8 +109,25 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Code\Structs\Actor.cs" />
+    <Compile Include="Code\Structs\Event.cs" />
+    <Compile Include="Code\Structs\Location.cs" />
+    <Compile Include="Code\Structs\LocationSequence.cs" />
+    <Compile Include="Code\Structs\LocationStateDetails.cs" />
+    <Compile Include="Code\Structs\PortCall.cs" />
+    <Compile Include="Code\Structs\Position.cs" />
+    <Compile Include="Code\Structs\ProcessStep.cs" />
+    <Compile Include="Code\Structs\ServiceStateDetails.cs" />
+    <Compile Include="Code\Structs\State.cs" />
+    <Compile Include="Code\Structs\Statement.cs" />
+    <Compile Include="Code\Structs\SubProcess.cs" />
+    <Compile Include="Code\Structs\Vessel.cs" />
+    <Compile Include="Code\Structs\UncategorizedProcessStep.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Code\Structs\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

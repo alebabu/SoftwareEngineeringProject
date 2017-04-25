@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PortCDM_RestStructs
 {
@@ -12,5 +13,8 @@ namespace PortCDM_RestStructs
 		public string lastUpdate;
 		public string startTime;
 		public string endTime;
+		public string processDefinitionId;
+		public List<ProcessStep> processSteps;
+		public List<UncategorizedProcessStep> uncategorizedProcessSteps;
 	}
 }

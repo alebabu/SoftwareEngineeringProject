@@ -12,8 +12,8 @@ namespace PortCDM_App_Code
 {
 	public class RestHandler
 	{
-		static HttpClient client = new HttpClient();
-        static bool isReady = false;
+		//static HttpClient client = new HttpClient();
+        //static bool isReady = false;
 		private const string address = "http://192.168.56.101:8080/";
 
 		/*private static void prepareRestCall()
