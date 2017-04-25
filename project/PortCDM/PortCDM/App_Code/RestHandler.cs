@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,19 +23,30 @@ namespace PortCDM_App_Code
 			client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
 		}
 
-		public static async PortCall getPortCall()
+		private static List<PortCall> getPortCalls()
 		{
 			prepareRestCall();
-			private const string callType = "dmp/port_calls";
-		private const string callCount = "?count=30";
+			const string callType  = "dmp/port_calls/";
+			const string callCount = "?count=30";
+			client.BaseAddress = new Uri(address + callType);
 
-		client.BaseAddress = new Uri("http://www.google.com");
-			//HttpResponseMessage response = client.GetAsync()
+			// List data response.
+			HttpResponseMessage response = client.GetAsync(callCount).Result;  // Blocking call!
+			List<PortCall> portCalls = new List<PortCall>();
 
-			return new PortCall();
+			if (response.IsSuccessStatusCode)
+			{
+				//Parse
+				var result = response.Content.ReadAsAsync<IEnumerable<PortCall>>().Result;
+
+				foreach (PortCall pc in result)
+				{
+					portCalls.Add(pc);
+				}
+			}
+			return portCalls;
+		}
+
+
 	}
 }
-
-
-
-
