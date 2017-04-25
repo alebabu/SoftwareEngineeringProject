@@ -6,7 +6,7 @@
 			<ItemTemplate>
 				<div class="inboxItem">
 					<h3>Message id: </h3>
-					<asp:Literal runat="server" id="messageLiteral" Text='<%# Eval("content") %>'></asp:Literal><br/>
+					<asp:Literal runat="server" id="messageLiteral" Text='<%# Eval("id") %>'></asp:Literal><br/>
 				</div>
 			</ItemTemplate>
 		</asp:Repeater>
