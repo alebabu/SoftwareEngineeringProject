@@ -29,6 +29,35 @@ namespace PortCDM_App_Code
             }
 		}*/
 
+        public static PortCall getPortCallById(string id)
+        {
+            using(HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
+                client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
+                client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+
+                string callType = String.Format("/dmp/port_calls/{0}", id);
+
+                client.BaseAddress = new Uri(address + callType);
+
+                HttpResponseMessage response = client.GetAsync("").Result;
+                PortCall portCall = new PortCall();
+
+                if(response.IsSuccessStatusCode)
+                {
+                    var result = response.Content.ReadAsAsync<IEnumerable<PortCall>>().Result;
+
+                    foreach (PortCall pc in result)
+                        portCall = pc;
+
+                }
+                return portCall;
+            }
+        }
+
 		public static List<PortCall> getPortCalls()
 		{
             using (HttpClient client = new HttpClient())
