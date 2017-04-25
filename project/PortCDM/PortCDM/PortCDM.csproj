@@ -58,6 +58,9 @@
     <Compile Include="FrontEnd.master.designer.cs">
       <DependentUpon>FrontEnd.master</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Style\" />
