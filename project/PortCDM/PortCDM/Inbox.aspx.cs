@@ -12,37 +12,10 @@ namespace PortCDM
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			List<PortCall> portCallList = RestHandler.getPortCalls();
-			/*List<Message> list = new List<Message>();
-			list.Add(new Message("1", "hej"));
-			list.Add(new Message("2", "da"));
-			list.Add(new Message("3", "bla"));*/
 			messageRepeater.DataSource = portCallList;
 			messageRepeater.DataBind();
 		}
 
-		/*public class Message
-		{
-			private String _id;
-			public String id;
-			private String _content;
-			public String content{
-				get
-   				{
-      				return _content??"Content";
-  				 }
-  				 set
-  				 {
-      				_content = value;
-   				}
-
-			}
-
-			public Message(String id, String content) {
-				this.id = id;
-				this.content = content;
-			}
-			
-		}*/
 	}
 
 

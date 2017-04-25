@@ -91,3 +91,7 @@
 	margin: 20px;
 	padding: 20px;
 }
+
+.shipPic {
+	max-width: 160px;
+}
