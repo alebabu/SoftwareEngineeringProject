@@ -29,8 +29,29 @@ namespace PortCDM_App_Code
             }
 		}*/
 
-        public static PortCall getPortCallById(string id)
+        public static void postPortCall(string imo, string time)
         {
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
+                client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
+                client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+
+                string callTime = String.Format("?time={0}", time);
+                string callType = String.Format("dmp/port_calls/{0}", imo);
+
+                client.BaseAddress = new Uri(address + callType);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                //NOT WORKING
+                //HttpResponseMessage response = client.PostAsync(new Uri(callTime), httpContent).Result;
+            }
+        }
+
+        public static PortCall getPortCallById(string id)
+        { //NOT WORKING
             using(HttpClient client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Accept.Add(
@@ -39,11 +60,11 @@ namespace PortCDM_App_Code
                 client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
                 client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
 
-                string callType = String.Format("/dmp/port_calls/{0}", id);
+                string callType = String.Format("dmp/port_calls/{0}", id);
 
                 client.BaseAddress = new Uri(address + callType);
 
-                HttpResponseMessage response = client.GetAsync("").Result;
+                HttpResponseMessage response = client.GetAsync(address+callType).Result;
                 PortCall portCall = new PortCall();
 
                 if(response.IsSuccessStatusCode)
@@ -88,7 +109,5 @@ namespace PortCDM_App_Code
                 return portCalls;
             }
 		}
-
-
 	}
 }
