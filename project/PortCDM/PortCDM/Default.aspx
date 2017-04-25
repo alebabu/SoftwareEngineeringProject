@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/FrontEnd.master"%>
+﻿<%@ Page Language="C#" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="PortCDM.Default"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="cpMainContent" runat="server">
 	<div id="messageBox">
 			<h1>Message to PortCDM</h1>
@@ -44,6 +44,6 @@
 					<td align="left">Port of Gothenburg Traffic Area</td>
 				</tr>
 			</table>
-		<asp:Button CssClass="sendButton" runat="server" id="sendMessage" Text="Send"/>
+		<asp:Button CssClass="sendButton" runat="server" id="sendMessageButton" Text="Send" onClick="sendMessage"/>
 	</div>
 </asp:Content>
