@@ -1,15 +1,15 @@
 ﻿using System;
-namespace PortCDM_App_Code
+namespace PortCDM_RestStructs
 {
 	public struct PortCall
 	{
-		string id;
-		Vessel vessel;
-		string portUnLocode;
-		string arrivalDate;
-		string createdAt;
-		string lastUpdate;
-		string startTime;
-		string endTime;
+		public string id;
+		public Vessel vessel;
+		public string portUnLocode;
+		public string arrivalDate;
+		public string createdAt;
+		public string lastUpdate;
+		public string startTime;
+		public string endTime;
 	}
 }

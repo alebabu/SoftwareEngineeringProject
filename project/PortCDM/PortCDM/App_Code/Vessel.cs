@@ -1,15 +1,15 @@
 ﻿using System;
-namespace PortCDM_App_Code
+namespace PortCDM_RestStructs
 {
 	public struct Vessel
 	{
-		string imo;
-		string id;
-		string name;
-		string callSign;
-		string mmsi;
-		string type;
-		int stmVesselId;
-		string photoURL;
+		public string imo;
+		public string id;
+		public string name;
+		public string callSign;
+		public string mmsi;
+		public string type;
+		public int stmVesselId;
+		public string photoURL;
 	}
 }

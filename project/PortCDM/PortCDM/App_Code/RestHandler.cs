@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using PortCDM_RestStructs;
 
 namespace PortCDM_App_Code
 {
@@ -23,7 +24,7 @@ namespace PortCDM_App_Code
 			client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
 		}
 
-		private static List<PortCall> getPortCalls()
+		public static List<PortCall> getPortCalls()
 		{
 			prepareRestCall();
 			const string callType  = "dmp/port_calls/";

@@ -71,11 +71,14 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
-    <Content Include="Default.aspx" />
     <Content Include="Style\StyleSheet.css" />
     <Content Include="FrontEnd.master" />
     <Content Include="Inbox.aspx" />
+
     <Content Include="packages.config" />
+
+    <Content Include="Default.aspx" />
+
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -87,9 +90,18 @@
     <Compile Include="FrontEnd.master.designer.cs">
       <DependentUpon>FrontEnd.master</DependentUpon>
     </Compile>
+
     <Compile Include="App_Code\Vessel.cs" />
     <Compile Include="App_Code\PortCall.cs" />
     <Compile Include="App_Code\RestHandler.cs" />
+
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Style\" />
