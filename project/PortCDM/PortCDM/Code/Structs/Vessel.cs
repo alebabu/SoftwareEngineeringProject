@@ -6,11 +6,11 @@ namespace PortCDM_RestStructs
 	{
 		public string imo;
 		public string id;
-		public string name;
+		public string name {get;set;}
 		public string callSign;
 		public string mmsi;
 		public string type;
 		public int stmVesselId;
-		public string photoURL;
+		public string photoURL {get;set;}
 	}
 }
