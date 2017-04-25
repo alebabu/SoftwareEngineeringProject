@@ -89,6 +89,7 @@
     <Content Include="Inbox.aspx" />
     <Content Include="packages.config" />
     <Content Include="Default.aspx" />
+    <Content Include="Inbox.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -108,6 +109,12 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Structs\Actor.cs" />
     <Compile Include="Code\Structs\Event.cs" />
