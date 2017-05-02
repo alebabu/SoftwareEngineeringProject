@@ -89,6 +89,7 @@
     <Content Include="Inbox.aspx" />
     <Content Include="packages.config" />
     <Content Include="Default.aspx" />
+    <Content Include="NewPortCDMMessage.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\Structs\port-call-message.cs" />
@@ -128,6 +129,12 @@
     </Compile>
     <Compile Include="Inbox.aspx.designer.cs">
       <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewPortCDMMessage.aspx.cs">
+      <DependentUpon>NewPortCDMMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewPortCDMMessage.aspx.designer.cs">
+      <DependentUpon>NewPortCDMMessage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
