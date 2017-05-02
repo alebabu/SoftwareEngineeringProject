@@ -120,5 +120,26 @@ namespace PortCDM_App_Code
             }
             return pc;
         }
+
+        public static async Task<List<portCallMessage>> pollQueue(string queueId)
+        {
+            prepareGETXML();
+
+            List<portCallMessage> pcm = null;
+
+            var response = await client.GetAsync(String.Format("mb/mqs/{0}", queueId));
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsStringAsync();
+
+                XmlSerializer ser = new XmlSerializer(typeof(portCallMessages));
+                StringReader sr = new StringReader(responseData);
+                portCallMessages pcms = (portCallMessages)ser.Deserialize(sr);
+
+                pcm = pcms.pcms;
+            }
+
+            return pcm;
+        }
 	}
 }

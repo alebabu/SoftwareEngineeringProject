@@ -1,8 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 namespace PortCDM_RestStructs
 {
+
+    [DataContract(Name = "collection", Namespace = "")]
+    [Serializable, XmlRoot("collection")]
+    public class portCallMessages
+    {
+        [XmlElement(ElementName = "portCallMessage", Namespace = "urn:x-mrn:stm:schema:port-call-message:0.0.16")]
+        public List<portCallMessage> pcms { get; set; }
+    }
+
     public class portCallMessage
     {
         public string portCallId { get; set; }
