@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Inbox.aspx.cs" Inherits="PortCDM.Inbox"%>
+﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Inbox.aspx.cs" Inherits="PortCDM.Inbox"%>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
 	<div id="messageBox">
 		<h1>Messages from PortCDM</h1>

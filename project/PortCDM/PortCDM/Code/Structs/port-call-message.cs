@@ -1,8 +1,20 @@
-﻿using System;
+﻿﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
+[DataContract(Name = "collection", Namespace = "")]
+[Serializable, XmlRoot("collection")]
+public class portCallMessages
+{
+    [XmlElement(ElementName = "portCallMessage", Namespace = "urn:x-mrn:stm:schema:port-call-message:0.0.16")]
+    public List<portCallMessage> pcms { get; set; }
+}
+
+[Serializable]
 public class portCallMessage
 {
+    [XmlElement(ElementName = "portCallId")]
     public string portCallId { get; set; }
 
 
@@ -11,7 +23,7 @@ public class portCallMessage
 
     public string localJobId { get; set; }
 
-
+    [XmlElement(ElementName = "vesselId")]
     public string vesselId { get; set; }
 
 
@@ -21,12 +33,7 @@ public class portCallMessage
     public string groupWith { get; set; }
 
 
-    public string reportedAt
-    {
-        get { return this.reportedAt; }
-        set { DateTimeOffset.Parse(value); }
-    }
-
+    public string reportedAt { get; set; }
 
     public bool reportedAtSpecified { get; set; }
 

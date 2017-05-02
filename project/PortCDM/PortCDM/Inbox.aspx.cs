@@ -9,9 +9,9 @@ namespace PortCDM
 {
 	public partial class Inbox : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
+		protected async void Page_Load(object sender, EventArgs e)
 		{
-			List<PortCall> portCallList = RestHandler.getPortCalls();
+			List<PortCall> portCallList = await RestHandler.getPortCalls();
 			messageRepeater.DataSource = portCallList;
 			messageRepeater.DataBind();
 		}
