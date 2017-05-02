@@ -1,376 +1,380 @@
-﻿using System;
+﻿﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
-namespace PortCDM_RestStructs
+[DataContract(Name = "collection", Namespace = "")]
+[Serializable, XmlRoot("collection")]
+public class portCallMessages
 {
-    public class portCallMessage
-    {
-        public string portCallId { get; set; }
+    [XmlElement(ElementName = "portCallMessage", Namespace = "urn:x-mrn:stm:schema:port-call-message:0.0.16")]
+    public List<portCallMessage> pcms { get; set; }
+}
 
+[Serializable]
+public class portCallMessage
+{
+    [XmlElement(ElementName = "portCallId")]
+    public string portCallId { get; set; }
 
-        public string localPortCallId { get; set; }
 
+    public string localPortCallId { get; set; }
 
-        public string localJobId { get; set; }
 
+    public string localJobId { get; set; }
 
-        public string vesselId { get; set; }
+    [XmlElement(ElementName = "vesselId")]
+    public string vesselId { get; set; }
 
 
-        public string messageId { get; set; }
+    public string messageId { get; set; }
 
 
-        public string groupWith { get; set; }
+    public string groupWith { get; set; }
 
 
-        public string reportedAt
-        {
-            get { return this.reportedAt; }
-            set { DateTimeOffset.Parse(value); }
-        }
+    public string reportedAt { get; set; }
 
+    public bool reportedAtSpecified { get; set; }
 
-        public bool reportedAtSpecified { get; set; }
 
+    public string reportedBy { get; set; }
 
-        public string reportedBy { get; set; }
 
+    public string comment { get; set; }
 
-        public string comment { get; set; }
 
+    public LocationState locationState { get; set; }
 
-        public LocationState locationState { get; set; }
+    public ServiceState serviceState { get; set; }
 
-        public ServiceState serviceState { get; set; }
+    public MessageOperation messageOperation { get; set; }
 
-        public MessageOperation messageOperation { get; set; }
+    [XmlNamespaceDeclarations]
+    public XmlSerializerNamespaces namespaces { get; set; }
+}
 
-        [XmlNamespaceDeclarations]
-        public XmlSerializerNamespaces namespaces { get; set; }
-    }
 
+public class LocationState
+{
+    public LocationReferenceObject referenceObject { get; set; }
 
-    public class LocationState
-    {
-        public LocationReferenceObject referenceObject { get; set; }
 
+    public string time { get; set; }
 
-        public string time { get; set; }
 
+    public TimeType timeType { get; set; }
 
-        public TimeType timeType { get; set; }
 
+    public LocationStateArrivalLocation arrivalLocation { get; set; }
 
-        public LocationStateArrivalLocation arrivalLocation { get; set; }
+    public LocationStateDepartureLocation departureLocation { get; set; }
+}
 
-        public LocationStateDepartureLocation departureLocation { get; set; }
-    }
 
+public enum LocationReferenceObject
+{
+    VESSEL,
 
-    public enum LocationReferenceObject
-    {
-        VESSEL,
 
+    TUG,
 
-        TUG,
 
+    ESCORT_TUG,
 
-        ESCORT_TUG,
 
+    PILOT,
 
-        PILOT,
 
+    PILOT_BOAT,
 
-        PILOT_BOAT,
 
+    ICEBREAKER,
 
-        ICEBREAKER,
 
+    AGENT,
 
-        AGENT,
 
+    ARRIVAL_MOORER,
 
-        ARRIVAL_MOORER,
 
+    DEPARTURE_MOORER,
 
-        DEPARTURE_MOORER,
 
+    PASSENGER,
 
-        PASSENGER,
 
+    SECURITY,
 
-        SECURITY,
 
+    PONTOONS_AND_FENDERS,
 
-        PONTOONS_AND_FENDERS,
 
+    BUNKER_VESSEL,
 
-        BUNKER_VESSEL,
 
+    SLUDGE_VESSEL,
 
-        SLUDGE_VESSEL,
 
+    SLOP_VESSEL,
 
-        SLOP_VESSEL,
 
+    FRESH_WATER_VESSEL
+}
 
-        FRESH_WATER_VESSEL
-    }
 
+public enum TimeType
+{
+    ESTIMATED,
 
-    public enum TimeType
-    {
-        ESTIMATED,
 
+    ACTUAL,
 
-        ACTUAL,
 
+    TARGET,
 
-        TARGET,
 
+    RECOMMENDED,
 
-        RECOMMENDED,
 
+    CANCELLED
+}
 
-        CANCELLED
-    }
 
+public class LocationStateArrivalLocation
+{
+    public Location from { get; set; }
 
-    public class LocationStateArrivalLocation
-    {
-        public Location from { get; set; }
 
+    public Location to { get; set; }
+}
 
-        public Location to { get; set; }
-    }
 
+public class Location
+{
+    public LogicalLocation locationType { get; set; }
 
-    public class Location
-    {
-        public LogicalLocation locationType { get; set; }
 
+    public Position position { get; set; }
 
-        public Position position { get; set; }
 
+    public string name { get; set; }
+}
 
-        public string name { get; set; }
-    }
 
+public enum LogicalLocation
+{
+    ANCHORING_AREA,
 
-    public enum LogicalLocation
-    {
-        ANCHORING_AREA,
 
+    BERTH,
 
-        BERTH,
 
+    ETUG_ZONE,
 
-        ETUG_ZONE,
 
+    LOC,
 
-        LOC,
 
+    PILOT_BOARDING_AREA,
 
-        PILOT_BOARDING_AREA,
 
+    RENDEZV_AREA,
 
-        RENDEZV_AREA,
 
+    TRAFFIC_AREA,
 
-        TRAFFIC_AREA,
 
+    TUG_ZONE,
 
-        TUG_ZONE,
 
+    VESSEL
+}
 
-        VESSEL
-    }
 
+public class Position
+{
+    public double latitude { get; set; }
 
-    public class Position
-    {
-        public double latitude { get; set; }
 
+    public double longitude { get; set; }
+}
 
-        public double longitude { get; set; }
-    }
 
+public class ServiceState
+{
+    public ServiceObject serviceObject { get; set; }
 
-    public class ServiceState
-    {
-        public ServiceObject serviceObject { get; set; }
 
+    public string performingActor { get; set; }
 
-        public string performingActor { get; set; }
 
+    public ServiceTimeSequence timeSequence { get; set; }
 
-        public ServiceTimeSequence timeSequence { get; set; }
 
+    public DateTime time { get; set; }
 
-        public DateTime time { get; set; }
 
+    public TimeType timeType { get; set; }
 
-        public TimeType timeType { get; set; }
 
+    public Location at { get; set; }
 
-        public Location at { get; set; }
+    public ServiceStateBetween between { get; set; }
+}
 
-        public ServiceStateBetween between { get; set; }
-    }
 
+public enum ServiceObject
+{
+    ANCHORING,
 
-    public enum ServiceObject
-    {
-        ANCHORING,
 
+    ARRIVAL_ANCHORING_OPERATION,
 
-        ARRIVAL_ANCHORING_OPERATION,
 
+    ARRIVAL_BERTH,
 
-        ARRIVAL_BERTH,
 
+    ARRIVAL_PORTAREA,
 
-        ARRIVAL_PORTAREA,
 
+    ARRIVAL_VTSAREA,
 
-        ARRIVAL_VTSAREA,
 
+    BERTH_SHIFTING,
 
-        BERTH_SHIFTING,
 
+    BUNKERING_OPERATION,
 
-        BUNKERING_OPERATION,
 
+    CARGO_OPERATION,
 
-        CARGO_OPERATION,
 
+    DEPARTURE_ANCHORING_OPERATION,
 
-        DEPARTURE_ANCHORING_OPERATION,
 
+    DEPARTURE_BERTH,
 
-        DEPARTURE_BERTH,
 
+    DEPARTURE_PORTAREA,
 
-        DEPARTURE_PORTAREA,
 
+    DEPARTURE_VTSAREA,
 
-        DEPARTURE_VTSAREA,
 
+    ESCORT_TOWAGE,
 
-        ESCORT_TOWAGE,
 
+    GARBAGE_OPERATION,
 
-        GARBAGE_OPERATION,
 
+    ICEBREAKING_OPERATION,
 
-        ICEBREAKING_OPERATION,
 
+    LUBEOIL_OPERATION,
 
-        LUBEOIL_OPERATION,
 
+    ARRIVAL_MOORING_OPERATION,
 
-        ARRIVAL_MOORING_OPERATION,
 
+    DEPARTURE_MOORING_OPERATION,
 
-        DEPARTURE_MOORING_OPERATION,
 
+    PILOTAGE,
 
-        PILOTAGE,
 
+    POSTCARGOSURVEY,
 
-        POSTCARGOSURVEY,
 
+    PRECARGOSURVEY,
 
-        PRECARGOSURVEY,
 
+    PROVISION_OPERATION,
 
-        PROVISION_OPERATION,
 
+    SLOP_OPERATION,
 
-        SLOP_OPERATION,
 
+    SLUDGE_OPERATION,
 
-        SLUDGE_OPERATION,
 
+    TOWAGE,
 
-        TOWAGE,
 
+    WATER_OPERATION,
 
-        WATER_OPERATION,
 
+    GANGWAY,
 
-        GANGWAY,
 
+    EMBARKING,
 
-        EMBARKING,
 
+    PILOT_BOAT,
 
-        PILOT_BOAT,
 
+    PONTOONS_AND_FENDERS,
 
-        PONTOONS_AND_FENDERS,
 
+    SECURITY,
 
-        SECURITY,
 
+    TOURS,
 
-        TOURS,
 
+    FORKLIFT
+}
 
-        FORKLIFT
-    }
 
+public enum ServiceTimeSequence
+{
+    COMMENCED,
 
-    public enum ServiceTimeSequence
-    {
-        COMMENCED,
 
+    COMPLETED,
 
-        COMPLETED,
 
+    CONFIRMED,
 
-        CONFIRMED,
 
+    DENIED,
 
-        DENIED,
 
+    REQUESTED,
 
-        REQUESTED,
 
+    REQUEST_RECEIVED
+}
 
-        REQUEST_RECEIVED
-    }
 
+public class ServiceStateBetween
+{
+    public Location to { get; set; }
 
-    public class ServiceStateBetween
-    {
-        public Location to { get; set; }
 
+    public Location from { get; set; }
+}
 
-        public Location from { get; set; }
-    }
 
+public class MessageOperation
+{
+    public MessageOperationOperation operation { get; set; }
 
-    public class MessageOperation
-    {
-        public MessageOperationOperation operation { get; set; }
 
+    public string messageId { get; set; }
+}
 
-        public string messageId { get; set; }
-    }
 
+public enum MessageOperationOperation
+{
+    WITHDRAW
+}
 
-    public enum MessageOperationOperation
-    {
-        WITHDRAW
-    }
 
+public class LocationStateDepartureLocation
+{
+    public Location from { get; set; }
 
-    public class LocationStateDepartureLocation
-    {
-        public Location from { get; set; }
 
-
-        public Location to { get; set; }
-    }
+    public Location to { get; set; }
 }
