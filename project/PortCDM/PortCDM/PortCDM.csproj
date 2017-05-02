@@ -90,6 +90,13 @@
     <Content Include="packages.config" />
     <Content Include="Default.aspx" />
     <Content Include="Inbox.aspx" />
+    <Content Include="Images\backgroundImage.jpg" />
+    <Content Include="Images\testImage.jpg" />
+    <Content Include="Images\dashboard_white.png" />
+    <Content Include="Images\history_white.png" />
+    <Content Include="Images\message_white.png" />
+    <Content Include="Images\ship_white.png" />
+    <Content Include="Images\timeline_white.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -130,10 +137,12 @@
     <Compile Include="Code\Structs\SubProcess.cs" />
     <Compile Include="Code\Structs\Vessel.cs" />
     <Compile Include="Code\Structs\UncategorizedProcessStep.cs" />
+    <Compile Include="Code\Structs\port-call-message.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Folder Include="Code\Structs\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
