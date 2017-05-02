@@ -5,11 +5,11 @@
 			<table align="center">
 				<tr>
 					<td align="right">Vessel id:</td>
-					<td align="left"><asp:Literal runat="server" id="vesselId" Text="1347"></asp:Literal></td>
+					<td align="left"><asp:Literal runat="server" id="vesselId" Text="urn:x-mrn:stm:vessel:IMO:9398917"></asp:Literal></td>
 				</tr>
 				<tr>
 					<td align="right">Service State Id:</td>
-					<td align="left"><asp:Literal runat="server" id="ServiceStateId" Text="1234"></asp:Literal></td>
+					<td align="left"><asp:Literal runat="server" id="messageId" Text="message-0x1FFE3A"></asp:Literal></td>
 				</tr>
 				<tr>
 					<td align="right">Location State Id:</td>

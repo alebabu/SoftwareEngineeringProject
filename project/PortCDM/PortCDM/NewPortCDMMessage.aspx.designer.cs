@@ -16,8 +16,8 @@ namespace PortCDM {
 		protected System.Web.UI.WebControls.Content MessageContent;
 		
 		protected System.Web.UI.WebControls.Literal vesselId;
-		
-		protected System.Web.UI.WebControls.Literal ServiceStateId;
+
+	    protected System.Web.UI.WebControls.Literal messageId;
 		
 		protected System.Web.UI.WebControls.Literal locationStateId;
 		
