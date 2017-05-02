@@ -13,6 +13,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using PortCDM_RestStructs;
 using Formatting = System.Xml.Formatting;
 
 namespace RestTestTest

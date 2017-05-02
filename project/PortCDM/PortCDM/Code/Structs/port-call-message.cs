@@ -1,373 +1,376 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-public class portCallMessage
+namespace PortCDM_RestStructs
 {
-    public string portCallId { get; set; }
-
-
-    public string localPortCallId { get; set; }
-
-
-    public string localJobId { get; set; }
-
-
-    public string vesselId { get; set; }
-
-
-    public string messageId { get; set; }
-
-
-    public string groupWith { get; set; }
-
-
-    public string reportedAt
+    public class portCallMessage
     {
-        get { return this.reportedAt; }
-        set { DateTimeOffset.Parse(value); }
+        public string portCallId { get; set; }
+
+
+        public string localPortCallId { get; set; }
+
+
+        public string localJobId { get; set; }
+
+
+        public string vesselId { get; set; }
+
+
+        public string messageId { get; set; }
+
+
+        public string groupWith { get; set; }
+
+
+        public string reportedAt
+        {
+            get { return this.reportedAt; }
+            set { DateTimeOffset.Parse(value); }
+        }
+
+
+        public bool reportedAtSpecified { get; set; }
+
+
+        public string reportedBy { get; set; }
+
+
+        public string comment { get; set; }
+
+
+        public LocationState locationState { get; set; }
+
+        public ServiceState serviceState { get; set; }
+
+        public MessageOperation messageOperation { get; set; }
+
+        [XmlNamespaceDeclarations]
+        public XmlSerializerNamespaces namespaces { get; set; }
     }
 
 
-    public bool reportedAtSpecified { get; set; }
+    public class LocationState
+    {
+        public LocationReferenceObject referenceObject { get; set; }
 
 
-    public string reportedBy { get; set; }
+        public string time { get; set; }
 
 
-    public string comment { get; set; }
+        public TimeType timeType { get; set; }
 
 
-    public LocationState locationState { get; set; }
+        public LocationStateArrivalLocation arrivalLocation { get; set; }
 
-    public ServiceState serviceState { get; set; }
+        public LocationStateDepartureLocation departureLocation { get; set; }
+    }
 
-    public MessageOperation messageOperation { get; set; }
 
-    [XmlNamespaceDeclarations]
-    public XmlSerializerNamespaces namespaces { get; set; }
-}
+    public enum LocationReferenceObject
+    {
+        VESSEL,
 
 
-public class LocationState
-{
-    public LocationReferenceObject referenceObject { get; set; }
+        TUG,
 
 
-    public string time { get; set; }
+        ESCORT_TUG,
 
 
-    public TimeType timeType { get; set; }
+        PILOT,
 
 
-    public LocationStateArrivalLocation arrivalLocation { get; set; }
+        PILOT_BOAT,
 
-    public LocationStateDepartureLocation departureLocation { get; set; }
-}
 
+        ICEBREAKER,
 
-public enum LocationReferenceObject
-{
-    VESSEL,
 
+        AGENT,
 
-    TUG,
 
+        ARRIVAL_MOORER,
 
-    ESCORT_TUG,
 
+        DEPARTURE_MOORER,
 
-    PILOT,
 
+        PASSENGER,
 
-    PILOT_BOAT,
 
+        SECURITY,
 
-    ICEBREAKER,
 
+        PONTOONS_AND_FENDERS,
 
-    AGENT,
 
+        BUNKER_VESSEL,
 
-    ARRIVAL_MOORER,
 
+        SLUDGE_VESSEL,
 
-    DEPARTURE_MOORER,
 
+        SLOP_VESSEL,
 
-    PASSENGER,
 
+        FRESH_WATER_VESSEL
+    }
 
-    SECURITY,
 
+    public enum TimeType
+    {
+        ESTIMATED,
 
-    PONTOONS_AND_FENDERS,
 
+        ACTUAL,
 
-    BUNKER_VESSEL,
 
+        TARGET,
 
-    SLUDGE_VESSEL,
 
+        RECOMMENDED,
 
-    SLOP_VESSEL,
 
+        CANCELLED
+    }
 
-    FRESH_WATER_VESSEL
-}
 
+    public class LocationStateArrivalLocation
+    {
+        public Location from { get; set; }
 
-public enum TimeType
-{
-    ESTIMATED,
 
+        public Location to { get; set; }
+    }
 
-    ACTUAL,
 
+    public class Location
+    {
+        public LogicalLocation locationType { get; set; }
 
-    TARGET,
 
+        public Position position { get; set; }
 
-    RECOMMENDED,
 
+        public string name { get; set; }
+    }
 
-    CANCELLED
-}
 
+    public enum LogicalLocation
+    {
+        ANCHORING_AREA,
 
-public class LocationStateArrivalLocation
-{
-    public Location from { get; set; }
 
+        BERTH,
 
-    public Location to { get; set; }
-}
 
+        ETUG_ZONE,
 
-public class Location
-{
-    public LogicalLocation locationType { get; set; }
 
+        LOC,
 
-    public Position position { get; set; }
 
+        PILOT_BOARDING_AREA,
 
-    public string name { get; set; }
-}
 
+        RENDEZV_AREA,
 
-public enum LogicalLocation
-{
-    ANCHORING_AREA,
 
+        TRAFFIC_AREA,
 
-    BERTH,
 
+        TUG_ZONE,
 
-    ETUG_ZONE,
 
+        VESSEL
+    }
 
-    LOC,
 
+    public class Position
+    {
+        public double latitude { get; set; }
 
-    PILOT_BOARDING_AREA,
 
+        public double longitude { get; set; }
+    }
 
-    RENDEZV_AREA,
 
+    public class ServiceState
+    {
+        public ServiceObject serviceObject { get; set; }
 
-    TRAFFIC_AREA,
 
+        public string performingActor { get; set; }
 
-    TUG_ZONE,
 
+        public ServiceTimeSequence timeSequence { get; set; }
 
-    VESSEL
-}
 
+        public DateTime time { get; set; }
 
-public class Position
-{
-    public double latitude { get; set; }
 
+        public TimeType timeType { get; set; }
 
-    public double longitude { get; set; }
-}
 
+        public Location at { get; set; }
 
-public class ServiceState
-{
-    public ServiceObject serviceObject { get; set; }
+        public ServiceStateBetween between { get; set; }
+    }
 
 
-    public string performingActor { get; set; }
+    public enum ServiceObject
+    {
+        ANCHORING,
 
 
-    public ServiceTimeSequence timeSequence { get; set; }
+        ARRIVAL_ANCHORING_OPERATION,
 
 
-    public DateTime time { get; set; }
+        ARRIVAL_BERTH,
 
 
-    public TimeType timeType { get; set; }
+        ARRIVAL_PORTAREA,
 
 
-    public Location at { get; set; }
+        ARRIVAL_VTSAREA,
 
-    public ServiceStateBetween between { get; set; }
-}
 
+        BERTH_SHIFTING,
 
-public enum ServiceObject
-{
-    ANCHORING,
 
+        BUNKERING_OPERATION,
 
-    ARRIVAL_ANCHORING_OPERATION,
 
+        CARGO_OPERATION,
 
-    ARRIVAL_BERTH,
 
+        DEPARTURE_ANCHORING_OPERATION,
 
-    ARRIVAL_PORTAREA,
 
+        DEPARTURE_BERTH,
 
-    ARRIVAL_VTSAREA,
 
+        DEPARTURE_PORTAREA,
 
-    BERTH_SHIFTING,
 
+        DEPARTURE_VTSAREA,
 
-    BUNKERING_OPERATION,
 
+        ESCORT_TOWAGE,
 
-    CARGO_OPERATION,
 
+        GARBAGE_OPERATION,
 
-    DEPARTURE_ANCHORING_OPERATION,
 
+        ICEBREAKING_OPERATION,
 
-    DEPARTURE_BERTH,
 
+        LUBEOIL_OPERATION,
 
-    DEPARTURE_PORTAREA,
 
+        ARRIVAL_MOORING_OPERATION,
 
-    DEPARTURE_VTSAREA,
 
+        DEPARTURE_MOORING_OPERATION,
 
-    ESCORT_TOWAGE,
 
+        PILOTAGE,
 
-    GARBAGE_OPERATION,
 
+        POSTCARGOSURVEY,
 
-    ICEBREAKING_OPERATION,
 
+        PRECARGOSURVEY,
 
-    LUBEOIL_OPERATION,
 
+        PROVISION_OPERATION,
 
-    ARRIVAL_MOORING_OPERATION,
 
+        SLOP_OPERATION,
 
-    DEPARTURE_MOORING_OPERATION,
 
+        SLUDGE_OPERATION,
 
-    PILOTAGE,
 
+        TOWAGE,
 
-    POSTCARGOSURVEY,
 
+        WATER_OPERATION,
 
-    PRECARGOSURVEY,
 
+        GANGWAY,
 
-    PROVISION_OPERATION,
 
+        EMBARKING,
 
-    SLOP_OPERATION,
 
+        PILOT_BOAT,
 
-    SLUDGE_OPERATION,
 
+        PONTOONS_AND_FENDERS,
 
-    TOWAGE,
 
+        SECURITY,
 
-    WATER_OPERATION,
 
+        TOURS,
 
-    GANGWAY,
 
+        FORKLIFT
+    }
 
-    EMBARKING,
 
+    public enum ServiceTimeSequence
+    {
+        COMMENCED,
 
-    PILOT_BOAT,
 
+        COMPLETED,
 
-    PONTOONS_AND_FENDERS,
 
+        CONFIRMED,
 
-    SECURITY,
 
+        DENIED,
 
-    TOURS,
 
+        REQUESTED,
 
-    FORKLIFT
-}
 
+        REQUEST_RECEIVED
+    }
 
-public enum ServiceTimeSequence
-{
-    COMMENCED,
 
+    public class ServiceStateBetween
+    {
+        public Location to { get; set; }
 
-    COMPLETED,
 
+        public Location from { get; set; }
+    }
 
-    CONFIRMED,
 
+    public class MessageOperation
+    {
+        public MessageOperationOperation operation { get; set; }
 
-    DENIED,
 
+        public string messageId { get; set; }
+    }
 
-    REQUESTED,
 
+    public enum MessageOperationOperation
+    {
+        WITHDRAW
+    }
 
-    REQUEST_RECEIVED
-}
 
+    public class LocationStateDepartureLocation
+    {
+        public Location from { get; set; }
 
-public class ServiceStateBetween
-{
-    public Location to { get; set; }
 
-
-    public Location from { get; set; }
-}
-
-
-public class MessageOperation
-{
-    public MessageOperationOperation operation { get; set; }
-
-
-    public string messageId { get; set; }
-}
-
-
-public enum MessageOperationOperation
-{
-    WITHDRAW
-}
-
-
-public class LocationStateDepartureLocation
-{
-    public Location from { get; set; }
-
-
-    public Location to { get; set; }
+        public Location to { get; set; }
+    }
 }
