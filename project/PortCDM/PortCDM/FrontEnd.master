@@ -10,24 +10,33 @@
 	<form runat="server">
 		<div>
           	  <header id="navMenu">
-                	    <font id="logStyle" class="logPos">NJord</font>
-						<div id="signOutStyle" class="signOutPos">
+						<div id="logoAndHamburger">
+						<img src="../Images/hamburger_white.png" />
+                	    <font id="logStyle" class="logPos">NJORD</font>
+						<div id="signOutStyle" class="signOutPos"></div>
 						</div>
           	  </header>
         </div>
 		<div id="sideMenu">
-					<h2>Menu</h2>
+					<h2>MENU</h2>
 					<ul>
 						<li><img src="../Images/dashboard_white.png" /><font class="sideMenyFont"><a href="../Default.aspx">Dashboard</a></font></li>
-						<li><img src="../Images/message_white.png" /><font class="sideMenyFont"><a href="../Inbox.aspx">New PortCDM Message</a></font></li>
 						<li><img src="../Images/ship_white.png" /><font class="sideMenyFont"><a>Ships</a></font></li>
 						<li><img src="../Images/timeline_white.png" /><font class="sideMenyFont"><a>Timeline</a></font></li>
 						<li><img src="../Images/history_white.png" /><font class="sideMenyFont"><a>History</a></font></li>
+						<li><img src="../Images/message_white.png" /><font class="sideMenyFont"><a href="../Inbox.aspx">New PortCDM &#160; &#160; &#160; &#160; &#160; Message</a></font></li>
+
 					</ul>
 		</div>
+
+		<div id="mainBox">
+	
+				
 		<section id="MainContent" class="content">
 					<asp:ContentPlaceHolder ID="cpMainContent" runat="server" />
         </section>
+
+		</div>
 	</form>
 </div>
 </body>
