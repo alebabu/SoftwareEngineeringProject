@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using System.Runtime;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 using PortCDM_RestStructs;
@@ -31,7 +32,7 @@ namespace RestTestTest
 
         private static bool isPrepared = false;
 
-        static void prepareGETJson()
+        private static void prepareGETJson()
         {
             if (!isPrepared)
                 client.BaseAddress = new Uri(baseURL);
@@ -44,7 +45,7 @@ namespace RestTestTest
             isPrepared = true;
         }
 
-        static void prepareGETXML()
+        private static void prepareGETXML()
         {
             if (!isPrepared)
                 client.BaseAddress = new Uri(baseURL);
@@ -57,7 +58,19 @@ namespace RestTestTest
             isPrepared = true;
         }
 
-        static string toXML(portCallMessage pcm)
+        private static void preparePOSTXML()
+        {
+            if (!isPrepared)
+                client.BaseAddress = new Uri(baseURL);
+
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            isPrepared = true;
+        }
+
+        private static string toXML(portCallMessage pcm)
         {
             pcm.namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[]
             {
@@ -76,18 +89,6 @@ namespace RestTestTest
             xs.Serialize(xtw, pcm, pcm.namespaces);
 
             return sw.ToString();
-        }
-
-        static void preparePOSTXML()
-        {
-            if(!isPrepared)
-                client.BaseAddress = new Uri(baseURL);
-
-            client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
-            isPrepared = true;
         }
 
         static async Task<List<PortCall>> getPortCalls()

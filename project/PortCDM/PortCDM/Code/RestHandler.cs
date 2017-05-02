@@ -3,111 +3,122 @@ using System.Runtime;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using PortCDM_RestStructs;
+using System.Xml.Serialization;
+using System.Xml;
+using System.Xml.Linq;
+using Newtonsoft.Json;
+using Formatting = System.Xml.Formatting;
 
 namespace PortCDM_App_Code
 {
 	public class RestHandler
 	{
-		//static HttpClient client = new HttpClient();
-        //static bool isReady = false;
-		private const string address = "http://192.168.56.101:8080/";
+        static HttpClient client = new HttpClient();
+        private const string baseURL = "http://192.168.56.101:8080/";
 
-		/*private static void prepareRestCall()
-		{
-            if (!isReady)
-            {
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-                client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-                client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
-                isReady = true;
-            }
-		}*/
+        private static bool isPrepared = false;
 
-        public static void postPortCall(string imo, string time)
+        static void prepareGETJson()
         {
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-                client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-                client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            if (!isPrepared)
+                client.BaseAddress = new Uri(baseURL);
 
-                string callTime = String.Format("?time={0}", time);
-                string callType = String.Format("dmp/port_calls/{0}", imo);
-
-                client.BaseAddress = new Uri(address + callType);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                //NOT WORKING
-                //HttpResponseMessage response = client.PostAsync(new Uri(callTime), httpContent).Result;
-            }
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            isPrepared = true;
         }
 
-        public static PortCall getPortCallById(string id)
-        { //NOT WORKING
-            using(HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-                client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-                client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+        static void prepareGETXML()
+        {
+            if (!isPrepared)
+                client.BaseAddress = new Uri(baseURL);
 
-                string callType = String.Format("dmp/port_calls/{0}", id);
-
-                client.BaseAddress = new Uri(address + callType);
-
-                HttpResponseMessage response = client.GetAsync(address+callType).Result;
-                PortCall portCall = new PortCall();
-
-                if(response.IsSuccessStatusCode)
-                {
-                    var result = response.Content.ReadAsAsync<IEnumerable<PortCall>>().Result;
-
-                    foreach (PortCall pc in result)
-                        portCall = pc;
-
-                }
-                return portCall;
-            }
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            isPrepared = true;
         }
 
-		public static List<PortCall> getPortCalls()
-		{
-            using (HttpClient client = new HttpClient())
+        static void preparePOSTXML()
+        {
+            if (!isPrepared)
+                client.BaseAddress = new Uri(baseURL);
+
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            isPrepared = true;
+        }
+
+        static string toXML(portCallMessage pcm)
+        {
+            pcm.namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[]
             {
-                client.DefaultRequestHeaders.Accept.Add(
-                        new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-                client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-                client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+                new XmlQualifiedName(string.Empty, "urn:x-mrn:stm:schema:port-call-message:0.0.16")
+            });
+            XmlSerializer xs = new XmlSerializer(typeof(portCallMessage), new XmlRootAttribute("portCallMessage") { Namespace = "urn:x-mrn:stm:schema:port-call-message:0.0.16" });
+            StringWriter sw = new StringWriter();
 
-                const string callType = "dmp/port_calls/";
-                const string callCount = "?count=30";
-                client.BaseAddress = new Uri(address + callType);
-                // List data response.
-                HttpResponseMessage response = client.GetAsync(callCount).Result;  // Blocking call!
-                List<PortCall> portCalls = new List<PortCall>();
+            XmlWriterSettings xws = new XmlWriterSettings();
+            xws.OmitXmlDeclaration = true;
+            xws.Encoding = Encoding.UTF8;
+            xws.Indent = true;
 
-                if (response.IsSuccessStatusCode)
-                {
-                    //Parse
-                    var result = response.Content.ReadAsAsync<IEnumerable<PortCall>>().Result;
+            XmlWriter xtw = XmlWriter.Create(sw, xws);
 
-                    foreach (PortCall pc in result)
-                    {
-                        portCalls.Add(pc);
-                    }
-                }
-                return portCalls;
+            xs.Serialize(xtw, pcm, pcm.namespaces);
+
+            return sw.ToString();
+        }
+
+        public static async Task<Uri> createPCM(portCallMessage pcm)
+        {
+            preparePOSTXML();
+
+            var response = await client.PostAsync("amss/state_update", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
+            Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+            response.EnsureSuccessStatusCode();
+
+            return response.Headers.Location;
+        }
+
+        public static async Task<PortCall> getPortCallById(string id)
+        {
+            prepareGETJson();
+
+            PortCall pc = new PortCall();
+
+            var response = await client.GetAsync(String.Format("dmp/port_calls/{0}", id));
+            if (response.IsSuccessStatusCode)
+                pc = await response.Content.ReadAsAsync<PortCall>();
+
+            return pc;
+        }
+
+        public static async Task<List<PortCall>> getPortCalls()
+        {
+            prepareGETJson();
+
+            List<PortCall> pc = null;
+
+            var response = await client.GetAsync("dmp/port_calls");
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsAsync<IEnumerable<PortCall>>();
+                pc = responseData.ToList();
             }
-		}
+            return pc;
+        }
 	}
 }

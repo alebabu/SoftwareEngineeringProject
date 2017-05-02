@@ -91,9 +91,10 @@
     <Content Include="Inbox.aspx" />
     <Content Include="packages.config" />
     <Content Include="Default.aspx" />
-    <Content Include="Inbox.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Program.cs" />
+    <Compile Include="Code\Structs\port-call-message.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -112,19 +113,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inbox.aspx.cs">
-      <DependentUpon>Inbox.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inbox.aspx.designer.cs">
-      <DependentUpon>Inbox.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Code\Structs\Actor.cs" />
     <Compile Include="Code\Structs\Event.cs" />
-    <Compile Include="Code\Structs\Location.cs" />
     <Compile Include="Code\Structs\LocationSequence.cs" />
     <Compile Include="Code\Structs\LocationStateDetails.cs" />
     <Compile Include="Code\Structs\PortCall.cs" />
-    <Compile Include="Code\Structs\Position.cs" />
     <Compile Include="Code\Structs\ProcessStep.cs" />
     <Compile Include="Code\Structs\ServiceStateDetails.cs" />
     <Compile Include="Code\Structs\State.cs" />
@@ -132,6 +125,13 @@
     <Compile Include="Code\Structs\SubProcess.cs" />
     <Compile Include="Code\Structs\Vessel.cs" />
     <Compile Include="Code\Structs\UncategorizedProcessStep.cs" />
+    <Compile Include="Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
