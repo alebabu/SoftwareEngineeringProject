@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -91,17 +92,8 @@
     <Content Include="Inbox.aspx" />
     <Content Include="packages.config" />
     <Content Include="Default.aspx" />
-    <Content Include="Inbox.aspx" />
-    <Content Include="Images\backgroundImage.jpg" />
-    <Content Include="Images\testImage.jpg" />
-    <Content Include="Images\dashboard_white.png" />
-    <Content Include="Images\history_white.png" />
-    <Content Include="Images\message_white.png" />
-    <Content Include="Images\ship_white.png" />
-    <Content Include="Images\timeline_white.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\Program.cs" />
     <Compile Include="Code\Structs\port-call-message.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -133,12 +125,6 @@
     <Compile Include="Code\Structs\SubProcess.cs" />
     <Compile Include="Code\Structs\Vessel.cs" />
     <Compile Include="Code\Structs\UncategorizedProcessStep.cs" />
-    <Compile Include="Code\Structs\port-call-message.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Code\Structs\" />
-    <Folder Include="Images\" />
-  </ItemGroup>
     <Compile Include="Inbox.aspx.cs">
       <DependentUpon>Inbox.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +133,8 @@
       <DependentUpon>Inbox.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
