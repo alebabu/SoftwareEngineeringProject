@@ -10,27 +10,48 @@ body {
 	position:relative;
 	left:0;
 	top:0;
-	background-color:#3498DB;
+	background-color:#97cbdc;
 	width:100%;
 	height:60px;
 }
 
+#navMenu img{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 20px;
+	height: 20px;
+}
+
+@media (min-width: 992px) {
+  #navMenu img {
+  	display: none;
+  }
+}
+
+#logoAndHamburger {
+	padding: 15px 0 15px 30px;
+}
 
 #logStyle {
-	font-family: helvetica, sans-serif;
-	font-size: 40px;
+	font-family: arial, sans-serif;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
 }
 
 .logPos {
 	position: relative;
-	top: 5px;
-	left: 10px;
+	top: 0px;
+	left: 0px;
+	padding-left: 20px;
 }
 
 #signOutStyle {
 	background-color: red;
 	width: 20px;
 	height: 10px;
+	display: none;
 }
 
 .signOutPos {
@@ -39,7 +60,20 @@ body {
 	top: 50%;
 }
 
-/* Side menu */
+#mainBox {
+	background-color: white;
+	margin-left: 265px;
+	margin-right: 15px;
+	opacity: 0.84;
+}
+
+@media (max-width: 992px) {
+  #mainBox {
+  	margin-left: 15px;
+  }
+}
+
+/* ----------------------- Side menu ------------------------------*/
 #sideMenu {
 	position: absolute;
 	top: 60px;
@@ -49,12 +83,32 @@ body {
 	background-color: #2b2b2b;
 }
 
+@media (max-width: 992px) {
+  #sideMenu {
+  	display: none;
+  }
+}
+
+#sideMenu h2{
+	color: #919191;
+	position: relative;
+	top: 0;
+	left: 0px;
+	margin-left: 30px;
+	font-weight: normal;
+	font-size: 24px;
+}
+
 #sideMenu ul{
 	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 #sideMenu ul li{
-	margin: 0 5px 10px 0;
+	margin: 0;
+	padding: 15px 30px 15px 30px;
+
 }
 
 #sideMenu ul li:hover{
@@ -63,6 +117,7 @@ body {
 
 #sideMenu ul li a{
 	color: white;
+	font-size: 20px;
 }
 
 #sideMenu ul li a:link{
@@ -73,16 +128,10 @@ body {
 	text-decoration: none;
 }
 
-#sideMenu h2{
-	color: #919191;
-	position: relative;
-	top: 0;
-	left: 10px;
-}
 
 #sideMenu ul li img{
-	width: 15px;
-	height: 15px;
+	width: 20px;
+	height: 20px;
 	margin-right: 10px;
 }
 
