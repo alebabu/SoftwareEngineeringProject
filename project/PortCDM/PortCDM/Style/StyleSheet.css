@@ -1,4 +1,4 @@
-﻿/*------------------------Master-----------------------------------*/
+/*------------------------Master-----------------------------------*/
 
 body {
 	margin: 0;
@@ -61,11 +61,12 @@ body {
 }
 
 #mainBox {
-	background-color: rgba(256,256,256,0.84);
+	background-color: white;
 	padding: 5px 30px 30px 30px;
 	margin-left: 265px;
 	margin-right: 15px;
 	margin-top: 15px;
+	opacity: 0.84;
 }
 
 @media (max-width: 764px) {
@@ -195,3 +196,54 @@ body {
 .shipPic {
 	max-width: 160px;
 }
+
+/*---------------Dashboard----------------------*/
+
+.dashBox {
+    display: inline-block;
+    vertical-align:top;
+    width: 44%;
+    background-color: #aee;
+    padding: 0.5em;
+    margin: 0.5em;
+    text-align: left;
+    color: black;
+    font-size: small;
+    font-weight: normal;
+}
+
+.dashBox h2 {
+    color:#458;
+    font-size:large;
+    font-weight:bold;
+    margin-top:0.5em;
+}
+
+.dashBox img {
+    max-width:100%;
+}
+
+.dashBoxDark {
+    display: inline-block;
+    vertical-align: top;
+    width: 44%;
+    background-color: #048;
+    padding: 0.5em;
+    margin: 0.5em;
+    text-align: left;
+    color: white;
+    font-size: small;
+    font-weight: normal;
+}
+
+    .dashBoxDark h2 {
+        color: #8df;
+        font-size: large;
+        font-weight: bold;
+        margin-top: 0.5em;
+    }
+
+    .dashBoxDark img {
+        max-width: 100%;
+    }
+
