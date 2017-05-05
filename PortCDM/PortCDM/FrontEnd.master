@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" Inherits="PortCDM.FrontEnd" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+	<link rel="stylesheet" type="text/css" href="Style/StyleSheet.css">
+	<title>FrontEnd</title>
+</head>
+<body>
+<div id="container">
+	<form runat="server">
+		<div>
+          	  <header id="navMenu">
+						<div id="logoAndHamburger">
+						<img src="../Images/hamburger_white.png" />
+                	    <font id="logStyle" class="logPos">NJORD</font>
+						<div id="signOutStyle" class="signOutPos"></div>
+						</div>
+          	  </header>
+        </div>
+		<div id="sideMenu">
+					<h2>MENU</h2>
+					<ul>
+						<li><img src="../Images/dashboard_white.png" /><font class="sideMenyFont"><a href="../Default.aspx">Dashboard</a></font></li>
+						<li><img src="../Images/ship_white.png" /><font class="sideMenyFont"><a>Ships</a></font></li>
+						<li><img src="../Images/timeline_white.png" /><font class="sideMenyFont"><a href="../Timeline.aspx">Timeline</a></font></li>
+						<li><img src="../Images/history_white.png" /><font class="sideMenyFont"><a href="../Inbox.aspx">History</a></font></li>
+						<li><img src="../Images/message_white.png" /><font class="sideMenyFont"><a href="../NewPortCDMMessage.aspx">New PortCDM &#160; &#160; &#160; &#160; &#160; Message</a></font></li>
+
+					</ul>
+		</div>
+
+		<div id="mainBox">
+	
+				
+		<section id="MainContent" class="content">
+					<asp:ContentPlaceHolder ID="cpMainContent" runat="server" />
+        </section>
+
+		</div>
+	</form>
+</div>
+</body>
+</html>

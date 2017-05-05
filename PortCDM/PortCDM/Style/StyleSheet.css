@@ -1,0 +1,248 @@
+/*------------------------Master-----------------------------------*/
+
+body {
+	margin: 0;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-image: url("../Images/backgroundImage.jpg");
+}
+
+#navMenu {
+	position:relative;
+	left:0;
+	top:0;
+	background-color:#97cbdc;
+	width:100%;
+	height:60px;
+}
+
+#navMenu img{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 20px;
+	height: 20px;
+}
+
+@media (min-width: 764px) {
+  #navMenu img {
+  	display: none;
+  }
+}
+
+#logoAndHamburger {
+	padding: 15px 0 15px 30px;
+}
+
+#logStyle {
+	font-family: arial, sans-serif;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.logPos {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	padding-left: 20px;
+}
+
+#signOutStyle {
+	background-color: red;
+	width: 20px;
+	height: 10px;
+	display: none;
+}
+
+.signOutPos {
+	position: absolute;
+	left: 90%;
+	top: 50%;
+}
+
+#mainBox {
+	background-color: rgba(256,256,256,0.84);
+	padding: 5px 30px 30px 30px;
+	margin-left: 265px;
+	margin-right: 15px;
+	margin-top: 15px;
+}
+
+@media (max-width: 764px) {
+  #mainBox {
+  	margin-left: 15px;
+  }
+}
+
+/* ----------------------- Side menu ------------------------------*/
+#sideMenu {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	height: 100%;
+	width: 250px;
+	background-color: #2b2b2b;
+}
+
+@media (max-width: 764px) {
+  #sideMenu {
+  	display: none;
+  }
+}
+
+#sideMenu h2{
+	color: #919191;
+	position: relative;
+	top: 0;
+	left: 0px;
+	margin-left: 30px;
+	font-weight: normal;
+	font-size: 24px;
+}
+
+#sideMenu ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#sideMenu ul li{
+	margin: 0;
+	padding: 15px 30px 15px 30px;
+
+}
+
+#sideMenu ul li:hover{
+	background-color: #919191;
+}
+
+#sideMenu ul li a{
+	color: white;
+	font-size: 20px;
+}
+
+#sideMenu ul li a:link{
+	text-decoration: none;
+}
+
+#sideMenu ul li a:visited{
+	text-decoration: none;
+}
+
+
+#sideMenu ul li img{
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+
+.sideMenyFont {
+	color: white;
+}
+
+
+@media (min-width: 581px) {
+
+}
+
+/*-------------Same for all pages--------------*/
+
+.content h1 {
+	font-size: 24px;
+	color: #018abd;
+	font-weight: normal;
+
+}
+
+
+/*-------------MessageToPortCDM--------------*/
+
+#messageBox {
+	text-align:center;
+}
+
+#messageBox table {
+	margin-bottom:20px;
+}
+
+.sendButton{
+	border:0;
+	padding: 10px 40px;
+	margin: 0 10px 10px 0;
+	font-size: 20px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #018abd;
+}
+
+.sendButton:hover
+{
+	background-color: #2980B9;
+}
+
+/*---------------Inbox----------------------*/
+.inboxList
+{
+	list-style-type:none;
+}
+
+.inboxItem {
+	border-bottom:1px solid #000;
+	margin: 20px;
+	padding: 20px;
+}
+
+.shipPic {
+	max-width: 160px;
+}
+
+/*---------------Dashboard----------------------*/
+
+.dashBox {
+    display: inline-block;
+    vertical-align:top;
+    width: 44%;
+    background-color: white;
+    padding: 0.5em;
+    margin: 0.5em;
+    text-align: left;
+    color: black;
+    font-size: small;
+    font-weight: normal;
+}
+
+.dashBox h2 {
+    color:#458;
+    font-size:large;
+    font-weight:bold;
+    margin-top:0.5em;
+}
+
+.dashBox img {
+    max-width:100%;
+}
+
+.dashBoxDark {
+    display: inline-block;
+    vertical-align: top;
+    width: 44%;
+    background-color: #048;
+    padding: 0.5em;
+    margin: 0.5em;
+    text-align: left;
+    color: white;
+    font-size: small;
+    font-weight: normal;
+}
+
+    .dashBoxDark h2 {
+        color: #8df;
+        font-size: large;
+        font-weight: bold;
+        margin-top: 0.5em;
+    }
+
+    .dashBoxDark img {
+        max-width: 100%;
+    }
+

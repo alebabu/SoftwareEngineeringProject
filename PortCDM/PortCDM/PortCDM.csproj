@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D7CC3A8-68D4-46C0-A485-281292DFA436}</ProjectGuid>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PortCDM</RootNamespace>
+    <AssemblyName>PortCDM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="Global.asax" />
+    <Content Include="Default.aspx" />
+    <Content Include="FrontEnd.master" />
+    <Content Include="Inbox.aspx" />
+    <Content Include="NewPortCDMMessage.aspx" />
+    <Content Include="Timeline.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Images\backgroundImage.jpg" />
+    <Content Include="Images\dashboard_white.png" />
+    <Content Include="Images\hamburger_white.png" />
+    <Content Include="Images\history_white.png" />
+    <Content Include="Images\message_white.png" />
+    <Content Include="Images\ship_white.png" />
+    <Content Include="Images\testImage.jpg" />
+    <Content Include="Images\testImage_stenaline.png" />
+    <Content Include="Images\timeline_white.png" />
+    <Content Include="Style\StyleSheet.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Code\RestHandler.cs" />
+    <Compile Include="Code\Structs\Actor.cs" />
+    <Compile Include="Code\Structs\Event.cs" />
+    <Compile Include="Code\Structs\LocationSequence.cs" />
+    <Compile Include="Code\Structs\LocationStateDetails.cs" />
+    <Compile Include="Code\Structs\PortCall.cs" />
+    <Compile Include="Code\Structs\ProcessStep.cs" />
+    <Compile Include="Code\Structs\ServiceStateDetails.cs" />
+    <Compile Include="Code\Structs\State.cs" />
+    <Compile Include="Code\Structs\Statement.cs" />
+    <Compile Include="Code\Structs\SubProcess.cs" />
+    <Compile Include="Code\Structs\UncategorizedProcessStep.cs" />
+    <Compile Include="Code\Structs\Vessel.cs" />
+    <Compile Include="Code\Structs\port-call-message.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd.master.cs">
+      <DependentUpon>FrontEnd.master</DependentUpon>
+    </Compile>
+    <Compile Include="FrontEnd.master.designer.cs">
+      <DependentUpon>FrontEnd.master</DependentUpon>
+    </Compile>
+    <Compile Include="Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewPortCDMMessage.aspx.cs">
+      <DependentUpon>NewPortCDMMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewPortCDMMessage.aspx.designer.cs">
+      <DependentUpon>NewPortCDMMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Timeline.aspx.cs">
+      <DependentUpon>Timeline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Timeline.aspx.designer.cs">
+      <DependentUpon>Timeline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Structs\Filter.cs" />
+    <Compile Include="Code\Structs\FilterType.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>
