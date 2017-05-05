@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 
-namespace PortCDM
+namespace PortCDM_Filter
 {
 	public class Filter
 	{
@@ -29,8 +29,8 @@ namespace PortCDM
 		//Converts a Filter to a JSON-formatted string
 		public string toJson()
 		{
-			string json = "[\n{\n\"type\":\"" + filtertype
-				+ "\",\n\"element\":\"" + filterdata + "\"\n}\n]";
+			string json = "{\n\"type\":\"" + filtertype
+				+ "\",\n\"element\":\"" + filterdata + "\"\n}";
 			return json;
 		}
 	}
