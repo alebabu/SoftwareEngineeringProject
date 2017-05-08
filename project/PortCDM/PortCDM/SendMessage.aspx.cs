@@ -20,5 +20,13 @@ namespace PortCDM
             messageToSend = new portCallMessage();
             testText.Text = dateHandler.getCurrentTimeString();
         }
+
+        private void prepareMessage()
+        {
+            //TODO(Olle): set either service or locationstate
+            messageToSend.serviceState.serviceObject = (ServiceObject) Enum.Parse(typeof(ServiceObject),
+                messageTypeDropDown.SelectedValue);
+
+        }
     }
 }
