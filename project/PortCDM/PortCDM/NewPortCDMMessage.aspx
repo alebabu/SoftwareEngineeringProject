@@ -9,7 +9,7 @@
 				</tr>
 				<tr>
 					<td align="right">Service State Id:</td>
-					<td align="left"><asp:Literal runat="server" id="messageId" Text="message-0x1FFE3ABEDE"></asp:Literal></td>
+					<td align="left"><asp:Literal runat="server" id="messageId" Text="message-0x1FFE3ABEDEB"></asp:Literal></td>
 				</tr>
 				<tr>
 					<td align="right">Location State Id:</td>

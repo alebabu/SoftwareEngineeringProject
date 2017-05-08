@@ -1,21 +1,33 @@
 ﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeBehind="SendMessage.aspx.cs" Inherits="PortCDM.SendMessage" %>
 
+<asp:Content runat="server" ID="MessageHead" ContentPlaceHolderID="cpHeadContent">
+    <script src="Scripts/SendMessage.js"></script>
+</asp:Content>
+
 <asp:Content ID="MessageContent" ContentPlaceHolderID="cpMainContent" runat="server">
-    <asp:Literal runat="server" ID="vesselImoText">Vessel IMO:</asp:Literal>
-    <asp:TextBox ID="vesselImoBox" runat="server"></asp:TextBox>
+    <div id="messageBox">
+		<h1>Send Message</h1>
 
-    <asp:Literal runat="server" ID="commentText">Comment:</asp:Literal>
-    <asp:TextBox ID="commentBox" runat="server"></asp:TextBox>
+        <asp:Literal runat="server" ID="vesselImoText" >Vessel IMO:</asp:Literal>
+        <asp:TextBox ID="vesselImoBox" runat="server"></asp:TextBox><br /><br />
 
-    <asp:DropDownList runat="server" ID="serviceTimeSequenceDropDown">
-        <asp:ListItem Text="Commenced" Value="COMMENCED"></asp:ListItem>
-        <asp:ListItem Text="Completed" Value="COMPLETED"></asp:ListItem>
-        <asp:ListItem Text="Confirmed" Value="CONFIRMED"></asp:ListItem>
-        <asp:ListItem Text="Denied" Value="DENIED"></asp:ListItem>
-        <asp:ListItem Text="Requested" Value="REQUESTED"></asp:ListItem>
-        <asp:ListItem Text="Request Received" Value="REQUEST_RECEIVED"></asp:ListItem>
-    </asp:DropDownList>
-    <asp:Literal runat="server" ID="testText"></asp:Literal>
+        <asp:Literal runat="server" ID="commentText">Comment:</asp:Literal>
+        <asp:TextBox ID="commentBox" runat="server"></asp:TextBox><br /><br />
+
+        <asp:DropDownList runat="server" ID="serviceTimeSequenceDropDown">
+            <asp:ListItem Text="Commenced" Value="COMMENCED"></asp:ListItem>
+            <asp:ListItem Text="Completed" Value="COMPLETED"></asp:ListItem>
+            <asp:ListItem Text="Confirmed" Value="CONFIRMED"></asp:ListItem>
+            <asp:ListItem Text="Denied" Value="DENIED"></asp:ListItem>
+            <asp:ListItem Text="Requested" Value="REQUESTED"></asp:ListItem>
+            <asp:ListItem Text="Request Received" Value="REQUEST_RECEIVED"></asp:ListItem>
+        </asp:DropDownList><br /><br />
+        <asp:Literal runat="server" ID="atText">At:</asp:Literal>
+        <asp:DropDownList runat="server" CssClass="monthDropDown" ID="atMonthDropDown"/>
+        <asp:DropDownList runat="server" CssClass="dayDropDown" ID="atDayDropDown"/>
+        <asp:DropDownList runat="server" CssClass="yearDropDown" ID="atYearDropDown"/>
+        <asp:Literal runat="server" ID="testText"></asp:Literal>
+    </div>
     
 
     <asp:Literal>

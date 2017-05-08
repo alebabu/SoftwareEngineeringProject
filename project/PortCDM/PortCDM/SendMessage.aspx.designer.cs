@@ -58,6 +58,42 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList serviceTimeSequenceDropDown;
         
         /// <summary>
+        /// atText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal atText;
+        
+        /// <summary>
+        /// atMonthDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList atMonthDropDown;
+        
+        /// <summary>
+        /// atDayDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList atDayDropDown;
+        
+        /// <summary>
+        /// atYearDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList atYearDropDown;
+        
+        /// <summary>
         /// testText control.
         /// </summary>
         /// <remarks>

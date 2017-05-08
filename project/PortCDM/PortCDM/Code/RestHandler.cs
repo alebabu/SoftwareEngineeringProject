@@ -89,15 +89,15 @@ namespace PortCDM_App_Code
             return sw.ToString();
         }
 
-        public static async Task<Uri> createPCM(portCallMessage pcm)
+        public static async Task<string> createPCM(portCallMessage pcm)
         {
             preparePOSTXML();
 
             var response = await client.PostAsync("amss/state_update", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
-            Console.WriteLine(response.Content.ReadAsStringAsync().Result);
-            response.EnsureSuccessStatusCode();
 
-            return response.Headers.Location;
+            string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
+
+            return result;
         }
 
         public static async Task<PortCall> getPortCallById(string id)
