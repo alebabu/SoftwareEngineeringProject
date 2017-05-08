@@ -13,6 +13,24 @@ namespace PortCDM {
     public partial class SendMessage {
         
         /// <summary>
+        /// SMScriptManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager SMScriptManager;
+        
+        /// <summary>
+        /// SMUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel SMUpdatePanel;
+        
+        /// <summary>
         /// messageTypeDropDown control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,42 @@ namespace PortCDM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox vesselImoBox;
+        
+        /// <summary>
+        /// vesselDateText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal vesselDateText;
+        
+        /// <summary>
+        /// vesselArrivalDay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList vesselArrivalDay;
+        
+        /// <summary>
+        /// vesselArrivalMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList vesselArrivalMonth;
+        
+        /// <summary>
+        /// vesselArrivalYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList vesselArrivalYear;
         
         /// <summary>
         /// commentText control.

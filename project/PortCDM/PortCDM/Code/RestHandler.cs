@@ -43,6 +43,18 @@ namespace PortCDM_App_Code
             isPrepared = true;
         }
 
+        static void prepareGETText()
+        {
+            if(!isPrepared)
+                client.BaseAddress = new Uri(baseURL);
+
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
+            isPrepared = true;
+        }
+
         static void prepareGETXML()
         {
             if (!isPrepared)
@@ -146,6 +158,26 @@ namespace PortCDM_App_Code
                 pcm = pcms.pcms;
             }
             return pcm;
+        }
+
+        public static async Task<string> getPortCallId(string imo, string plannedArrival)
+        {
+            prepareGETText();
+
+            string result = null;
+
+            var response = await client.GetAsync(String.Format("dmp/port_call_finder/{0}/{1}", imo, plannedArrival));
+
+            if (response.IsSuccessStatusCode)
+                result = await response.Content.ReadAsStringAsync();
+            else
+                result = "Vafan";
+            return result;
+        }
+
+        public static Task<string> getPortCallId(string imo, DateTime plannedArrival)
+        {
+            return getPortCallId(imo, plannedArrival.ToString());
         }
 	}
 }

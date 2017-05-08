@@ -1,12 +1,15 @@
-﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeBehind="SendMessage.aspx.cs" Inherits="PortCDM.SendMessage" %>
-
+﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="SendMessage.aspx.cs" Inherits="PortCDM.SendMessage" %>
 <asp:Content runat="server" ID="MessageHead" ContentPlaceHolderID="cpHeadContent">
-    <script src="Scripts/SendMessage.js"></script>
+    <!-- TODO ENABLE EVENT VALIDATION -->
+    <script type="text/javascript" src="Scripts/SendMessage.js"></script>
 </asp:Content>
 
 <asp:Content ID="MessageContent" ContentPlaceHolderID="cpMainContent" runat="server">
+    <asp:ScriptManager ID="SMScriptManager" runat="server"></asp:ScriptManager>
     <div id="messageBox">
 		<h1>Send Message</h1>
+        <asp:UpdatePanel runat="server" ID="SMUpdatePanel">
+            <ContentTemplate>
         <div class="formText"><asp:Literal runat="server">Message Type:</asp:Literal></div>
 
         <asp:DropDownList ID="messageTypeDropDown" runat="server">
@@ -22,6 +25,15 @@
         <br />
         <div class="formText"><asp:Literal runat="server" ID="vesselImoText" >Vessel IMO:</asp:Literal></div>
         <asp:TextBox ID="vesselImoBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <div class="formText"><asp:Literal runat="server" ID="vesselDateText" >Vessel Arrival Date:</asp:Literal></div>
+        <asp:DropDownList runat="server" CssClass="dayDropDown" ID="vesselArrivalDay"/>
+        <span class="dateSeparator">/</span>
+        <asp:DropDownList runat="server" CssClass="monthDropDown" ID="vesselArrivalMonth"/>
+        <span class="dateSeparator">/</span>
+        <asp:DropDownList runat="server" CssClass="yearDropDown" ID="vesselArrivalYear"/>
+        <br />
         <br />
         <br />
         <div class="formText"><asp:Literal runat="server" ID="commentText">Comment:</asp:Literal></div>
@@ -48,11 +60,13 @@
         <br />
         <asp:Literal runat="server" ID="testText"></asp:Literal>
         <br />
-        <asp:Button CssClass="sendButton" runat="server" id="sendMessageButton" Text="Send"/>
+        <asp:Button CssClass="sendButton" runat="server" id="sendMessageButton" OnClick="prepareMessage" Text="Send"/>
+        </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
     
 
-    <asp:Literal>
+    <!--<asp:Literal>
         <!-- EXAMPLE CALL
             <?xml version="1.0" encoding="UTF-8"?>
 <ns2:portCallMessage xmlns:ns2="urn:x-mrn:stm:schema:port-call-message:0.0.16">
@@ -71,5 +85,5 @@
     </ns2:at>
   </ns2:serviceState>
 </ns2:portCallMessage>-->
-    </asp:Literal>
+    <!--</asp:Literal>-->
 </asp:Content>
