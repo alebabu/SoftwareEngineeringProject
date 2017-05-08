@@ -62,20 +62,5 @@ namespace PortCDM_App_Code
 				Console.WriteLine("No new updates");
 			}
 		}
-
-		public static async Task<List<portCallMessage>> checkUpdates()
-		{
-			List<portCallMessage> result = new List<portCallMessage>();
-
-			foreach (string sub in subscribedQueues)
-			{
-				List<portCallMessage> tmp = await RestHandler.pollQueue(sub);
-				foreach (portCallMessage pcm in tmp)
-				{
-					result.Add(pcm);
-				}
-			}
-			return result;
-		}
 	}
 }
