@@ -115,6 +115,7 @@ body {
 
 #sideMenu ul li:hover{
 	background-color: #919191;
+    transition: background-color, .3s;
 }
 
 #sideMenu ul li a{
@@ -152,7 +153,6 @@ body {
 	font-size: 24px;
 	color: #018abd;
 	font-weight: normal;
-
 }
 
 

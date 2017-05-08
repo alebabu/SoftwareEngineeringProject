@@ -3,6 +3,7 @@
 <html>
 <head runat="server">
 	<link rel="stylesheet" type="text/css" href="Style/StyleSheet.css">
+    <script type="text/javascript" src="Scripts/jquery-3.2.1.min.js"></script>
 	<title>FrontEnd</title>
 </head>
 <body>
@@ -22,9 +23,9 @@
 					<ul>
 						<li><img src="../Images/dashboard_white.png" /><font class="sideMenyFont"><a href="../Default.aspx">Dashboard</a></font></li>
 						<li><img src="../Images/ship_white.png" /><font class="sideMenyFont"><a>Ships</a></font></li>
-						<li><img src="../Images/timeline_white.png" /><font class="sideMenyFont"><a>Timeline</a></font></li>
-						<li><img src="../Images/history_white.png" /><font class="sideMenyFont"><a href="../Inbox.aspx">History</a></font></li>
-						<li><img src="../Images/message_white.png" /><font class="sideMenyFont"><a href="../NewPortCDMMessage.aspx">New PortCDM &#160; &#160; &#160; &#160; &#160; Message</a></font></li>
+						<li><img src="../Images/timeline_white.png" /><font class="sideMenyFont"><a href="SendMessage.aspx">Timeline</a></font></li>
+						<li><img src="../Images/history_white.png" /><font class="sideMenyFont"><a href="Inbox.aspx">History</a></font></li>
+						<li><img src="../Images/message_white.png" /><font class="sideMenyFont"><a href="NewPortCDMMessage.aspx">New PortCDM &#160; &#160; &#160; &#160; &#160; Message</a></font></li>
 
 					</ul>
 		</div>

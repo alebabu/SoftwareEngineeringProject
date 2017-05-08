@@ -1,5 +1,7 @@
-﻿using System;
-using System.Runtime;
+﻿#define SECONDARYIP
+//NOTE(Olle): comment out the above to use the standard ip (192.168.56.101:8080)
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +12,21 @@ using System.Net.Http.Headers;
 using PortCDM_RestStructs;
 using System.Xml.Serialization;
 using System.Xml;
-using System.Xml.Linq;
-using Newtonsoft.Json;
-using Formatting = System.Xml.Formatting;
 
 namespace PortCDM_App_Code
 {
-	public class RestHandler
+    public class RestHandler
 	{
         static HttpClient client = new HttpClient();
+#if SECONDARYIP
+        private const string baseURL = "http://192.168.1.115:8080";
+#else
         private const string baseURL = "http://192.168.56.101:8080/";
+#endif
+
+        private const string apiUserName = "porter";
+	    private const string apiPassword = "porter";
+	    private const string apiKey = "eeee";
 
         private static bool isPrepared = false;
 
@@ -30,9 +37,9 @@ namespace PortCDM_App_Code
 
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
             isPrepared = true;
         }
 
@@ -43,9 +50,9 @@ namespace PortCDM_App_Code
 
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
-            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
             isPrepared = true;
         }
 
@@ -55,9 +62,9 @@ namespace PortCDM_App_Code
                 client.BaseAddress = new Uri(baseURL);
 
             client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
             isPrepared = true;
         }
 
