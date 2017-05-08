@@ -13,6 +13,7 @@ namespace PortCDM
         protected void Page_Load(object sender, EventArgs e)
         {
             messageToSend = new portCallMessage();
+            testText.Text = DateTime.UtcNow.ToString("O");
         }
     }
 }

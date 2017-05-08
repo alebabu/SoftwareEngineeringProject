@@ -15,11 +15,11 @@
         <asp:ListItem Text="Requested" Value="REQUESTED"></asp:ListItem>
         <asp:ListItem Text="Request Received" Value="REQUEST_RECEIVED"></asp:ListItem>
     </asp:DropDownList>
-    
+    <asp:Literal runat="server" ID="testText"></asp:Literal>
     
 
     <asp:Literal>
-        <?xml version="1.0" encoding="UTF-8"?>
+        <!--<?xml version="1.0" encoding="UTF-8"?>
 <ns2:portCallMessage xmlns:ns2="urn:x-mrn:stm:schema:port-call-message:0.0.16">
    <ns2:portCallId>urn:x-mrn:stm:portcdm:port_call:SEGOT:ca1a795e-ee95-4c96-96d1-53896617c9ac</ns2:portCallId>
    <ns2:vesselId>urn:x-mrn:stm:vessel:IMO:9398917</ns2:vesselId>
@@ -35,6 +35,6 @@
       <ns2:name>UNSPECIFIED_BERTH</ns2:name>
     </ns2:at>
   </ns2:serviceState>
-</ns2:portCallMessage>
+</ns2:portCallMessage>-->
     </asp:Literal>
 </asp:Content>

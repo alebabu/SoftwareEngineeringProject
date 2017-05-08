@@ -17,7 +17,7 @@ namespace PortCDM_App_Code
 {
     public class RestHandler
 	{
-        static HttpClient client = new HttpClient();
+        private static HttpClient client = new HttpClient();
 #if SECONDARYIP
         private const string baseURL = "http://192.168.1.115:8080";
 #else
