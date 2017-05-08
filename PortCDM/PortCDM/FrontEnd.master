@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-	<link rel="stylesheet" type="text/css" href="Style/StyleSheet.css">
+	<link rel="stylesheet" type="text/css" href="Style/StyleSheet.css?v={random number/string}">
 	<title>FrontEnd</title>
 </head>
 <body>
@@ -11,7 +11,7 @@
 		<div>
           	  <header id="navMenu">
 						<div id="logoAndHamburger">
-						<img src="../Images/hamburger_white.png" />
+						<img src="../Images/hamburger_white.png" onclick="toggleMenu()"/>
                 	    <font id="logStyle" class="logPos">NJORD</font>
 						<div id="signOutStyle" class="signOutPos"></div>
 						</div>
@@ -39,5 +39,16 @@
 		</div>
 	</form>
 </div>
+<script type="text/javascript">
+		function toggleMenu() {
+			var menu = document.getElementById('sideMenu');
+   			if (menu.style.display == 'none') {
+     		menu.style.display = 'block';              
+		   }
+   			else {
+     		menu.style.display = 'none';
+   		}
+} 
+</script>
 </body>
 </html>
