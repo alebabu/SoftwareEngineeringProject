@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using PortCDM_RestStructs;
+using PortCDM_Filter;
 using System.Xml.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using Formatting = System.Xml.Formatting;
+
 
 namespace PortCDM_App_Code
 {
@@ -121,6 +123,34 @@ namespace PortCDM_App_Code
             return pc;
         }
 
+		//Creates a Queue with a list of Filters
+		public static async Task<String> createFilteredQueue(List<Filter> filters)
+		{
+			preparePOSTXML();
+			string jsonFilter = "[\n";
+
+			for (int i = 0; i < filters.Count(); i++)
+			{
+				if (i != filters.Count() - 1)
+				{
+					jsonFilter += (filters[i].toJson() + ",\n");
+				}
+				else
+				{
+					jsonFilter += (filters[i].toJson());
+				}
+			}
+			jsonFilter += "\n]";
+
+			Console.WriteLine("Filters in Json format:\n" + jsonFilter);
+			var response = await client.PostAsync("mb/mqs", new StringContent((jsonFilter), Encoding.UTF8, "application/json"));
+			string result = response.Content.ReadAsStringAsync().Result;
+			response.EnsureSuccessStatusCode();
+			return result;
+		}
+
+
+
         public static async Task<List<portCallMessage>> pollQueue(string queueId)
         {
             prepareGETXML();
@@ -141,5 +171,42 @@ namespace PortCDM_App_Code
 
             return pcm;
         }
-	}
+
+        public static List<portCallMessage> getEvents()
+        {
+            
+
+            
+            List<portCallMessage> list = new List<portCallMessage>();
+            portCallMessage test = new portCallMessage();
+            test.locationState = new LocationState();
+            test.locationState.timeType = TimeType.ESTIMATED;
+            test.vesselId = "bajs69";
+            
+            test.locationState.time = "13:00";
+            test.serviceState = new ServiceState();
+            test.serviceState.at = new Location();
+            test.serviceState.serviceObject = ServiceObject.ANCHORING;
+            
+            test.serviceState.at.name = "Port of Gothenburg";
+            portCallMessage test2 = new portCallMessage();
+            test2.locationState = new LocationState();
+            test2.serviceState = new ServiceState();
+            test2.serviceState.at = new Location();
+            test2.locationState.timeType = TimeType.ESTIMATED;
+            test2.vesselId = "bajs70";
+            test2.locationState.time = "14:00";
+            test2.serviceState.serviceObject = ServiceObject.GANGWAY;
+            test2.serviceState.at.name = "China";
+            list.Add(test);
+            list.Add(test2);
+            return list;
+        }
+
+
+
+
+
+
+    }
 }
