@@ -48,6 +48,10 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Serialization" />
+    <Reference Include="System.Data" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -68,6 +72,11 @@
     <Content Include="Images\testImage_stenaline.png" />
     <Content Include="Images\timeline_white.png" />
     <Content Include="Style\StyleSheet.css" />
+    <Content Include="Ships.aspx" />
+    <Content Include="Images\active_blue.svg" />
+    <Content Include="Images\timeline_blue.svg" />
+    <Content Include="Images\message_blue.svg" />
+    <Content Include="Images\edit_blue.svg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -119,6 +128,12 @@
     </Compile>
     <Compile Include="Code\Structs\Filter.cs" />
     <Compile Include="Code\Structs\FilterType.cs" />
+    <Compile Include="Ships.aspx.cs">
+      <DependentUpon>Ships.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ships.aspx.designer.cs">
+      <DependentUpon>Ships.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

@@ -246,3 +246,144 @@ body {
         max-width: 100%;
     }
 
+    /* ------------------------------- Ships --------------------------*/
+
+.ship-links {
+	background-color: white;
+	padding: 0 20px 20px 20px;
+}
+
+.ship-links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.ship-links img {
+	display:inline;
+	height: 15px;
+	margin-right: 5px;
+}
+
+.ship-links li {
+    float: left;
+    margin-right: 30px;
+}
+
+.ship-links li a {
+    display: block;
+    color: #001b48;
+    text-align: center;
+    text-decoration: none;
+}
+
+.accordion {
+    margin: 10px auto;
+    text-align: left;
+}
+
+.accordion h2 {
+	font-size: 24px;
+	color: #001b48;
+	font-weight: normal;
+	margin-top: 0px;
+}
+
+.accordion .ship-img {
+	width: 100px;
+	height: 100px;
+}
+
+.accordion .icon {
+	width: 25px;
+	height: 25px;
+	float: right;
+}
+
+.accordion .left-content {
+	float: left;
+}
+
+.accordion .right-content {
+	float: right;
+	text-align: right;
+}
+
+.accordion p {
+	font-size: 14px;
+	color: #018abd;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+.accordion label {
+    padding: 20px 20px 15px 20px;
+    position: relative;
+    display: block;
+    height: 120px;
+    cursor: pointer;
+    color: #001b48;
+    font-size: 24px;
+    background: white;
+    margin-top: 10px;
+}
+.accordion label:hover {
+    background: white;
+}
+.accordion input + label {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.accordion input:checked + label,
+.accordion input:checked + label:hover {
+    background: white;
+}
+.accordion input {
+    display: none;
+}
+.accordion .article {
+    background: white;
+    overflow: hidden;
+    height: 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.accordion .article h3 {
+	margin-top: 0;
+    font-size: 16px;
+	color: ##001b48;
+	font-weight: normal;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.accordion .article p {
+    line-height: 23px;
+}
+.accordion input:checked ~ .article {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.accordion input:checked ~ .article.ac-small {
+    height: 130px;
+}
+.accordion input:checked ~ .article.ac-medium {
+    height: 195px;
+}
+.accordion input:checked ~ .article.ac-large {
+    height: 245px;
+}
