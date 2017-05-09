@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,8 +16,5 @@ namespace PortCDM
 			messageRepeater.DataSource = portCallList;
 			messageRepeater.DataBind();
 		}
-
 	}
-
-
 }
