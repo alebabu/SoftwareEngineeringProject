@@ -6,6 +6,9 @@ using System.Web.UI;
 using MySql;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using PortCDM_RestStructs;
+using PortCDM_App_Code;
+using System.Collections.Generic;
 
 
 namespace PortCDM
@@ -37,9 +40,12 @@ namespace PortCDM
 			
 		}
 
-		protected void addNewShip(object sender, EventArgs e)
+		protected async void addNewShip(object sender, EventArgs e)
 		{
-			Console.WriteLine(addImoBox.Text);
+			//Console.WriteLine(addImoBox.Text);
+			//List<PortCall> portCallList = await RestHandler.getPortCalls();
+			List<Vessel> vesselList = await RestHandler.getVessel(addImoBox.Text);
+			Console.WriteLine(vesselList[0].name);
 		}
 
 
