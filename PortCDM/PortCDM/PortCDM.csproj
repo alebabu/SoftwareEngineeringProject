@@ -73,6 +73,10 @@
     <Content Include="Images\timeline_white.png" />
     <Content Include="Style\StyleSheet.css" />
     <Content Include="Ships.aspx" />
+    <Content Include="Images\active_blue.svg" />
+    <Content Include="Images\timeline_blue.svg" />
+    <Content Include="Images\message_blue.svg" />
+    <Content Include="Images\edit_blue.svg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

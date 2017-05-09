@@ -14,5 +14,7 @@ namespace PortCDM {
 	public partial class Ships {
 		
 		protected System.Web.UI.WebControls.Content Content2;
+		
+		protected System.Web.UI.WebControls.Repeater shipRepeater;
 	}
 }

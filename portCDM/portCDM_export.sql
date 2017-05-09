@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `tbl_ship`;
 CREATE TABLE `tbl_ship` (
   `imoNumber` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `comment` varchar(45) DEFAULT NULL,
-  `imgURL` varchar(45) DEFAULT NULL,
+  `comment` varchar(250) DEFAULT NULL,
+  `imgURL` varchar(250) DEFAULT NULL,
   `portCallID` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`imoNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -38,7 +38,7 @@ CREATE TABLE `tbl_ship` (
 
 LOCK TABLES `tbl_ship` WRITE;
 /*!40000 ALTER TABLE `tbl_ship` DISABLE KEYS */;
-INSERT INTO `tbl_ship` VALUES (123,'Titanic','Captain is very nice','www','qadf123');
+INSERT INTO `tbl_ship` VALUES (123,'Titanic','Captain is very nice','https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RMS_Titanic_3.jpg/1920px-RMS_Titanic_3.jpg','qadf123'),(456,'Stenaline','annoying crew','https://upload.wikimedia.org/wikipedia/commons/4/4c/Stena_Germanica_3..JPG','abc123');
 /*!40000 ALTER TABLE `tbl_ship` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-09 14:18:24
+-- Dump completed on 2017-05-09 16:01:39
