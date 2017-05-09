@@ -80,6 +80,7 @@
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SendMessage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -92,6 +93,7 @@
     <Content Include="NewPortCDMMessage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\DateHandler.cs" />
     <Compile Include="Code\Structs\port-call-message.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -132,9 +134,17 @@
     </Compile>
     <Compile Include="NewPortCDMMessage.aspx.cs">
       <DependentUpon>NewPortCDMMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="NewPortCDMMessage.aspx.designer.cs">
       <DependentUpon>NewPortCDMMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendMessage.aspx.cs">
+      <DependentUpon>SendMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendMessage.aspx.designer.cs">
+      <DependentUpon>SendMessage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

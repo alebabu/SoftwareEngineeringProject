@@ -1,4 +1,4 @@
-﻿#define SECONDARYIP
+﻿//#define SECONDARYIP
 //NOTE(Olle): comment out the above to use the standard ip (192.168.56.101:8080)
 
 using System;

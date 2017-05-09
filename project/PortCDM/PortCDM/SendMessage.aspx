@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="SendMessage.aspx.cs" Inherits="PortCDM.SendMessage" %>
+﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeBehind="SendMessage.aspx.cs" Inherits="PortCDM.SendMessage" %>
 <asp:Content runat="server" ID="MessageHead" ContentPlaceHolderID="cpHeadContent">
     <!-- TODO ENABLE EVENT VALIDATION -->
     <script type="text/javascript" src="Scripts/SendMessage.js"></script>
@@ -11,7 +11,6 @@
         <asp:UpdatePanel runat="server" ID="SMUpdatePanel">
             <ContentTemplate>
         <div class="formText"><asp:Literal runat="server">Message Type:</asp:Literal></div>
-
         <asp:DropDownList ID="messageTypeDropDown" runat="server">
             <asp:ListItem Text="Anchoring" Value="ANCHORING"></asp:ListItem>
             <asp:ListItem Text="Arrival Mooring" Value="ARRIVAL_MOORING_OPERATION"></asp:ListItem>
