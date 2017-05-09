@@ -31,13 +31,22 @@ namespace PortCDM {
         protected global::System.Web.UI.UpdatePanel SMUpdatePanel;
         
         /// <summary>
-        /// messageTypeDropDown control.
+        /// locationTypeDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList messageTypeDropDown;
+        protected global::System.Web.UI.WebControls.DropDownList locationTypeDropDown;
+        
+        /// <summary>
+        /// serviceTypeDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList serviceTypeDropDown;
         
         /// <summary>
         /// vesselImoText control.
@@ -112,13 +121,13 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.TextBox commentBox;
         
         /// <summary>
-        /// stageText control.
+        /// serviceTimeSequenceText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal stageText;
+        protected global::System.Web.UI.WebControls.Literal serviceTimeSequenceText;
         
         /// <summary>
         /// serviceTimeSequenceDropDown control.
@@ -128,6 +137,24 @@ namespace PortCDM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList serviceTimeSequenceDropDown;
+        
+        /// <summary>
+        /// timeTypeText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal timeTypeText;
+        
+        /// <summary>
+        /// timeTypeDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList timeTypeDropDown;
         
         /// <summary>
         /// setDateText control.

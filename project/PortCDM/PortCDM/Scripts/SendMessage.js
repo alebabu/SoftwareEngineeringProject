@@ -59,7 +59,7 @@ function setAtLocation() {
     $('#toLocation').hide();
 }
 
-function setLocationVisibility() {
+function setLocationVisibilityOnClick() {
     $('input:radio').click(function() {
         if ($('#cpMainContent_atRadioButton').is(':checked')) {
             setAtLocation();
@@ -67,6 +67,14 @@ function setLocationVisibility() {
             setBetweenLocation();
         }
     });
+}
+
+function setLocationVisibility() {
+    if ($('#cpMainContent_atRadioButton').is(':checked')) {
+        setAtLocation();
+    } else if ($('#cpMainContent_betweenRadioButton').is(':checked')) {
+        setBetweenLocation();
+    }
 }
 
 //Note(Olle): run scripts at startup and on updatepanel update
@@ -79,4 +87,5 @@ $(function () {
 function panelLoaded(sender, args) {
     setDropDowns();
     setLocationVisibility();
+    setLocationVisibilityOnClick();
 }

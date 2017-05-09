@@ -11,5 +11,10 @@ namespace PortCDM_App_Code
         {
             return DateTime.UtcNow.ToString("O");
         }
+
+        public DateTime stringToDate(string date)
+        {
+            return DateTime.Parse(date, null, System.Globalization.DateTimeStyles.RoundtripKind);
+        }
     }
 }

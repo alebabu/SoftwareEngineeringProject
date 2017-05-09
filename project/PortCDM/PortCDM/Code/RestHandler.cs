@@ -1,4 +1,4 @@
-﻿//#define SECONDARYIP
+﻿#define SECONDARYIP
 //NOTE(Olle): comment out the above to use the standard ip (192.168.56.101:8080)
 
 using System;
@@ -170,8 +170,6 @@ namespace PortCDM_App_Code
 
             if (response.IsSuccessStatusCode)
                 result = await response.Content.ReadAsStringAsync();
-            else
-                result = "Vafan";
             return result;
         }
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeBehind="SendMessage.aspx.cs" Inherits="PortCDM.SendMessage" %>
+﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="SendMessage.aspx.cs" Inherits="PortCDM.SendMessage" %>
 <asp:Content runat="server" ID="MessageHead" ContentPlaceHolderID="cpHeadContent">
     <!-- TODO ENABLE EVENT VALIDATION -->
     <script type="text/javascript" src="Scripts/SendMessage.js"></script>
@@ -10,9 +10,21 @@
 		<h1>Send Message</h1>
         <asp:UpdatePanel runat="server" ID="SMUpdatePanel">
             <ContentTemplate>
+                <div id="locationTypeField">
+                    <div class="formText"><asp:Literal runat="server">Service Type:</asp:Literal></div>
+                    <asp:DropDownList ID="locationTypeDropDown" runat="server">
+                        <asp:ListItem Text="Anchoring" Value="ANCHORING"></asp:ListItem>
+                        <asp:ListItem Text="Arrival Mooring" Value="ARRIVAL_MOORING_OPERATION"></asp:ListItem>
+                        <asp:ListItem Text="Escort Towage" Value="ESCORT_TOWAGE"></asp:ListItem>
+                        <asp:ListItem Text="Pilotage" Value="PILOTAGE"></asp:ListItem>
+                        <asp:ListItem Text="Slop Operation" Value="SLOP_OPERATION"></asp:ListItem>
+                        <asp:ListItem Text="Sludge Operation" Value="SLUDE_OPERATION"></asp:ListItem>
+                        <asp:ListItem Text="Towage" Value="TOWAGE"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
                 <div id="serviceField">
-                    <div class="formText"><asp:Literal runat="server">Message Type:</asp:Literal></div>
-                    <asp:DropDownList ID="messageTypeDropDown" runat="server">
+                    <div class="formText"><asp:Literal runat="server">Service Type:</asp:Literal></div>
+                    <asp:DropDownList ID="serviceTypeDropDown" runat="server">
                         <asp:ListItem Text="Anchoring" Value="ANCHORING"></asp:ListItem>
                         <asp:ListItem Text="Arrival Mooring" Value="ARRIVAL_MOORING_OPERATION"></asp:ListItem>
                         <asp:ListItem Text="Escort Towage" Value="ESCORT_TOWAGE"></asp:ListItem>
@@ -48,7 +60,7 @@
                 <br />
                 <br />
                 <div id="stageField">
-                    <div class="formText"><asp:Literal runat="server" ID="stageText">Stage:</asp:Literal></div>
+                    <div class="formText"><asp:Literal runat="server" ID="serviceTimeSequenceText">Stage:</asp:Literal></div>
                     <asp:DropDownList runat="server" ID="serviceTimeSequenceDropDown">
                         <asp:ListItem Text="Commenced" Value="COMMENCED"></asp:ListItem>
                         <asp:ListItem Text="Completed" Value="COMPLETED"></asp:ListItem>
@@ -56,6 +68,17 @@
                         <asp:ListItem Text="Denied" Value="DENIED"></asp:ListItem>
                         <asp:ListItem Text="Requested" Value="REQUESTED"></asp:ListItem>
                         <asp:ListItem Text="Request Received" Value="REQUEST_RECEIVED"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <br />
+                <div id="timeTypeField">
+                    <div class="formText"><asp:Literal runat="server" ID="timeTypeText">Time Type:</asp:Literal></div>
+                    <asp:DropDownList runat="server" ID="timeTypeDropDown">
+                        <asp:ListItem Text="Estimated" Value="ESTIMATED"></asp:ListItem>
+                        <asp:ListItem Text="Actual" Value="ACTUAL"></asp:ListItem>
+                        <asp:ListItem Text="Target" Value="TARGET"></asp:ListItem>
+                        <asp:ListItem Text="Recommended" Value="RECOMMENDED"></asp:ListItem>
+                        <asp:ListItem Text="Cancelled" Value="CANCELLED"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <br />
