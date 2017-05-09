@@ -2,8 +2,27 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
 	<div id="messageBox">
 		<h1>Ships</h1>
-		<div class="accordion">
 
+		<div class="add-ship">
+			<div>
+	            <input id="as-1" name="accordion-1" type="checkbox" />
+	            <label for="as-1">
+					<img class="add-icon" src="../Images/add_blue.svg" />		
+				</label>
+				<div class="article ac-small">
+					<h1>Add new ship</h1>
+					<p>
+						IMO-number:
+						<asp:TextBox CssClass="imo-box" id="addImoBox" runat="server"></asp:TextBox>
+					</p>
+					<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Get Ship Info" onClick="addNewShip"/>
+					
+				</div>
+			</div>
+		</div>
+
+
+		<div class="accordion">
 			<asp:Repeater id="shipRepeater" runat="server">
 				<ItemTemplate>
 

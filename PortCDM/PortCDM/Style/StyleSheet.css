@@ -248,6 +248,11 @@ body {
 
     /* ------------------------------- Ships --------------------------*/
 
+.add-icon {
+	width: 30px;
+	height: 30px;
+}
+
 .ship-links {
 	background-color: white;
 	padding: 0 20px 20px 20px;
@@ -385,5 +390,93 @@ body {
     height: 195px;
 }
 .accordion input:checked ~ .article.ac-large {
+    height: 245px;
+}
+
+
+/*----------------------------Add ship--------------------------------------*/
+
+.add-button {
+	border:0;
+	padding: 10px 40px;
+	margin: 0 10px 10px 0;
+	font-size: 20px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #018abd;
+}
+
+.imo-box {
+	border: 1px solid #018abd;
+	margin-left: 10px;
+
+}
+
+.add-ship {
+    margin: 10px auto;
+    color: #001b48;
+}
+
+.add-ship p {
+	font-size: 14px;
+}
+
+.add-ship label {
+    font-family: Arial, sans-serif;
+    padding: 5px 20px;
+    position: relative;
+    text-align: right;
+    display: block;
+    height: 30px;
+    cursor: pointer;
+    line-height: 33px;
+    font-size: 19px;
+}
+
+.add-ship input + label {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-ship input {
+}
+
+.add-ship #as-1 {
+    display: none;
+}
+
+.add-ship .article {
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+    height: 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.add-ship .article p {
+    color: #777;
+    line-height: 23px;
+    font-size: 14px;
+    padding: 20px;
+}
+.add-ship input:checked ~ .article {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.add-ship input:checked ~ .article.ac-small {
+    height: 200px;
+}
+.add-ship input:checked ~ .article.ac-medium {
+    height: 195px;
+}
+.add-ship input:checked ~ .article.ac-large {
     height: 245px;
 }

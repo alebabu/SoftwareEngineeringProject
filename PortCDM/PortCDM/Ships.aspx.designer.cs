@@ -16,5 +16,8 @@ namespace PortCDM {
 		protected System.Web.UI.WebControls.Content Content2;
 		
 		protected System.Web.UI.WebControls.Repeater shipRepeater;
+
+		protected System.Web.UI.WebControls.TextBox addImoBox;
+
 	}
 }

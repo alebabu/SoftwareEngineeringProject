@@ -34,36 +34,14 @@ namespace PortCDM
 
 			shipRepeater.DataSource = dt;
 			shipRepeater.DataBind();
-
-
-            //      Now we make the connection.
-            /*MySqlConnection con = new MySqlConnection();
-			con.ConnectionString = connectionString;
-
-            //      The Open method works!
-            //      And the Open method fails correctly when wrong credentials are used.
-            con.Open();
-
-			string sql = "SELECT name FROM tbl_ship WHERE imoNumber=123";
-			MySqlCommand cmd = new MySqlCommand(sql, con);
-			cmd.Connection = con;
-            sda.SelectCommand = cmd;
-			sda.Fill(dt);
-			MySqlDataReader rdr = cmd.ExecuteReader();
-
-
-            while (rdr.Read())
-            {
-                Console.WriteLine(rdr[0]);
-				name = (string) rdr[0];
-            }
-
-            rdr.Close();
-
-
-            con.Close();*/
-
 			
 		}
+
+		protected void addNewShip(object sender, EventArgs e)
+		{
+			Console.WriteLine(addImoBox.Text);
+		}
+
+
 	}
 }
