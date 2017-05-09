@@ -60,13 +60,86 @@
                 </div>
                 <br />
                 <br />
-                <div id="atDateField">
-                    <div class="formText"><asp:Literal runat="server" ID="atText">At:</asp:Literal></div>
-                    <asp:DropDownList runat="server" CssClass="dayDropDown" ID="atDayDropDown"/>
+                <div id="dateField">
+                    <div class="formText"><asp:Literal runat="server" ID="setDateText">Time:</asp:Literal></div>
+                    <asp:DropDownList runat="server" CssClass="dayDropDown" ID="setDayDropDown"/>
                     <span class="dateSeparator">/</span>
-                    <asp:DropDownList runat="server" CssClass="monthDropDown" ID="atMonthDropDown"/>
+                    <asp:DropDownList runat="server" CssClass="monthDropDown" ID="setMonthDropDown"/>
                     <span class="dateSeparator">/</span>
-                    <asp:DropDownList runat="server" CssClass="yearDropDown" ID="atYearDropDown"/>
+                    <asp:DropDownList runat="server" CssClass="yearDropDown" ID="setYearDropDown"/>
+                </div>
+                <br />
+                <div id="chooseLocation">
+                    <asp:Literal runat="server">LocationType:</asp:Literal>
+                    <br />
+                    <asp:Literal runat="server">At:</asp:Literal><asp:RadioButton GroupName="locationButtons" ID="atRadioButton" runat="server"/>
+                    <asp:Literal runat="server">Between:</asp:Literal><asp:RadioButton GroupName="locationButtons" ID="betweenRadioButton" runat="server"/>
+                </div>
+                <br />
+                <div id="atLocation">
+                    <div class="formText"><asp:Literal runat="server">At Location Type:</asp:Literal></div>
+                    <asp:DropDownList ID="atLocationType" runat="server">
+                        <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
+                        <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>
+                        <asp:ListItem Text="Other Location" Value="LOC"></asp:ListItem>
+                        <asp:ListItem Text="Pilot Boarding Area" Value="PILOT_BOARDING_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Rendezvous Area" Value="RENDEZV_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Traffic Area" Value="TRAFFIC_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Tug Zone" Value="TUG_ZONE"></asp:ListItem>
+                        <asp:ListItem Text="Vessel" Value="Vessel"></asp:ListItem>
+                    </asp:DropDownList>
+                    <div class="formText"><asp:Literal runat="server">At Location Name:</asp:Literal></div>
+                    <asp:TextBox ID="atLocationNameBox" runat="server"></asp:TextBox>
+                    <br />
+                    <div class="formText"><asp:Literal runat="server">At Latitude:</asp:Literal></div>
+                    <asp:TextBox ID="atLatitudeBox" runat="server"></asp:TextBox>
+                    <div class="formText"><asp:Literal runat="server">At Longitude:</asp:Literal></div>
+                    <asp:TextBox ID="atLongitudeBox" runat="server"></asp:TextBox>
+                </div>
+                <div id="fromLocation">
+                    <div class="formText"><asp:Literal runat="server">From Location Type:</asp:Literal></div>
+                    <asp:DropDownList ID="fromLocationType" runat="server">
+                        <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
+                        <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>
+                        <asp:ListItem Text="Other Location" Value="LOC"></asp:ListItem>
+                        <asp:ListItem Text="Pilot Boarding Area" Value="PILOT_BOARDING_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Rendezvous Area" Value="RENDEZV_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Traffic Area" Value="TRAFFIC_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Tug Zone" Value="TUG_ZONE"></asp:ListItem>
+                        <asp:ListItem Text="Vessel" Value="Vessel"></asp:ListItem>
+                    </asp:DropDownList>
+                    <br />
+                    <div class="formText"><asp:Literal runat="server">From Location Name:</asp:Literal></div>
+                    <asp:TextBox ID="fromLocationNameBox" runat="server"></asp:TextBox>
+                    <br />
+                    <div class="formText"><asp:Literal runat="server">From Latitude:</asp:Literal></div>
+                    <asp:TextBox ID="fromLatitudeBox" runat="server"></asp:TextBox>
+                    <div class="formText"><asp:Literal runat="server">From Longitude:</asp:Literal></div>
+                    <asp:TextBox ID="fromLongitudeBox" runat="server"></asp:TextBox>
+                </div>
+                <br />
+                <div id="toLocation">
+                    <div class="formText"><asp:Literal runat="server">To Location Type:</asp:Literal></div>
+                    <asp:DropDownList ID="toLocationType" runat="server">
+                        <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
+                        <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>
+                        <asp:ListItem Text="Other Location" Value="LOC"></asp:ListItem>
+                        <asp:ListItem Text="Pilot Boarding Area" Value="PILOT_BOARDING_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Rendezvous Area" Value="RENDEZV_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Traffic Area" Value="TRAFFIC_AREA"></asp:ListItem>
+                        <asp:ListItem Text="Tug Zone" Value="TUG_ZONE"></asp:ListItem>
+                        <asp:ListItem Text="Vessel" Value="Vessel"></asp:ListItem>
+                    </asp:DropDownList>
+                    <div class="formText"><asp:Literal runat="server">To Location Name:</asp:Literal></div>
+                    <asp:TextBox ID="toLocationNameBox" runat="server"></asp:TextBox>
+                    <br />
+                    <div class="formText"><asp:Literal runat="server">To Latitude:</asp:Literal></div>
+                    <asp:TextBox ID="toLatitudeBox" runat="server"></asp:TextBox>
+                    <div class="formText"><asp:Literal runat="server">To Longitude:</asp:Literal></div>
+                    <asp:TextBox ID="toLongitudeBox" runat="server"></asp:TextBox>
                 </div>
                 <br />
                 <asp:Literal runat="server" ID="testText"></asp:Literal>

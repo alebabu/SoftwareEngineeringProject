@@ -48,10 +48,5 @@ namespace PortCDM
         {
             return Request.Form[dropDown.UniqueID];
         }
-
-        private void instantiatePcm(portCallMessage pcm)
-        {
-            
-        }
     }
 }

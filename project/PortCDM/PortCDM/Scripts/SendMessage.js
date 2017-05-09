@@ -1,4 +1,10 @@
-﻿function setMonthDropDowns() {
+﻿function setLoadState() {
+    $('#atLocation').hide();
+    $('#fromLocation').hide();
+    $('#toLocation').hide();
+}
+
+function setMonthDropDowns() {
     $('.monthDropDown')
         .each(function () {
             for (var month = 1; month < 13; month++) {
@@ -32,13 +38,6 @@ function setDropDowns() {
     setYearDropDowns();
 }
 
-function setDropDownBackEndVal() {
-    $('select')
-        .click(function() {
-            console.log($(this).val());
-        });
-}
-
 function addZeroBeforeDate(monthOrDay) {
     if (monthOrDay < 10)
         return 0 + "" + monthOrDay;
@@ -46,13 +45,38 @@ function addZeroBeforeDate(monthOrDay) {
         return monthOrDay;
 }
 
+function setBetweenLocation() {
+    var fadeDuration = 600;
+    $('#atLocation').hide();
+    $('#fromLocation').fadeIn(fadeDuration);
+    $('#toLocation').fadeIn(fadeDuration);
+}
+
+function setAtLocation() {
+    var fadeDuration = 600;
+    $('#atLocation').fadeIn(fadeDuration);
+    $('#fromLocation').hide();
+    $('#toLocation').hide();
+}
+
+function setLocationVisibility() {
+    $('input:radio').click(function() {
+        if ($('#cpMainContent_atRadioButton').is(':checked')) {
+            setAtLocation();
+        } else if ($('#cpMainContent_betweenRadioButton').is(':checked')) {
+            setBetweenLocation();
+        }
+    });
+}
+
 //Note(Olle): run scripts at startup and on updatepanel update
 $(function () {
-    setDropDownBackEndVal();
+    setLoadState();
     var prm = Sys.WebForms.PageRequestManager.getInstance();
     prm.add_pageLoaded(panelLoaded);
 });
 
 function panelLoaded(sender, args) {
     setDropDowns();
+    setLocationVisibility();
 }

@@ -130,40 +130,166 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList serviceTimeSequenceDropDown;
         
         /// <summary>
-        /// atText control.
+        /// setDateText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal atText;
+        protected global::System.Web.UI.WebControls.Literal setDateText;
         
         /// <summary>
-        /// atDayDropDown control.
+        /// setDayDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList atDayDropDown;
+        protected global::System.Web.UI.WebControls.DropDownList setDayDropDown;
         
         /// <summary>
-        /// atMonthDropDown control.
+        /// setMonthDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList atMonthDropDown;
+        protected global::System.Web.UI.WebControls.DropDownList setMonthDropDown;
         
         /// <summary>
-        /// atYearDropDown control.
+        /// setYearDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList atYearDropDown;
+        protected global::System.Web.UI.WebControls.DropDownList setYearDropDown;
+        
+        /// <summary>
+        /// atRadioButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton atRadioButton;
+        
+        /// <summary>
+        /// betweenRadioButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton betweenRadioButton;
+        
+        /// <summary>
+        /// atLocationType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList atLocationType;
+        
+        /// <summary>
+        /// atLocationNameBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox atLocationNameBox;
+        
+        /// <summary>
+        /// atLatitudeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox atLatitudeBox;
+        
+        /// <summary>
+        /// atLongitudeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox atLongitudeBox;
+        
+        /// <summary>
+        /// fromLocationType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList fromLocationType;
+        
+        /// <summary>
+        /// fromLocationNameBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fromLocationNameBox;
+        
+        /// <summary>
+        /// fromLatitudeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fromLatitudeBox;
+        
+        /// <summary>
+        /// fromLongitudeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fromLongitudeBox;
+        
+        /// <summary>
+        /// toLocationType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList toLocationType;
+        
+        /// <summary>
+        /// toLocationNameBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox toLocationNameBox;
+        
+        /// <summary>
+        /// toLatitudeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox toLatitudeBox;
+        
+        /// <summary>
+        /// toLongitudeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox toLongitudeBox;
         
         /// <summary>
         /// testText control.
