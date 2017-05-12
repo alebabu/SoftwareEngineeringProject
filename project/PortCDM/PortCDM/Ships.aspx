@@ -24,38 +24,47 @@
 
 
 		<div class="accordion">
+			<asp:ScriptManager runat="server"/>
+			
+			<asp:UpdatePanel ID="updatePanel" runat="server" UpdateMode="Conditional">
+				<ContentTemplate>
 			<asp:Repeater id="shipRepeater" runat="server">
+		
 				<ItemTemplate>
+					
+						
+							<div>
+					            <input class="hidden" id="ac-<%# ((RepeaterItem)Container).ItemIndex + 1%>" name="accordion-1" type="checkbox" />
+					            <label for="ac-<%# ((RepeaterItem)Container).ItemIndex + 1%>">
+									<div class="left-content"> 
+										<h2><asp:Literal runat="server" Text='<%# Eval("name") %>'/></h2>
+										<p>Vessel ID: <asp:Literal runat="server" id="imo" Text='<%# Eval("imoNumber") %>'/></p>
+									</div>
+									<div class="right-content">
+										<img class="icon" src="../Images/edit_blue.svg" />
+										<br/>
+										<asp:Image CssClass="ship-img" runat="server" ImageUrl='<%# Eval("imgURL") %>' />
+									</div>
+								</label>
+								<div class="article ac-small">
+									<h3>Comments</h3>
+									<asp:TextBox CssClass="ship-comment" runat="server" Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true" CommandArgument='<%#Eval("imoNumber")%>' CommandName="ImoNumber"></asp:TextBox>
 
-					<div>
-			            <input class="hidden" id="ac-<%# ((RepeaterItem)Container).ItemIndex + 1%>" name="accordion-1" type="checkbox" />
-			            <label for="ac-<%# ((RepeaterItem)Container).ItemIndex + 1%>">
-							<div class="left-content"> 
-								<h2><asp:Literal runat="server" Text='<%# Eval("name") %>'/></h2>
-								<p>Vessel ID: <asp:Literal runat="server" Text='<%# Eval("imoNumber") %>'/></p>
+								</div>
 							</div>
-							<div class="right-content">
-								<img class="icon" src="../Images/edit_blue.svg" />
-								<br/>
-								<asp:Image CssClass="ship-img" runat="server" ImageUrl='<%# Eval("imgURL") %>' />
+							<div class="ship-links">
+								<ul>
+									<li><a href="../NewPortCDMMessage.aspx"><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
+									<li><a href="../Timeline.aspx"><img src="../Images/timeline_blue.svg" />Go to timeline</a></li>
+									<li><a href=""><img src="../Images/active_blue.svg"/>Active</a></li>
+								</ul>
 							</div>
-						</label>
-						<div class="article ac-small">
-							<h3>Comments</h3>
-							<asp:TextBox CssClass="ship-comment" runat="server" Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true"></asp:TextBox>
-
-						</div>
-					</div>
-					<div class="ship-links">
-						<ul>
-							<li><a href="../NewPortCDMMessage.aspx"><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
-							<li><a href="../Timeline.aspx"><img src="../Images/timeline_blue.svg" />Go to timeline</a></li>
-							<li><a href=""><img src="../Images/active_blue.svg"/>Active</a></li>
-						</ul>
-					</div>
+					
 					
 				</ItemTemplate>
 			</asp:Repeater>
+				</ContentTemplate>
+				</asp:UpdatePanel>
 
 
 			
