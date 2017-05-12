@@ -23,9 +23,10 @@ namespace PortCDM
 
 			//      Note the spelling of keywords.
             string connectionString = 
-                    @"server=127.0.0.1;" +
-                    @"uid=root;" +
-                    @"database=portCDM_schema;";
+                    @"server=datavetare.com;" +
+                    @"uid=lexxarc_portcdm;" +
+					@"password=runda@0@bordet;" +
+                    @"database=lexxarc_portcdm;";
 
 			MySqlConnection con = new MySqlConnection(connectionString);
 			MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_ship");
