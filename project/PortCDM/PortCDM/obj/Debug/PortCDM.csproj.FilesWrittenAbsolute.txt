@@ -1,0 +1,7 @@
+/Users/robin/Njord/PortCDM/PortCDM/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/robin/Njord/PortCDM/PortCDM/bin/Newtonsoft.Json.dll
+/Users/robin/Njord/PortCDM/PortCDM/bin/System.Net.Http.Formatting.dll
+/Users/robin/Njord/PortCDM/PortCDM/bin/PortCDM.dll.mdb
+/Users/robin/Njord/PortCDM/PortCDM/bin/PortCDM.dll
+/Users/robin/Njord/PortCDM/PortCDM/obj/Debug/PortCDM.dll
+/Users/robin/Njord/PortCDM/PortCDM/obj/Debug/PortCDM.dll.mdb

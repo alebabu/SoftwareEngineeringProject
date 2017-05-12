@@ -1,3 +1,4 @@
+
 ﻿//#define SECONDARYIP
 //NOTE(Olle): comment out the above to use the standard ip (192.168.56.101:8080)
 
@@ -177,5 +178,39 @@ namespace PortCDM_App_Code
         {
             return getPortCallId(imo, plannedArrival.ToString());
         }
+      
+              
+      
+      public static List<portCallMessage> getEvents()
+        {
+            
+
+            
+            List<portCallMessage> list = new List<portCallMessage>();
+            portCallMessage test = new portCallMessage();
+            test.locationState = new LocationState();
+            test.locationState.timeType = TimeType.ESTIMATED;
+            test.vesselId = "bajs69";
+            
+            test.locationState.time = "13:00";
+            test.serviceState = new ServiceState();
+            test.serviceState.at = new Location();
+            test.serviceState.serviceObject = ServiceObject.ANCHORING;
+            
+            test.serviceState.at.name = "Port of Gothenburg";
+            portCallMessage test2 = new portCallMessage();
+            test2.locationState = new LocationState();
+            test2.serviceState = new ServiceState();
+            test2.serviceState.at = new Location();
+            test2.locationState.timeType = TimeType.ESTIMATED;
+            test2.vesselId = "bajs70";
+            test2.locationState.time = "14:00";
+            test2.serviceState.serviceObject = ServiceObject.GANGWAY;
+            test2.serviceState.at.name = "China";
+            list.Add(test);
+            list.Add(test2);
+            return list;
+        }
 	}
 }
+
