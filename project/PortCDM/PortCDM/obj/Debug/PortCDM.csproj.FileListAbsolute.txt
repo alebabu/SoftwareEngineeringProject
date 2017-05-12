@@ -8,3 +8,11 @@ C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-newMaster\PortCDM\PortC
 C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-newMaster\PortCDM\PortCDM\bin\System.Net.Http.Formatting.xml
 C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-newMaster\PortCDM\PortCDM\bin\Newtonsoft.Json.xml
 C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-newMaster\PortCDM\PortCDM\obj\Debug\PortCDM.pdb
+C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\PortCDM.dll.config
+C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\PortCDM.dll
+C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\PortCDM.pdb
+C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\Newtonsoft.Json.dll
+C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\Newtonsoft.Json.xml
+C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.csprojResolveAssemblyReference.cache
+C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.dll
+C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.pdb
