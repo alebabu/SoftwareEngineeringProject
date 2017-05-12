@@ -283,6 +283,18 @@ body {
     text-decoration: none;
 }
 
+.ship-comment {
+	border: 1px solid white;
+	margin-left: 10px;
+	font-size: 14px;
+	color: #018abd;
+}
+
+.ship-comment:focus {
+	border: 1px solid #018abd;
+}
+
+
 .accordion {
     margin: 10px auto;
     text-align: left;
@@ -348,9 +360,10 @@ body {
 .accordion input:checked + label:hover {
     background: white;
 }
-.accordion input {
+.accordion .hidden {
     display: none;
 }
+
 .accordion .article {
     background: white;
     overflow: hidden;
@@ -409,7 +422,6 @@ body {
 .imo-box {
 	border: 1px solid #018abd;
 	margin-left: 10px;
-
 }
 
 .add-ship {

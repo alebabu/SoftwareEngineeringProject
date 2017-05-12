@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
 using System.Collections.Generic;
+using System.Web.UI.WebControls;
 
 
 namespace PortCDM
@@ -43,6 +44,12 @@ namespace PortCDM
 		protected async void addNewShip(object sender, EventArgs e)
 		{
 			
+		}
+
+		protected void commentChanged(object sender, EventArgs e)
+		{
+			string text = ((TextBox)sender).Text;
+			Console.WriteLine(text);
 		}
 
 
