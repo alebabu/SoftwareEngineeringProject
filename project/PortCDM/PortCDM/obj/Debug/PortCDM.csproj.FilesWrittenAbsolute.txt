@@ -5,3 +5,11 @@
 /Users/robin/Njord/PortCDM/PortCDM/bin/PortCDM.dll
 /Users/robin/Njord/PortCDM/PortCDM/obj/Debug/PortCDM.dll
 /Users/robin/Njord/PortCDM/PortCDM/obj/Debug/PortCDM.dll.mdb
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/bin/PortCDM.dll.mdb
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/bin/PortCDM.pdb
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/bin/PortCDM.dll
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/obj/Debug/PortCDM.dll
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/obj/Debug/PortCDM.dll.mdb
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/obj/Debug/PortCDM.pdb
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/bin/Newtonsoft.Json.dll
