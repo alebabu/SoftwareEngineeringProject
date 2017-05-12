@@ -11,10 +11,14 @@
 namespace PortCDM {
 	
 	
-	public partial class FrontEnd {
+	public partial class Ships {
 		
-		protected System.Web.UI.WebControls.ContentPlaceHolder cpHeadContent;
+		protected System.Web.UI.WebControls.Content Content2;
 		
-		protected System.Web.UI.WebControls.ContentPlaceHolder cpMainContent;
+		protected System.Web.UI.WebControls.TextBox addImoBox;
+		
+		protected System.Web.UI.WebControls.Button addShipButton;
+		
+		protected System.Web.UI.WebControls.Repeater shipRepeater;
 	}
 }
