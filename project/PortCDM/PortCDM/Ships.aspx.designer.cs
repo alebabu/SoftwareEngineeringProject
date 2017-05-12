@@ -19,6 +19,10 @@ namespace PortCDM {
 		
 		protected System.Web.UI.WebControls.Button addShipButton;
 		
+		protected System.Web.UI.UpdatePanel updatePanel;
+		
 		protected System.Web.UI.WebControls.Repeater shipRepeater;
+		
+		protected System.Web.UI.WebControls.Literal imo;
 	}
 }
