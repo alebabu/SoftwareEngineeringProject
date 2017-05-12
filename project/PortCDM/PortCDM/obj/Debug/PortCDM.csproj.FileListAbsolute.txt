@@ -16,3 +16,12 @@ C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\New
 C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.csprojResolveAssemblyReference.cache
 C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.dll
 C:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.pdb
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\bin\PortCDM.dll.config
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\bin\PortCDM.dll
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\bin\PortCDM.pdb
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\bin\Newtonsoft.Json.dll
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\bin\Newtonsoft.Json.xml
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\bin\System.Net.Http.Formatting.xml
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\obj\Debug\PortCDM.csprojResolveAssemblyReference.cache
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\obj\Debug\PortCDM.dll
+C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\obj\Debug\PortCDM.pdb
