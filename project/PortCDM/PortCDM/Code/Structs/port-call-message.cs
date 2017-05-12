@@ -14,35 +14,25 @@ public class portCallMessages
 [Serializable]
 public class portCallMessage
 {
-    [XmlElement(ElementName = "portCallId")]
     public string portCallId { get; set; }
-
 
     public string localPortCallId { get; set; }
 
-
     public string localJobId { get; set; }
 
-    [XmlElement(ElementName = "vesselId")]
     public string vesselId { get; set; }
-
 
     public string messageId { get; set; }
 
-
     public string groupWith { get; set; }
-
 
     public string reportedAt { get; set; }
 
     public bool reportedAtSpecified { get; set; }
 
-
     public string reportedBy { get; set; }
 
-
     public string comment { get; set; }
-
 
     public LocationState locationState { get; set; }
 
@@ -59,12 +49,9 @@ public class LocationState
 {
     public LocationReferenceObject referenceObject { get; set; }
 
-
     public string time { get; set; }
 
-
     public TimeType timeType { get; set; }
-
 
     public LocationStateArrivalLocation arrivalLocation { get; set; }
 
@@ -145,7 +132,6 @@ public class LocationStateArrivalLocation
 {
     public Location from { get; set; }
 
-
     public Location to { get; set; }
 }
 
@@ -205,18 +191,13 @@ public class ServiceState
 {
     public ServiceObject serviceObject { get; set; }
 
-
     public string performingActor { get; set; }
-
 
     public ServiceTimeSequence timeSequence { get; set; }
 
-
     public DateTime time { get; set; }
 
-
     public TimeType timeType { get; set; }
-
 
     public Location at { get; set; }
 

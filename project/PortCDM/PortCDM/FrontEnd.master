@@ -3,7 +3,11 @@
 <html>
 <head runat="server">
 	<link rel="stylesheet" type="text/css" href="Style/StyleSheet.css">
+    <script type="text/javascript" src="Scripts/jquery-3.2.1.min.js"></script>
 	<title>FrontEnd</title>
+    <section id="HeadContent" class="content">
+        <asp:ContentPlaceHolder runat="server" ID="cpHeadContent"></asp:ContentPlaceHolder>
+    </section>
 </head>
 <body>
 <div id="container">

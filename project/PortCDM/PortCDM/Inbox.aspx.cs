@@ -15,8 +15,5 @@ namespace PortCDM
 			messageRepeater.DataSource = portCallList;
 			messageRepeater.DataBind();
 		}
-
 	}
-
-
 }

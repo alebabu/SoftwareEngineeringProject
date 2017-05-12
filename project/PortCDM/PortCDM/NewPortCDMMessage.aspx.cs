@@ -16,6 +16,7 @@ namespace PortCDM
 
 		protected async void sendMessage(object sender, EventArgs e)
 		{
+		    string result;
 		    pcm.vesselId = vesselId.Text;
 		    pcm.messageId = messageId.Text;
 		    pcm.locationState = new LocationState
@@ -36,8 +37,8 @@ namespace PortCDM
                     }
                 }
 		    };
-		    await RestHandler.createPCM(pcm);
-            messageConfirmationLiteral.Text = "Your message has been sent";
+		    result = await RestHandler.createPCM(pcm);
+            messageConfirmationLiteral.Text = result;
 		}
 	}
 }
