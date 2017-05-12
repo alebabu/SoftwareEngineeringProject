@@ -10,7 +10,7 @@
 		<h1>Send Message</h1>
         <asp:UpdatePanel runat="server" ID="SMUpdatePanel">
             <ContentTemplate>
-                <div id="locationTypeField">
+                <!--<div id="locationTypeField">
                     <div class="formText"><asp:Literal runat="server">Service Type:</asp:Literal></div>
                     <asp:DropDownList ID="locationTypeDropDown" runat="server">
                         <asp:ListItem Text="Anchoring" Value="ANCHORING"></asp:ListItem>
@@ -21,7 +21,7 @@
                         <asp:ListItem Text="Sludge Operation" Value="SLUDE_OPERATION"></asp:ListItem>
                         <asp:ListItem Text="Towage" Value="TOWAGE"></asp:ListItem>
                     </asp:DropDownList>
-                </div>
+                </div>-->
                 <div id="serviceField">
                     <div class="formText"><asp:Literal runat="server">Service Type:</asp:Literal></div>
                     <asp:DropDownList ID="serviceTypeDropDown" runat="server">
