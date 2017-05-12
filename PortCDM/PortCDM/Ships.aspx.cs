@@ -42,10 +42,7 @@ namespace PortCDM
 
 		protected async void addNewShip(object sender, EventArgs e)
 		{
-			//Console.WriteLine(addImoBox.Text);
-			//List<PortCall> portCallList = await RestHandler.getPortCalls();
-			List<Vessel> vesselList = await RestHandler.getVessel(addImoBox.Text);
-			Console.WriteLine(vesselList[0].name);
+			
 		}
 
 

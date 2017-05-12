@@ -122,25 +122,6 @@ namespace PortCDM_App_Code
             return pc;
         }
 
-		public static async Task<List<Vessel>> getVessel(string imo)
-		{
-			prepareGETJson();
-
-			List<Vessel> pc = null;
-
-			Console.WriteLine(imo);
-
-			var response = await client.GetAsync("vr/vessel/urn:mrn:stm:vessel:IMO:" + imo);
-			if (response.IsSuccessStatusCode)
-			{
-				var responseData = await response.Content.ReadAsAsync<IEnumerable<Vessel>>();
-				pc = responseData.ToList();
-			}
-			Console.WriteLine(pc[0]);
-			return pc;
-		}
-
-
 
 
 		//Creates a Queue with a list of Filters
