@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using PortCDM_RestStructs;
+using PortCDM_Filter;
 using System.Xml.Serialization;
 using System.Xml;
 
@@ -140,6 +141,32 @@ namespace PortCDM_App_Code
             }
             return pc;
         }
+
+		//Creates a Queue with a list of Filters
+		public static async Task<String> createFilteredQueue(List<Filter> filters)
+		{
+			preparePOSTXML();
+			string jsonFilter = "[\n";
+
+			for (int i = 0; i < filters.Count(); i++)
+			{
+				if (i != filters.Count() - 1)
+				{
+					jsonFilter += (filters[i].toJson() + ",\n");
+				}
+				else
+				{
+					jsonFilter += (filters[i].toJson());
+				}
+			}
+			jsonFilter += "\n]";
+
+			Console.WriteLine("Filters in Json format:\n" + jsonFilter);
+			var response = await client.PostAsync("mb/mqs", new StringContent((jsonFilter), Encoding.UTF8, "application/json"));
+			string result = response.Content.ReadAsStringAsync().Result;
+			response.EnsureSuccessStatusCode();
+			return result;
+		}
 
         public static async Task<List<portCallMessage>> pollQueue(string queueId)
         {
