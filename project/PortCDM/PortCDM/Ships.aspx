@@ -28,11 +28,8 @@
 			
 			<asp:UpdatePanel ID="updatePanel" runat="server" UpdateMode="Conditional">
 				<ContentTemplate>
-			<asp:Repeater id="shipRepeater" runat="server">
-		
-				<ItemTemplate>
-					
-						
+					<asp:Repeater id="shipRepeater" runat="server">
+						<ItemTemplate>
 							<div>
 					            <input class="hidden" id="ac-<%# ((RepeaterItem)Container).ItemIndex + 1%>" name="accordion-1" type="checkbox" />
 					            <label for="ac-<%# ((RepeaterItem)Container).ItemIndex + 1%>">
@@ -59,10 +56,8 @@
 									<li><a href=""><img src="../Images/active_blue.svg"/>Active</a></li>
 								</ul>
 							</div>
-					
-					
-				</ItemTemplate>
-			</asp:Repeater>
+						</ItemTemplate>
+					</asp:Repeater>
 				</ContentTemplate>
 				</asp:UpdatePanel>
 
