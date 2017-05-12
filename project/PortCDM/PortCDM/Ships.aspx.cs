@@ -16,6 +16,8 @@ namespace PortCDM
 {
 	public partial class Ships : System.Web.UI.Page
 	{
+		public MySqlConnection con;
+		public MySqlDataAdapter sda;
 
 
 		protected void Page_Load(Object sender, EventArgs e)
@@ -28,9 +30,9 @@ namespace PortCDM
 					@"password=runda@0@bordet;" +
                     @"database=lexxarc_portcdm;";
 
-			MySqlConnection con = new MySqlConnection(connectionString);
+			con = new MySqlConnection(connectionString);
 			MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_ship");
-			MySqlDataAdapter sda = new MySqlDataAdapter();
+			sda = new MySqlDataAdapter();
 
 			cmd.Connection = con;
             sda.SelectCommand = cmd;
@@ -39,18 +41,36 @@ namespace PortCDM
 
 			shipRepeater.DataSource = dt;
 			shipRepeater.DataBind();
+			con.Close();
 			
 		}
 
 		protected async void addNewShip(object sender, EventArgs e)
 		{
-			
 		}
 
 		protected void commentChanged(object sender, EventArgs e)
 		{
-			string text = ((TextBox)sender).Text;
-			Console.WriteLine(text);
+			con.Open();
+			TextBox tb = ((TextBox)sender);
+			string comment = tb.Text;
+
+			Console.WriteLine(comment);
+
+			string imoNumber = ((Literal)tb.Parent.FindControl("imo")).Text;
+
+			Console.WriteLine(imoNumber);
+
+			MySqlCommand cmd = new MySqlCommand("UPDATE tbl_ship SET comment = '" + comment + "' WHERE imoNumber = " + imoNumber + ";");
+			cmd.Connection = con;
+
+			sda = new MySqlDataAdapter();
+            sda.SelectCommand = cmd;
+			cmd.ExecuteNonQuery();
+			tb.Text = comment;
+
+			con.Close();
+
 		}
 
 
