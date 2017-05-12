@@ -13,3 +13,4 @@
 /Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/obj/Debug/PortCDM.dll.mdb
 /Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/obj/Debug/PortCDM.pdb
 /Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/bin/Newtonsoft.Json.dll
+/Users/johanna/Documents/SKOLA/software_engineering_project/SoftwareEngineeringProject/project/PortCDM/PortCDM/bin/MySql.Data.dll
