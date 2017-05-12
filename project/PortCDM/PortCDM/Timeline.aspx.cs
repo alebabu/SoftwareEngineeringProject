@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
+
 
 namespace PortCDM
 {
@@ -13,9 +15,11 @@ namespace PortCDM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             List<portCallMessage> list = RestHandler.getEvents();
             eventListBox.DataSource = list;
             eventListBox.DataBind();
+
         }
     }
 }

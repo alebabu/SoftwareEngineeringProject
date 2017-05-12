@@ -1,5 +1,8 @@
-﻿using System;
-using System.Runtime;
+
+﻿//#define SECONDARYIP
+//NOTE(Olle): comment out the above to use the standard ip (192.168.56.101:8080)
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,20 +11,23 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using PortCDM_RestStructs;
-using PortCDM_Filter;
 using System.Xml.Serialization;
 using System.Xml;
-using System.Xml.Linq;
-using Newtonsoft.Json;
-using Formatting = System.Xml.Formatting;
-
 
 namespace PortCDM_App_Code
 {
-	public class RestHandler
+    public class RestHandler
 	{
-        static HttpClient client = new HttpClient();
+        private static HttpClient client = new HttpClient();
+#if SECONDARYIP
+        private const string baseURL = "http://192.168.1.115:8080";
+#else
         private const string baseURL = "http://192.168.56.101:8080/";
+#endif
+
+        private const string apiUserName = "porter";
+	    private const string apiPassword = "porter";
+	    private const string apiKey = "eeee";
 
         private static bool isPrepared = false;
 
@@ -32,9 +38,21 @@ namespace PortCDM_App_Code
 
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
+            isPrepared = true;
+        }
+
+        static void prepareGETText()
+        {
+            if(!isPrepared)
+                client.BaseAddress = new Uri(baseURL);
+
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
             isPrepared = true;
         }
 
@@ -45,9 +63,9 @@ namespace PortCDM_App_Code
 
             client.DefaultRequestHeaders.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
-            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
             isPrepared = true;
         }
 
@@ -57,9 +75,9 @@ namespace PortCDM_App_Code
                 client.BaseAddress = new Uri(baseURL);
 
             client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-Password", "porter");
-            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", "eeee");
+            client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+            client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+            client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
             isPrepared = true;
         }
 
@@ -84,15 +102,15 @@ namespace PortCDM_App_Code
             return sw.ToString();
         }
 
-        public static async Task<Uri> createPCM(portCallMessage pcm)
+        public static async Task<string> createPCM(portCallMessage pcm)
         {
             preparePOSTXML();
 
             var response = await client.PostAsync("amss/state_update", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
-            Console.WriteLine(response.Content.ReadAsStringAsync().Result);
-            response.EnsureSuccessStatusCode();
 
-            return response.Headers.Location;
+            string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
+
+            return result;
         }
 
         public static async Task<PortCall> getPortCallById(string id)
@@ -123,34 +141,6 @@ namespace PortCDM_App_Code
             return pc;
         }
 
-		//Creates a Queue with a list of Filters
-		public static async Task<String> createFilteredQueue(List<Filter> filters)
-		{
-			preparePOSTXML();
-			string jsonFilter = "[\n";
-
-			for (int i = 0; i < filters.Count(); i++)
-			{
-				if (i != filters.Count() - 1)
-				{
-					jsonFilter += (filters[i].toJson() + ",\n");
-				}
-				else
-				{
-					jsonFilter += (filters[i].toJson());
-				}
-			}
-			jsonFilter += "\n]";
-
-			Console.WriteLine("Filters in Json format:\n" + jsonFilter);
-			var response = await client.PostAsync("mb/mqs", new StringContent((jsonFilter), Encoding.UTF8, "application/json"));
-			string result = response.Content.ReadAsStringAsync().Result;
-			response.EnsureSuccessStatusCode();
-			return result;
-		}
-
-
-
         public static async Task<List<portCallMessage>> pollQueue(string queueId)
         {
             prepareGETXML();
@@ -168,11 +158,30 @@ namespace PortCDM_App_Code
 
                 pcm = pcms.pcms;
             }
-
             return pcm;
         }
 
-        public static List<portCallMessage> getEvents()
+        public static async Task<string> getPortCallId(string imo, string plannedArrival)
+        {
+            prepareGETText();
+
+            string result = null;
+
+            var response = await client.GetAsync(String.Format("dmp/port_call_finder/{0}/{1}", imo, plannedArrival));
+
+            if (response.IsSuccessStatusCode)
+                result = await response.Content.ReadAsStringAsync();
+            return result;
+        }
+
+        public static Task<string> getPortCallId(string imo, DateTime plannedArrival)
+        {
+            return getPortCallId(imo, plannedArrival.ToString());
+        }
+      
+              
+      
+      public static List<portCallMessage> getEvents()
         {
             
 
@@ -202,11 +211,6 @@ namespace PortCDM_App_Code
             list.Add(test2);
             return list;
         }
-
-
-
-
-
-
-    }
+	}
 }
+
