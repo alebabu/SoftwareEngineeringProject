@@ -31,5 +31,10 @@ namespace PortCDM
             shipsDropDown.DataSource = shipList;
             shipsDropDown.DataBind();
         }
+
+        protected void shipSelected(object sender, EventArgs e)
+        {
+            shipArrival.Value = shipsDropDown.SelectedValue;
+        }
     }
 }

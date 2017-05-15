@@ -784,3 +784,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+#smContent h1 {
+    text-align: center;
+}

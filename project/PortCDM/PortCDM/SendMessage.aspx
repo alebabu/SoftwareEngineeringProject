@@ -2,6 +2,7 @@
 
 <asp:Content ID="MessageContent" ContentPlaceHolderID="cpMainContent" runat="server">
     <div id="smContent">
+        <h1>Send Message</h1>
         <ol id="messageSteps">
             <li class="messageStep">
                 <div class="stepHeader">
@@ -14,7 +15,7 @@
                     <asp:DropDownList runat="server" ID="shipsDropDown">
                     </asp:DropDownList>
                     <asp:HiddenField runat="server" ID="shipArrival"/>
-                    <asp:Button CssClass="smButton" runat="server" Text="Continue"/>
+                    <asp:Button CssClass="smButton" runat="server" Text="Continue" OnClick="shipSelected"/>
                 </div>
             </li>
             <li class="messageStep">
