@@ -11,7 +11,6 @@ using PortCDM_App_Code;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
-
 namespace PortCDM
 {
 	public partial class Ships : System.Web.UI.Page
@@ -22,54 +21,46 @@ namespace PortCDM
 
 		protected void Page_Load(Object sender, EventArgs e)
 		{
+			DataBaseHandler.getAllShips().Wait();
+			DataTable activeShipsDt = new DataTable();
+			activeShipsDt = DataBaseHandler.getActiveShips();
 
-			//      Note the spelling of keywords.
-            string connectionString = 
-                    @"server=datavetare.com;" +
-                    @"uid=lexxarc_portcdm;" +
-					@"password=runda@0@bordet;" +
-                    @"database=lexxarc_portcdm;";
-
-			con = new MySqlConnection(connectionString);
-			MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_ship");
-			sda = new MySqlDataAdapter();
-
-			cmd.Connection = con;
-            sda.SelectCommand = cmd;
-			DataTable dt = new DataTable();
-			sda.Fill(dt);
-
-			shipRepeater.DataSource = dt;
+			shipRepeater.DataSource = activeShipsDt;
 			shipRepeater.DataBind();
-			con.Close();
-			
+
+			DataTable inactiveShipsDT = new DataTable();
+			inactiveShipsDT = DataBaseHandler.getInActiveShips();
+
+			List<string> shipImos = new List<string>();
+
+			foreach(DataRow row in inactiveShipsDT.Rows)
+			{
+				shipImos.Add(row["imoNumber"].ToString());
+			}
+
+			addShipDropDown.DataSource = shipImos;
+			addShipDropDown.DataBind();
 		}
 
-		protected async void addNewShip(object sender, EventArgs e)
+		protected void addNewShip(object sender, EventArgs e)
 		{
 		}
 
 		protected void commentChanged(object sender, EventArgs e)
 		{
-			con.Open();
 			TextBox tb = ((TextBox)sender);
 			string comment = tb.Text;
 
 			Console.WriteLine(comment);
 
-			string imoNumber = ((Literal)tb.Parent.FindControl("imo")).Text;
+			string imo = ((Literal)tb.Parent.FindControl("imo")).Text;
 
-			Console.WriteLine(imoNumber);
+			Console.WriteLine(imo);
 
-			MySqlCommand cmd = new MySqlCommand("UPDATE tbl_ship SET comment = '" + comment + "' WHERE imoNumber = " + imoNumber + ";");
-			cmd.Connection = con;
+			DataBaseHandler.editComment(comment, imo);
 
-			sda = new MySqlDataAdapter();
-            sda.SelectCommand = cmd;
-			cmd.ExecuteNonQuery();
 			tb.Text = comment;
 
-			con.Close();
 
 		}
 
