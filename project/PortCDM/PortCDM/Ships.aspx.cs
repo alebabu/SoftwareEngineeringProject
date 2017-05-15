@@ -44,6 +44,7 @@ namespace PortCDM
 
 		protected void addNewShip(object sender, EventArgs e)
 		{
+			DataBaseHandler.activateShip(addShipDropDown.SelectedItem.Text);
 		}
 
 		protected void commentChanged(object sender, EventArgs e)

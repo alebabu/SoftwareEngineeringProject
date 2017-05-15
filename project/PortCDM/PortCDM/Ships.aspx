@@ -16,7 +16,7 @@
 						IMO-number:
 						<asp:DropDownList CssClass="imo-box" id="addShipDropDown" runat="server"></asp:DropDownList>
 					</p>
-					<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Get Ship Info" onClick="addNewShip"/>
+					<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Add ship" onClick="addNewShip"/>
 					
 				</div>
 			</div>
