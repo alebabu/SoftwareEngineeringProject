@@ -721,6 +721,8 @@ body {
 
 .listCounter svg {
     display: none;
+    padding: 9px;
+    fill: white;
 }
 
 .listCounter {
@@ -784,6 +786,44 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+#smContent .textInput {
+    -webkit-appearance: none;
+    border: #018abd 1px solid;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    padding: .75rem 1rem;
+}
+
 #smContent h1 {
     text-align: center;
+}
+
+.formText {
+    margin-top: 30px;
+    font-size: 15px;
+    color: #018abd;
+    display: block;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: .375rem;
+}
+
+.dateSeparator {
+    margin-top: 30px;
+    margin-right: 5px;
+    font-size: 15px;
+    color: #018abd;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: .375rem;
+    display: inline-block;
+}
+
+.dateSeparator:not(:first-child) {
+    margin-left: 15px;
+}
+
+.dateDropDown {
+    max-width: 50px;
 }

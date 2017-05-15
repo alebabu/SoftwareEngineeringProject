@@ -22,12 +22,75 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList shipsDropDown;
         
         /// <summary>
-        /// shipArrival control.
+        /// shipArrivalHiddenField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField shipArrival;
+        protected global::System.Web.UI.WebControls.HiddenField shipArrivalHiddenField;
+        
+        /// <summary>
+        /// messageTypeDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList messageTypeDropDown;
+        
+        /// <summary>
+        /// messageTypeHiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField messageTypeHiddenField;
+        
+        /// <summary>
+        /// commentText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal commentText;
+        
+        /// <summary>
+        /// commentBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox commentBox;
+        
+        /// <summary>
+        /// setDayDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList setDayDropDown;
+        
+        /// <summary>
+        /// setMonthDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList setMonthDropDown;
+        
+        /// <summary>
+        /// setYearDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList setYearDropDown;
     }
 }
