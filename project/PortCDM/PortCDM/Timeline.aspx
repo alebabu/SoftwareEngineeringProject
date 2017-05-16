@@ -9,6 +9,7 @@
    <div id="messageBox">
         <h1>Timeline</h1>
 		<div id="events">
+			<asp:DropDownList runat="server" id="vesselDDList" CssClass=""></asp:DropDownList>
             <asp:Repeater id="eventListBox" runat="server">
 			    <ItemTemplate>
                     <ul class="cbp_tmtimeline">
@@ -22,6 +23,7 @@
 			                <p><asp:Literal runat="server" Text='<%# Eval("serviceState.at.name") %>'></asp:Literal></p>
 		                </div>
 	                </li>
+					</ul>	
                  </ItemTemplate>
              </asp:Repeater>		
         </div>
