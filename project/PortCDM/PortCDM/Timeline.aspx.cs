@@ -13,18 +13,16 @@ using PortCDM_App_Code;
 namespace PortCDM
 {
     public partial class Timeline : System.Web.UI.Page
+
     {
-        protected async void Page_Load(object sender, EventArgs e)
+        public string time;
+        
+        protected void Page_Load(object sender, EventArgs e)
         {
-
-            //List<portCallMessage> list = await RestHandler.getEvents();
-            //eventListBox.DataSource = list;
-            //eventListBox.DataBind();
-
             LoadList();
             LoadEvents(sender, e);
         }
-
+        
 
         protected void LoadList(){
             DataTable activeShips = DataBaseHandler.getActiveShips();
@@ -33,7 +31,7 @@ namespace PortCDM
             foreach (DataRow ship in activeShips.Rows)
 			{
 				Vessel v = new Vessel();
-                v.portCallID = ship["portCallID"].ToString();
+                v.portCallId = ship["portCallID"].ToString();
 				v.imo = ship["imoNumber"].ToString();
 				v.name = ship["name"].ToString();
 				shipList.Add(v);
@@ -44,12 +42,18 @@ namespace PortCDM
             vesselDDList.DataBind();
         }
 
-        protected void LoadEvents(object sender, EventArgs e){
-            List<portCallMessage> list = RestHandler.getEvents();
-            List<portCallMessage> eventList = list.Where(item => item.portCallId == vesselDDList.SelectedItem.Value).ToList();
-            Console.WriteLine("id:" + vesselDDList.SelectedItem.Text);
-			eventListBox.DataSource = eventList;
-			eventListBox.DataBind();
+        protected async void LoadEvents(object sender, EventArgs e){
+
+            
+            
+            List<portCallMessage> list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
+            string time = list[0].locationState.time;
+            string res = time.Substring(11, 5);
+            System.Diagnostics.Debug.WriteLine(vesselDDList.SelectedItem.Value);
+            eventListBox.DataSource = list;
+            eventListBox.DataBind();
+
         }
+
     }
 }
