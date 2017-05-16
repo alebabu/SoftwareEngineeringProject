@@ -33,7 +33,7 @@ namespace PortCDM
             foreach (DataRow ship in activeShips.Rows)
 			{
 				Vessel v = new Vessel();
-                v.portCallID = ship["portCallID"].ToString();
+                v.portCallId = ship["portCallID"].ToString();
 				v.imo = ship["imoNumber"].ToString();
 				v.name = ship["name"].ToString();
 				shipList.Add(v);
@@ -44,8 +44,8 @@ namespace PortCDM
             vesselDDList.DataBind();
         }
 
-        protected void LoadEvents(object sender, EventArgs e){
-            List<portCallMessage> list = RestHandler.getEvents();
+        protected async void LoadEvents(object sender, EventArgs e){
+            List<portCallMessage> list = await RestHandler.getEvents();
             List<portCallMessage> eventList = list.Where(item => item.portCallId == vesselDDList.SelectedItem.Value).ToList();
             Console.WriteLine("id:" + vesselDDList.SelectedItem.Text);
 			eventListBox.DataSource = eventList;
