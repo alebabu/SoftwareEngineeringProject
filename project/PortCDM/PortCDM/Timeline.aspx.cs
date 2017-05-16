@@ -15,10 +15,10 @@ namespace PortCDM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             List<portCallMessage> list = RestHandler.getEvents();
             eventListBox.DataSource = list;
             eventListBox.DataBind();
+
 
         }
     }
