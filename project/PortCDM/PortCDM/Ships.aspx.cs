@@ -23,7 +23,7 @@ namespace PortCDM
 		{
 			if (!(this.IsPostBack))
 			{
-				//DataBaseHandler.getAllShips().Wait();
+				DataBaseHandler.getAllShips().Wait();
 				DataTable activeShipsDt = new DataTable();
 				activeShipsDt = DataBaseHandler.getActiveShips();
 

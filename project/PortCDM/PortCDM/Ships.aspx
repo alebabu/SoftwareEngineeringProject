@@ -38,8 +38,8 @@
 										<p>Vessel ID: <asp:Literal runat="server" id="imo" Text='<%# Eval("imoNumber") %>'/></p>
 									</div>
 									<div class="right-content">
-										<img class="icon" src="../Images/edit_blue.svg" />
-										<br/>
+										<!--<img class="icon" src="../Images/edit_blue.svg" />
+										<br/>-->
 										<asp:Image CssClass="ship-img" runat="server" ImageUrl='<%# Eval("imgURL") %>' />
 									</div>
 								</label>
@@ -50,7 +50,7 @@
 							</div>
 							<div class="ship-links">
 								<ul>
-									<li><a href="../NewPortCDMMessage.aspx"><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
+									<li><a href="../SendMessage.aspx"><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
 									<li><a href="../Timeline.aspx"><img src="../Images/timeline_blue.svg" />Go to timeline</a></li>
 									<li><a href=""><img src="../Images/active_blue.svg"/>Active</a></li>
 								</ul>
