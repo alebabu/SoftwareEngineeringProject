@@ -586,7 +586,7 @@ body {
 .accordion .article h3 {
 	margin-top: 0;
     font-size: 16px;
-	color: ##001b48;
+	color: #001b48;
 	font-weight: normal;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -699,6 +699,136 @@ body {
     height: 250px;
 }
 
+/*----------------------------Send Message--------------------------------------*/
 
+#smContent {
+    padding: 5px 30px 30px 30px;
+}
 
+.messageStep {
+    border-bottom: 1px solid #018abd;
+    box-sizing: border-box;
+    padding: 1.5rem 0;
+}
 
+.listCounter:before {
+    height: 2.7rem;
+    width: 2.7rem;
+    content: counter(li-counter);
+    counter-increment: li-counter;
+    display: inline-block;
+    font-size: 1.38462rem;
+    color: #fff;
+    line-height: 41px;
+    text-align: center;
+}
+
+.listCounter svg {
+    display: none;
+    padding: 9px;
+    fill: white;
+}
+
+.listCounter {
+    background-color: #6cbfee;
+    border-radius: 50%;
+    height: 2.69231rem;
+    width: 2.69231rem;
+}
+
+.stepHeader {
+    align-items: center;
+    display: flex;
+    height: 2.7rem;
+    margin-right: 1.5rem;
+}
+
+#messageSteps {
+    list-style-type: none;
+    counter-reset: li-counter;
+}
+
+.stepHeader h2 {
+    font-size: 24px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: #018abd;
+    margin-left: 10px;
+    padding: 1.5rem 0;
+}
+
+.stepContent {
+    border: none;
+    box-shadow: none;
+    margin-top: 1.67982rem;
+    margin-bottom: 1.5rem;
+    max-width: 850px;
+    padding: 0;
+    display: block;
+    margin-left: 4.19231rem;
+}
+
+.stepContent select {
+    -webkit-appearance: menulist;
+    padding: .75rem 1.5rem .75rem 1rem;
+    width: 100%;
+    min-width: 100px;
+    color: #018abd;
+    border: #018abd 1px solid;
+    background-color: rgba(256, 256, 256, 0.5);
+    border-radius: 5px
+}
+
+.smButton {
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 40px;
+    margin: 20px 10px 10px 0;
+    font-size: 1rem;
+    color: #FFF;
+    text-decoration: none;
+    background-color: #018abd;
+    -webkit-font-smoothing: antialiased;
+}
+
+#smContent .textInput {
+    -webkit-appearance: none;
+    border: #018abd 1px solid;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    padding: .75rem 1rem;
+}
+
+#smContent h1 {
+    text-align: center;
+}
+
+.formText {
+    margin-top: 30px;
+    font-size: 15px;
+    color: #018abd;
+    display: block;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: .375rem;
+}
+
+.dateSeparator {
+    margin-top: 30px;
+    margin-right: 5px;
+    font-size: 15px;
+    color: #018abd;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: .375rem;
+    display: inline-block;
+}
+
+.dateSeparator:not(:first-child) {
+    margin-left: 15px;
+}
+
+.dateDropDown {
+    max-width: 50px;
+}
