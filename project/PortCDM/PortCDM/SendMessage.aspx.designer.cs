@@ -13,6 +13,33 @@ namespace PortCDM {
     public partial class SendMessage {
         
         /// <summary>
+        /// listCounterOne control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listCounterOne;
+        
+        /// <summary>
+        /// stepOneCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stepOneCheck;
+        
+        /// <summary>
+        /// stepOne control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stepOne;
+        
+        /// <summary>
         /// shipsDropDown control.
         /// </summary>
         /// <remarks>
@@ -22,13 +49,49 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList shipsDropDown;
         
         /// <summary>
-        /// shipArrivalHiddenField control.
+        /// portCallIdHiddenField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField shipArrivalHiddenField;
+        protected global::System.Web.UI.WebControls.HiddenField portCallIdHiddenField;
+        
+        /// <summary>
+        /// shipImoHiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField shipImoHiddenField;
+        
+        /// <summary>
+        /// listCounterTwo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listCounterTwo;
+        
+        /// <summary>
+        /// stepTwoCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stepTwoCheck;
+        
+        /// <summary>
+        /// stepTwo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stepTwo;
         
         /// <summary>
         /// messageTypeDropDown control.
@@ -49,6 +112,33 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.HiddenField messageTypeHiddenField;
         
         /// <summary>
+        /// listCounterThree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listCounterThree;
+        
+        /// <summary>
+        /// stepThreeCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stepThreeCheck;
+        
+        /// <summary>
+        /// stepThree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stepThree;
+        
+        /// <summary>
         /// commentText control.
         /// </summary>
         /// <remarks>
@@ -65,6 +155,33 @@ namespace PortCDM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox commentBox;
+        
+        /// <summary>
+        /// stageField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stageField;
+        
+        /// <summary>
+        /// serviceTimeSequenceText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal serviceTimeSequenceText;
+        
+        /// <summary>
+        /// serviceTimeSequenceDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList serviceTimeSequenceDropDown;
         
         /// <summary>
         /// timeTypeDropDown control.
@@ -103,6 +220,60 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList setYearDropDown;
         
         /// <summary>
+        /// setHourDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList setHourDropDown;
+        
+        /// <summary>
+        /// setMinuteDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList setMinuteDropDown;
+        
+        /// <summary>
+        /// atOrBothBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl atOrBothBox;
+        
+        /// <summary>
+        /// atRadioButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton atRadioButton;
+        
+        /// <summary>
+        /// betweenRadioButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton betweenRadioButton;
+        
+        /// <summary>
+        /// fromOrToBoxes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fromOrToBoxes;
+        
+        /// <summary>
         /// fromCheckBox control.
         /// </summary>
         /// <remarks>
@@ -110,6 +281,15 @@ namespace PortCDM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox fromCheckBox;
+        
+        /// <summary>
+        /// toCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox toCheckBox;
         
         /// <summary>
         /// fromLocationType control.
@@ -148,15 +328,6 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.TextBox fromLongitudeBox;
         
         /// <summary>
-        /// toCheckBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox toCheckBox;
-        
-        /// <summary>
         /// toLocationType control.
         /// </summary>
         /// <remarks>
@@ -191,5 +362,68 @@ namespace PortCDM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox toLongitudeBox;
+        
+        /// <summary>
+        /// atLocationType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList atLocationType;
+        
+        /// <summary>
+        /// atLocationNameBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox atLocationNameBox;
+        
+        /// <summary>
+        /// atLatitudeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox atLatitudeBox;
+        
+        /// <summary>
+        /// atLongitudeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox atLongitudeBox;
+        
+        /// <summary>
+        /// sendMessageButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button sendMessageButton;
+        
+        /// <summary>
+        /// loadingText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label loadingText;
+        
+        /// <summary>
+        /// messageSentButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button messageSentButton;
     }
 }

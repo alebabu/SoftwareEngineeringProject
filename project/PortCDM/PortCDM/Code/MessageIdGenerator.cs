@@ -7,19 +7,18 @@ namespace PortCDM.Code
 {
     public class MessageIdGenerator
     {
-        public string prefix { get; private set; }
-        public int idLength { get; private set; }
-
-        public MessageIdGenerator(string prefix, int idLength)
+        public MessageIdGenerator()
         {
-            this.prefix = prefix;
-            this.idLength = idLength;
         }
 
         public string generateMessageId()
         {
-            string id = Randomizer.genRandomString(idLength);
-            id = prefix + id;
+            string id = Randomizer.genRandomStringAF(8);
+            id += "-" + Randomizer.genRandomStringAF(4);
+            id += "-4" + Randomizer.genRandomStringAF(3);
+            id += "-" + Randomizer.genRandomStringAB89(1);
+            id += Randomizer.genRandomStringAF(3);
+            id += "-" + Randomizer.genRandomStringAF(12);
             return id;
         }
     }

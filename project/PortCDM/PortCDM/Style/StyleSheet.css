@@ -707,11 +707,9 @@ body {
     padding: 1.5rem 0;
 }
 
-.listCounter:before {
+.listCounterDiv {
     height: 2.7rem;
     width: 2.7rem;
-    content: counter(li-counter);
-    counter-increment: li-counter;
     display: inline-block;
     font-size: 1.38462rem;
     color: #fff;
@@ -720,7 +718,7 @@ body {
 }
 
 .listCounter svg {
-    display: none;
+    display: inline-block;
     padding: 9px;
     fill: white;
 }
@@ -806,15 +804,20 @@ body {
     display: inline-block;
 }
 
-.coordinateBox:nth-child(odd) {
-    margin-left: 72px;
+.coordinateBox:nth-child(even) {
+    margin-left: 79px;
+}
+
+.atCoordinateBox {
+    width: 39%;
+    display: inline-block;
 }
 
 .formText {
     margin-top: 30px;
     font-size: 15px;
     color: #018abd;
-    display: block;
+    display: inline-block;
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: .375rem;
@@ -850,5 +853,23 @@ body {
 }
 
 .checkBoxes {
-    display: block;
+    margin-top: 0px !important;
+    display: inline-block;
 }
+
+#toCheckBoxCss, #fromCheckBoxCss {
+    display: inline-block;
+}
+
+#fromLocationForm, #toLocationForm, #atLocationForm {
+    display: none;
+}
+
+.timeBox {
+    width: 10%!important;
+}
+
+.fancyBoxButton {
+    display: none;
+}
+

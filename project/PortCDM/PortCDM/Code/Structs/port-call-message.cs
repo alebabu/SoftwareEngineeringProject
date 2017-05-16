@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 [Serializable, XmlRoot("collection")]
 public class portCallMessages
 {
-    [XmlElement(ElementName = "portCallMessage", Namespace = "urn:x-mrn:stm:schema:port-call-message:0.0.16")]
+    [XmlElement(ElementName = "portCallMessage", Namespace = "urn:mrn:stm:schema:port-call-message:0.6")]
     public List<portCallMessage> pcms { get; set; }
 }
 
