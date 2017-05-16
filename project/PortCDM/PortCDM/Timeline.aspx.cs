@@ -13,9 +13,9 @@ namespace PortCDM
 {
     public partial class Timeline : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected async void Page_Load(object sender, EventArgs e)
         {
-            List<portCallMessage> list = RestHandler.getEvents();
+            List<portCallMessage> list = await RestHandler.getEvents();
             eventListBox.DataSource = list;
             eventListBox.DataBind();
 

@@ -29,7 +29,7 @@ namespace PortCDM_App_Code
 
 			Console.WriteLine("Creating queue with Filter PORTCALL, " + portCallId + "...");
 
-			string queueId = await RestHandler.createFilteredQueue(filter);
+			string queueId = await QueueHandler.createFilteredQueue(filter);
 
 			Console.WriteLine("Queue created with id: " + queueId + ", adding to subscribed list...");
 
@@ -49,7 +49,7 @@ namespace PortCDM_App_Code
 
 			foreach (string sub in subscribedQueues)
 			{
-				List<portCallMessage> tmp = await RestHandler.pollQueue(sub);
+				List<portCallMessage> tmp = await QueueHandler.pollQueue(sub);
 				foreach (portCallMessage pcm in tmp)
 				{
 					Console.WriteLine("Update detected on PortCall: " + pcm.portCallId);

@@ -96,39 +96,24 @@ namespace PortCDM_App_Code
         {
             return getPortCallId(imo, plannedArrival.ToString());
         }
-      
-              
-      
-      public static List<portCallMessage> getEvents()
-        {
-            
 
-            
-            List<portCallMessage> list = new List<portCallMessage>();
-            portCallMessage test = new portCallMessage();
-            test.locationState = new LocationState();
-            test.locationState.timeType = TimeType.ESTIMATED;
-            test.vesselId = "bajs69";
-            
-            test.locationState.time = "13:00";
-            test.serviceState = new ServiceState();
-            test.serviceState.at = new Location();
-            test.serviceState.serviceObject = ServiceObject.ANCHORING;
-            
-            test.serviceState.at.name = "Port of Gothenburg";
-            portCallMessage test2 = new portCallMessage();
-            test2.locationState = new LocationState();
-            test2.serviceState = new ServiceState();
-            test2.serviceState.at = new Location();
-            test2.locationState.timeType = TimeType.ESTIMATED;
-            test2.vesselId = "bajs70";
-            test2.locationState.time = "14:00";
-            test2.serviceState.serviceObject = ServiceObject.GANGWAY;
-            test2.serviceState.at.name = "China";
-            list.Add(test);
-            list.Add(test2);
+
+
+        public async static Task<List<portCallMessage>> getEvents()
+        {
+            string callID = "urn:mrn:stm:portcdm:port_call:SEGOT:0af803d8-f9e9-4d53-a9cd-e727dc4ebf06";
+            string date = "2000-04-03T14:00:34Z";
+            List<Filter> filters = new List<Filter>();
+            Filter filter1 = new Filter(FilterType.PORT_CALL, callID);
+            filters.Add(filter1);
+
+            string q = await QueueHandler.createFilteredQueue(filters, date);
+
+            var list = await QueueHandler.pollQueue(q);
+            System.Diagnostics.Debug.WriteLine("listan: " + list);
             return list;
+
         }
-	}
+    }
 }
 

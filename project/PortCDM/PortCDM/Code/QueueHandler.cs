@@ -41,7 +41,32 @@ namespace PortCDM_App_Code
 			return result;
 		}
 
-		public static async Task<List<portCallMessage>> pollQueue(string queueId)
+        public static async Task<String> createFilteredQueue(List<Filter> filters, string date)
+        {
+            PrepareRestCall.postXML();
+            string jsonFilter = "[\n";
+
+            for (int i = 0; i < filters.Count; i++)
+            {
+                if (i != filters.Count - 1)
+                {
+                    jsonFilter += (filters[i].toJson() + ",\n");
+                }
+                else
+                {
+                    jsonFilter += (filters[i].toJson());
+                }
+            }
+            jsonFilter += "\n]";
+
+            Console.WriteLine("Filters in Json format:\n" + jsonFilter);
+            var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mqs?fromTime=" + date, new StringContent((jsonFilter), Encoding.UTF8, "application/json"));
+            string result = response.Content.ReadAsStringAsync().Result;
+            response.EnsureSuccessStatusCode();
+            return result;
+        }
+
+        public static async Task<List<portCallMessage>> pollQueue(string queueId)
 		{
 			PrepareRestCall.getXML();
 
