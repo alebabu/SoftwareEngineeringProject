@@ -21,30 +21,34 @@ namespace PortCDM
 
 		protected void Page_Load(Object sender, EventArgs e)
 		{
-			DataBaseHandler.getAllShips().Wait();
+			//DataBaseHandler.getAllShips().Wait();
 			DataTable activeShipsDt = new DataTable();
 			activeShipsDt = DataBaseHandler.getActiveShips();
 
 			shipRepeater.DataSource = activeShipsDt;
 			shipRepeater.DataBind();
 
-			DataTable inactiveShipsDT = new DataTable();
-			inactiveShipsDT = DataBaseHandler.getInActiveShips();
 
-			List<string> shipImos = new List<string>();
+			DataTable inActiveShipsDT = DataBaseHandler.getInActiveShips();
+			List<Vessel> shipList = new List<Vessel>();
+            foreach(DataRow ship in inActiveShipsDT.Rows)
+            {
+                Vessel v = new Vessel();
+				v.imo = ship["imoNumber"].ToString();
+				v.name = ship["name"].ToString();
+				shipList.Add(v);
+            }
+			addShipDropDown.DataSource = shipList;
+            addShipDropDown.DataTextField = "name";
+            addShipDropDown.DataValueField = "imo";
+            
+            addShipDropDown.DataBind();
 
-			foreach(DataRow row in inactiveShipsDT.Rows)
-			{
-				shipImos.Add(row["imoNumber"].ToString());
-			}
-
-			addShipDropDown.DataSource = shipImos;
-			addShipDropDown.DataBind();
 		}
 
 		protected void addNewShip(object sender, EventArgs e)
 		{
-			DataBaseHandler.activateShip(addShipDropDown.SelectedItem.Text);
+			DataBaseHandler.activateShip(addShipDropDown.SelectedItem.Value);
 		}
 
 		protected void commentChanged(object sender, EventArgs e)
