@@ -76,6 +76,7 @@ body {
 
 /* ----------------------- Side menu ------------------------------*/
 #sideMenu {
+    z-index: 1;
 	position: absolute;
 	top: 60px;
 	left: 0;
@@ -548,6 +549,7 @@ body {
 
 
 .accordion label {
+    z-index: 0;
     padding: 20px 20px 15px 20px;
     position: relative;
     display: block;
