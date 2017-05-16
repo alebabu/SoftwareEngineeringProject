@@ -24,9 +24,48 @@ namespace PortCDM
 			if (!(this.IsPostBack))
 			{
 				//DataBaseHandler.getAllShips().Wait();
+				setDataTables();
+			}
+
+		}
+
+		protected void addNewShip(object sender, EventArgs e)
+		{
+			DataBaseHandler.activateShip(addShipDropDown.SelectedItem.Value);
+
+			setDataTables();
+		}
+
+		protected void commentChanged(object sender, EventArgs e)
+		{
+			TextBox tb = ((TextBox)sender);
+			string comment = tb.Text;
+
+			string imo = ((Literal)tb.Parent.FindControl("imo")).Text;
+
+			DataBaseHandler.editComment(comment, imo);
+
+			tb.Text = comment;
+
+
+		}
+
+		protected void deactivateShip(object sender, EventArgs e)
+		{
+			Button b = ((Button)sender);
+
+			string imo = ((Literal)b.Parent.FindControl("imo")).Text;
+
+			DataBaseHandler.deactivateShip(imo);
+
+			setDataTables();
+
+		}
+
+		private void setDataTables()
+		{
 				DataTable activeShipsDt = new DataTable();
 				activeShipsDt = DataBaseHandler.getActiveShips();
-
 				shipRepeater.DataSource = activeShipsDt;
 				shipRepeater.DataBind();
 
@@ -44,37 +83,8 @@ namespace PortCDM
 				addShipDropDown.DataValueField = "imo";
 
 				addShipDropDown.DataBind();
-			}
-
 		}
 
-		protected void addNewShip(object sender, EventArgs e)
-		{
-			DataBaseHandler.activateShip(addShipDropDown.SelectedItem.Value);
-
-			DataTable activeShipsDt = new DataTable();
-			activeShipsDt = DataBaseHandler.getActiveShips();
-			shipRepeater.DataSource = activeShipsDt;
-			shipRepeater.DataBind();
-		}
-
-		protected void commentChanged(object sender, EventArgs e)
-		{
-			TextBox tb = ((TextBox)sender);
-			string comment = tb.Text;
-
-			Console.WriteLine(comment);
-
-			string imo = ((Literal)tb.Parent.FindControl("imo")).Text;
-
-			Console.WriteLine(imo);
-
-			DataBaseHandler.editComment(comment, imo);
-
-			tb.Text = comment;
-
-
-		}
 
 
 	}

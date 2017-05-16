@@ -14,6 +14,7 @@ body {
 	background-color:#97cbdc;
 	width:100%;
 	height:60px;
+	z-index: 1;
 }
 
 #navMenu img{
@@ -480,9 +481,12 @@ body {
    color:    #92c1cc;
 }
 
-.add-icon {
-	width: 30px;
-	height: 30px;
+.deactivate-button {
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #001b48;
+	color: #001b48;
+	font-size: 16px;
 }
 
 .ship-links {
@@ -495,6 +499,8 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display : flex;
+  	align-items : center;
 }
 
 .ship-links img {
@@ -506,6 +512,7 @@ body {
 .ship-links li {
     float: left;
     margin-right: 30px;
+    vertical-align: middle;
 }
 
 .ship-links li a {
@@ -643,6 +650,11 @@ body {
 
 
 /*----------------------------Add ship--------------------------------------*/
+
+.add-icon {
+	width: 30px;
+	height: 30px;
+}
 
 .add-button {
 	border:0;

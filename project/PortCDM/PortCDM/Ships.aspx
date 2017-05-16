@@ -52,7 +52,7 @@
 								<ul>
 									<li><a href="../SendMessage.aspx"><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
 									<li><a href="../Timeline.aspx"><img src="../Images/timeline_blue.svg" />Go to timeline</a></li>
-									<li><a href=""><img src="../Images/active_blue.svg"/>Active</a></li>
+									<li><asp:Button CssClass="deactivate-button" runat="server" Text="Deactivate ship" OnClick="deactivateShip"/></li>
 								</ul>
 							</div>
 						</ItemTemplate>
