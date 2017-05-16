@@ -454,6 +454,24 @@ body {
 
 /* ------------------------------- Ships --------------------------*/
 
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #92c1cc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #92c1cc;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #92c1cc;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #92c1cc;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #92c1cc;
+}
+
 .add-icon {
 	width: 30px;
 	height: 30px;
@@ -492,8 +510,10 @@ body {
 .ship-comment {
 	border: 1px solid white;
 	margin-left: 10px;
+	margin-right: 10px;
 	font-size: 14px;
 	color: #018abd;
+	width: 98%;
 }
 
 .ship-comment:focus {

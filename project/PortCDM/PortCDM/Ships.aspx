@@ -13,7 +13,7 @@
 				<div class="article ac-small">
 					<h1>Add new ship</h1>
 					<p>
-						IMO-number:
+						Name of the ship:
 						<asp:DropDownList CssClass="imo-box" id="addShipDropDown" runat="server"></asp:DropDownList>
 					</p>
 					<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Add ship" onClick="addNewShip"/>
@@ -45,8 +45,7 @@
 								</label>
 								<div class="article ac-small">
 									<h3>Comments</h3>
-									<asp:TextBox CssClass="ship-comment" runat="server" Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true" CommandArgument='<%#Eval("imoNumber")%>' CommandName="ImoNumber"></asp:TextBox>
-
+									<asp:TextBox CssClass="ship-comment" runat="server" placeholder="Add comment..." Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true" CommandArgument='<%#Eval("imoNumber")%>' CommandName="ImoNumber"></asp:TextBox>
 								</div>
 							</div>
 							<div class="ship-links">
