@@ -1,5 +1,5 @@
 
-﻿//#define SECONDARYIP
+﻿#define SECONDARYIP
 //NOTE(Olle): comment out the above to use the standard ip (192.168.56.101:8080)
 
 using System;
@@ -77,6 +77,7 @@ namespace PortCDM_App_Code
                 pc = responseData.ToList();
             }
             return pc;
+
         }
 
         public static async Task<string> getPortCallId(string imo, string plannedArrival)

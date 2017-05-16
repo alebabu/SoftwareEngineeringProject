@@ -1,7 +1,9 @@
-﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Timeline.aspx.cs" Inherits="PortCDM.Timeline"%>
-    
+
+<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Timeline.aspx.cs" Inherits="PortCDM.Timeline"%>
+
 <asp:Content runat="server" ID="MessageHead" ContentPlaceHolderID="cpHeadContent">
     <script type="text/javascript" src="Scripts/TimeLine.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="cpMainContent" runat="server">
 
@@ -9,7 +11,7 @@
    <div id="messageBox">
         <h1>Timeline</h1>
 		<div id="events">
-			<asp:DropDownList runat="server" id="vesselDDList" CssClass=""></asp:DropDownList>
+			<asp:DropDownList runat="server" id="vesselDDList" CssClass="dropDownListStyle" OnSelectedIndexChanged="LoadEvents"></asp:DropDownList>
             <asp:Repeater id="eventListBox" runat="server">
 			    <ItemTemplate>
                     <ul class="cbp_tmtimeline">
