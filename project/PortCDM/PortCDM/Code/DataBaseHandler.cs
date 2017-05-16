@@ -134,6 +134,8 @@ namespace PortCDM_App_Code
 			conn = new MySqlConnection(connectionString);
 			MySqlCommand cmd = new MySqlCommand("UPDATE tbl_ship SET comment = '" + comment + "' WHERE imoNumber = " +
 												imo + ";");
+
+			conn.Open();
 			cmd.Connection = conn;
 			cmd.ExecuteNonQuery();
 			conn.Close();
