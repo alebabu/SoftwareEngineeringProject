@@ -103,6 +103,15 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList setYearDropDown;
         
         /// <summary>
+        /// fromCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox fromCheckBox;
+        
+        /// <summary>
         /// fromLocationType control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace PortCDM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox fromLongitudeBox;
+        
+        /// <summary>
+        /// toCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox toCheckBox;
         
         /// <summary>
         /// toLocationType control.

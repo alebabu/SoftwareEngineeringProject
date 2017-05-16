@@ -790,6 +790,7 @@ body {
 #smContent .textInput {
     -webkit-appearance: none;
     border: #018abd 1px solid;
+    box-sizing: border-box;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.5);
     width: 100%;
@@ -801,12 +802,12 @@ body {
 }
 
 .coordinateBox {
-    width: 45%;
+    width: 39%;
     display: inline-block;
 }
 
-.coordinateBox:nth-child(2n) {
-    margin-left: 3rem;
+.coordinateBox:nth-child(odd) {
+    margin-left: 72px;
 }
 
 .formText {
@@ -836,4 +837,18 @@ body {
 
 .dateDropDown {
     max-width: 50px;
+}
+
+.locationBox {
+    width: 45%;
+    display: inline-block;
+    text-align: left;
+}
+
+.locationBox:nth-child(odd) {
+    margin-right:9%;
+}
+
+.checkBoxes {
+    display: block;
 }
