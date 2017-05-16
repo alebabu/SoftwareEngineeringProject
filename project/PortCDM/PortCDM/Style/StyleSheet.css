@@ -800,6 +800,15 @@ body {
     text-align: center;
 }
 
+.coordinateBox {
+    width: 45%;
+    display: inline-block;
+}
+
+.coordinateBox:nth-child(2n) {
+    margin-left: 3rem;
+}
+
 .formText {
     margin-top: 30px;
     font-size: 15px;

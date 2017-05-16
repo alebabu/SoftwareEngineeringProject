@@ -68,6 +68,54 @@
                             <span class="dateSeparator">Year</span>
                             <asp:DropDownList runat="server" CssClass="yearDropDown dateDropDown" ID="setYearDropDown"/>
                         </div>
+                        </div>
+                    <div id="fromLocation locationBox">
+                        <div class="formText"><asp:Literal runat="server">From Location Type:</asp:Literal></div>
+                        <asp:DropDownList ID="fromLocationType" runat="server">
+                            <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
+                            <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
+                            <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>
+                            <asp:ListItem Text="Other Location" Value="LOC"></asp:ListItem>
+                            <asp:ListItem Text="Pilot Boarding Area" Value="PILOT_BOARDING_AREA"></asp:ListItem>
+                            <asp:ListItem Text="Rendezvous Area" Value="RENDEZV_AREA"></asp:ListItem>
+                            <asp:ListItem Text="Traffic Area" Value="TRAFFIC_AREA"></asp:ListItem>
+                            <asp:ListItem Text="Tug Zone" Value="TUG_ZONE"></asp:ListItem>
+                            <asp:ListItem Text="Vessel" Value="Vessel"></asp:ListItem>
+                        </asp:DropDownList>
+                        <div class="formText"><asp:Literal runat="server">From Location Name:</asp:Literal></div>
+                        <asp:TextBox ID="fromLocationNameBox" CssClass="textInput" runat="server"></asp:TextBox>
+                        <div class="coordinateBox">
+                            <div class="formText"><asp:Literal runat="server">From Latitude:</asp:Literal></div>
+                            <asp:TextBox ID="fromLatitudeBox" CssClass="textInput" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="coordinateBox">
+                            <div class="formText"><asp:Literal runat="server">From Longitude:</asp:Literal></div>
+                            <asp:TextBox ID="fromLongitudeBox" CssClass="textInput" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                        <div id="toLocation locationBox">
+                            <div class="formText"><asp:Literal runat="server">To Location Type:</asp:Literal></div>
+                            <asp:DropDownList ID="toLocationType" runat="server">
+                                <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
+                                <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
+                                <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>
+                                <asp:ListItem Text="Other Location" Value="LOC"></asp:ListItem>
+                                <asp:ListItem Text="Pilot Boarding Area" Value="PILOT_BOARDING_AREA"></asp:ListItem>
+                                <asp:ListItem Text="Rendezvous Area" Value="RENDEZV_AREA"></asp:ListItem>
+                                <asp:ListItem Text="Traffic Area" Value="TRAFFIC_AREA"></asp:ListItem>
+                                <asp:ListItem Text="Tug Zone" Value="TUG_ZONE"></asp:ListItem>
+                                <asp:ListItem Text="Vessel" Value="Vessel"></asp:ListItem>
+                            </asp:DropDownList>
+                            <div class="formText"><asp:Literal runat="server">To Location Name:</asp:Literal></div>
+                            <asp:TextBox ID="toLocationNameBox" CssClass="textInput" runat="server"></asp:TextBox>
+                            <div class="coordinateBox">
+                                <div class="formText"><asp:Literal runat="server">To Latitude:</asp:Literal></div>
+                                <asp:TextBox ID="toLatitudeBox" CssClass="textInput" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="coordinateBox">
+                                <div class="formText"><asp:Literal runat="server">To Longitude:</asp:Literal></div>
+                                <asp:TextBox ID="toLongitudeBox" CssClass="textInput" runat="server"></asp:TextBox>
+                            </div>
                     </div>
                 </div>
             </li>
