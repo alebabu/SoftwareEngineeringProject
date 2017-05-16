@@ -3,8 +3,6 @@
 body {
 	margin: 0;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	background-image: url("../Images/backgroundImage.jpg");
-
 	background: url("../Images/backgroundImage.jpg") no-repeat rgb(30,30,30) fixed center center;
     background-size: cover;
 }
