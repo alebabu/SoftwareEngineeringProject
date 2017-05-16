@@ -50,15 +50,25 @@
                 </div>
                 <div class="stepContent">
                     <div class="formText"><asp:Literal runat="server" ID="commentText">Comment</asp:Literal></div>
-                    <asp:TextBox CssClass="textInput" ID="commentBox" runat="server"></asp:TextBox>
-                    <div id="dateField">
-                    <span class="dateSeparator">Day</span>
-                    <asp:DropDownList runat="server" CssClass="dayDropDown dateDropDown" ID="setDayDropDown"/>
-                    <span class="dateSeparator">Month</span>
-                    <asp:DropDownList runat="server" CssClass="monthDropDown dateDropDown" ID="setMonthDropDown"/>
-                    <span class="dateSeparator">Year</span>
-                    <asp:DropDownList runat="server" CssClass="yearDropDown dateDropDown" ID="setYearDropDown"/>
-                </div>
+                        <asp:TextBox CssClass="textInput" ID="commentBox" runat="server"></asp:TextBox>
+                        <div class="time">
+                            <div class="formText"><asp:Label runat="server">Time Type</asp:Label></div>
+                            <asp:DropDownList runat="server" ID="timeTypeDropDown">
+                                <asp:ListItem Text="Estimated" Value="ESTIMATED"></asp:ListItem>
+                                <asp:ListItem Text="Actual" Value="ACTUAL"></asp:ListItem>
+                                <asp:ListItem Text="Target" Value="TARGET"></asp:ListItem>
+                                <asp:ListItem Text="Recommended" Value="RECOMMENDED"></asp:ListItem>
+                                <asp:ListItem Text="Cancelled" Value="CANCELLED"></asp:ListItem>
+                            </asp:DropDownList>
+                            <div id="dateField">
+                            <span class="dateSeparator">Day</span>
+                            <asp:DropDownList runat="server" CssClass="dayDropDown dateDropDown" ID="setDayDropDown"/>
+                            <span class="dateSeparator">Month</span>
+                            <asp:DropDownList runat="server" CssClass="monthDropDown dateDropDown" ID="setMonthDropDown"/>
+                            <span class="dateSeparator">Year</span>
+                            <asp:DropDownList runat="server" CssClass="yearDropDown dateDropDown" ID="setYearDropDown"/>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ol>
