@@ -7,14 +7,11 @@ namespace PortCDM_App_Code
     {
 	    public static HttpClientInstance HttpClientInstance = new HttpClientInstance();
 
-#if SECONDARYIP
-        private const string baseURL = "http://192.168.1.115:8080";
-#else
-		private const string baseURL = "http://192.168.56.101:8080/";
-#endif
+		private const string baseURL = "http://sandbox-5.portcdm.eu:8080/";
 
-		private const string apiUserName = "porter";
-		private const string apiPassword = "porter";
+
+		private const string apiUserName = "test23";
+		private const string apiPassword = "test123";
 		private const string apiKey = "eeee";
 
 		private static bool isPrepared = false;

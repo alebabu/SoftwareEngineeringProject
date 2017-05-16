@@ -23,7 +23,7 @@ namespace PortCDM_App_Code
         {
             pcm.namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[]
             {
-                new XmlQualifiedName(string.Empty, "urn:x-mrn:stm:schema:port-call-message:0.0.16")
+                new XmlQualifiedName(string.Empty, "urn:mrn:stm:schema:port-call-message:0.6")
             });
             XmlSerializer xs = new XmlSerializer(typeof(portCallMessage), new XmlRootAttribute("portCallMessage") { Namespace = "urn:x-mrn:stm:schema:port-call-message:0.0.16" });
             StringWriter sw = new StringWriter();
