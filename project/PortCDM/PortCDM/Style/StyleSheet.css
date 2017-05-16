@@ -405,6 +405,10 @@ body {
 	}
 }
 
+.cbp_tmlabel p {
+    display:none;
+} 
+
 @media screen and (max-width: 47.2em) {
 	.cbp_tmtimeline:before {
 		display: none;
