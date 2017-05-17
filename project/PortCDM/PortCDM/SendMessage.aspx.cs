@@ -19,7 +19,7 @@ namespace PortCDM
         private MessageIdGenerator messageIdGenerator;
         private DateHandler dateHandler;
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected async void Page_Load(object sender, EventArgs e)
         {
             DataTable ships = DataBaseHandler.getActiveShips();
 
@@ -89,6 +89,24 @@ namespace PortCDM
             }
             else
                 fromOrToBoxes.Visible = false;
+
+            bindPortLocations();
+        }
+
+        private void bindPortLocations()
+        {
+            bindPortLocation(toLocationName);
+            bindPortLocation(fromLocationName);
+            bindPortLocation(atLocationName);
+        }
+
+        private async void bindPortLocation(DropDownList ddl)
+        {
+            List<PortLocation> locations = await RestHandler.getLocations();
+            ddl.DataSource = locations;
+            ddl.DataTextField = "URN";
+            ddl.DataValueField = "URN";
+            ddl.DataBind();
         }
 
         protected async void sendMessage(object sender, EventArgs e)
@@ -175,47 +193,53 @@ namespace PortCDM
                 message.serviceState.time = dateHandler.stringToDate(serviceStateTime);
 
                 //--------- Service state, location At -----------
-                message.serviceState.at = new Location();
-                message.serviceState.at.locationType =
-                    (LogicalLocation) Enum.Parse(typeof(LogicalLocation), atLocationType.SelectedValue);
-                message.serviceState.at.name = atLocationNameBox.Text;
+                if (atRadioButton.Checked)
+                {
+                    message.serviceState.at = new Location();
+                    message.serviceState.at.locationType =
+                        (LogicalLocation) Enum.Parse(typeof(LogicalLocation), atLocationType.SelectedValue);
+                    message.serviceState.at.locationMRN = atLocationName.SelectedValue;
 
-                //--------- Service state, location at, position -----------
-                message.serviceState.at.position = new Position();
-                message.serviceState.at.position.latitude =
-                    double.Parse(string.IsNullOrEmpty(atLatitudeBox.Text) ? "0.0" : atLatitudeBox.Text,
-                        System.Globalization.CultureInfo.InvariantCulture);
-                message.serviceState.at.position.longitude =
-                    double.Parse(string.IsNullOrEmpty(atLongitudeBox.Text) ? "0.0" : atLongitudeBox.Text,
-                        System.Globalization.CultureInfo.InvariantCulture);
+                    //--------- Service state, location at, position -----------
+                    message.serviceState.at.position = new Position();
+                    message.serviceState.at.position.latitude =
+                        double.Parse(string.IsNullOrEmpty(atLatitudeBox.Text) ? "0.0" : atLatitudeBox.Text,
+                            System.Globalization.CultureInfo.InvariantCulture);
+                    message.serviceState.at.position.longitude =
+                        double.Parse(string.IsNullOrEmpty(atLongitudeBox.Text) ? "0.0" : atLongitudeBox.Text,
+                            System.Globalization.CultureInfo.InvariantCulture);
+                }
 
                 //--------- Service state, location between --------
-                message.serviceState.between = new ServiceStateBetween();
-                message.serviceState.between.from = new Location();
-                message.serviceState.between.from.locationType =
-                    (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
-                message.serviceState.between.from.name = fromLocationNameBox.Text;
-                message.serviceState.between.to = new Location();
-                message.serviceState.between.to.locationType =
-                    (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
-                message.serviceState.between.to.name = toLocationNameBox.Text;
+                else if (betweenRadioButton.Checked)
+                {
+                    message.serviceState.between = new ServiceStateBetween();
+                    message.serviceState.between.from = new Location();
+                    message.serviceState.between.from.locationType =
+                        (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
+                    message.serviceState.between.from.locationMRN = fromLocationName.SelectedValue;
+                    message.serviceState.between.to = new Location();
+                    message.serviceState.between.to.locationType =
+                        (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
+                    message.serviceState.between.to.locationMRN = toLocationName.SelectedValue;
 
-                //--------- Service state, location between, position --------
-                message.serviceState.between.from.position = new Position();
-                //TODO(Olle): check null strings in a better more readable way
-                message.serviceState.between.from.position.latitude =
-                    double.Parse(string.IsNullOrEmpty(fromLatitudeBox.Text) ? "0.0" : fromLatitudeBox.Text,
-                        System.Globalization.CultureInfo.InvariantCulture);
-                message.serviceState.between.from.position.longitude =
-                    double.Parse(string.IsNullOrEmpty(fromLongitudeBox.Text) ? "0.0" : fromLongitudeBox.Text,
-                        System.Globalization.CultureInfo.InvariantCulture);
-                message.serviceState.between.to.position = new Position();
-                message.serviceState.between.to.position.latitude =
-                    double.Parse(string.IsNullOrEmpty(toLatitudeBox.Text) ? "0.0" : toLatitudeBox.Text,
-                        System.Globalization.CultureInfo.InvariantCulture);
-                message.serviceState.between.to.position.longitude =
-                    double.Parse(string.IsNullOrEmpty(toLongitudeBox.Text) ? "0.0" : toLongitudeBox.Text,
-                        System.Globalization.CultureInfo.InvariantCulture);
+                    //--------- Service state, location between, position --------
+                    message.serviceState.between.from.position = new Position();
+                    //TODO(Olle): check null strings in a better more readable way
+                    message.serviceState.between.from.position.latitude =
+                        double.Parse(string.IsNullOrEmpty(fromLatitudeBox.Text) ? "0.0" : fromLatitudeBox.Text,
+                            System.Globalization.CultureInfo.InvariantCulture);
+                    message.serviceState.between.from.position.longitude =
+                        double.Parse(string.IsNullOrEmpty(fromLongitudeBox.Text) ? "0.0" : fromLongitudeBox.Text,
+                            System.Globalization.CultureInfo.InvariantCulture);
+                    message.serviceState.between.to.position = new Position();
+                    message.serviceState.between.to.position.latitude =
+                        double.Parse(string.IsNullOrEmpty(toLatitudeBox.Text) ? "0.0" : toLatitudeBox.Text,
+                            System.Globalization.CultureInfo.InvariantCulture);
+                    message.serviceState.between.to.position.longitude =
+                        double.Parse(string.IsNullOrEmpty(toLongitudeBox.Text) ? "0.0" : toLongitudeBox.Text,
+                            System.Globalization.CultureInfo.InvariantCulture);
+                }
             }
 
             else
@@ -230,66 +254,82 @@ namespace PortCDM
                 {
                     message.locationState.departureLocation = new LocationStateDepartureLocation();
                     //------ Location State , departure location, from
-                    message.locationState.departureLocation.from = new Location();
-                    message.locationState.departureLocation.from.locationType = (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
-                    message.locationState.departureLocation.from.name = fromLocationNameBox.Text;
-                    message.locationState.departureLocation.from.position = new Position();
+                    if (fromCheckBox.Checked)
+                    {
+                        message.locationState.departureLocation.from = new Location();
+                        message.locationState.departureLocation.from.locationType =
+                            (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
+                        message.locationState.departureLocation.from.locationMRN = fromLocationName.SelectedValue;
+                        message.locationState.departureLocation.from.position = new Position();
 
-                    message.locationState.departureLocation.from.position.latitude =
-                        double.Parse(string.IsNullOrEmpty(fromLatitudeBox.Text) ? "0.0" : fromLatitudeBox.Text,
-                            System.Globalization.CultureInfo.InvariantCulture);
+                        message.locationState.departureLocation.from.position.latitude =
+                            double.Parse(string.IsNullOrEmpty(fromLatitudeBox.Text) ? "0.0" : fromLatitudeBox.Text,
+                                System.Globalization.CultureInfo.InvariantCulture);
 
-                    message.locationState.departureLocation.from.position.longitude =
-                        double.Parse(string.IsNullOrEmpty(fromLongitudeBox.Text) ? "0.0" : fromLongitudeBox.Text,
-                            System.Globalization.CultureInfo.InvariantCulture);
+                        message.locationState.departureLocation.from.position.longitude =
+                            double.Parse(string.IsNullOrEmpty(fromLongitudeBox.Text) ? "0.0" : fromLongitudeBox.Text,
+                                System.Globalization.CultureInfo.InvariantCulture);
+                    }
 
                     //------ Location State , departure location, to
-                    message.locationState.departureLocation.to = new Location();
-                    message.locationState.departureLocation.to.locationType = (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
-                    message.locationState.departureLocation.to.name = toLocationNameBox.Text;
-                    message.locationState.departureLocation.to.position = new Position();
+                    if (toCheckBox.Checked)
+                    {
+                        message.locationState.departureLocation.to = new Location();
+                        message.locationState.departureLocation.to.locationType =
+                            (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
+                        message.locationState.departureLocation.to.locationMRN = fromLocationName.SelectedValue;
+                        message.locationState.departureLocation.to.position = new Position();
 
-                    message.locationState.departureLocation.to.position.latitude =
-                        double.Parse(string.IsNullOrEmpty(toLatitudeBox.Text) ? "0.0" : toLatitudeBox.Text,
-                            System.Globalization.CultureInfo.InvariantCulture);
+                        message.locationState.departureLocation.to.position.latitude =
+                            double.Parse(string.IsNullOrEmpty(toLatitudeBox.Text) ? "0.0" : toLatitudeBox.Text,
+                                System.Globalization.CultureInfo.InvariantCulture);
 
-                    message.locationState.departureLocation.to.position.longitude =
-                        double.Parse(string.IsNullOrEmpty(toLongitudeBox.Text) ? "0.0" : toLongitudeBox.Text,
-                            System.Globalization.CultureInfo.InvariantCulture);
+                        message.locationState.departureLocation.to.position.longitude =
+                            double.Parse(string.IsNullOrEmpty(toLongitudeBox.Text) ? "0.0" : toLongitudeBox.Text,
+                                System.Globalization.CultureInfo.InvariantCulture);
+                    }
 
                 }
                 else if(messageTypeHiddenField.Value == "ARRIVAL_VESSEL")
                 {
                     message.locationState.arrivalLocation = new LocationStateArrivalLocation();
                     //------ Location State , arrival location, from
-                    message.locationState.arrivalLocation.from = new Location();
-                    message.locationState.arrivalLocation.from.locationType = (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
-                    message.locationState.arrivalLocation.from.name = fromLocationNameBox.Text;
+                    if (fromCheckBox.Checked)
+                    {
+                        message.locationState.arrivalLocation.from = new Location();
+                        message.locationState.arrivalLocation.from.locationType =
+                            (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
+                        message.locationState.arrivalLocation.from.locationMRN = fromLocationName.SelectedValue;
 
-                    message.locationState.arrivalLocation.from.position = new Position();
+                        message.locationState.arrivalLocation.from.position = new Position();
 
-                    message.locationState.arrivalLocation.from.position.latitude =
-                        double.Parse(string.IsNullOrEmpty(fromLatitudeBox.Text) ? "0.0" : fromLatitudeBox.Text,
-                            System.Globalization.CultureInfo.InvariantCulture);
+                        message.locationState.arrivalLocation.from.position.latitude =
+                            double.Parse(string.IsNullOrEmpty(fromLatitudeBox.Text) ? "0.0" : fromLatitudeBox.Text,
+                                System.Globalization.CultureInfo.InvariantCulture);
 
-                    message.locationState.arrivalLocation.from.position.longitude =
-                        double.Parse(string.IsNullOrEmpty(fromLongitudeBox.Text) ? "0.0" : fromLongitudeBox.Text,
-                            System.Globalization.CultureInfo.InvariantCulture);
+                        message.locationState.arrivalLocation.from.position.longitude =
+                            double.Parse(string.IsNullOrEmpty(fromLongitudeBox.Text) ? "0.0" : fromLongitudeBox.Text,
+                                System.Globalization.CultureInfo.InvariantCulture);
+                    }
 
                     //------ Location State , arrival location, to
-                    message.locationState.arrivalLocation.to = new Location();
-                    message.locationState.arrivalLocation.to.locationType = (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
-                    message.locationState.arrivalLocation.to.name = toLocationNameBox.Text;
+                    if (toCheckBox.Checked)
+                    {
+                        message.locationState.arrivalLocation.to = new Location();
+                        message.locationState.arrivalLocation.to.locationType =
+                            (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
+                        message.locationState.arrivalLocation.to.locationMRN = toLocationName.SelectedValue;
 
-                    message.locationState.arrivalLocation.to.position = new Position();
+                        message.locationState.arrivalLocation.to.position = new Position();
 
-                    message.locationState.arrivalLocation.to.position.latitude =
-                        double.Parse(string.IsNullOrEmpty(toLatitudeBox.Text) ? "0.0" : toLatitudeBox.Text,
-                            System.Globalization.CultureInfo.InvariantCulture);
+                        message.locationState.arrivalLocation.to.position.latitude =
+                            double.Parse(string.IsNullOrEmpty(toLatitudeBox.Text) ? "0.0" : toLatitudeBox.Text,
+                                System.Globalization.CultureInfo.InvariantCulture);
 
-                    message.locationState.arrivalLocation.to.position.longitude =
-                        double.Parse(string.IsNullOrEmpty(toLongitudeBox.Text) ? "0.0" : toLongitudeBox.Text,
-                            System.Globalization.CultureInfo.InvariantCulture);
+                        message.locationState.arrivalLocation.to.position.longitude =
+                            double.Parse(string.IsNullOrEmpty(toLongitudeBox.Text) ? "0.0" : toLongitudeBox.Text,
+                                System.Globalization.CultureInfo.InvariantCulture);
+                    }
                 }
             }
             return message;

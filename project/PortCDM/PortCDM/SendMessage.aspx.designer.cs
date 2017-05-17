@@ -301,13 +301,13 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList fromLocationType;
         
         /// <summary>
-        /// fromLocationNameBox control.
+        /// fromLocationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fromLocationNameBox;
+        protected global::System.Web.UI.WebControls.DropDownList fromLocationName;
         
         /// <summary>
         /// fromLatitudeBox control.
@@ -337,13 +337,13 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList toLocationType;
         
         /// <summary>
-        /// toLocationNameBox control.
+        /// toLocationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox toLocationNameBox;
+        protected global::System.Web.UI.WebControls.DropDownList toLocationName;
         
         /// <summary>
         /// toLatitudeBox control.
@@ -373,13 +373,13 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList atLocationType;
         
         /// <summary>
-        /// atLocationNameBox control.
+        /// atLocationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox atLocationNameBox;
+        protected global::System.Web.UI.WebControls.DropDownList atLocationName;
         
         /// <summary>
         /// atLatitudeBox control.

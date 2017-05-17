@@ -139,7 +139,7 @@
                         <div class="formText">
                             <asp:Literal runat="server">From Location Name:</asp:Literal>
                         </div>
-                        <asp:TextBox ID="fromLocationNameBox" CssClass="textInput" runat="server"></asp:TextBox>
+                        <asp:DropDownList runat="server" ID="fromLocationName"/>
                         <div class="coordinateBox">
                             <div class="formText">
                                 <asp:Literal runat="server">From Latitude:</asp:Literal>
@@ -171,7 +171,7 @@
                         <div class="formText">
                             <asp:Literal runat="server">To Location Name:</asp:Literal>
                         </div>
-                        <asp:TextBox ID="toLocationNameBox" CssClass="textInput" runat="server"></asp:TextBox>
+                        <asp:DropDownList runat="server" ID="toLocationName"/>
                         <div class="coordinateBox">
                             <div class="formText">
                                 <asp:Literal runat="server">To Latitude:</asp:Literal>
@@ -203,7 +203,7 @@
                         <div class="formText">
                             <asp:Literal runat="server">At Location Name:</asp:Literal>
                         </div>
-                        <asp:TextBox ID="atLocationNameBox" CssClass="textInput" runat="server"></asp:TextBox>
+                        <asp:DropDownList runat="server" ID="atLocationName"/>
                         <div class="atCoordinateBox">
                             <div class="formText">
                                 <asp:Literal runat="server">At Latitude:</asp:Literal>

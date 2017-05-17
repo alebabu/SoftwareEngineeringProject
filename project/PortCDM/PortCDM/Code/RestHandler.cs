@@ -21,7 +21,7 @@ namespace PortCDM_App_Code
 	{
         private static HttpClient client = new HttpClient();
 #if SECONDARYIP
-        private const string baseURL = "http://sandbox-5.portcdm.eu:8080";
+        private const string baseURL = "http://sandbox-5.portcdm.eu:8080/";
 #else
         private const string baseURL = "http://192.168.56.101:8080/";
 #endif
@@ -107,11 +107,33 @@ namespace PortCDM_App_Code
         {
             preparePOSTXML();
 
-            var response = await client.PostAsync("amss/state_update", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
+            var response = await client.PostAsync("mb/mss", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
 
             string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
 
             return result;
+        }
+
+        public static async Task<List<PortLocation>> getLocations()
+        {
+            List<PortLocation> locations = new List<PortLocation>();
+            using (HttpClient tempClient = new HttpClient())
+            {
+                tempClient.BaseAddress = new Uri("http://dev.portcdm.eu:8080");
+                tempClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                tempClient.DefaultRequestHeaders.Add("X-PortCDM-UserId", "viktoria");
+                tempClient.DefaultRequestHeaders.Add("X-PortCDM-Password", "vik123");
+                tempClient.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);    
+
+                var response = await tempClient.GetAsync("/location-registry/locations/?requestType=ALL");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseData = await response.Content.ReadAsAsync<IEnumerable<PortLocation>>();
+                    locations = responseData.ToList();
+                }
+            }
+            return locations;
+            
         }
 
         public static async Task<PortCall> getPortCallById(string id)
@@ -224,7 +246,7 @@ namespace PortCDM_App_Code
             test.serviceState.at = new Location();
             test.serviceState.serviceObject = ServiceObject.ANCHORING;
             
-            test.serviceState.at.name = "Port of Gothenburg";
+            test.serviceState.at.locationMRN = "Port of Gothenburg";
             portCallMessage test2 = new portCallMessage();
             test2.locationState = new LocationState();
             test2.serviceState = new ServiceState();
@@ -233,7 +255,7 @@ namespace PortCDM_App_Code
             test2.vesselId = "bajs70";
             test2.locationState.time = "14:00";
             test2.serviceState.serviceObject = ServiceObject.GANGWAY;
-            test2.serviceState.at.name = "China";
+            test2.serviceState.at.locationMRN = "China";
             list.Add(test);
             list.Add(test2);
             return list;
