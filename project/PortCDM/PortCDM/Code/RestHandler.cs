@@ -100,9 +100,9 @@ namespace PortCDM_App_Code
 
 
 
-        public async static Task<List<portCallMessage>> getEvents()
+        public async static Task<List<portCallMessage>> getEvents(string callID)
         {
-            string callID = "urn:mrn:stm:portcdm:port_call:SEGOT:0af803d8-f9e9-4d53-a9cd-e727dc4ebf06";
+            
             string date = "2000-04-03T14:00:34Z";
             List<Filter> filters = new List<Filter>();
             Filter filter1 = new Filter(FilterType.PORT_CALL, callID);

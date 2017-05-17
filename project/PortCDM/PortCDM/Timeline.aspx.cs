@@ -1,4 +1,4 @@
-﻿﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +13,16 @@ using PortCDM_App_Code;
 namespace PortCDM
 {
     public partial class Timeline : System.Web.UI.Page
+
     {
-        protected async void Page_Load(object sender, EventArgs e)
+        public string time;
+        
+        protected void Page_Load(object sender, EventArgs e)
         {
-
-            //List<portCallMessage> list = await RestHandler.getEvents();
-            //eventListBox.DataSource = list;
-            //eventListBox.DataBind();
-
             LoadList();
             LoadEvents(sender, e);
         }
-
+        
 
         protected void LoadList(){
             DataTable activeShips = DataBaseHandler.getActiveShips();
@@ -45,11 +43,14 @@ namespace PortCDM
         }
 
         protected async void LoadEvents(object sender, EventArgs e){
-            List<portCallMessage> list = await RestHandler.getEvents();
-            List<portCallMessage> eventList = list.Where(item => item.portCallId == vesselDDList.SelectedItem.Value).ToList();
-            Console.WriteLine("id:" + vesselDDList.SelectedItem.Text);
-			eventListBox.DataSource = eventList;
-			eventListBox.DataBind();
+            
+            
+            List<portCallMessage> list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
+
+            eventListBox.DataSource = list;
+            eventListBox.DataBind();
+
         }
+
     }
 }
