@@ -3,16 +3,18 @@
 body {
 	margin: 0;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	background-image: url("../Images/backgroundImage.jpg");
+	background: url("../Images/backgroundImage.jpg") no-repeat rgb(30,30,30) fixed center center;
+    background-size: cover;
 }
 
 #navMenu {
-	position:relative;
+	position:fixed;
 	left:0;
 	top:0;
 	background-color:#97cbdc;
 	width:100%;
 	height:60px;
+	z-index: 1;
 }
 
 #navMenu img{
@@ -65,7 +67,7 @@ body {
 	padding: 5px 30px 30px 30px;
 	margin-left: 265px;
 	margin-right: 15px;
-	margin-top: 15px;
+	margin-top: 75px;
 }
 
 @media (max-width: 764px) {
@@ -76,7 +78,8 @@ body {
 
 /* ----------------------- Side menu ------------------------------*/
 #sideMenu {
-	position: absolute;
+    z-index: 1;
+	position: fixed;
 	top: 60px;
 	left: 0;
 	height: 100%;
@@ -460,9 +463,30 @@ body {
 
 /* ------------------------------- Ships --------------------------*/
 
-.add-icon {
-	width: 30px;
-	height: 30px;
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #92c1cc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #92c1cc;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #92c1cc;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #92c1cc;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #92c1cc;
+}
+
+.deactivate-button {
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #001b48;
+	color: #001b48;
+	font-size: 16px;
 }
 
 .ship-links {
@@ -475,6 +499,8 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display : flex;
+  	align-items : center;
 }
 
 .ship-links img {
@@ -486,6 +512,7 @@ body {
 .ship-links li {
     float: left;
     margin-right: 30px;
+    vertical-align: middle;
 }
 
 .ship-links li a {
@@ -498,8 +525,10 @@ body {
 .ship-comment {
 	border: 1px solid white;
 	margin-left: 10px;
+	margin-right: 10px;
 	font-size: 14px;
 	color: #018abd;
+	width: 98%;
 }
 
 .ship-comment:focus {
@@ -548,6 +577,7 @@ body {
 
 
 .accordion label {
+    z-index: 0;
     padding: 20px 20px 15px 20px;
     position: relative;
     display: block;
@@ -620,6 +650,11 @@ body {
 
 
 /*----------------------------Add ship--------------------------------------*/
+
+.add-icon {
+	width: 30px;
+	height: 30px;
+}
 
 .add-button {
 	border:0;

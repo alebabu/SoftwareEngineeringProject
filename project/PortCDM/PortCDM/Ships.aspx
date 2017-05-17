@@ -13,7 +13,7 @@
 				<div class="article ac-small">
 					<h1>Add new ship</h1>
 					<p>
-						IMO-number:
+						Name of the ship:
 						<asp:DropDownList CssClass="imo-box" id="addShipDropDown" runat="server"></asp:DropDownList>
 					</p>
 					<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Add ship" onClick="addNewShip"/>
@@ -38,22 +38,21 @@
 										<p>Vessel ID: <asp:Literal runat="server" id="imo" Text='<%# Eval("imoNumber") %>'/></p>
 									</div>
 									<div class="right-content">
-										<img class="icon" src="../Images/edit_blue.svg" />
-										<br/>
+										<!--<img class="icon" src="../Images/edit_blue.svg" />
+										<br/>-->
 										<asp:Image CssClass="ship-img" runat="server" ImageUrl='<%# Eval("imgURL") %>' />
 									</div>
 								</label>
 								<div class="article ac-small">
 									<h3>Comments</h3>
-									<asp:TextBox CssClass="ship-comment" runat="server" Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true" CommandArgument='<%#Eval("imoNumber")%>' CommandName="ImoNumber"></asp:TextBox>
-
+									<asp:TextBox CssClass="ship-comment" runat="server" placeholder="Add comment..." Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true" CommandArgument='<%#Eval("imoNumber")%>' CommandName="ImoNumber"></asp:TextBox>
 								</div>
 							</div>
 							<div class="ship-links">
 								<ul>
-									<li><a href="../NewPortCDMMessage.aspx"><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
+									<li><a href="../SendMessage.aspx"><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
 									<li><a href="../Timeline.aspx"><img src="../Images/timeline_blue.svg" />Go to timeline</a></li>
-									<li><a href=""><img src="../Images/active_blue.svg"/>Active</a></li>
+									<li><asp:Button CssClass="deactivate-button" runat="server" Text="Deactivate ship" OnClick="deactivateShip"/></li>
 								</ul>
 							</div>
 						</ItemTemplate>

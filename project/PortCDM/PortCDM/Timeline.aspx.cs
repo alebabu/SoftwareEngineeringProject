@@ -1,4 +1,4 @@
-﻿﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -43,7 +43,6 @@ namespace PortCDM
         }
 
         protected async void LoadEvents(object sender, EventArgs e){
-
             
             
             List<portCallMessage> list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
