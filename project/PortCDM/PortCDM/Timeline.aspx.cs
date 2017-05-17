@@ -47,9 +47,7 @@ namespace PortCDM
             
             
             List<portCallMessage> list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
-            string time = list[0].locationState.time;
-            string res = time.Substring(11, 5);
-            System.Diagnostics.Debug.WriteLine(vesselDDList.SelectedItem.Value);
+
             eventListBox.DataSource = list;
             eventListBox.DataBind();
 

@@ -49,7 +49,7 @@ public class LocationState
 {
     public LocationReferenceObject referenceObject { get; set; }
 
-    public string time { get; set; }
+    public DateTime time { get; set; }
 
     public TimeType timeType { get; set; }
 

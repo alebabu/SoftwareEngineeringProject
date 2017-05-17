@@ -17,12 +17,24 @@
                     <ul class="cbp_tmtimeline">
 	                <li>
 		                <time class="cbp_tmtime"> 
-                            <span><asp:Literal runat="server" Text='<%# Eval("locationState.time") %>'/></span>
+                            <span>
+                                <asp:Literal runat="server" Text='<%# Eval("locationState.time") %>'/>
+                                <asp:Literal runat="server" Text='<%# Eval("serviceState.time") %>'/>
+                            </span>
+
 		                </time>
 		                <div class="cbp_tmicon cbp_tmicon-phone"></div>
 		                <div class="cbp_tmlabel">
-			                <h2><asp:Literal runat="server" Text='<%# Eval("serviceState.serviceObject") %>'></asp:Literal></h2>
-			                <p><asp:Literal runat="server" Text='<%# Eval("serviceState.at.name") %>'></asp:Literal></p>
+			                <h2>
+                                <asp:Literal runat="server" Text='<%# Eval("locationState.arrivalLocation.to.locationType") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# Eval("serviceState.serviceObject") %>'></asp:Literal>
+			                </h2>
+			                <p>
+                                <asp:Literal runat="server" Text='<%# Eval("locationState.referenceObject") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# Eval("locationState.timeType") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# Eval("serviceState.timeType") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# Eval("serviceState.timeSequence") %>'></asp:Literal>
+			                </p>
 		                </div>
 	                </li>
 					</ul>	
