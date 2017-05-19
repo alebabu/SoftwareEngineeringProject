@@ -753,11 +753,9 @@ body {
     padding: 1.5rem 0;
 }
 
-.listCounter:before {
+.listCounterDiv {
     height: 2.7rem;
     width: 2.7rem;
-    content: counter(li-counter);
-    counter-increment: li-counter;
     display: inline-block;
     font-size: 1.38462rem;
     color: #fff;
@@ -766,7 +764,7 @@ body {
 }
 
 .listCounter svg {
-    display: none;
+    display: inline-block;
     padding: 9px;
     fill: white;
 }
@@ -836,6 +834,7 @@ body {
 #smContent .textInput {
     -webkit-appearance: none;
     border: #018abd 1px solid;
+    box-sizing: border-box;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.5);
     width: 100%;
@@ -846,11 +845,25 @@ body {
     text-align: center;
 }
 
+.coordinateBox {
+    width: 39%;
+    display: inline-block;
+}
+
+.coordinateBox:nth-child(even) {
+    margin-left: 79px;
+}
+
+.atCoordinateBox {
+    width: 39%;
+    display: inline-block;
+}
+
 .formText {
     margin-top: 30px;
     font-size: 15px;
     color: #018abd;
-    display: block;
+    display: inline-block;
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: .375rem;
@@ -874,3 +887,35 @@ body {
 .dateDropDown {
     max-width: 50px;
 }
+
+.locationBox {
+    width: 45%;
+    display: inline-block;
+    text-align: left;
+}
+
+.locationBox:nth-child(odd) {
+    margin-right:9%;
+}
+
+.checkBoxes {
+    margin-top: 0px !important;
+    display: inline-block;
+}
+
+#toCheckBoxCss, #fromCheckBoxCss {
+    display: inline-block;
+}
+
+#fromLocationForm, #toLocationForm, #atLocationForm {
+    display: none;
+}
+
+.timeBox {
+    width: 10%!important;
+}
+
+.fancyBoxButton {
+    display: none;
+}
+

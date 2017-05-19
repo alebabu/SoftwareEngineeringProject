@@ -44,11 +44,32 @@ namespace PortCDM_App_Code
         {
             PrepareRestCall.postXML();
 
-            var response = await PrepareRestCall.HttpClientInstance.PostAsync("amss/state_update", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
+            var response = await client.PostAsync("mb/mss", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
 
             string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
 
             return result;
+        }
+
+        public static async Task<List<PortLocation>> getLocations()
+        {
+            List<PortLocation> locations = new List<PortLocation>();
+            using (HttpClient tempClient = new HttpClient())
+            {
+                tempClient.BaseAddress = new Uri("http://dev.portcdm.eu:8080");
+                tempClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                tempClient.DefaultRequestHeaders.Add("X-PortCDM-UserId", "viktoria");
+                tempClient.DefaultRequestHeaders.Add("X-PortCDM-Password", "vik123");
+                tempClient.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);    
+
+                var response = await tempClient.GetAsync("/location-registry/locations/?requestType=ALL");
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseData = await response.Content.ReadAsAsync<IEnumerable<PortLocation>>();
+                    locations = responseData.ToList();
+                }
+            }
+            return locations;
         }
 
         public static async Task<PortCall> getPortCallById(string id)
@@ -102,7 +123,6 @@ namespace PortCDM_App_Code
 
         public async static Task<List<portCallMessage>> getEvents(string callID)
         {
-            
             string date = "2000-04-03T14:00:34Z";
             List<Filter> filters = new List<Filter>();
             Filter filter1 = new Filter(FilterType.PORT_CALL, callID);
