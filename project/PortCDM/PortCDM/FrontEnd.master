@@ -15,8 +15,8 @@
 		<div>
           	  <header id="navMenu">
 						<div id="logoAndHamburger">
-						<img src="../Images/hamburger_white.png" onclick="toggleMenu()"/>
-                	    <font id="logStyle" class="logPos">NJORD</font>
+						<img id="hamburgerImage" src="../Images/hamburger_white.png" onclick="toggleMenu()"/>
+                        <a href="#"><img src="../Images/njord_logo_small.png" /></a>
 						<div id="signOutStyle" class="signOutPos"></div>
 						</div>
           	  </header>

@@ -25,3 +25,14 @@ C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\
 C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\obj\Debug\PortCDM.csprojResolveAssemblyReference.cache
 C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\obj\Debug\PortCDM.dll
 C:\Users\Magnus\Desktop\skola\SoftwareEngineeringProject-master\project\PortCDM\PortCDM\obj\Debug\PortCDM.pdb
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.csprojResolveAssemblyReference.cache
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.dll
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\obj\Debug\PortCDM.pdb
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\PortCDM.dll.config
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\PortCDM.dll
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\PortCDM.pdb
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\MySql.Data.dll
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\Newtonsoft.Json.dll
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\Newtonsoft.Json.xml
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\System.Net.Http.Formatting.xml
+C:\Users\kendu\Desktop\Projects\dit543\2017-05-19\SoftwareEngineeringProject\project\PortCDM\PortCDM\bin\System.Net.Http.Formatting.dll

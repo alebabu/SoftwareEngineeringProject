@@ -17,7 +17,12 @@ body {
 	z-index: 1;
 }
 
-#navMenu img{
+#navMenu img {
+    vertical-align:middle;
+    padding-left:10px;
+}
+
+#hamburgerImage {
 	position: relative;
 	top: 0px;
 	left: 0px;
@@ -26,9 +31,9 @@ body {
 }
 
 @media (min-width: 764px) {
-  #navMenu img {
-  	display: none;
-  }
+    #hamburgerImage {
+        display: none;
+    }
 }
 
 #logoAndHamburger {
@@ -878,6 +883,9 @@ body {
     line-height: 1.5;
     margin-bottom: .375rem;
     display: inline-block;
+    white-space: nowrap;
+    width: 150px;
+    float: right;
 }
 
 .dateSeparator:not(:first-child) {

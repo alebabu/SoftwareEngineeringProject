@@ -89,16 +89,11 @@
                             <asp:ListItem Text="Cancelled" Value="CANCELLED"></asp:ListItem>
                         </asp:DropDownList>
                         <div id="dateField">
-                            <span class="dateSeparator">Day</span>
-                            <asp:DropDownList runat="server" CssClass="dayDropDown dateDropDown" ID="setDayDropDown" />
-                            <span class="dateSeparator">Month</span>
-                            <asp:DropDownList runat="server" CssClass="monthDropDown dateDropDown" ID="setMonthDropDown" />
-                            <span class="dateSeparator">Year</span>
-                            <asp:DropDownList runat="server" CssClass="yearDropDown dateDropDown" ID="setYearDropDown" />
-                            <span class="dateSeparator">Hour</span>
-                            <asp:DropDownList runat="server" CssClass="hourDropDown dateDropDown" ID="setHourDropDown" />
-                            <span class="dateSeparator">Minute</span>
-                            <asp:DropDownList runat="server" CssClass="minuteDropDown dateDropDown" ID="setMinuteDropDown" />
+                            <span class="dateSeparator">Day <asp:DropDownList runat="server" CssClass="dayDropDown dateDropDown" ID="setDayDropDown" /></span>
+                            <span class="dateSeparator">Month <asp:DropDownList runat="server" CssClass="monthDropDown dateDropDown" ID="setMonthDropDown" /></span>
+                            <span class="dateSeparator">Year <asp:DropDownList runat="server" CssClass="yearDropDown dateDropDown" ID="setYearDropDown" /></span>
+                            <span class="dateSeparator">Hour <asp:DropDownList runat="server" CssClass="hourDropDown dateDropDown" ID="setHourDropDown" /></span>
+                            <span class="dateSeparator">Minute <asp:DropDownList runat="server" CssClass="minuteDropDown dateDropDown" ID="setMinuteDropDown" /></span>
                         </div>
                     </div>
                     <div id="checkBoxes">
