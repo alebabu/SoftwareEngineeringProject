@@ -47,6 +47,24 @@ namespace PortCDM_App_Code
             return result;
         }
 
+
+		public static async Task<string> createPortCall(string imo)
+		{
+			PrepareRestCall.postXML();
+
+			string vesselId = "urn:mrn:stm:vessel:IMO:" + imo;
+
+			string body = "{\"vesselId\":" + vesselId + "}";
+
+			var response = await PrepareRestCall.HttpClientInstance.PostAsync("pcr/port_call", new StringContent(body, Encoding.UTF8, "application/xml"));
+
+			string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
+
+			return result;   
+		}
+
+
+
         public static async Task<List<PortLocation>> getLocations()
         {
             List<PortLocation> locations = new List<PortLocation>();
@@ -131,6 +149,8 @@ namespace PortCDM_App_Code
             return list;
 
         }
+
+
     }
 }
 

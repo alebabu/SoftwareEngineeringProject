@@ -15,8 +15,9 @@ namespace PortCDM
 {
 	public partial class Ships : System.Web.UI.Page
 	{
-		public MySqlConnection con;
-		public MySqlDataAdapter sda;
+		private MySqlConnection con;
+		private MySqlDataAdapter sda;
+		private static List<Vessel> shipList = new List<Vessel>();
 
 
 		protected void Page_Load(Object sender, EventArgs e)
@@ -29,12 +30,7 @@ namespace PortCDM
 
 		}
 
-		protected void addNewShip(object sender, EventArgs e)
-		{
-			DataBaseHandler.activateShip(addShipDropDown.SelectedItem.Value);
 
-			setDataTables();
-		}
 
 		protected void commentChanged(object sender, EventArgs e)
 		{
@@ -62,6 +58,21 @@ namespace PortCDM
 
 		}
 
+		protected void addNewShip(object sender, EventArgs e)
+		{
+			/*string addImo = Request.Form[addShipDropDown.UniqueID];
+			if (shipList.Exists(obj => obj.imo == addImo))
+			{
+				DataBaseHandler.activateShip(addImo);
+			}
+			else
+			{
+				Console.WriteLine("Does not exist");
+			}*/
+			DataBaseHandler.activateShip("9247168");
+			setDataTables();
+		}
+
 		private void setDataTables()
 		{
 				DataTable activeShipsDt = new DataTable();
@@ -69,8 +80,8 @@ namespace PortCDM
 				shipRepeater.DataSource = activeShipsDt;
 				shipRepeater.DataBind();
 
+				shipList.Clear();
 				DataTable inActiveShipsDT = DataBaseHandler.getInActiveShips();
-				List<Vessel> shipList = new List<Vessel>();
 				foreach (DataRow ship in inActiveShipsDT.Rows)
 				{
 					Vessel v = new Vessel();
@@ -79,11 +90,14 @@ namespace PortCDM
 					shipList.Add(v);
 				}
 				addShipDropDown.DataSource = shipList;
-				addShipDropDown.DataTextField = "name";
+				addShipDropDown.DataTextField = "imo";
 				addShipDropDown.DataValueField = "imo";
 
 				addShipDropDown.DataBind();
 		}
+
+
+	
 
 
 
