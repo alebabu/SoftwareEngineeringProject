@@ -18,8 +18,8 @@
 	                <li>
 		                <time class="cbp_tmtime"> 
                             <span>
-                                <asp:Literal runat="server" Text='<%# Eval("locationState.time") %>'/>
-                                <asp:Literal runat="server" Text='<%# Eval("serviceState.time") %>'/>
+                                <asp:Literal runat="server" Text='<%# NiceTimeFormat(Eval("locationState.time")) %>'/>
+                                <asp:Literal runat="server" Text='<%# NiceTimeFormat(Eval("serviceState.time")) %>'/>
                             </span>
 
 		                </time>

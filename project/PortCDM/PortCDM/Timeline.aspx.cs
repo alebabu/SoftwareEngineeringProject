@@ -23,6 +23,29 @@ namespace PortCDM
             LoadEvents(sender, e);
         }
         
+        protected object NiceTimeFormat(object o)
+        {
+            if (o == null)
+                return null;
+            DateTime dateTime = (DateTime)o;
+
+            int daysAgo = (DateTime.Now - dateTime).Days;
+            daysAgo = 0;
+
+            if (daysAgo <= 7)
+            {   // If within 7 days
+                o = dateTime.ToString("dddd<br />HH:mm");
+            }
+            else if (daysAgo < 365)
+            {   // If within a year
+                o = dateTime.ToString("d MMM<br />HH:mm");
+            }
+            else
+            {   // Older date
+                o = dateTime.ToString("yyyy-MM-dd<br />HH:mm");
+            }
+            return o;
+        }
 
         protected void LoadList(){
             DataTable activeShips = DataBaseHandler.getActiveShips();

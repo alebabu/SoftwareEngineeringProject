@@ -206,7 +206,7 @@
                             </div>
                             <asp:TextBox ID="atLatitudeBox" CssClass="textInput" runat="server"></asp:TextBox>
                         </div>
-                        <div class="atCoordinateBox" style="margin-left: 79px">
+                        <div class="atCoordinateBox">
                             <div class="formText">
                                 <asp:Literal runat="server">At Longitude:</asp:Literal>
                             </div>
