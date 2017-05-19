@@ -12,7 +12,7 @@ namespace PortCDM_App_Code
 
 		private const string apiUserName = "test23";
 		private const string apiPassword = "test123";
-		private const string apiKey = "eeee";
+		public const string apiKey = "eeee";
 
 		private static bool isPrepared = false;
 

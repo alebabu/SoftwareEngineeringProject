@@ -1,7 +1,3 @@
-
-﻿#define SECONDARYIP
-//NOTE(Olle): comment out the above to use the standard ip (192.168.56.101:8080)
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +40,7 @@ namespace PortCDM_App_Code
         {
             PrepareRestCall.postXML();
 
-            var response = await client.PostAsync("mb/mss", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
+            var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mss", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
 
             string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
 
@@ -60,7 +56,7 @@ namespace PortCDM_App_Code
                 tempClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 tempClient.DefaultRequestHeaders.Add("X-PortCDM-UserId", "viktoria");
                 tempClient.DefaultRequestHeaders.Add("X-PortCDM-Password", "vik123");
-                tempClient.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);    
+                tempClient.DefaultRequestHeaders.Add("X-PortCDM-APIKey", PrepareRestCall.apiKey);    
 
                 var response = await tempClient.GetAsync("/location-registry/locations/?requestType=ALL");
                 if (response.IsSuccessStatusCode)

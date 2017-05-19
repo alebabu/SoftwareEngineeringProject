@@ -248,7 +248,7 @@ namespace PortCDM
                 message.locationState.referenceObject = LocationReferenceObject.VESSEL;
                 string locationStateTime = setYearDropDown.SelectedValue + "-" + setMonthDropDown.SelectedValue + "-" +
                                           setDayDropDown.SelectedValue + "T" + setHourDropDown.SelectedValue + ":" + setMinuteDropDown.SelectedValue + ":00Z";
-                message.locationState.time = locationStateTime;
+                message.locationState.time = dateHandler.stringToDate(locationStateTime);
                 message.locationState.timeType = (TimeType) Enum.Parse(typeof(TimeType), timeTypeDropDown.SelectedValue);
                 if(messageTypeHiddenField.Value == "DEPARTURE_VESSEL")
                 {
