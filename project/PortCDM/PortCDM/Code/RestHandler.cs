@@ -131,6 +131,39 @@ namespace PortCDM_App_Code
             return list;
 
         }
+
+		public static async Task<string> createPortCall(string imo)
+ 		{
+ 			PrepareRestCall.postXML();
+ 
+ 			string vesselId = "urn:mrn:stm:vessel:IMO:" + imo;
+ 
+ 			string body = "{\"vesselId\": \"" + vesselId + "\"}";
+ 
+ 			var response = await PrepareRestCall.HttpClientInstance.PostAsync("pcr/port_call", new StringContent(body, Encoding.UTF8, "application/json"));
+ 
+ 			string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
+ 			string responseContent = response.Content.ReadAsStringAsync().Result;
+ 
+ 			string[] resultlist = responseContent.Split('"');
+ 			string portCallId = resultlist[3];
+ 			return result;   
+ 		}
+
+
+ 		public static async Task<Vessel> getVesselByImo(string imo)
+ 		{
+ 			PrepareRestCall.getJson();
+			string vesselId = "urn:mrn:stm:vessel:IMO:" + imo;
+ 
+ 			Vessel v = new Vessel();
+ 
+ 			var response = await PrepareRestCall.HttpClientInstance.GetAsync(String.Format("vr/vessel/{0}", vesselId));
+ 			if (response.IsSuccessStatusCode)
+ 				v = await response.Content.ReadAsAsync<Vessel>();
+ 
+ 			return v;   
+ 		}
     }
 }
 
