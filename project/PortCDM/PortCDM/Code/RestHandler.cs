@@ -54,12 +54,15 @@ namespace PortCDM_App_Code
 
 			string vesselId = "urn:mrn:stm:vessel:IMO:" + imo;
 
-			string body = "{\"vesselId\":" + vesselId + "}";
+			string body = "{\"vesselId\": \"" + vesselId + "\"}";
 
-			var response = await PrepareRestCall.HttpClientInstance.PostAsync("pcr/port_call", new StringContent(body, Encoding.UTF8, "application/xml"));
+			var response = await PrepareRestCall.HttpClientInstance.PostAsync("pcr/port_call", new StringContent(body, Encoding.UTF8, "application/json"));
 
 			string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
+			string responseContent = response.Content.ReadAsStringAsync().Result;
 
+			string[] resultlist = responseContent.Split('"');
+			string portCallId = resultlist[3];
 			return result;   
 		}
 
@@ -98,6 +101,22 @@ namespace PortCDM_App_Code
 
             return pc;
         }
+
+
+
+		public static async Task<Vessel> getVesselByImo(string imo)
+		{
+			PrepareRestCall.getJson();
+
+			Vessel v = new Vessel();
+
+			var response = await PrepareRestCall.HttpClientInstance.GetAsync(String.Format("vr/vessel/{0}", vesselId));
+			if (response.IsSuccessStatusCode)
+				v = await response.Content.ReadAsAsync<Vessel>();
+
+			return v;   
+		}
+
 
         public static async Task<List<PortCall>> getPortCalls()
         {
@@ -149,8 +168,6 @@ namespace PortCDM_App_Code
             return list;
 
         }
-
-
     }
 }
 

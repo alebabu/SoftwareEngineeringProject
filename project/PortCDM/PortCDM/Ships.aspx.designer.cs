@@ -15,8 +15,6 @@ namespace PortCDM {
 		
 		protected System.Web.UI.WebControls.Content Content2;
 		
-		protected System.Web.UI.UpdatePanel updatePanelAdd;
-		
 		protected System.Web.UI.WebControls.DropDownList addShipDropDown;
 		
 		protected System.Web.UI.WebControls.Button addShipButton;

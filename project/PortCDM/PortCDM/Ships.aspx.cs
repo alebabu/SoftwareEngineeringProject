@@ -58,18 +58,23 @@ namespace PortCDM
 
 		}
 
-		protected void addNewShip(object sender, EventArgs e)
+		protected async void addNewShip(object sender, EventArgs e)
 		{
-			/*string addImo = Request.Form[addShipDropDown.UniqueID];
+			string addImo = Request.Form[addShipDropDown.UniqueID];
 			if (shipList.Exists(obj => obj.imo == addImo))
 			{
 				DataBaseHandler.activateShip(addImo);
 			}
 			else
 			{
-				Console.WriteLine("Does not exist");
-			}*/
-			DataBaseHandler.activateShip("9247168");
+				string result = await RestHandler.createPortCall(addImo);
+				string[] resultlist = result.Split('"');
+				string portCallId = resultlist[3];
+
+				Vessel v = await RestHandler.getVesselByImo(addImo);
+
+				DataBaseHandler.addShip(v, portCallId);
+			}
 			setDataTables();
 		}
 

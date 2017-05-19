@@ -13,28 +13,22 @@
 	<div id="messageBox">
 		<h1>Ships</h1>
 		<asp:ScriptManager runat="server"/>
-		<asp:UpdatePanel ID="updatePanelAdd" runat="server" UpdateMode="Conditional">
-			<ContentTemplate>
-				<div class="add-ship">
-					<div>
-			            <input id="as-1" name="accordion-1" type="checkbox" />
-			            <label for="as-1">
-							<img class="add-icon" src="../Images/add_blue.svg" />		
-						</label>
-						<div class="article ac-small">
-							<h1>Add new ship</h1>
-							<p>
-								Name of the ship:
-								<asp:DropDownList CssClass="imo-box" id="addShipDropDown" runat="server"></asp:DropDownList>
-							</p>
-							<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Add ship" onClick="addNewShip" AutoPostBack="true"/>
-						</div>
+			<div class="add-ship">
+				<div>
+		            <input id="as-1" name="accordion-1" type="checkbox" />
+		            <label for="as-1">
+						<img class="add-icon" src="../Images/add_blue.svg" />		
+					</label>
+					<div class="article ac-small">
+						<h1>Add new ship</h1>
+						<p>
+							Name of the ship:
+							<asp:DropDownList CssClass="imo-box" id="addShipDropDown" runat="server"></asp:DropDownList>
+						</p>
+						<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Add ship" onClick="addNewShip" AutoPostBack="true"/>
 					</div>
 				</div>
-			</ContentTemplate>
-		</asp:UpdatePanel>
-
-
+			</div>
 		<div class="accordion">
 			
 			<asp:UpdatePanel ID="updatePanel" runat="server" UpdateMode="Conditional">
