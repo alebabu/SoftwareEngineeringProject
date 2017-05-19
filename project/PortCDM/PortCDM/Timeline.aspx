@@ -11,7 +11,7 @@
    <div id="messageBox">
         <h1>Timeline</h1>
 		<div id="events">
-			<asp:DropDownList runat="server" id="vesselDDList" CssClass="dropDownListStyle" OnSelectedIndexChanged="LoadEvents"></asp:DropDownList>
+			<asp:DropDownList runat="server" id="vesselDDList" CssClass="dropDownListStyle" OnSelectedIndexChanged="LoadEvents" AutoPostBack="True"></asp:DropDownList>
             <asp:Repeater id="eventListBox" runat="server">
 			    <ItemTemplate>
                     <ul class="cbp_tmtimeline">

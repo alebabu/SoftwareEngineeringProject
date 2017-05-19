@@ -19,8 +19,11 @@ namespace PortCDM
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadList();
-            LoadEvents(sender, e);
+			if (!(this.IsPostBack))
+			{
+				LoadList();
+				LoadEvents(sender,e);
+			}
         }
         
 
@@ -44,7 +47,7 @@ namespace PortCDM
 
         protected async void LoadEvents(object sender, EventArgs e){
             
-            
+            Console.WriteLine("loaded");
             List<portCallMessage> list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
 
             eventListBox.DataSource = list;
