@@ -140,5 +140,36 @@ namespace PortCDM_App_Code
 			cmd.ExecuteNonQuery();
 			conn.Close();
 		}
+
+		public static void addShip(string imo, string portCallId)
+		{
+		conn = new MySqlConnection(connectionString);
+		MySqlCommand cmd = new MySqlCommand("INSERT IGNORE INTO tbl_ship SET imoNumber = '" +
+											   imo + "', portCallID = '" + portCallId +
+												"', active = '1';");
+
+		conn.Open();
+		cmd.Connection = conn;
+		cmd.ExecuteNonQuery();
+		conn.Close();
+
+		}
+
+		public static void addShip(Vessel v, string portCallId)
+		{
+
+			string[] tempimo = v.imo.Split(':');
+			int imo = int.Parse(tempimo[tempimo.Length - 1]);
+			conn = new MySqlConnection(connectionString);
+			MySqlCommand cmd = new MySqlCommand("INSERT IGNORE INTO tbl_ship SET imoNumber = '" +
+												imo + "', name = '" + v.name + "', imgURL = '" +
+												v.photoURL + "', portCallID = '" + portCallId +
+													"', active = '1';");
+
+			conn.Open();
+			cmd.Connection = conn;
+			cmd.ExecuteNonQuery();
+			conn.Close();
+		}
 	}
 }
