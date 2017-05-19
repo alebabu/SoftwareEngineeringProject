@@ -7,6 +7,12 @@ body {
     background-size: cover;
 }
 
+.nowrap {
+    white-space:nowrap;
+    overflow:hidden;
+    display:inline-block;
+}
+
 #navMenu {
 	position:fixed;
 	left:0;
@@ -876,16 +882,19 @@ body {
 
 .dateSeparator {
     margin-top: 30px;
-    margin-right: 5px;
     font-size: 15px;
     color: #018abd;
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: .375rem;
     display: inline-block;
+    overflow:hidden;
     white-space: nowrap;
     width: 150px;
-    float: right;
+}
+
+#dateField {
+    text-align:right;
 }
 
 .dateSeparator:not(:first-child) {
