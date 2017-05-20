@@ -55,8 +55,8 @@
 							</div>
 							<div class="ship-links">
 								<ul>
-									<li><a href="../SendMessage.aspx"><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
-									<li><a href="../Timeline.aspx"><img src="../Images/timeline_blue.svg" />Go to timeline</a></li>
+									<li><a href='<%# string.Concat("../SendMessage.aspx?imo=", Eval("imoNumber"))%>'><img src="../Images/message_blue.svg" />New PortCDM message</a></li>
+									<li><a href='<%# string.Concat("../Timeline.aspx?portCallId=", Eval("portCallID"))%>'><img src="../Images/timeline_blue.svg" />Go to timeline</a></li>
 									<li><asp:Button CssClass="deactivate-button" runat="server" Text="Deactivate ship" OnClick="deactivateShip"/></li>
 								</ul>
 							</div>
