@@ -25,6 +25,7 @@ namespace PortCDM
 			if (!(this.IsPostBack))
 			{
 				//DataBaseHandler.getAllShips().Wait();
+				Console.WriteLine("page_load");
 				setDataTables();
 			}
 
@@ -54,6 +55,7 @@ namespace PortCDM
 
 			DataBaseHandler.deactivateShip(imo);
 
+			Console.WriteLine("deactivateShip before setdatatables");
 			setDataTables();
 
 		}
@@ -74,7 +76,9 @@ namespace PortCDM
 				Vessel v = await RestHandler.getVesselByImo(addImo);
 
 				DataBaseHandler.addShip(v, portCallId);
+				Console.WriteLine(v.name);
 			}
+			Console.WriteLine("addNewShip before setdatatables");
 			setDataTables();
 		}
 
@@ -99,6 +103,8 @@ namespace PortCDM
 			addShipDropDown.DataValueField = "imo";
 
 			addShipDropDown.DataBind();
+			Console.WriteLine("setdatatables done");
+
 		}
 	}
 }

@@ -22,8 +22,8 @@
 					<div class="article ac-small">
 						<h1>Add new ship</h1>
 						<p>
-							Name of the ship:
-							<asp:DropDownList CssClass="imo-box" id="addShipDropDown" runat="server"></asp:DropDownList>
+							IMO of the ship:
+							<asp:DropDownList id="addShipDropDown" runat="server"></asp:DropDownList>
 						</p>
 						<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Add ship" onClick="addNewShip" AutoPostBack="true"/>
 					</div>
