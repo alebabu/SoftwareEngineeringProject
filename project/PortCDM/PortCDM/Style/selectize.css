@@ -137,10 +137,10 @@
   border: 1px solid #d0d0d0;
   padding: 8px 8px;
   display: inline-block;
-  width: 100%;
+  width: 120px;
   overflow: hidden;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -200,7 +200,7 @@
   padding: 0 !important;
   min-height: 0 !important;
   max-height: none !important;
-  max-width: 100% !important;
+  max-width: 120px !important;
   margin: 0 2px 0 0 !important;
   text-indent: 0 !important;
   border: 0 none !important;
@@ -282,7 +282,7 @@
 .selectize-dropdown-content {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 200px;
+  max-height: 150px;
   -webkit-overflow-scrolling: touch;
 }
 .selectize-control.single .selectize-input,

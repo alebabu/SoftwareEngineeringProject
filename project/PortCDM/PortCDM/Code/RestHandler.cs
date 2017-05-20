@@ -145,8 +145,6 @@ namespace PortCDM_App_Code
  			string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
  			string responseContent = response.Content.ReadAsStringAsync().Result;
  
- 			string[] resultlist = responseContent.Split('"');
- 			string portCallId = resultlist[3];
  			return result;   
  		}
 
