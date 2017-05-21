@@ -40,7 +40,9 @@ namespace PortCDM_App_Code
         {
             PrepareRestCall.postXML();
 
-            var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mss", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
+            string xml = toXML(pcm);
+
+            var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mss", new StringContent(xml, Encoding.UTF8, "application/xml"));
 
             string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
 

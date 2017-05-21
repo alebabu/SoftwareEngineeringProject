@@ -182,7 +182,7 @@
                         <br />
                         <asp:Button CssClass="smButton infoButton" href="#data" runat="server" ID="sendMessageButton" Text="Continue" OnClick="sendMessage" />
                         <asp:Button CssClass="fancyBoxButton" href="#data" runat="server" Text="Continue" />
-                        
+
                         <asp:UpdatePanel runat="server" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <div style="display: none">
@@ -200,10 +200,8 @@
                             </Triggers>
                         </asp:UpdatePanel>
                     </div>
+                </div>
             </li>
         </ol>
     </div>
-
-
-
 </asp:Content>

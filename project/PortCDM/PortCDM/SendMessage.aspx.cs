@@ -41,16 +41,62 @@ namespace PortCDM
 
             if(!IsPostBack)
             {
-                initStepOne();
+                initPage();
+            }
+        }
 
-                setUpDropDowns();
-                setYearDropDown.SelectedValue = "2017";
+        protected void shipSelected(object sender, EventArgs e)
+        {
+            selectShip(shipsDropDown.SelectedValue);
+            initStepTwo();
+        }
+
+        protected void messageTypeSelected(object sender, EventArgs e)
+        {
+            messageTypeHiddenField.Value = messageTypeDropDown.SelectedValue;
+            initStepThree();
+            if (locationStateChosen())
+            {
+                stageField.Visible = false;
+                atOrBothBox.Visible = false;
+            }
+            else
+                fromOrToBoxes.Visible = false;
+        }
+
+        protected async void sendMessage(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(Page, typeof(Page), "fancyboxscript", "$('.fancyBoxButton').click();", true);
+            Task<portCallMessage> pcmTask = genMessage();
+            var pcm = await pcmTask;
+            string response = await RestHandler.createPCM(pcm);
+            loadingText.Text = response;
+            messageSentButton.Visible = true;
+        }
+
+        private void initPage()
+        {
+            imoQuery = Request.QueryString["imo"];
+            setUpDropDowns();
+            setYearDropDown.SelectedValue = "2017";
+
+            if(!string.IsNullOrEmpty(imoQuery))
+            {
+                string portCallId = shipList.Find(x => x.imo.Equals(imoQuery)).portCallId;
+                shipImoHiddenField.Value = imoQuery;
+
+                selectShip(portCallId);
+                initStepTwo();
+            }
+
+            else
+            {
+                initStepOne();
 
                 shipsDropDown.DataTextField = "name";
                 shipsDropDown.DataValueField = "portCallId";
                 shipsDropDown.DataSource = shipList;
                 shipsDropDown.DataBind();
-
             }
         }
 
@@ -90,25 +136,11 @@ namespace PortCDM
             bindPortLocations();
         }
 
-        protected void shipSelected(object sender, EventArgs e)
+        private void selectShip(string portCallId)
         {
-            portCallIdHiddenField.Value = shipsDropDown.SelectedValue;
+            portCallIdHiddenField.Value = portCallId;
             var resultVessel = shipList.Find(ship => ship.portCallId == portCallIdHiddenField.Value);
             shipImoHiddenField.Value = resultVessel.imo;
-            initStepTwo();
-        }
-
-        protected void messageTypeSelected(object sender, EventArgs e)
-        {
-            messageTypeHiddenField.Value = messageTypeDropDown.SelectedValue;
-            initStepThree();
-            if (locationStateChosen())
-            {
-                stageField.Visible = false;
-                atOrBothBox.Visible = false;
-            }
-            else
-                fromOrToBoxes.Visible = false;
         }
 
         private void bindPortLocations()
@@ -126,16 +158,6 @@ namespace PortCDM
             locationsddl.DataTextField = "name";
             locationsddl.DataValueField = "URN";
             locationsddl.DataBind();
-        }
-
-        protected async void sendMessage(object sender, EventArgs e)
-        {
-            ScriptManager.RegisterStartupScript(Page, typeof(Page), "fancyboxscript", "$('.fancyBoxButton').click();", true);
-            Task<portCallMessage> pcmTask = genMessage();
-            var pcm = await pcmTask;
-            string response = await RestHandler.createPCM(pcm);
-            loadingText.Text = response;
-            messageSentButton.Visible = true;
         }
 
         protected void changeLocationDropDown(object sender, EventArgs e)
@@ -220,12 +242,7 @@ namespace PortCDM
                 if (atRadioButton.Checked)
                 {
                     message.serviceState.at = new Location();
-                    message.serviceState.at.locationType =
-                        (LogicalLocation) Enum.Parse(typeof(LogicalLocation), atLocationType.SelectedValue);
                     message.serviceState.at.locationMRN = atLocationName.SelectedValue;
-
-                    //--------- Service state, location at, position -----------
-                    message.serviceState.at.position = new Position();
                 }
 
                 //--------- Service state, location between --------
@@ -233,18 +250,9 @@ namespace PortCDM
                 {
                     message.serviceState.between = new ServiceStateBetween();
                     message.serviceState.between.from = new Location();
-                    message.serviceState.between.from.locationType =
-                        (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
                     message.serviceState.between.from.locationMRN = fromLocationName.SelectedValue;
                     message.serviceState.between.to = new Location();
-                    message.serviceState.between.to.locationType =
-                        (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
                     message.serviceState.between.to.locationMRN = toLocationName.SelectedValue;
-
-                    //--------- Service state, location between, position --------
-                    message.serviceState.between.from.position = new Position();
-                    //TODO(Olle): check null strings in a better more readable way
-                    message.serviceState.between.to.position = new Position();
                 }
             }
 
@@ -263,20 +271,14 @@ namespace PortCDM
                     if (fromCheckBox.Checked)
                     {
                         message.locationState.departureLocation.from = new Location();
-                        message.locationState.departureLocation.from.locationType =
-                            (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
                         message.locationState.departureLocation.from.locationMRN = fromLocationName.SelectedValue;
-                        message.locationState.departureLocation.from.position = new Position();
                     }
 
                     //------ Location State , departure location, to
                     if (toCheckBox.Checked)
                     {
                         message.locationState.departureLocation.to = new Location();
-                        message.locationState.departureLocation.to.locationType =
-                            (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
                         message.locationState.departureLocation.to.locationMRN = fromLocationName.SelectedValue;
-                        message.locationState.departureLocation.to.position = new Position();
                     }
 
                 }
@@ -287,22 +289,14 @@ namespace PortCDM
                     if (fromCheckBox.Checked)
                     {
                         message.locationState.arrivalLocation.from = new Location();
-                        message.locationState.arrivalLocation.from.locationType =
-                            (LogicalLocation) Enum.Parse(typeof(LogicalLocation), fromLocationType.SelectedValue);
                         message.locationState.arrivalLocation.from.locationMRN = fromLocationName.SelectedValue;
-
-                        message.locationState.arrivalLocation.from.position = new Position();
                     }
 
                     //------ Location State , arrival location, to
                     if (toCheckBox.Checked)
                     {
                         message.locationState.arrivalLocation.to = new Location();
-                        message.locationState.arrivalLocation.to.locationType =
-                            (LogicalLocation) Enum.Parse(typeof(LogicalLocation), toLocationType.SelectedValue);
                         message.locationState.arrivalLocation.to.locationMRN = toLocationName.SelectedValue;
-
-                        message.locationState.arrivalLocation.to.position = new Position();
                     }
                 }
             }
