@@ -310,24 +310,6 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList fromLocationName;
         
         /// <summary>
-        /// fromLatitudeBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fromLatitudeBox;
-        
-        /// <summary>
-        /// fromLongitudeBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fromLongitudeBox;
-        
-        /// <summary>
         /// toLocationType control.
         /// </summary>
         /// <remarks>
@@ -346,24 +328,6 @@ namespace PortCDM {
         protected global::System.Web.UI.WebControls.DropDownList toLocationName;
         
         /// <summary>
-        /// toLatitudeBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox toLatitudeBox;
-        
-        /// <summary>
-        /// toLongitudeBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox toLongitudeBox;
-        
-        /// <summary>
         /// atLocationType control.
         /// </summary>
         /// <remarks>
@@ -380,24 +344,6 @@ namespace PortCDM {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList atLocationName;
-        
-        /// <summary>
-        /// atLatitudeBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox atLatitudeBox;
-        
-        /// <summary>
-        /// atLongitudeBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox atLongitudeBox;
         
         /// <summary>
         /// sendMessageButton control.

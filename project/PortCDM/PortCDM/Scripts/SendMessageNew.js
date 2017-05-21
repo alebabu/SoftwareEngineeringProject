@@ -15,7 +15,7 @@ function bothRadioChecked() {
 }
 
 function setFromVisibility() {
-    if (fromBoxChecked()) {
+    if (fromBoxChecked() || bothRadioChecked()) {
         $('#fromLocationForm').css('display', 'inline-block');
     } else {
         $('#fromLocationForm').hide();
@@ -23,7 +23,7 @@ function setFromVisibility() {
 }
 
 function setToVisibility() {
-    if (toBoxChecked()) {
+    if (toBoxChecked() || bothRadioChecked()) {
         $('#toLocationForm').css('display', 'inline-block');
     } else {
         $('#toLocationForm').hide();
@@ -31,7 +31,7 @@ function setToVisibility() {
 }
 
 function setAtVisibility() {
-    if (toBoxChecked()) {
+    if (toBoxChecked() || bothRadioChecked()) {
         $('#toLocationForm').css('display', 'inline-block');
     } else {
         $('#toLocationForm').hide();
@@ -50,7 +50,14 @@ function setAtOrBothVisibility() {
     }
 }
 
-function initiateRadiosAndCheckBoxes() {
+function setVisibilities() {
+    setAtOrBothVisibility();
+    setAtVisibility();
+    setFromVisibility();
+    setToVisibility();
+}
+
+function initClickEvents() {
     $('#cpMainContent_betweenRadioButton')
     .click(function() {
         setAtOrBothVisibility();
@@ -71,28 +78,23 @@ function initiateRadiosAndCheckBoxes() {
     });
 }
 
+function panelLoaded(sender, args) {
+    setVisibilities();
+
+}
 
 $(function () {
-    initiateRadiosAndCheckBoxes();
+    var prm = Sys.WebForms.PageRequestManager.getInstance();
+    prm.add_pageLoaded(panelLoaded);
+
+    initClickEvents();
 
     /* This is basic - uses default settings */
-
     $("a#single_image").fancybox();
 
     /* Using custom settings */
-
     $(".fancyBoxButton").fancybox({
         'hideOnContentClick': true
-    });
-
-    /* Apply fancybox to multiple items */
-
-    $("a.group").fancybox({
-        'transitionIn': 'elastic',
-        'transitionOut': 'elastic',
-        'speedIn': 600,
-        'speedOut': 200,
-        'overlayShow': false
     });
 
 });
