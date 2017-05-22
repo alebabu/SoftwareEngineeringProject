@@ -550,6 +550,8 @@ body {
 	border: 1px solid white;
 	margin-left: 10px;
 	margin-right: 10px;
+	margin-bottom: 20px;
+    margin-top: 0;
 	font-size: 14px;
 	color: #018abd;
 	width: 98%;
@@ -569,7 +571,7 @@ body {
 	font-size: 24px;
 	color: #001b48;
 	font-weight: normal;
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .accordion .ship-img {
@@ -644,16 +646,19 @@ body {
 }
 
 .accordion .article h3 {
-	margin-top: 0;
     font-size: 16px;
 	color: #001b48;
 	font-weight: normal;
 	padding-left: 10px;
 	padding-right: 10px;
+	margin-top: 0;
+	margin-bottom: 5px;
 }
 
 .accordion .article p {
     line-height: 23px;
+    margin-bottom: 20px;
+    margin-top: 0;
 }
 .accordion input:checked ~ .article {
     -webkit-transition: all 0.5s ease-in-out;
@@ -663,7 +668,7 @@ body {
     transition: all 0.5s ease-in-out;
 }
 .accordion input:checked ~ .article.ac-small {
-    height: 130px;
+    height: 170px;
 }
 .accordion input:checked ~ .article.ac-medium {
     height: 195px;

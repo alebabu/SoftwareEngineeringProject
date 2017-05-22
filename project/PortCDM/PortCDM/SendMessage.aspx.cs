@@ -20,7 +20,7 @@ namespace PortCDM
         private MessageIdGenerator messageIdGenerator;
         private DateHandler dateHandler;
 
-        protected async void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             DataTable ships = DataBaseHandler.getActiveShips();
 
@@ -72,6 +72,28 @@ namespace PortCDM
             string response = await RestHandler.createPCM(pcm);
             loadingText.Text = response;
             messageSentButton.Visible = true;
+        }
+
+        protected void toChangeLocationDropDown(object sender, EventArgs e)
+        {
+            bindPortLocation(toLocationType, toLocationName);
+        }
+
+        protected void fromChangeLocationDropDown(object sender, EventArgs e)
+        {
+            bindPortLocation(fromLocationType, fromLocationName);
+        }
+
+        protected void atChangeLocationDropDown(object sender, EventArgs e)
+        {
+            bindPortLocation(atLocationType, atLocationName);
+        }
+
+        //Note(Olle): portCDM 0.6 doesn't want to receive a string generated from their API, so this formats that string
+        private string fixTrafficAreaBug(string location)
+        {
+            return location.Replace("urn:mrn:stm:location:segot:TRAFFIC_AREA:segot",
+                "urn:mrn:stm:location:segot:TRAFFIC_AREA");
         }
 
         private void initPage()
@@ -160,11 +182,6 @@ namespace PortCDM
             locationsddl.DataBind();
         }
 
-        protected void changeLocationDropDown(object sender, EventArgs e)
-        {
-            bindPortLocations();
-        }
-
         private bool locationStateChosen()
         {
             string chosenstate = messageTypeHiddenField.Value;
@@ -250,9 +267,9 @@ namespace PortCDM
                 {
                     message.serviceState.between = new ServiceStateBetween();
                     message.serviceState.between.from = new Location();
-                    message.serviceState.between.from.locationMRN = fromLocationName.SelectedValue;
+                    message.serviceState.between.from.locationMRN = fixTrafficAreaBug(fromLocationName.SelectedValue);
                     message.serviceState.between.to = new Location();
-                    message.serviceState.between.to.locationMRN = toLocationName.SelectedValue;
+                    message.serviceState.between.to.locationMRN = fixTrafficAreaBug(toLocationName.SelectedValue);
                 }
             }
 
@@ -271,14 +288,14 @@ namespace PortCDM
                     if (fromCheckBox.Checked)
                     {
                         message.locationState.departureLocation.from = new Location();
-                        message.locationState.departureLocation.from.locationMRN = fromLocationName.SelectedValue;
+                        message.locationState.departureLocation.from.locationMRN = fixTrafficAreaBug(fromLocationName.SelectedValue);
                     }
 
                     //------ Location State , departure location, to
                     if (toCheckBox.Checked)
                     {
                         message.locationState.departureLocation.to = new Location();
-                        message.locationState.departureLocation.to.locationMRN = fromLocationName.SelectedValue;
+                        message.locationState.departureLocation.to.locationMRN = fixTrafficAreaBug(fromLocationName.SelectedValue);
                     }
 
                 }
@@ -289,14 +306,14 @@ namespace PortCDM
                     if (fromCheckBox.Checked)
                     {
                         message.locationState.arrivalLocation.from = new Location();
-                        message.locationState.arrivalLocation.from.locationMRN = fromLocationName.SelectedValue;
+                        message.locationState.arrivalLocation.from.locationMRN = fixTrafficAreaBug(fromLocationName.SelectedValue);
                     }
 
                     //------ Location State , arrival location, to
                     if (toCheckBox.Checked)
                     {
                         message.locationState.arrivalLocation.to = new Location();
-                        message.locationState.arrivalLocation.to.locationMRN = toLocationName.SelectedValue;
+                        message.locationState.arrivalLocation.to.locationMRN = fixTrafficAreaBug(toLocationName.SelectedValue);
                     }
                 }
             }
