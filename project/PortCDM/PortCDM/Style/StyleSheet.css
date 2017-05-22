@@ -759,7 +759,7 @@ body {
     transition: all 0.5s ease-in-out;
 }
 .add-ship input:checked ~ .article.ac-small {
-    height: 350px;
+    height: 300px;
 }
 .add-ship input:checked ~ .article.ac-medium {
     height: 250px;
