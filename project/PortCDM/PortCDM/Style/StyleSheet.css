@@ -550,6 +550,8 @@ body {
 	border: 1px solid white;
 	margin-left: 10px;
 	margin-right: 10px;
+	margin-bottom: 20px;
+    margin-top: 0;
 	font-size: 14px;
 	color: #018abd;
 	width: 98%;
@@ -569,7 +571,7 @@ body {
 	font-size: 24px;
 	color: #001b48;
 	font-weight: normal;
-	margin-top: 0px;
+	margin-top: 0;
 }
 
 .accordion .ship-img {
@@ -644,16 +646,19 @@ body {
 }
 
 .accordion .article h3 {
-	margin-top: 0;
     font-size: 16px;
 	color: #001b48;
 	font-weight: normal;
 	padding-left: 10px;
 	padding-right: 10px;
+	margin-top: 0;
+	margin-bottom: 5px;
 }
 
 .accordion .article p {
     line-height: 23px;
+    margin-bottom: 20px;
+    margin-top: 0;
 }
 .accordion input:checked ~ .article {
     -webkit-transition: all 0.5s ease-in-out;
@@ -754,63 +759,13 @@ body {
     transition: all 0.5s ease-in-out;
 }
 .add-ship input:checked ~ .article.ac-small {
-    height: 350px;
+    height: 300px;
 }
 .add-ship input:checked ~ .article.ac-medium {
     height: 250px;
 }
 .add-ship input:checked ~ .article.ac-large {
     height: 250px;
-}
-
-
-/*----- Add ship imo or portcallid -----------*/
-
-.radio-container {
-    margin: 0 auto;
-    width: 50%;
-    text-align: center;
-}
-
-#accordion-i-or-p input {
-  display: block;
-  float: left;
-  margin: 1.2em 1em 0em 1em;
-}
-
-#accordion-i-or-p label {
-	border-radius: .25em;
-	cursor: pointer;
-	display: block;
-	margin-bottom: .125em;
-	padding: .25em 1em;
-	z-index: 20;
-	text-align: left;
-	font-size: 14px;
-}
-
-#accordion-i-or-p input:checked + label {
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
-	color: black;
-	margin-bottom: 0;
-}
-
-#accordion-i-or-p article {
-	height:0px;
-	overflow:hidden;
-	z-index:10;
-}
-
-#accordion-i-or-p article p {
-	padding: 1em;
-}
-
-#accordion-i-or-p input:checked ~ article {
-	border-bottom-left-radius: .25em;
-	border-bottom-right-radius: .25em;
-	height: auto;
-	margin-bottom: .125em;
 }
 
 /*----------------------------Send Message--------------------------------------*/
