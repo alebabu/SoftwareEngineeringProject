@@ -62,22 +62,40 @@ namespace PortCDM
 
 		protected async void addNewShip(object sender, EventArgs e)
 		{
-			string addImo = Request.Form[addShipDropDown.UniqueID];
-			if (shipList.Exists(obj => obj.imo == addImo))
+			if (portCallIdTextbox.Text.Length == 0)
 			{
-				DataBaseHandler.activateShip(addImo);
+				string addImo = Request.Form[addShipDropDown.UniqueID];
+				if (shipList.Exists(obj => obj.imo == addImo))
+				{
+					DataBaseHandler.activateShip(addImo);
+				}
+				else
+				{
+					string result = await RestHandler.createPortCall(addImo);
+					string[] resultlist = result.Split('"');
+					string portCallId = resultlist[3];
+
+					Vessel v = await RestHandler.getVesselByImo(addImo);
+
+					DataBaseHandler.addShip(v, portCallId);
+					Console.WriteLine(v.name);
+				}
 			}
 			else
 			{
-				string result = await RestHandler.createPortCall(addImo);
+				string portcallid = portCallIdTextbox.Text;
+				string result = await RestHandler.getPortcallById2(portcallid);
 				string[] resultlist = result.Split('"');
-				string portCallId = resultlist[3];
+				string imo = resultlist[7];
+				string[] imolist = imo.Split(':');
+				string shortImo = imolist[imolist.Length - 1];
 
-				Vessel v = await RestHandler.getVesselByImo(addImo);
+				Console.WriteLine(imo);
 
-				DataBaseHandler.addShip(v, portCallId);
-				Console.WriteLine(v.name);
+				Vessel v = await RestHandler.getVesselByImo(shortImo);
+				DataBaseHandler.addShip(v, portcallid);
 			}
+	
 			Console.WriteLine("addNewShip before setdatatables");
 			setDataTables();
 		}

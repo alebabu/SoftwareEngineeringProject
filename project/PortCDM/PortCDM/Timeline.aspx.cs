@@ -8,6 +8,7 @@ using System.Data;
 
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
+using System.Reflection;
 
 
 namespace PortCDM
@@ -16,13 +17,67 @@ namespace PortCDM
 
     {
         public string time;
-        
+        private string callID;
+        PropertyInfo Isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadList();
-            LoadEvents(sender, e);
+            if (!(this.IsPostBack))
+            {
+
+                LoadList();
+                LoadEvents(sender, e);
+
+            }
+
         }
-        
+
+
+        protected void LoadList()
+        {
+            DataTable activeShips = DataBaseHandler.getActiveShips();
+            List<Vessel> shipList = new List<Vessel>();
+
+            foreach (DataRow ship in activeShips.Rows)
+            {
+                Vessel v = new Vessel();
+                v.portCallId = ship["portCallID"].ToString();
+                v.imo = ship["imoNumber"].ToString();
+                v.name = ship["name"].ToString();
+                shipList.Add(v);
+            }
+            vesselDDList.DataSource = shipList;
+            vesselDDList.DataTextField = "name";
+            vesselDDList.DataValueField = "portCallID";
+            vesselDDList.DataBind();
+        }
+
+        protected async void LoadEvents(object sender, EventArgs e)
+        {
+
+
+            callID = Request.QueryString["portCallID"];
+            List<portCallMessage> list;
+
+            if (!string.IsNullOrEmpty(callID))
+            {
+                list = await RestHandler.getEvents(callID);
+                vesselDDList.SelectedValue = callID;
+                Isreadonly.SetValue(Request.QueryString, false, null);
+                Request.QueryString.Clear();
+            }
+            else
+            {
+                list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
+            }
+
+            eventListBox.DataSource = list;
+            eventListBox.DataBind();
+
+
+        }
+
         protected object NiceTimeFormat(object o)
         {
             if (o == null)
@@ -47,33 +102,8 @@ namespace PortCDM
             return o;
         }
 
-        protected void LoadList(){
-            DataTable activeShips = DataBaseHandler.getActiveShips();
-			List<Vessel> shipList = new List<Vessel>();
 
-            foreach (DataRow ship in activeShips.Rows)
-			{
-				Vessel v = new Vessel();
-                v.portCallId = ship["portCallID"].ToString();
-				v.imo = ship["imoNumber"].ToString();
-				v.name = ship["name"].ToString();
-				shipList.Add(v);
-			}
-            vesselDDList.DataSource = shipList;
-            vesselDDList.DataTextField = "name";
-            vesselDDList.DataValueField = "portCallID";
-            vesselDDList.DataBind();
-        }
 
-        protected async void LoadEvents(object sender, EventArgs e){
-            
-            
-            List<portCallMessage> list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
-
-            eventListBox.DataSource = list;
-            eventListBox.DataBind();
-
-        }
 
     }
 }

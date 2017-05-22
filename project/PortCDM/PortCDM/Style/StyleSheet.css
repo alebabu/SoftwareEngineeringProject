@@ -421,8 +421,15 @@ body {
 
 /* Example Media Queries */
 @media screen and (max-width: 65.375em) {
+    .ship-img {
+        display: none;
+    }
 
-	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+    .ship-links li a {
+        font-size: 0;
+    }
+
+.cbp_tmtimeline > li .cbp_tmtime span:last-child {
 		font-size: 1.3em;
 	}
 }
@@ -432,7 +439,11 @@ body {
 } 
 
 @media screen and (max-width: 60.4em) {
-	.cbp_tmtimeline:before {
+    .accordion .ship-img {
+        display
+    }
+        
+    .cbp_tmtimeline:before {
 		display: none;
 	}
 
@@ -495,26 +506,26 @@ body {
 }
 
 .deactivate-button {
-	background-color: white;
-	border-radius: 5px;
-	border: 1px solid #001b48;
-	color: #001b48;
-	font-size: 16px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px dotted #001b48;
+    color: #001b48;
+    font-size: 16px;
 }
 
 .ship-links {
-	background-color: white;
-	padding: 0 20px 20px 20px;
+    background-color: white;
+    padding: 0 20px 20px 20px;
 }
 
-.ship-links ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display : flex;
-  	align-items : center;
-}
+    .ship-links ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
 
 .ship-links img {
 	display:inline;
@@ -652,7 +663,7 @@ body {
     transition: all 0.5s ease-in-out;
 }
 .accordion input:checked ~ .article.ac-small {
-    height: 130px;
+    height: 170px;
 }
 .accordion input:checked ~ .article.ac-medium {
     height: 195px;
@@ -743,13 +754,63 @@ body {
     transition: all 0.5s ease-in-out;
 }
 .add-ship input:checked ~ .article.ac-small {
-    height: 300px;
+    height: 350px;
 }
 .add-ship input:checked ~ .article.ac-medium {
     height: 250px;
 }
 .add-ship input:checked ~ .article.ac-large {
     height: 250px;
+}
+
+
+/*----- Add ship imo or portcallid -----------*/
+
+.radio-container {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+#accordion-i-or-p input {
+  display: block;
+  float: left;
+  margin: 1.2em 1em 0em 1em;
+}
+
+#accordion-i-or-p label {
+	border-radius: .25em;
+	cursor: pointer;
+	display: block;
+	margin-bottom: .125em;
+	padding: .25em 1em;
+	z-index: 20;
+	text-align: left;
+	font-size: 14px;
+}
+
+#accordion-i-or-p input:checked + label {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	color: black;
+	margin-bottom: 0;
+}
+
+#accordion-i-or-p article {
+	height:0px;
+	overflow:hidden;
+	z-index:10;
+}
+
+#accordion-i-or-p article p {
+	padding: 1em;
+}
+
+#accordion-i-or-p input:checked ~ article {
+	border-bottom-left-radius: .25em;
+	border-bottom-right-radius: .25em;
+	height: auto;
+	margin-bottom: .125em;
 }
 
 /*----------------------------Send Message--------------------------------------*/
