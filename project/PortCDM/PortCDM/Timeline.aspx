@@ -26,7 +26,6 @@
 		                <div class="cbp_tmicon cbp_tmicon-phone"></div>
 		                <div class="cbp_tmlabel">
 			                <h2>
-                                <asp:Literal runat="server" Text='<%# Eval("locationState.arrivalLocation.to.locationType") %>'></asp:Literal>
                                 <asp:Literal runat="server" Text='<%# Eval("serviceState.serviceObject") %>'></asp:Literal>
 			                </h2>
 			                <p>
