@@ -122,7 +122,8 @@ namespace PortCDM_App_Code
             string q = await QueueHandler.createFilteredQueue(filters, date);
 
             var list = await QueueHandler.pollQueue(q);
-            System.Diagnostics.Debug.WriteLine("listan: " + list);
+            
+
             return list;
 
         }
