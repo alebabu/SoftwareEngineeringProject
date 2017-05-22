@@ -20,7 +20,7 @@ namespace PortCDM
         private MessageIdGenerator messageIdGenerator;
         private DateHandler dateHandler;
 
-        protected async void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             DataTable ships = DataBaseHandler.getActiveShips();
 
@@ -72,6 +72,21 @@ namespace PortCDM
             string response = await RestHandler.createPCM(pcm);
             loadingText.Text = response;
             messageSentButton.Visible = true;
+        }
+
+        protected void toChangeLocationDropDown(object sender, EventArgs e)
+        {
+            bindPortLocation(toLocationType, toLocationName);
+        }
+
+        protected void fromChangeLocationDropDown(object sender, EventArgs e)
+        {
+            bindPortLocation(fromLocationType, fromLocationName);
+        }
+
+        protected void atChangeLocationDropDown(object sender, EventArgs e)
+        {
+            bindPortLocation(atLocationType, atLocationName);
         }
 
         //Note(Olle): portCDM 0.6 doesn't want to receive a string generated from their API, so this formats that string
@@ -165,11 +180,6 @@ namespace PortCDM
             locationsddl.DataTextField = "name";
             locationsddl.DataValueField = "URN";
             locationsddl.DataBind();
-        }
-
-        protected void changeLocationDropDown(object sender, EventArgs e)
-        {
-            bindPortLocations();
         }
 
         private bool locationStateChosen()

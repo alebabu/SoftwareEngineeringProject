@@ -130,7 +130,7 @@
                                     <div class="formText">
                                         <asp:Literal runat="server">From Location Type:</asp:Literal>
                                     </div>
-                                    <asp:DropDownList ID="fromLocationType" AutoPostBack="True" OnSelectedIndexChanged="changeLocationDropDown" runat="server">
+                                    <asp:DropDownList ID="fromLocationType" AutoPostBack="True" OnSelectedIndexChanged="fromChangeLocationDropDown" runat="server">
                                         <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
                                         <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
                                         <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>
@@ -147,7 +147,7 @@
                                     <div class="formText">
                                         <asp:Literal runat="server">To Location Type:</asp:Literal>
                                     </div>
-                                    <asp:DropDownList ID="toLocationType" AutoPostBack="True" OnSelectedIndexChanged="changeLocationDropDown" runat="server">
+                                    <asp:DropDownList ID="toLocationType" AutoPostBack="True" OnSelectedIndexChanged="toChangeLocationDropDown" runat="server">
                                         <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
                                         <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
                                         <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>
@@ -164,7 +164,7 @@
                                     <div class="formText">
                                         <asp:Literal runat="server">At Location Type:</asp:Literal>
                                     </div>
-                                    <asp:DropDownList ID="atLocationType" AutoPostBack="True" OnSelectedIndexChanged="changeLocationDropDown" runat="server">
+                                    <asp:DropDownList ID="atLocationType" AutoPostBack="True" OnSelectedIndexChanged="toChangeLocationDropDown" runat="server">
                                         <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
                                         <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
                                         <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>
