@@ -19,20 +19,30 @@
 		                <time class="cbp_tmtime"> 
                             <span>
                                 <asp:Literal runat="server" Text='<%# NiceTimeFormat(Eval("locationState.time")) %>'/>
-                                <asp:Literal runat="server" Text='<%# NiceTimeFormat(Eval("serviceState.time")) %>'/>
+                                <asp:Literal runat="server" Text='<%# NiceTimeFormat(Eval("serviceState.time")) %>'/>                            
+                                <br />
+                                <asp:Literal runat="server" Text='<%# Eval("locationState.timeType") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# Eval("serviceState.timeType") %>'></asp:Literal>                            
                             </span>
-
 		                </time>
 		                <div class="cbp_tmicon cbp_tmicon-phone"></div>
 		                <div class="cbp_tmlabel">
 			                <h2>
+                                <asp:Literal runat="server" Text='<%# ShortenMRN(Eval("locationState.arrivalLocation.to.locationMRN")) %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# ShortenMRN(Eval("locationState.arrivalLocation.from.locationMRN")) %>'></asp:Literal>
                                 <asp:Literal runat="server" Text='<%# Eval("serviceState.serviceObject") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# Eval("serviceState.timeSequence") %>'></asp:Literal>
 			                </h2>
 			                <p>
-                                <asp:Literal runat="server" Text='<%# Eval("locationState.referenceObject") %>'></asp:Literal>
-                                <asp:Literal runat="server" Text='<%# Eval("locationState.timeType") %>'></asp:Literal>
-                                <asp:Literal runat="server" Text='<%# Eval("serviceState.timeType") %>'></asp:Literal>
-                                <asp:Literal runat="server" Text='<%# Eval("serviceState.timeSequence") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# Eval("locationState.referenceObject") %>'></asp:Literal>                               
+                                <asp:Literal runat="server" Text='<%# Eval("serviceState.performingActor") %>'></asp:Literal>                                                             
+                                
+                                
+                                <br />
+                                Reported by:
+                                <asp:Literal runat="server" Text='<%# Eval("reportedBy") %>'></asp:Literal>
+                                at
+                                <asp:Literal runat="server" Text='<%# Eval("reportedAt") %>'></asp:Literal>
 			                </p>
 		                </div>
 	                </li>

@@ -75,7 +75,7 @@ namespace PortCDM
             eventListBox.DataSource = list;
             eventListBox.DataBind();
 
-
+            
         }
 
         protected object NiceTimeFormat(object o)
@@ -86,12 +86,8 @@ namespace PortCDM
 
             int daysAgo = (DateTime.Now - dateTime).Days;
             daysAgo = 0;
-
-            if (daysAgo <= 7)
-            {   // If within 7 days
-                o = dateTime.ToString("dddd<br />HH:mm");
-            }
-            else if (daysAgo < 365)
+           
+            if (daysAgo < 365)
             {   // If within a year
                 o = dateTime.ToString("d MMM<br />HH:mm");
             }
@@ -102,6 +98,21 @@ namespace PortCDM
             return o;
         }
 
+        
+        protected object ShortenMRN(object locationMRN)
+        {        
+            String s = (String)locationMRN;            
+            if (s != null)
+            {
+                s = s.Replace("urn:mrn:stm:location:segot:", "");                
+                return s;
+            }else
+            {
+                return "";
+            }
+
+
+        }
 
 
 
