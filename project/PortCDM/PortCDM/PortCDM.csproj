@@ -45,6 +45,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -69,9 +72,6 @@
     </Reference>
     <Reference Include="System.Net" />
     <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
@@ -98,14 +98,21 @@
     <Content Include="Inbox.aspx" />
     <Content Include="packages.config" />
     <Content Include="Default.aspx" />
-    <Content Include="NewPortCDMMessage.aspx" />
     <Content Include="Ships.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\DataBaseHandler.cs" />
     <Compile Include="Code\DateHandler.cs" />
+    <Compile Include="Code\HttpSingleton.cs" />
     <Compile Include="Code\MessageIdGenerator.cs" />
+    <Compile Include="Code\PrepareRestCall.cs" />
+    <Compile Include="Code\QueueHandler.cs" />
     <Compile Include="Code\Randomizer.cs" />
+    <Compile Include="Code\Structs\Filter.cs" />
+    <Compile Include="Code\Structs\FilterType.cs" />
     <Compile Include="Code\Structs\port-call-message.cs" />
+    <Compile Include="Code\Structs\PortLocation.cs" />
+    <Compile Include="Code\Subscriptions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -143,13 +150,6 @@
     <Compile Include="Inbox.aspx.designer.cs">
       <DependentUpon>Inbox.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NewPortCDMMessage.aspx.cs">
-      <DependentUpon>NewPortCDMMessage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewPortCDMMessage.aspx.designer.cs">
-      <DependentUpon>NewPortCDMMessage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Timeline.aspx.cs">
       <DependentUpon>Timeline.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -166,6 +166,7 @@
     </Compile>
     <Compile Include="Ships.aspx.cs">
       <DependentUpon>Ships.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Ships.aspx.designer.cs">
       <DependentUpon>Ships.aspx</DependentUpon>

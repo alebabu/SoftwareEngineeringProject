@@ -15,26 +15,23 @@ namespace PortCDM
 {
 	public partial class Ships : System.Web.UI.Page
 	{
-		public MySqlConnection con;
-		public MySqlDataAdapter sda;
+		private MySqlConnection con;
+		private MySqlDataAdapter sda;
+		private static List<Vessel> shipList = new List<Vessel>();
 
 
-		protected void Page_Load(Object sender, EventArgs e)
+		protected async void Page_Load(Object sender, EventArgs e)
 		{
 			if (!(this.IsPostBack))
 			{
-				//DataBaseHandler.getAllShips().Wait();
+				await DataBaseHandler.getAllShips();
+				Console.WriteLine("page_load");
 				setDataTables();
 			}
 
 		}
 
-		protected void addNewShip(object sender, EventArgs e)
-		{
-			DataBaseHandler.activateShip(addShipDropDown.SelectedItem.Value);
 
-			setDataTables();
-		}
 
 		protected void commentChanged(object sender, EventArgs e)
 		{
@@ -58,34 +55,56 @@ namespace PortCDM
 
 			DataBaseHandler.deactivateShip(imo);
 
+			Console.WriteLine("deactivateShip before setdatatables");
 			setDataTables();
 
 		}
 
-		private void setDataTables()
+		protected async void addNewShip(object sender, EventArgs e)
 		{
-				DataTable activeShipsDt = new DataTable();
-				activeShipsDt = DataBaseHandler.getActiveShips();
-				shipRepeater.DataSource = activeShipsDt;
-				shipRepeater.DataBind();
+			string addImo = Request.Form[addShipDropDown.UniqueID];
+			if (shipList.Exists(obj => obj.imo == addImo))
+			{
+				DataBaseHandler.activateShip(addImo);
+			}
+			else
+			{
+				string result = await RestHandler.createPortCall(addImo);
+				string[] resultlist = result.Split('"');
+				string portCallId = resultlist[3];
 
-				DataTable inActiveShipsDT = DataBaseHandler.getInActiveShips();
-				List<Vessel> shipList = new List<Vessel>();
-				foreach (DataRow ship in inActiveShipsDT.Rows)
-				{
-					Vessel v = new Vessel();
-					v.imo = ship["imoNumber"].ToString();
-					v.name = ship["name"].ToString();
-					shipList.Add(v);
-				}
-				addShipDropDown.DataSource = shipList;
-				addShipDropDown.DataTextField = "name";
-				addShipDropDown.DataValueField = "imo";
+				Vessel v = await RestHandler.getVesselByImo(addImo);
 
-				addShipDropDown.DataBind();
+				DataBaseHandler.addShip(v, portCallId);
+				Console.WriteLine(v.name);
+			}
+			Console.WriteLine("addNewShip before setdatatables");
+			setDataTables();
 		}
 
+		private void setDataTables()
+		{
+			DataTable activeShipsDt = new DataTable();
+			activeShipsDt = DataBaseHandler.getActiveShips();
+			shipRepeater.DataSource = activeShipsDt;
+			shipRepeater.DataBind();
 
+			shipList.Clear();
+			DataTable inActiveShipsDT = DataBaseHandler.getInActiveShips();
+			foreach (DataRow ship in inActiveShipsDT.Rows)
+			{
+				Vessel v = new Vessel();
+				v.imo = ship["imoNumber"].ToString();
+				v.name = ship["name"].ToString();
+				shipList.Add(v);
+			}
+			addShipDropDown.DataSource = shipList;
+			addShipDropDown.DataTextField = "imo";
+			addShipDropDown.DataValueField = "imo";
 
+			addShipDropDown.DataBind();
+			Console.WriteLine("setdatatables done");
+
+		}
 	}
 }

@@ -28,8 +28,6 @@ public class portCallMessage
 
     public string reportedAt { get; set; }
 
-    public bool reportedAtSpecified { get; set; }
-
     public string reportedBy { get; set; }
 
     public string comment { get; set; }
@@ -138,13 +136,12 @@ public class LocationStateArrivalLocation
 
 public class Location
 {
-    public LogicalLocation locationType { get; set; }
+    public string locationMRN { get; set; }
 
+    //public LogicalLocation locationType { get; set; }
 
     public Position position { get; set; }
 
-
-    public string locationMRN { get; set; }
 }
 
 
