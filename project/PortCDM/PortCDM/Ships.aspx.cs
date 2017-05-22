@@ -20,11 +20,11 @@ namespace PortCDM
 		private static List<Vessel> shipList = new List<Vessel>();
 
 
-		protected void Page_Load(Object sender, EventArgs e)
+		protected async void Page_Load(Object sender, EventArgs e)
 		{
 			if (!(this.IsPostBack))
 			{
-				//DataBaseHandler.getAllShips().Wait();
+				await DataBaseHandler.getAllShips();
 				Console.WriteLine("page_load");
 				setDataTables();
 			}

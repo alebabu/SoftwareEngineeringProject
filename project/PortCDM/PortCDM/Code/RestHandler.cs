@@ -14,14 +14,14 @@ using System.Xml;
 namespace PortCDM_App_Code
 {
     public class RestHandler
-	{
+    {
         static string toXML(portCallMessage pcm)
         {
             pcm.namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[]
             {
                 new XmlQualifiedName(string.Empty, "urn:mrn:stm:schema:port-call-message:0.6")
             });
-            XmlSerializer xs = new XmlSerializer(typeof(portCallMessage), new XmlRootAttribute("portCallMessage") { Namespace = "urn:x-mrn:stm:schema:port-call-message:0.0.16" });
+            XmlSerializer xs = new XmlSerializer(typeof(portCallMessage), new XmlRootAttribute("portCallMessage") { Namespace = "urn:mrn:stm:schema:port-call-message:0.6" });
             StringWriter sw = new StringWriter();
 
             XmlWriterSettings xws = new XmlWriterSettings();
@@ -40,7 +40,9 @@ namespace PortCDM_App_Code
         {
             PrepareRestCall.postXML();
 
-            var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mss", new StringContent(toXML(pcm), Encoding.UTF8, "application/xml"));
+            string xml = toXML(pcm);
+
+            var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mss", new StringContent(xml, Encoding.UTF8, "application/xml"));
 
             string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
 
@@ -49,22 +51,15 @@ namespace PortCDM_App_Code
 
         public static async Task<List<PortLocation>> getLocations()
         {
+            PrepareRestCall.getJson();
             List<PortLocation> locations = new List<PortLocation>();
-            using (HttpClient tempClient = new HttpClient())
-            {
-                tempClient.BaseAddress = new Uri("http://dev.portcdm.eu:8080");
-                tempClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                tempClient.DefaultRequestHeaders.Add("X-PortCDM-UserId", "viktoria");
-                tempClient.DefaultRequestHeaders.Add("X-PortCDM-Password", "vik123");
-                tempClient.DefaultRequestHeaders.Add("X-PortCDM-APIKey", PrepareRestCall.apiKey);    
 
-                var response = await tempClient.GetAsync("/location-registry/locations/?requestType=ALL");
+                var response = await PrepareRestCall.HttpClientInstance.GetAsync("/location-registry/locations/?requestType=ALL");
                 if (response.IsSuccessStatusCode)
                 {
                     var responseData = await response.Content.ReadAsAsync<IEnumerable<PortLocation>>();
                     locations = responseData.ToList();
                 }
-            }
             return locations;
         }
 

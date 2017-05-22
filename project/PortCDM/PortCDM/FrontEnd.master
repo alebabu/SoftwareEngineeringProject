@@ -4,7 +4,6 @@
 <head runat="server">
 	<link rel="stylesheet" type="text/css" href="Style/StyleSheet.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-	<title>FrontEnd</title>
     <section id="HeadContent" class="content">
         <asp:ContentPlaceHolder runat="server" ID="cpHeadContent"></asp:ContentPlaceHolder>
     </section>
@@ -29,7 +28,6 @@
 						<li><img src="../Images/timeline_white.png" /><font class="sideMenyFont"><a href="../Timeline.aspx">Timeline</a></font></li>
 						<li><img src="../Images/history_white.png" /><font class="sideMenyFont"><a href="../SendMessageOld.aspx">History</a></font></li>
 						<li><img src="../Images/message_white.png" /><font class="sideMenyFont"><a href="../SendMessage.aspx">New PortCDM &#160; &#160; &#160; &#160; &#160; Message</a></font></li>
-
 					</ul>
 		</div>
 
