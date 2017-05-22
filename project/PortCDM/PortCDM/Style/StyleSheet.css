@@ -421,8 +421,15 @@ body {
 
 /* Example Media Queries */
 @media screen and (max-width: 65.375em) {
+    .ship-img {
+        display: none;
+    }
 
-	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+    .ship-links li a {
+        font-size: 0;
+    }
+
+.cbp_tmtimeline > li .cbp_tmtime span:last-child {
 		font-size: 1.3em;
 	}
 }
@@ -432,7 +439,11 @@ body {
 } 
 
 @media screen and (max-width: 60.4em) {
-	.cbp_tmtimeline:before {
+    .accordion .ship-img {
+        display
+    }
+        
+    .cbp_tmtimeline:before {
 		display: none;
 	}
 
@@ -495,26 +506,26 @@ body {
 }
 
 .deactivate-button {
-	background-color: white;
-	border-radius: 5px;
-	border: 1px solid #001b48;
-	color: #001b48;
-	font-size: 16px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px dotted #001b48;
+    color: #001b48;
+    font-size: 16px;
 }
 
 .ship-links {
-	background-color: white;
-	padding: 0 20px 20px 20px;
+    background-color: white;
+    padding: 0 20px 20px 20px;
 }
 
-.ship-links ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display : flex;
-  	align-items : center;
-}
+    .ship-links ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
 
 .ship-links img {
 	display:inline;
