@@ -8,6 +8,7 @@ using System.Data;
 
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
+using System.Reflection;
 
 
 namespace PortCDM
@@ -16,118 +17,92 @@ namespace PortCDM
 
     {
         public string time;
-        
+        private string callID;
+        PropertyInfo Isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-			if (!(this.IsPostBack))
-			{
-				LoadList();
-				LoadEvents(sender,e);
-			}
+            if (!(this.IsPostBack))
+            {
+
+                LoadList();
+                LoadEvents(sender, e);
+
+            }
+
         }
-        
-        protected void LoadList(){
+
+        protected void LoadList()
+        {
             DataTable activeShips = DataBaseHandler.getActiveShips();
-			List<Vessel> shipList = new List<Vessel>();
+            List<Vessel> shipList = new List<Vessel>();
 
             foreach (DataRow ship in activeShips.Rows)
-			{
-				Vessel v = new Vessel();
+            {
+                Vessel v = new Vessel();
                 v.portCallId = ship["portCallID"].ToString();
-				v.imo = ship["imoNumber"].ToString();
-				v.name = ship["name"].ToString();
-				shipList.Add(v);
-			}
+                v.imo = ship["imoNumber"].ToString();
+                v.name = ship["name"].ToString();
+                shipList.Add(v);
+            }
             vesselDDList.DataSource = shipList;
             vesselDDList.DataTextField = "name";
             vesselDDList.DataValueField = "portCallID";
             vesselDDList.DataBind();
         }
 
-        protected async void LoadEvents(object sender, EventArgs e){
-            
-            Console.WriteLine("loaded");
-            List<portCallMessage> list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
-            List<Event> eventList = CreateEvents(list);
-            List<portCallMessage> showList = GetFirstPortCalls(eventList);
-            
-           
+        protected async void LoadEvents(object sender, EventArgs e)
+        {
 
+
+            callID = Request.QueryString["portCallID"];
+            List<portCallMessage> list;
+
+            if (!string.IsNullOrEmpty(callID))
+            {
+                list = await RestHandler.getEvents(callID);
+                vesselDDList.SelectedValue = callID;
+                Isreadonly.SetValue(Request.QueryString, false, null);
+                Request.QueryString.Clear();
+            }
+            else
+            {
+                list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
+            }
 
             eventListBox.DataSource = list;
             eventListBox.DataBind();
 
+
         }
 
-        protected List<portCallMessage> GetFirstPortCalls(List<Event> list)
+        protected object NiceTimeFormat(object o)
         {
-            List<portCallMessage> result = new List<portCallMessage>();
-            foreach (var x in list)
-            {
-                result.Add(x.getPortCallList().First());
+            if (o == null)
+                return null;
+            DateTime dateTime = (DateTime)o;
+
+            int daysAgo = (DateTime.Now - dateTime).Days;
+            daysAgo = 0;
+
+            if (daysAgo <= 7)
+            {   // If within 7 days
+                o = dateTime.ToString("dddd<br />HH:mm");
             }
-            return result;
+            else if (daysAgo < 365)
+            {   // If within a year
+                o = dateTime.ToString("d MMM<br />HH:mm");
+            }
+            else
+            {   // Older date
+                o = dateTime.ToString("yyyy-MM-dd<br />HH:mm");
+            }
+            return o;
         }
 
-        protected List<Event> CreateEvents(List<portCallMessage> list)
-        {
-            List<LocationState> locationList = new List<LocationState>();
 
-            List<Event> result = new List<Event>();
-        
-            foreach(var x in list)
-            {
-                foreach(var y in result)
-                {
-                    portCallMessage portmsg = y.getPortCallList().First();
-                    if (IsSameEvent(x,portmsg))
-                    {
-                        y.Add(x);
-                        break;
-                    }
-                }
-                List<portCallMessage> newList = new List<portCallMessage>();
-                newList.Add(x);
-                result.Add(new Event(newList));
-            }
-            return result;
-            
-        }
-        
-        private bool IsSameEvent(portCallMessage e1, portCallMessage e2)
-        {
-            if (e1.locationState != null && e2.locationState != null)
-            {
-                return (e1.locationState.arrivalLocation == e2.locationState.arrivalLocation &&
-                    e1.locationState.departureLocation == e2.locationState.departureLocation &&
-                    e1.locationState.timeType == e2.locationState.timeType);
 
-            }
-            return false;
-        }
-        
-
-        public class Event
-        {
-            private List<portCallMessage> list;
-
-            public Event(List<portCallMessage> list)
-            {
-                this.list = list;
-            }
-
-            public void Add(portCallMessage elem)
-            {
-                list.Add(elem);
-            }
-
-            public List<portCallMessage> getPortCallList()
-            {
-                return list;
-            } 
-            
-
-        }
 
     }
 }
