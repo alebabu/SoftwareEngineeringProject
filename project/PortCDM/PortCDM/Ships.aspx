@@ -21,34 +21,10 @@
 					</label>
 					<div class="article ac-small">
 						<h1>Add new ship</h1>
-
-						<div class="radio-container">
-							<section id="accordion-i-or-p">
-								<div class="radio-option">
-									<input type="radio" name="accordion-group" id="option-1" />
-									<label for="option-1">Imonummer</label>
-									<article>
-										<p>
-											IMO of the ship:
-											<asp:DropDownList id="addShipDropDown" runat="server"></asp:DropDownList>
-										</p>
-									</article>
-								</div>
-								<div class="radio-option">
-									<input type="radio" name="accordion-group" id="option-2" />
-									<label for="option-2">Portcallid</label>
-									<article>
-										<p>
-											Enter portcallid:
-											<asp:TextBox runat="server" placeholder="Portcallid..." id="portCallIdTextbox"></asp:TextBox>
-										</p>
-									</article>
-								</div>
-							</section>
-						</div>
-
-					
-						
+						<p>
+							IMO of the ship:
+							<asp:DropDownList id="addShipDropDown" runat="server"></asp:DropDownList>
+						</p>
 						<asp:Button CssClass="add-button" runat="server" id="addShipButton" Text="Add ship" onClick="addNewShip" AutoPostBack="true"/>
 					</div>
 				</div>
@@ -73,9 +49,8 @@
 									</div>
 								</label>
 								<div class="article ac-small">
-									<h3>PortCallid</h3>
+									<h3>PortCall ID</h3>
 									<p><asp:Literal runat="server" Text='<%# Eval("portCallId") %>'/></p>
-									
 									<h3>Comments</h3>
 									<asp:TextBox CssClass="ship-comment" runat="server" placeholder="Add comment..." Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true" CommandArgument='<%#Eval("imoNumber")%>' CommandName="ImoNumber"></asp:TextBox>
 								</div>
