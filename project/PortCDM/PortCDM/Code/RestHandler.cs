@@ -158,6 +158,23 @@ namespace PortCDM_App_Code
  
  			return v;   
  		}
+
+
+		public static async Task<string> getPortcallById2(string portcallid)
+		{
+			PrepareRestCall.postXML();
+
+			var response = await PrepareRestCall.HttpClientInstance.GetAsync(String.Format("pcr/port_call/{0}", portcallid));
+
+			string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
+			string responseContent = response.Content.ReadAsStringAsync().Result;
+
+			return result;		
+			}
+
+
+
+
     }
 }
 
