@@ -59,7 +59,7 @@ function setVisibilities() {
 
 function initClickEvents() {
     $('#cpMainContent_betweenRadioButton')
-    .click(function() {
+    .click(function () {
         setAtOrBothVisibility();
     });
     $('#cpMainContent_atRadioButton')
@@ -80,7 +80,6 @@ function initClickEvents() {
 
 function panelLoaded(sender, args) {
     setVisibilities();
-
 }
 
 $(function () {
@@ -96,5 +95,4 @@ $(function () {
     $(".fancyBoxButton").fancybox({
         'hideOnContentClick': true
     });
-
 });
