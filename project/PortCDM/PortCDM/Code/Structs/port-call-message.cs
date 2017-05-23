@@ -138,8 +138,6 @@ public class Location
 {
     public string locationMRN { get; set; }
 
-    //public LogicalLocation locationType { get; set; }
-
     public Position position { get; set; }
 
 }
