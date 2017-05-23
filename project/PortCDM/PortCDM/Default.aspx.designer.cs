@@ -15,6 +15,8 @@ namespace PortCDM {
 		
 		protected System.Web.UI.WebControls.Content Content1;
 		
+		protected System.Web.UI.WebControls.Repeater nextArrivalRepeater;
+		
 		protected System.Web.UI.WebControls.Repeater shipRepeater;
 	}
 }

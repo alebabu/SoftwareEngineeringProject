@@ -49,10 +49,13 @@
 									</div>
 								</label>
 								<div class="article ac-small">
-									<h3>PortCall ID</h3>
-									<p><asp:Literal runat="server" Text='<%# Eval("portCallId") %>'/></p>
+									
 									<h3>Comments</h3>
 									<asp:TextBox CssClass="ship-comment" runat="server" placeholder="Add comment..." Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true" CommandArgument='<%#Eval("imoNumber")%>' CommandName="ImoNumber"></asp:TextBox>
+									<h3>Arrival date</h3>
+									<p><asp:Literal runat="server" Text='<%# newTime(Eval("arrivalDate")) %>'/></p>
+									<h3>PortCall ID</h3>
+									<p><asp:Literal runat="server" Text='<%# Eval("portCallId") %>'/></p>
 								</div>
 							</div>
 							<div class="ship-links">
