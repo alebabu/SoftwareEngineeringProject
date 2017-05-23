@@ -48,7 +48,7 @@ namespace PortCDM_App_Code
             return pcmGroups.Values.ToList();
         }
 
-        private bool isLocationState(portCallMessage pcm)
+        public static bool isLocationState(portCallMessage pcm)
         {
             return pcm.locationState != null;
         }

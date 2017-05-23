@@ -110,18 +110,6 @@ namespace PortCDM
 			shipImosNames.Clear();
 			shipList.Clear();
 			DataTable inActiveShipsDT = DataBaseHandler.getInActiveShips();
-			/*foreach (DataRow ship in inActiveShipsDT.Rows)
-			{
-				Vessel v = new Vessel();
-				v.imo = ship["imoNumber"].ToString();
-				v.name = ship["name"].ToString();
-				shipList.Add(v);
-			}
-			addShipDropDown.DataSource = shipList;
-			addShipDropDown.DataTextField = "imo";
-			addShipDropDown.DataValueField = "imo";
-			*/
-
 
 			foreach (DataRow ship in inActiveShipsDT.Rows)
 			{
@@ -135,5 +123,16 @@ namespace PortCDM
 			Console.WriteLine("setdatatables done");
 
 		}
+
+		protected object newTime(object o)
+		{
+			String s = (String)o;
+			Console.WriteLine(s);
+			DateHandler dh = new DateHandler();
+			DateTime time = dh.stringToDate(s);
+			o = time.ToString("d MMM HH:mm");
+			return o; 			
+		}
+
 	}
 }

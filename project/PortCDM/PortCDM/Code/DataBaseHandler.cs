@@ -69,7 +69,7 @@ namespace PortCDM_App_Code
 				Console.WriteLine(e.Message);
 			}
 
-			MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_ship WHERE active = '1' AND comment IS NOT NULL");
+			MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_ship WHERE active = '1' AND comment IS NOT NULL ORDER BY arrivalDate ASC");
 			MySqlDataAdapter sda = new MySqlDataAdapter();
 
 			cmd.Connection = conn;
@@ -78,6 +78,8 @@ namespace PortCDM_App_Code
 			DataTable dt = new DataTable();
 			sda.Fill(dt);
 			Console.WriteLine(dt);
+
+			conn.Close();
 
 			return dt;
 		}
@@ -119,6 +121,8 @@ namespace PortCDM_App_Code
 				string name = p.vessel.name;
 				string imgURL = p.vessel.photoURL;
 				string portCallId = p.id;
+				string arrivalDate = p.arrivalDate;
+				Console.WriteLine(arrivalDate);
 
 				conn = new MySqlConnection(connectionString);
 				conn.Open();
@@ -126,7 +130,7 @@ namespace PortCDM_App_Code
 				MySqlCommand cmd = new MySqlCommand("INSERT IGNORE INTO tbl_ship SET imoNumber = '" +
 												   imo + "', name = '" + name + "', imgURL = '" +
 													imgURL + "', portCallID = '" + portCallId +
-													"', active = '0';");
+				                                    "', active = '0', arrivalDate = '" + arrivalDate + "';");
 				cmd.Connection = conn;
 				cmd.ExecuteNonQuery();
 				conn.Close();
@@ -201,6 +205,7 @@ namespace PortCDM_App_Code
 			conn.Close();
 		}
 
+<<<<<<< HEAD
 		public static string getComment(string portCallId)
 		{
 			StringBuilder sb = new StringBuilder();
@@ -242,5 +247,36 @@ namespace PortCDM_App_Code
 			
 			return sb.ToString();
 		}
+=======
+
+		public static DataTable getNextArrival()
+		{
+			try
+			{
+				conn = new MySqlConnection(connectionString);
+				conn.Open();
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine(e.Message);
+			}
+
+			MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_ship WHERE active = '1' ORDER BY arrivalDate ASC LIMIT 3");
+			MySqlDataAdapter sda = new MySqlDataAdapter();
+
+			cmd.Connection = conn;
+			sda.SelectCommand = cmd;
+
+			DataTable dt = new DataTable();
+			sda.Fill(dt);
+			Console.WriteLine(dt.Rows[0]["name"]);
+
+			conn.Close();
+
+			return dt;
+		}
+
+
+>>>>>>> 2e674311cb6cf9bf05f976efaae211f0b1c186df
 	}
 }
