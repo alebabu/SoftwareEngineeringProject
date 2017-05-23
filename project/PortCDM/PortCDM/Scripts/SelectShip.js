@@ -14,7 +14,7 @@
 
 $(function() {
 
-	if ($('#ctl00_cpMainContent_addShipDropDown')) {
+	if ($('#ctl00_cpMainContent_addShipDropDown').html()) {
 		var id = '#ctl00_cpMainContent_addShipDropDown'
 	} else {
 		var id = '#cpMainContent_addShipDropDown'
