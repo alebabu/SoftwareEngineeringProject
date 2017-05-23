@@ -2,7 +2,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="cpHeadContent">
     <title>Send Message</title>
-    <script type="text/javascript" src="Scripts/SendMessageNew.js"></script>
+    <script type="text/javascript" src="Scripts/SendMessage.js"></script>
     <script type="text/javascript" src="Scripts/jquery.fancybox-1.3.4.pack.js"></script>
     <link rel="stylesheet" href="Style/jquery.fancybox-1.3.4.css" />
 </asp:Content>

@@ -1,91 +1,98 @@
-﻿function setLoadState() {
-    $('#atLocation').hide();
-    $('#fromLocation').hide();
-    $('#toLocation').hide();
+﻿function toBoxChecked() {
+    return $('#cpMainContent_toCheckBox').prop('checked');
 }
 
-function setMonthDropDowns() {
-    $('.monthDropDown')
-        .each(function () {
-            for (var month = 1; month < 13; month++) {
-                $(this).append('<option value="' + addZeroBeforeDate(month) + '">' + month + '</option>');
-            }
-        });
+function fromBoxChecked() {
+    return $('#cpMainContent_fromCheckBox').prop('checked');
 }
 
-function setDayDropDowns() {
-    $('.dayDropDown')
-        .each(function () {
-            for (var day = 1; day < 32; day++) {
-                $(this).append('<option value="' + addZeroBeforeDate(day) + '">' + day + '</option>');
-            }
-        });
+function atRadioChecked() {
+    return $('#cpMainContent_atRadioButton').prop('checked');
 }
 
-function setYearDropDowns() {
-    $('.yearDropDown')
-        .each(function () {
-            for (var year = 1900; year < 2101; year++) {
-                $(this).append('<option value="' + year + '">' + year + '</option>');
-            }
-            $(this).val(2010); //Note(Olle): set standard value
-        });
+function bothRadioChecked() {
+    return $('#cpMainContent_betweenRadioButton').prop('checked');
 }
 
-function setDropDowns() {
-    setDayDropDowns();
-    setMonthDropDowns();
-    setYearDropDowns();
-}
-
-function addZeroBeforeDate(monthOrDay) {
-    if (monthOrDay < 10)
-        return 0 + "" + monthOrDay;
-    else
-        return monthOrDay;
-}
-
-function setBetweenLocation() {
-    var fadeDuration = 600;
-    $('#atLocation').hide();
-    $('#fromLocation').fadeIn(fadeDuration);
-    $('#toLocation').fadeIn(fadeDuration);
-}
-
-function setAtLocation() {
-    var fadeDuration = 600;
-    $('#atLocation').fadeIn(fadeDuration);
-    $('#fromLocation').hide();
-    $('#toLocation').hide();
-}
-
-function setLocationVisibilityOnClick() {
-    $('input:radio').click(function() {
-        if ($('#cpMainContent_atRadioButton').is(':checked')) {
-            setAtLocation();
-        } else if ($('#cpMainContent_betweenRadioButton').is(':checked')) {
-            setBetweenLocation();
-        }
-    });
-}
-
-function setLocationVisibility() {
-    if ($('#cpMainContent_atRadioButton').is(':checked')) {
-        setAtLocation();
-    } else if ($('#cpMainContent_betweenRadioButton').is(':checked')) {
-        setBetweenLocation();
+function setFromVisibility() {
+    if (fromBoxChecked() || bothRadioChecked()) {
+        $('#fromLocationForm').css('display', 'inline-block');
+    } else {
+        $('#fromLocationForm').hide();
     }
 }
 
-//Note(Olle): run scripts at startup and on updatepanel update
-$(function () {
-    setLoadState();
-    var prm = Sys.WebForms.PageRequestManager.getInstance();
-    prm.add_pageLoaded(panelLoaded);
-});
+function setToVisibility() {
+    if (toBoxChecked() || bothRadioChecked()) {
+        $('#toLocationForm').css('display', 'inline-block');
+    } else {
+        $('#toLocationForm').hide();
+    }
+}
+
+function setAtVisibility() {
+    if (toBoxChecked() || bothRadioChecked()) {
+        $('#toLocationForm').css('display', 'inline-block');
+    } else {
+        $('#toLocationForm').hide();
+    }
+}
+
+function setAtOrBothVisibility() {
+    if (atRadioChecked()) {
+        $('#atLocationForm').css('display', 'inline-block');
+        $('#toLocationForm').hide();
+        $('#fromLocationForm').hide();
+    } else if (bothRadioChecked()) {
+        $('#atLocationForm').hide();
+        $('#toLocationForm').css('display', 'inline-block');
+        $('#fromLocationForm').css('display', 'inline-block');
+    }
+}
+
+function setVisibilities() {
+    setAtOrBothVisibility();
+    setAtVisibility();
+    setFromVisibility();
+    setToVisibility();
+}
+
+function initClickEvents() {
+    $('#cpMainContent_betweenRadioButton')
+    .click(function () {
+        setAtOrBothVisibility();
+    });
+    $('#cpMainContent_atRadioButton')
+        .click(function () {
+            setAtOrBothVisibility();
+        });
+
+    $('#cpMainContent_fromCheckBox')
+        .click(function() {
+            setFromVisibility();
+        });
+
+    $('#cpMainContent_toCheckBox')
+    .click(function () {
+        setToVisibility();
+    });
+}
 
 function panelLoaded(sender, args) {
-    setDropDowns();
-    setLocationVisibility();
-    setLocationVisibilityOnClick();
+    setVisibilities();
 }
+
+$(function () {
+    var prm = Sys.WebForms.PageRequestManager.getInstance();
+    prm.add_pageLoaded(panelLoaded);
+
+    initClickEvents();
+
+    /* This is basic - uses default settings */
+    $("a#single_image").fancybox();
+
+    /* Using custom settings */
+    $(".fancyBoxButton").fancybox({
+        'hideOnContentClick': true
+    });
+});
