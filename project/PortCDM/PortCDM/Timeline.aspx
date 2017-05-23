@@ -40,9 +40,9 @@
                                 
                                 <br />
                                 Reported by:
-                                <asp:Literal runat="server" Text='<%# Eval("reportedBy") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# ShortenMRN(Eval("reportedBy")) %>'></asp:Literal>
                                 at
-                                <asp:Literal runat="server" Text='<%# Eval("reportedAt") %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# newTime(Eval("reportedAt")) %>'></asp:Literal>
 			                </p>
 		                </div>
 	                </li>

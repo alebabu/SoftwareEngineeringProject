@@ -81,6 +81,14 @@ body {
 	margin-top: 75px;
 }
 
+#currentTime {
+    float:right;
+    font-weight:bold;
+    margin-right:1em;
+    margin-top:0.4em;
+    color:white;
+}
+
 @media (max-width: 764px) {
   #mainBox {
   	margin-left: 15px;
@@ -270,7 +278,7 @@ body {
 
 .dropDownListStyle {
     width: 300px;
-    height: 10px;
+    height: 25px;
     background-color: white;
 }
 

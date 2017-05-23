@@ -11,6 +11,7 @@ using PortCDM_App_Code;
 using System.Reflection;
 
 
+
 namespace PortCDM
 {
     public partial class Timeline : System.Web.UI.Page
@@ -117,7 +118,15 @@ namespace PortCDM
             String s = (String)locationMRN;            
             if (s != null)
             {
-                s = s.Replace("urn:mrn:stm:location:segot:", "");                
+                s = s.Replace("urn:mrn:stm:location:segot:", "");
+                s = s.Replace("urn:mrn:legacy:user:", "");
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i] == ':')
+                    {
+                       s = s.Replace(":", " at ");
+                    }
+                }
                 return s;
             }else
             {
@@ -126,6 +135,15 @@ namespace PortCDM
 
 
         }
+
+        protected object newTime (object o)
+        {
+            String s = (String)o;           
+            DateHandler dh = new DateHandler();
+            DateTime time = dh.stringToDate(s);
+             o = time.ToString("d MMM HH:mm");
+            return o;
+        }      
 
 
 
