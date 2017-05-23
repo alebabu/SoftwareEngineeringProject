@@ -37,7 +37,7 @@ namespace PortCDM
                 LoadList();
                 LoadEvents(sender, e);
 
-                StartTime();
+                //StartTime();
 
 
             }
@@ -100,9 +100,9 @@ namespace PortCDM
 
             portCallMessage pcm = list[0];
 
-            if(PortCallMessageGrouper.isLocationState(pcm))
+            if (PortCallMessageGrouper.isLocationState(pcm))
             {
-                if(pcm.locationState.arrivalLocation != null)
+                if (pcm.locationState.arrivalLocation != null)
                 {
                     if (pcm.locationState.arrivalLocation.to != null)
                     {
@@ -136,7 +136,7 @@ namespace PortCDM
             else
             {
                 boxHeader.Text += FirstCharToUpper(pcm.serviceState.serviceObject.ToString()) + "<br />";
-                if(pcm.serviceState.at != null)
+                if (pcm.serviceState.at != null)
                 {
                     boxHeader.Text += "At: " + getLocationName(fixTrafficAreaBug(pcm.serviceState.at.locationMRN));
                 }
@@ -147,12 +147,14 @@ namespace PortCDM
                 }
             }
 
+
             Repeater timeRepeater = (Repeater)e.Item.FindControl("timeRepeater");
             Repeater boxRepeater = (Repeater)e.Item.FindControl("boxRepeater");
-            timeRepeater.DataSource = e.Item.DataItem;             
+            timeRepeater.DataSource = e.Item.DataItem;
             timeRepeater.DataBind();
             boxRepeater.DataSource = e.Item.DataItem;
             boxRepeater.DataBind();
+
         }
 
         public static string FirstCharToUpper(string input)

@@ -20,6 +20,7 @@
                                             <asp:Literal runat="server" Text='<%# niceTimeFormat(Eval("locationState.time")) %>' />
                                             <asp:Literal runat="server" Text='<%# niceTimeFormat(Eval("serviceState.time")) %>' />
                                             <br />
+                                            
                                             <asp:Literal runat="server" Text='<%# Eval("locationState.timeType") %>'></asp:Literal>
                                             <asp:Literal runat="server" Text='<%# Eval("serviceState.timeType") %>'></asp:Literal>
                                         </span>
@@ -35,11 +36,10 @@
                                     <ItemTemplate>
                                         <p>
                                             <asp:Literal runat="server" Text='<%# Eval("locationState.referenceObject") %>'></asp:Literal>
-                                            <asp:Literal runat="server" Text='<%# Eval("serviceState.performingActor") %>'></asp:Literal>
+                                            <asp:Literal runat="server" Text='<%# Eval("serviceState.performingActor") %>'></asp:Literal>                                            
+                                            <asp:Literal runat="server" Text='<%# Eval("serviceState.timeSequence") %>'></asp:Literal> 
                                             <br />
-                                            <asp:Literal runat="server" Text='<%# Eval("serviceState.timeSequence") %>'></asp:Literal>
-                                            
-                                             by:
+                                             Reported by:
                                 <asp:Literal runat="server" Text='<%# shortenMRN(Eval("reportedBy")) %>'></asp:Literal>
                                             at
                                 <asp:Literal runat="server" Text='<%# newTime(Eval("reportedAt")) %>'></asp:Literal>
