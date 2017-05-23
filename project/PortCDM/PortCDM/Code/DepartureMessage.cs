@@ -26,7 +26,7 @@ namespace PortCDM_App_Code
             string portCallID = DataBaseHandler.getPortCallId(shipIMO);
 			
             departureMessage.Clear();
-			departureMessage.Append("PortCall ID: " + portCallID + "\n");
+			departureMessage.Append("PortCall ID: " + portCallID + "<br />");
 
 			List<portCallMessage> list = await RestHandler.getEvents(portCallID);
 
@@ -39,7 +39,7 @@ namespace PortCDM_App_Code
 			{
 				appendMessageInfo(pcm);
 			}
-			addComment("\n" + portCallID);
+			addComment("<br />" + portCallID);
 
             return departureMessage.ToString();
 		}
@@ -57,7 +57,7 @@ namespace PortCDM_App_Code
                         addTime(pcm);
                         addObject(pcm);
                         addLocation(pcm);
-                        departureMessage.Append(pcm.serviceState.timeSequence + "\n");
+                        departureMessage.Append(pcm.serviceState.timeSequence + "<br />");
                         break;
                     default:
                         break;
