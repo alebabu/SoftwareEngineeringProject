@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-
+using System.Diagnostics;
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
 using System.Reflection;
@@ -56,7 +56,7 @@ namespace PortCDM
         protected async void LoadEvents(object sender, EventArgs e)
         {
 
-
+            PortCallMessageGrouper pcmg = new PortCallMessageGrouper();
             callID = Request.QueryString["portCallID"];
             List<portCallMessage> list;
 
@@ -70,6 +70,19 @@ namespace PortCDM
             else
             {
                 list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
+                //TEST WITH PCMG
+                foreach (var pcm in list)
+                {
+                    pcmg.add(pcm);
+                }
+                foreach (var pcm in pcmg.getGroups())
+                {
+                    Debug.WriteLine("PCM:");
+                    foreach (var p in pcm)
+                    {
+                        Debug.WriteLine(p.vesselId);
+                    }
+                }
             }
 
             eventListBox.DataSource = list;
