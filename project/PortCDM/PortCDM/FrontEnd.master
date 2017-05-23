@@ -14,11 +14,11 @@
 	<form runat="server">
 		<div>
           	  <header id="navMenu">
+                        <div id="currentTime"></div>
 						<div id="logoAndHamburger">
 						<img id="hamburgerImage" src="../Images/hamburger_white.png" onclick="toggleMenu()"/>
                         <a href="#"><img src="../Images/njord_logo_small.png" /></a>
 						<div id="signOutStyle" class="signOutPos"></div>
-                        <div id="currentTime">12:34 UTC</div>
 						</div>
           	  </header>
         </div>
