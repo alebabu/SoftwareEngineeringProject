@@ -6,10 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Timers;
-
+using System.Diagnostics;
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
 using System.Reflection;
+
 
 
 namespace PortCDM
@@ -58,7 +59,7 @@ namespace PortCDM
         protected async void LoadEvents(object sender, EventArgs e)
         {
 
-
+            PortCallMessageGrouper pcmg = new PortCallMessageGrouper();
             callID = Request.QueryString["portCallID"];
             List<portCallMessage> list;
 
@@ -72,6 +73,19 @@ namespace PortCDM
             else
             {
                 list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
+                //TEST WITH PCMG
+                foreach (var pcm in list)
+                {
+                    pcmg.add(pcm);
+                }
+                foreach (var pcm in pcmg.getGroups())
+                {
+                    Debug.WriteLine("PCM:");
+                    foreach (var p in pcm)
+                    {
+                        Debug.WriteLine(p.vesselId);
+                    }
+                }
             }
 
             eventListBox.DataSource = list;
@@ -106,7 +120,15 @@ namespace PortCDM
             String s = (String)locationMRN;            
             if (s != null)
             {
-                s = s.Replace("urn:mrn:stm:location:segot:", "");                
+                s = s.Replace("urn:mrn:stm:location:segot:", "");
+                s = s.Replace("urn:mrn:legacy:user:", "");
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (s[i] == ':')
+                    {
+                       s = s.Replace(":", " at ");
+                    }
+                }
                 return s;
             }else
             {
@@ -130,6 +152,15 @@ namespace PortCDM
 			Console.WriteLine("OnTimedEvent");
 			LoadEvents(source, e);
 		}
+    
+        protected object newTime (object o)
+        {
+            String s = (String)o;           
+            DateHandler dh = new DateHandler();
+            DateTime time = dh.stringToDate(s);
+             o = time.ToString("d MMM HH:mm");
+            return o;
+        }      
 
 
     }

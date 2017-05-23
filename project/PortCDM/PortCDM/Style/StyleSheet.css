@@ -81,6 +81,14 @@ body {
 	margin-top: 75px;
 }
 
+#currentTime {
+    float:right;
+    font-weight:bold;
+    margin-right:1em;
+    margin-top:1.5em;
+    color:white;
+}
+
 @media (max-width: 764px) {
   #mainBox {
   	margin-left: 15px;

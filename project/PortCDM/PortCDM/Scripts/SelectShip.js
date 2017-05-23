@@ -1,6 +1,6 @@
 ﻿function selectizeDropdown (dropdownId) {
 	$(dropdownId).selectize({
-	    delimiter: ',',
+	    placeholder: "Enter imo...",
 	    persist: false,
 	    create: function(input) {
 	        return {
@@ -13,5 +13,9 @@
 }
 
 $(function() {
-	selectizeDropdown('#ctl00_cpMainContent_addShipDropDown')
+	selectizeDropdown('#ctl00_cpMainContent_addShipDropDown');
+
+	var $select = $('#ctl00_cpMainContent_addShipDropDown').selectize();
+ 	var control = $select[0].selectize;
+ 	control.clear();
 });
