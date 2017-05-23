@@ -8,6 +8,19 @@ namespace PortCDM_App_Code
     {
 		public static StringBuilder departureMessage = new StringBuilder();
 
+		public static DateTime LocationOrService(portCallMessage pcm)
+		{
+			if (pcm.locationState != null)
+			{
+				return pcm.locationState.time;
+			}
+			else
+			{
+				return pcm.serviceState.time;
+			}
+		}
+
+
 		public static async Task<string> createDepartureMessage(string shipIMO)
 		{
             string portCallID = DataBaseHandler.getPortCallId(shipIMO);
@@ -17,17 +30,7 @@ namespace PortCDM_App_Code
 
 			List<portCallMessage> list = await RestHandler.getEvents(portCallID);
 
-			DateTime LocationOrService(portCallMessage pcm)
-			{
-				if (pcm.locationState != null)
-				{
-					return pcm.locationState.time;
-				}
-				else
-				{
-					return pcm.serviceState.time;
-				}
-			}
+
 
 			//Sort list based on DateTime time
 			list.Sort((x, y) => DateTime.Compare(LocationOrService(x), LocationOrService(y)));

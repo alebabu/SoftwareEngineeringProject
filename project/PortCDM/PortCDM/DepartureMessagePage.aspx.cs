@@ -11,7 +11,9 @@ namespace PortCDM
         {
             string shipIMO = Request.QueryString["imo"];
 
-            message.Text = await DepartureMessage.createDepartureMessage(shipIMO);
+			string text = await DepartureMessage.createDepartureMessage(shipIMO);
+
+            message.Text = text;
 
 
         }
