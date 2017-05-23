@@ -55,6 +55,34 @@ namespace PortCDM_App_Code
 		}
 
 
+
+		public static DataTable getActiveShipWComments()
+		{
+			try
+			{
+				conn = new MySqlConnection(connectionString);
+				conn.Open();
+			}
+			catch (MySqlException e)
+			{
+				Console.WriteLine(e.Message);
+			}
+
+			MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_ship WHERE active = '1' AND comment IS NOT NULL");
+			MySqlDataAdapter sda = new MySqlDataAdapter();
+
+			cmd.Connection = conn;
+			sda.SelectCommand = cmd;
+
+			DataTable dt = new DataTable();
+			sda.Fill(dt);
+			Console.WriteLine(dt);
+
+			return dt;
+		}
+
+
+
 		public static DataTable getInActiveShips()
 		{
 			try

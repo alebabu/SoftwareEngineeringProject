@@ -8,9 +8,18 @@
             Next Arrival
             <h2>Stena Line at 13:00</h2>
             <img src="../Images/testImage_stenaline.png" />
-        </div><div class="dashBoxDark">
-            Next Todo
-            <h2>Order food at 13:00</h2>
+        </div>
+		<div class="dashBoxDark">
+			
+            REMINDERS
+
+			<asp:Repeater id="shipRepeater" runat="server">
+				<ItemTemplate>
+					<p><asp:Literal runat="server" Text='<%# Eval("name") %>'/></p>
+	            	<h2><asp:Literal runat="server" Text='<%# Eval("comment") %>'/></h2>
+				</ItemTemplate>
+			</asp:Repeater>
+
 
         </div>    
 	</div>
