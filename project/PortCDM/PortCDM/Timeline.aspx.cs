@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Timers;
 
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
@@ -19,7 +20,7 @@ namespace PortCDM
         public string time;
         private string callID;
         PropertyInfo Isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-
+        public System.Timers.Timer timer;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,7 @@ namespace PortCDM
 
                 LoadList();
                 LoadEvents(sender, e);
+                StartTime();
 
             }
 
@@ -114,6 +116,20 @@ namespace PortCDM
 
         }
 
+		protected void StartTime()
+		{
+			Console.WriteLine("StartTime");
+			timer = new System.Timers.Timer(10000);
+			timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+			timer.Interval = 10000;
+			timer.Enabled = true;
+		}
+
+		protected void OnTimedEvent(object source, ElapsedEventArgs e)
+		{
+			Console.WriteLine("OnTimedEvent");
+			LoadEvents(source, e);
+		}
 
 
     }
