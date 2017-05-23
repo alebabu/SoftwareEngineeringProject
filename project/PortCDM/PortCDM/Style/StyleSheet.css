@@ -249,19 +249,27 @@ body {
     vertical-align: top;
     width: 44%;
     background-color: #048;
-    padding: 0.5em;
+    padding: 2em;
     margin: 0.5em;
     text-align: left;
-    color: white;
+    color: #018abd;
     font-size: small;
     font-weight: normal;
 }
 
     .dashBoxDark h2 {
-        color: #8df;
-        font-size: large;
+        color: white;
+        font-size: 24px;
         font-weight: bold;
-        margin-top: 0.5em;
+        margin-top: 0;
+        margin-bottom: 30px;
+
+    }
+
+    .dashBoxDark p {
+    	color: #97cbdc;
+    	font-size: 18px;
+    	margin-bottom: 5px;
     }
 
     .dashBoxDark img {

@@ -1,6 +1,6 @@
 ﻿function selectizeDropdown (dropdownId) {
 	$(dropdownId).selectize({
-	    delimiter: ',',
+	    placeholder: "Enter imo...",
 	    persist: false,
 	    create: function(input) {
 	        return {
@@ -13,5 +13,15 @@
 }
 
 $(function() {
-	selectizeDropdown('#ctl00_cpMainContent_addShipDropDown')
+
+	if ($('#ctl00_cpMainContent_addShipDropDown').html()) {
+		var id = '#ctl00_cpMainContent_addShipDropDown'
+	} else {
+		var id = '#cpMainContent_addShipDropDown'
+	}
+	selectizeDropdown(id);
+
+	var $select = $(id).selectize();
+ 	var control = $select[0].selectize;
+ 	control.clear();
 });

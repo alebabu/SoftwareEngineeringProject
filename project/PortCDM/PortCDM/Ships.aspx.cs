@@ -15,9 +15,8 @@ namespace PortCDM
 {
 	public partial class Ships : System.Web.UI.Page
 	{
-		private MySqlConnection con;
-		private MySqlDataAdapter sda;
 		private static List<Vessel> shipList = new List<Vessel>();
+		private static List<string> shipImosNames = new List<string>();
 
 
 		protected void Page_Load(Object sender, EventArgs e)
@@ -62,8 +61,27 @@ namespace PortCDM
 
 		protected async void addNewShip(object sender, EventArgs e)
 		{
-			string addImo = Request.Form[addShipDropDown.UniqueID];
+			/*string addImo = Request.Form[addShipDropDown.UniqueID];
 			if (shipList.Exists(obj => obj.imo == addImo))
+			{
+				DataBaseHandler.activateShip(addImo);
+			}
+			else
+			{
+				string result = await RestHandler.createPortCall(addImo);
+				string[] resultlist = result.Split('"');
+				string portCallId = resultlist[3];
+
+				Vessel v = await RestHandler.getVesselByImo(addImo);
+
+				DataBaseHandler.addShip(v, portCallId);
+				Console.WriteLine(v.name);
+			}*/
+
+			string imoAndName = Request.Form[addShipDropDown.UniqueID];
+			string[] imoAndNameSplit = imoAndName.Split(' ');
+			string addImo = imoAndNameSplit[0];
+			if (shipImosNames.Exists(obj => obj == imoAndName))
 			{
 				DataBaseHandler.activateShip(addImo);
 			}
@@ -89,9 +107,10 @@ namespace PortCDM
 			shipRepeater.DataSource = activeShipsDt;
 			shipRepeater.DataBind();
 
+			shipImosNames.Clear();
 			shipList.Clear();
 			DataTable inActiveShipsDT = DataBaseHandler.getInActiveShips();
-			foreach (DataRow ship in inActiveShipsDT.Rows)
+			/*foreach (DataRow ship in inActiveShipsDT.Rows)
 			{
 				Vessel v = new Vessel();
 				v.imo = ship["imoNumber"].ToString();
@@ -101,6 +120,16 @@ namespace PortCDM
 			addShipDropDown.DataSource = shipList;
 			addShipDropDown.DataTextField = "imo";
 			addShipDropDown.DataValueField = "imo";
+			*/
+
+
+			foreach (DataRow ship in inActiveShipsDT.Rows)
+			{
+				shipImosNames.Add(ship["imoNumber"].ToString() + " " +  ship["name"]);
+			}
+
+
+			addShipDropDown.DataSource = shipImosNames;
 
 			addShipDropDown.DataBind();
 			Console.WriteLine("setdatatables done");
