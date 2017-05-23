@@ -13,5 +13,6 @@ namespace PortCDM_RestStructs
         public int stmVesselId;
         public string photoURL { get; set; }
         public string portCallId { get; set; }
+		public string arrivalDate { get; set;}
     }
 }

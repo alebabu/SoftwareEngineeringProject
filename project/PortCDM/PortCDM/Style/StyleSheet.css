@@ -221,60 +221,59 @@ body {
 /*---------------Dashboard----------------------*/
 
 .dashBox {
-    display: inline-block;
+	display: inline-block;
     vertical-align:top;
-    width: 44%;
-    background-color: white;
-    padding: 0.5em;
+    width: 42%;
+    padding: 2em;
     margin: 0.5em;
     text-align: left;
-    color: black;
     font-size: small;
     font-weight: normal;
 }
 
 .dashBox h2 {
-    color:#458;
-    font-size:large;
-    font-weight:bold;
-    margin-top:0.5em;
+	font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.dashBox p {
+	font-size: 18px;
+	margin-bottom: 5px;
 }
 
 .dashBox img {
     max-width:100%;
 }
 
-.dashBoxDark {
-    display: inline-block;
-    vertical-align: top;
-    width: 44%;
-    background-color: #048;
-    padding: 2em;
-    margin: 0.5em;
-    text-align: left;
-    color: #018abd;
-    font-size: small;
-    font-weight: normal;
+
+.dashBoxBright {
+    background-color: white;
+    color: #97cbdc;
 }
 
-    .dashBoxDark h2 {
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 0;
-        margin-bottom: 30px;
+.dashBoxBright h2 {
+    color:#458;
+}
 
-    }
+.dashBoxBright p {
+	color: #018abd;
+}
 
-    .dashBoxDark p {
-    	color: #97cbdc;
-    	font-size: 18px;
-    	margin-bottom: 5px;
-    }
 
-    .dashBoxDark img {
-        max-width: 100%;
-    }
+.dashBoxDark {
+    background-color: #048;
+    color: #018abd;
+}
+
+.dashBoxDark h2 {
+    color: white;
+}
+
+.dashBoxDark p {
+	color: #97cbdc;
+}
 
 
 /*-----------------------Timeline-------------------------*/
@@ -505,6 +504,7 @@ body {
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #92c1cc;
+    font-weight: normal;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
    color:    #92c1cc;
@@ -569,6 +569,7 @@ body {
 	margin-bottom: 20px;
     margin-top: 0;
 	font-size: 14px;
+	font-weight: bold;
 	color: #018abd;
 	width: 98%;
 }
@@ -684,7 +685,7 @@ body {
     transition: all 0.5s ease-in-out;
 }
 .accordion input:checked ~ .article.ac-small {
-    height: 170px;
+    height: 200px;
 }
 .accordion input:checked ~ .article.ac-medium {
     height: 195px;
