@@ -7,6 +7,7 @@ using PortCDM_App_Code;
 using PortCDM_RestStructs;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Text;
 
 namespace PortCDM_App_Code
 {
@@ -204,6 +205,49 @@ namespace PortCDM_App_Code
 			conn.Close();
 		}
 
+<<<<<<< HEAD
+		public static string getComment(string portCallId)
+		{
+			StringBuilder sb = new StringBuilder();
+			conn = new MySqlConnection(connectionString);
+			using (MySqlCommand cmd = new MySqlCommand("SELECT comment FROM tbl_ship WHERE portCallID = '" +
+														   portCallId + "';", conn))
+			{
+				conn.Open();
+				using (MySqlDataReader reader = cmd.ExecuteReader())
+				{
+					while (reader.Read())
+					{
+						sb.Append(reader.GetString(0));
+					}
+				}
+                conn.Close();
+			}
+			
+			return sb.ToString();
+		}
+
+		public static string getPortCallId(string imo)
+		{
+			StringBuilder sb = new StringBuilder();
+			conn = new MySqlConnection(connectionString);
+			using (MySqlCommand cmd = new MySqlCommand("SELECT portCallID FROM tbl_ship WHERE imoNumber = '" +
+														   imo + "';", conn))
+			{
+				conn.Open();
+				using (MySqlDataReader reader = cmd.ExecuteReader())
+				{
+					while (reader.Read())
+					{
+						sb.Append(reader.GetString(0));
+					}
+				}
+                conn.Close();
+			}
+			
+			return sb.ToString();
+		}
+=======
 
 		public static DataTable getNextArrival()
 		{
@@ -233,5 +277,6 @@ namespace PortCDM_App_Code
 		}
 
 
+>>>>>>> 2e674311cb6cf9bf05f976efaae211f0b1c186df
 	}
 }
