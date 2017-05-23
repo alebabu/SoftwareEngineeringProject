@@ -205,7 +205,6 @@ namespace PortCDM_App_Code
 			conn.Close();
 		}
 
-<<<<<<< HEAD
 		public static string getComment(string portCallId)
 		{
 			StringBuilder sb = new StringBuilder();
@@ -247,7 +246,6 @@ namespace PortCDM_App_Code
 			
 			return sb.ToString();
 		}
-=======
 
 		public static DataTable getNextArrival()
 		{
@@ -277,6 +275,5 @@ namespace PortCDM_App_Code
 		}
 
 
->>>>>>> 2e674311cb6cf9bf05f976efaae211f0b1c186df
 	}
 }

@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cpMainContent" runat="server">
     
-    <asp:Label runat="server" ID="message"/>
+    <asp:Label runat="server" ID="message" Text=""/>
 	
 	
 </asp:Content>
