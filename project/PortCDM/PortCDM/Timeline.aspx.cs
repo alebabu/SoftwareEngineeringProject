@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using System.Diagnostics;
+
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
 using System.Reflection;
+using System.Diagnostics;
 
 
 
@@ -17,23 +18,22 @@ namespace PortCDM
     public partial class Timeline : System.Web.UI.Page
 
     {
+        List<PortLocation> portLocations;
         public string time;
         private string callID;
         PropertyInfo Isreadonly = typeof(System.Collections.Specialized.NameValueCollection).GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+        
 
-
-        protected void Page_Load(object sender, EventArgs e)
+        protected async void Page_Load(object sender, EventArgs e)
         {
+            portLocations = await RestHandler.getLocations();
             if (!(this.IsPostBack))
-            {
-
+            { 
                 LoadList();
                 LoadEvents(sender, e);
-
             }
 
         }
-
 
         protected void LoadList()
         {
@@ -58,6 +58,7 @@ namespace PortCDM
         {
 
             PortCallMessageGrouper pcmg = new PortCallMessageGrouper();
+
             callID = Request.QueryString["portCallID"];
             List<portCallMessage> list;
 
@@ -71,28 +72,106 @@ namespace PortCDM
             else
             {
                 list = await RestHandler.getEvents(vesselDDList.SelectedItem.Value);
-                //TEST WITH PCMG
-                foreach (var pcm in list)
-                {
-                    pcmg.add(pcm);
-                }
-                foreach (var pcm in pcmg.getGroups())
-                {
-                    Debug.WriteLine("PCM:");
-                    foreach (var p in pcm)
-                    {
-                        Debug.WriteLine(p.vesselId);
-                    }
-                }
             }
 
-            eventListBox.DataSource = list;
+            pcmg = new PortCallMessageGrouper(list);
+
+            eventListBox.DataSource = pcmg.getGroups();
             eventListBox.DataBind();
+            
 
             
         }
 
-        protected object NiceTimeFormat(object o)
+        protected void rptr_ItemDataBound(Object Sender, RepeaterItemEventArgs e)
+        {
+            Literal boxHeader = (Literal)e.Item.FindControl("boxHeader");
+
+            List<portCallMessage> list = (List<portCallMessage>)e.Item.DataItem;
+
+            portCallMessage pcm = list[0];
+
+            if(PortCallMessageGrouper.isLocationState(pcm))
+            {
+                if(pcm.locationState.arrivalLocation != null)
+                {
+                    if (pcm.locationState.arrivalLocation.to != null)
+                    {
+                        boxHeader.Text += "To: " + getLocationName(fixTrafficAreaBug(pcm.locationState.arrivalLocation.to.locationMRN));
+                        if (pcm.locationState.arrivalLocation.from != null)
+                        {
+                            boxHeader.Text += "<br />";
+                        }
+                    }
+                    if (pcm.locationState.arrivalLocation.from != null)
+                    {
+                        boxHeader.Text += "From: " + getLocationName(fixTrafficAreaBug(pcm.locationState.arrivalLocation.from.locationMRN)).ToString();
+                    }
+                }
+                else if (pcm.locationState.departureLocation != null)
+                {
+                    if (pcm.locationState.departureLocation.to != null)
+                    {
+                        boxHeader.Text += "To: " + getLocationName(fixTrafficAreaBug(pcm.locationState.departureLocation.to.locationMRN));
+                        if (pcm.locationState.departureLocation.from != null)
+                        {
+                            boxHeader.Text += "<br />";
+                        }
+                    }
+                    if (pcm.locationState.departureLocation.from != null)
+                    {
+                        boxHeader.Text += "From: " + getLocationName(fixTrafficAreaBug(pcm.locationState.departureLocation.from.locationMRN));
+                    }
+                }
+            }
+            else
+            {
+                boxHeader.Text += FirstCharToUpper(pcm.serviceState.serviceObject.ToString()) + "<br />";
+                if(pcm.serviceState.at != null)
+                {
+                    boxHeader.Text += "At: " + getLocationName(fixTrafficAreaBug(pcm.serviceState.at.locationMRN));
+                }
+                else
+                {
+                    boxHeader.Text += "To: " + getLocationName(fixTrafficAreaBug(pcm.serviceState.between.to.locationMRN));
+                    boxHeader.Text += "<br />From: " + getLocationName(fixTrafficAreaBug(pcm.serviceState.between.from.locationMRN));
+                }
+            }
+
+            Repeater timeRepeater = (Repeater)e.Item.FindControl("timeRepeater");
+            Repeater boxRepeater = (Repeater)e.Item.FindControl("boxRepeater");
+            timeRepeater.DataSource = e.Item.DataItem;             
+            timeRepeater.DataBind();
+            boxRepeater.DataSource = e.Item.DataItem;
+            boxRepeater.DataBind();
+        }
+
+        public static string FirstCharToUpper(string input)
+        {
+            input = input.ToLower() ?? "";
+            return input.First().ToString().ToUpper() + String.Join("", input.Skip(1)).Replace("_", " ");
+        }
+
+        //Note(Olle): this changes the sent string to the string in the api to fetch a location
+        private string fixTrafficAreaBug(string location)
+        {
+            return location.Replace("urn:mrn:stm:location:segot:TRAFFIC_AREA",
+                "urn:mrn:stm:location:segot:TRAFFIC_AREA:segot");
+        }
+
+        private string getLocationName(string MRN)
+        {
+            string locationName = "";
+
+            if (MRN.Contains("VESSEL"))
+                locationName = "Vessel";
+            else
+                locationName = portLocations.Find(x => x.URN == MRN).name ?? "Unspecified Berth";
+
+            return locationName;
+        }
+
+        protected object niceTimeFormat(object o)
         {
             if (o == null)
                 return null;
@@ -111,9 +190,8 @@ namespace PortCDM
             }
             return o;
         }
-
         
-        protected object ShortenMRN(object locationMRN)
+        protected object shortenMRN(object locationMRN)
         {        
             String s = (String)locationMRN;            
             if (s != null)
@@ -144,6 +222,8 @@ namespace PortCDM
              o = time.ToString("d MMM HH:mm");
             return o;
         }      
+
+
 
 
 
