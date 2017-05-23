@@ -4,11 +4,12 @@
 <head runat="server">
 	<link rel="stylesheet" type="text/css" href="Style/StyleSheet.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/CurrentTime.js"></script>
     <section id="HeadContent" class="content">
         <asp:ContentPlaceHolder runat="server" ID="cpHeadContent"></asp:ContentPlaceHolder>
     </section>
 </head>
-<body>
+<body onload="currentTime();">
 <div id="container">
 	<form runat="server">
 		<div>
@@ -17,6 +18,7 @@
 						<img id="hamburgerImage" src="../Images/hamburger_white.png" onclick="toggleMenu()"/>
                         <a href="#"><img src="../Images/njord_logo_small.png" /></a>
 						<div id="signOutStyle" class="signOutPos"></div>
+                        <div id="currentTime">12:34 UTC</div>
 						</div>
           	  </header>
         </div>
