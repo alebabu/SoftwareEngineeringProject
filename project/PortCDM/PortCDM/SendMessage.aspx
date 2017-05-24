@@ -42,7 +42,7 @@
                         <asp:ListItem Text="Pilotage" Value="PILOTAGE"></asp:ListItem>
                         <asp:ListItem Text="Ready-To-Sail Operations" Value="DEPARTURE_BERTH"></asp:ListItem>
                         <asp:ListItem Text="Slop Operation" Value="SLOP_OPERATION"></asp:ListItem>
-                        <asp:ListItem Text="Sludge Operation" Value="SLUDE_OPERATION"></asp:ListItem>
+                        <asp:ListItem Text="Sludge Operation" Value="SLUDGE_OPERATION"></asp:ListItem>
                         <asp:ListItem Text="Towage" Value="TOWAGE"></asp:ListItem>
                         <asp:ListItem Text="Vessel Arrival" Value="ARRIVAL_VESSEL"></asp:ListItem>
                         <asp:ListItem Text="Vessel Departure" Value="DEPARTURE_VESSEL"></asp:ListItem>
@@ -164,7 +164,7 @@
                                     <div class="formText">
                                         <asp:Literal runat="server">At Location Type:</asp:Literal>
                                     </div>
-                                    <asp:DropDownList ID="atLocationType" AutoPostBack="True" OnSelectedIndexChanged="toChangeLocationDropDown" runat="server">
+                                    <asp:DropDownList ID="atLocationType" AutoPostBack="True" OnSelectedIndexChanged="atChangeLocationDropDown" runat="server">
                                         <asp:ListItem Text="Anchoring Area" Value="ANCHORING_AREA"></asp:ListItem>
                                         <asp:ListItem Text="Berth" Value="BERTH"></asp:ListItem>
                                         <asp:ListItem Text="Etug Zone" Value="ETUG_ZONE"></asp:ListItem>

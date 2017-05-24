@@ -43,6 +43,9 @@
                                 <asp:Literal runat="server" Text='<%# shortenMRN(Eval("reportedBy")) %>'></asp:Literal>
                                             at
                                 <asp:Literal runat="server" Text='<%# newTime(Eval("reportedAt")) %>'></asp:Literal>
+                                            <br />
+                                            Comment: 
+                                            <asp:Literal runat="server" Text='<%# Eval("comment") %>'></asp:Literal>
                                         </p>
                                     </ItemTemplate>
                                 </asp:Repeater>
