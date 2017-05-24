@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Configuration;
-using System.Web;
-using System.Web.UI;
-using MySql;
-using MySql.Data;
-using MySql.Data.MySqlClient;
 using PortCDM_RestStructs;
 using PortCDM_App_Code;
 using System.Collections.Generic;
@@ -19,11 +13,11 @@ namespace PortCDM
 		private static List<string> shipImosNames = new List<string>();
 
 
-		protected void Page_Load(Object sender, EventArgs e)
+		protected async void Page_Load(Object sender, EventArgs e)
 		{
 			if (!(this.IsPostBack))
 			{
-				DataBaseHandler.getAllShips().Wait();
+			    await DataBaseHandler.getAllShips();
 				Console.WriteLine("page_load");
 				setDataTables();
 			}
@@ -61,23 +55,6 @@ namespace PortCDM
 
 		protected async void addNewShip(object sender, EventArgs e)
 		{
-			/*string addImo = Request.Form[addShipDropDown.UniqueID];
-			if (shipList.Exists(obj => obj.imo == addImo))
-			{
-				DataBaseHandler.activateShip(addImo);
-			}
-			else
-			{
-				string result = await RestHandler.createPortCall(addImo);
-				string[] resultlist = result.Split('"');
-				string portCallId = resultlist[3];
-
-				Vessel v = await RestHandler.getVesselByImo(addImo);
-
-				DataBaseHandler.addShip(v, portCallId);
-				Console.WriteLine(v.name);
-			}*/
-
 			string imoAndName = Request.Form[addShipDropDown.UniqueID];
 			string[] imoAndNameSplit = imoAndName.Split(' ');
 			string addImo = imoAndNameSplit[0];

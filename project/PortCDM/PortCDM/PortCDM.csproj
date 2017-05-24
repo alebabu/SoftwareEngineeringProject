@@ -88,6 +88,7 @@
   <ItemGroup>
     <Content Include="css\component.css" />
     <Content Include="css\default.css" />
+    <Content Include="DepartureMessagePage.aspx" />
     <Content Include="Scripts\CurrentTime.js" />
     <Content Include="Scripts\jquery.fancybox-1.3.4.pack.js" />
     <Content Include="Scripts\microplugin.min.js" />
@@ -130,6 +131,13 @@
     <Compile Include="Code\Structs\PortLocation.cs" />
     <Compile Include="Code\Structs\Vessel.cs" />
     <Compile Include="Code\Subscriptions.cs" />
+    <Compile Include="DepartureMessagePage.aspx.cs">
+      <DependentUpon>DepartureMessagePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DepartureMessagePage.aspx.designer.cs">
+      <DependentUpon>DepartureMessagePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
