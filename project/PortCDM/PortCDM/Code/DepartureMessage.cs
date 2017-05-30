@@ -50,17 +50,14 @@ namespace PortCDM.Code
             //APPEND WITH SERVICESTATE TIMESEQUENCE(COMMENCED / COMPLETED)
             if (pcm.serviceState != null)
             {
-                switch (pcm.serviceState.timeSequence)
+                ServiceTimeSequence serviceTime = pcm.serviceState.timeSequence;
+                if (serviceTime == ServiceTimeSequence.COMMENCED ||
+                    serviceTime == ServiceTimeSequence.COMPLETED)
                 {
-                    case (ServiceTimeSequence.COMMENCED):
-                    case (ServiceTimeSequence.COMPLETED):
-                        addTime(pcm);
-                        addObject(pcm);
-                        addLocation(pcm);
-                        departureMessage.Append(pcm.serviceState.timeSequence + "<br />");
-                        break;
-                    default:
-                        break;
+                    addTime(pcm);
+                    addObject(pcm);
+                    addLocation(pcm);
+                    departureMessage.Append(pcm.serviceState.timeSequence + "<br />");
                 }
             }
 		}

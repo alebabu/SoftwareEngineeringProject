@@ -175,15 +175,15 @@ namespace PortCDM.Code
 
 		}
 
-		public static void addShip(Vessel v, string portCallId)
+		public static void addShip(Vessel vessel, string portCallId)
 		{
 
-			string[] tempimo = v.imo.Split(':');
+			string[] tempimo = vessel.imo.Split(':');
 			int imo = int.Parse(tempimo[tempimo.Length - 1]);
 			conn = new MySqlConnection(connectionString);
 			MySqlCommand cmd = new MySqlCommand("INSERT IGNORE INTO tbl_ship SET imoNumber = '" +
-												imo + "', name = '" + v.name + "', imgURL = '" +
-												v.photoURL + "', portCallID = '" + portCallId +
+												imo + "', name = '" + vessel.name + "', imgURL = '" +
+												vessel.photoURL + "', portCallID = '" + portCallId +
 													"', active = '1';");
 
 			conn.Open();
