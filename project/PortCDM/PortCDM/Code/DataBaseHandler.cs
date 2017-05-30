@@ -1,19 +1,15 @@
 ﻿using System;
-using MySql;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
-using PortCDM_App_Code;
-using PortCDM_RestStructs;
+using PortCDM.Code.Structs;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PortCDM_App_Code
+namespace PortCDM.Code
 {
-	public class DataBaseHandler
+	public static class DataBaseHandler
 	{
-
 		private static MySqlConnection conn;
 
 		//Hosted database
@@ -22,13 +18,6 @@ namespace PortCDM_App_Code
 			  @"uid=lexxarc_portcdm;" +
 			  @"password=runda@0@bordet;" +
 			  @"database=lexxarc_portcdm;";
-
-		/*
-        //Local database
-        private const string connectionString =
-            @"server=127.0.0.1;" +
-            @"uid=root;" +
-            @"database=portCDM;";*/
 
 		public static DataTable getActiveShips()
 		{
@@ -54,8 +43,6 @@ namespace PortCDM_App_Code
 
 			return dt;
 		}
-
-
 
 		public static DataTable getActiveShipWComments()
 		{
@@ -273,7 +260,5 @@ namespace PortCDM_App_Code
 
 			return dt;
 		}
-
-
 	}
 }

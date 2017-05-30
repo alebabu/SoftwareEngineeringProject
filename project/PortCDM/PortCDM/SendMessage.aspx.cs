@@ -8,8 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PortCDM.Code;
-using PortCDM_App_Code;
-using PortCDM_RestStructs;
+using PortCDM.Code.Structs;
 
 namespace PortCDM
 {

@@ -4,8 +4,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections.Generic;
-using PortCDM_RestStructs;
-using PortCDM_App_Code;
+using PortCDM.Code.Structs;
+using PortCDM.Code;
 namespace PortCDM
 {
 	public partial class Inbox : System.Web.UI.Page

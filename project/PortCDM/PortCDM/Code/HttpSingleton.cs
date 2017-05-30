@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace PortCDM_App_Code
+namespace PortCDM.Code
 {
     public sealed class HttpClientInstance : HttpClient
     {
         private static readonly HttpClientInstance instance = new HttpClientInstance();
-
-        static HttpClientInstance(){ }
 
         public static HttpClient Instance
         {

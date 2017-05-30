@@ -3,34 +3,24 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 
-namespace PortCDM_Filter
+namespace PortCDM.Code.Structs
 {
 	public class Filter
 	{
-		FilterType filtertype;
-		string filterdata;
+	    private readonly FilterType filterType;
+	    private readonly string filterData;
 
 		public Filter(FilterType type, string data)
 		{
-			filtertype = type;
-			filterdata = data;
-		}
-
-		public FilterType getType()
-		{
-			return filtertype;
-		}
-
-		public string getData()
-		{
-			return filterdata;
+			filterType = type;
+			filterData = data;
 		}
 
 		//Converts a Filter to a JSON-formatted string
 		public string toJson()
 		{
-			string json = "{\n\"type\":\"" + filtertype
-				+ "\",\n\"element\":\"" + filterdata + "\"\n}";
+			string json = "{\n\"type\":\"" + filterType
+				+ "\",\n\"element\":\"" + filterData + "\"\n}";
 			return json;
 		}
 	}

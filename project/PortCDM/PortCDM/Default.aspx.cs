@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Web;
 using System.Web.UI;
-using PortCDM_App_Code;
-using PortCDM_RestStructs;
+using PortCDM.Code;
+using PortCDM.Code.Structs;
 
 namespace PortCDM
 {

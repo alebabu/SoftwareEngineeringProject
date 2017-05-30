@@ -1,5 +1,4 @@
-﻿using System;
-namespace PortCDM_Filter
+﻿namespace PortCDM.Code.Structs
 {
 	public enum FilterType
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http.Headers;
 
-namespace PortCDM_App_Code
+namespace PortCDM.Code
 {
     public static class PrepareRestCall
     {

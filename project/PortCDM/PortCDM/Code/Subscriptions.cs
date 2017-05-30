@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using PortCDM_Filter;
+using PortCDM.Code.Structs;
 using System.Timers;
 
-namespace PortCDM_App_Code
+namespace PortCDM.Code
 {
 	public static class Subscriptions
 	{

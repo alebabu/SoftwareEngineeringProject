@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using PortCDM_Filter;
+using PortCDM.Code.Structs;
 using System.Xml.Serialization;
 using System.IO;
 using System.Net.Http;
@@ -9,7 +9,7 @@ using System.Text;
 
 
 
-namespace PortCDM_App_Code
+namespace PortCDM.Code
 {
     public class QueueHandler
     {

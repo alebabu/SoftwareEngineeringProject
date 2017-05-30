@@ -6,12 +6,11 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using PortCDM_RestStructs;
-using PortCDM_Filter;
+using PortCDM.Code.Structs;
 using System.Xml.Serialization;
 using System.Xml;
 
-namespace PortCDM_App_Code
+namespace PortCDM.Code
 {
     public class RestHandler
     {

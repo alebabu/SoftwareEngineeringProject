@@ -9,8 +9,8 @@ using System.Data;
 using System.Timers;
 using System.Diagnostics;
 
-using PortCDM_RestStructs;
-using PortCDM_App_Code;
+using PortCDM.Code.Structs;
+using PortCDM.Code;
 using System.Reflection;
 using System.Diagnostics;
 

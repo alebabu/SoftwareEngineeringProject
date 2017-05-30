@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PortCDM_RestStructs
+namespace PortCDM.Code.Structs
 {
 	public struct PortCall
 	{
