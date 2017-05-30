@@ -5,7 +5,6 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using PortCDM.Code.Structs;
 using System.Xml.Serialization;
 using System.Xml;
@@ -14,6 +13,7 @@ namespace PortCDM.Code
 {
     public class RestHandler
     {
+        private static readonly HttpClient client = HttpClientInstance.instance;
         static string toXML(portCallMessage pcm)
         {
             pcm.namespaces = new XmlSerializerNamespaces(new XmlQualifiedName[]
@@ -41,7 +41,7 @@ namespace PortCDM.Code
 
             string xml = toXML(pcm);
 
-            var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mss", new StringContent(xml, Encoding.UTF8, "application/xml"));
+            var response = await client.PostAsync("mb/mss", new StringContent(xml, Encoding.UTF8, "application/xml"));
 
             string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
 
@@ -53,7 +53,7 @@ namespace PortCDM.Code
             PrepareRestCall.getJson();
             List<PortLocation> locations = new List<PortLocation>();
 
-                var response = await PrepareRestCall.HttpClientInstance.GetAsync("/location-registry/locations/?requestType=ALL");
+                var response = await client.GetAsync("/location-registry/locations/?requestType=ALL");
                 if (response.IsSuccessStatusCode)
                 {
                     var responseData = await response.Content.ReadAsAsync<IEnumerable<PortLocation>>();
@@ -68,7 +68,7 @@ namespace PortCDM.Code
 
             PortCall pc = new PortCall();
 
-            var response = await PrepareRestCall.HttpClientInstance.GetAsync(String.Format("dmp/port_calls/{0}", id));
+            var response = await client.GetAsync(String.Format("dmp/port_calls/{0}", id));
             if (response.IsSuccessStatusCode)
                 pc = await response.Content.ReadAsAsync<PortCall>();
 
@@ -81,7 +81,7 @@ namespace PortCDM.Code
 
             List<PortCall> pc = null;
 
-            var response = await PrepareRestCall.HttpClientInstance.GetAsync("dmp/port_calls");
+            var response = await client.GetAsync("dmp/port_calls");
             if (response.IsSuccessStatusCode)
             {
                 var responseData = await response.Content.ReadAsAsync<IEnumerable<PortCall>>();
@@ -97,7 +97,7 @@ namespace PortCDM.Code
 
             string result = null;
 
-            var response = await PrepareRestCall.HttpClientInstance.GetAsync(String.Format("dmp/port_call_finder/{0}/{1}", imo, plannedArrival));
+            var response = await client.GetAsync(String.Format("dmp/port_call_finder/{0}/{1}", imo, plannedArrival));
 
             if (response.IsSuccessStatusCode)
                 result = await response.Content.ReadAsStringAsync();
@@ -135,10 +135,9 @@ namespace PortCDM.Code
  
  			string body = "{\"vesselId\": \"" + vesselId + "\"}";
  
- 			var response = await PrepareRestCall.HttpClientInstance.PostAsync("pcr/port_call", new StringContent(body, Encoding.UTF8, "application/json"));
+ 			var response = await client.PostAsync("pcr/port_call", new StringContent(body, Encoding.UTF8, "application/json"));
  
  			string result = response.ReasonPhrase + " - " + response.Content.ReadAsStringAsync().Result;
- 			string responseContent = response.Content.ReadAsStringAsync().Result;
  
  			return result;   
  		}
@@ -151,7 +150,7 @@ namespace PortCDM.Code
  
  			Vessel v = new Vessel();
  
- 			var response = await PrepareRestCall.HttpClientInstance.GetAsync(String.Format("vr/vessel/{0}", vesselId));
+ 			var response = await client.GetAsync(String.Format("vr/vessel/{0}", vesselId));
  			if (response.IsSuccessStatusCode)
  				v = await response.Content.ReadAsAsync<Vessel>();
  

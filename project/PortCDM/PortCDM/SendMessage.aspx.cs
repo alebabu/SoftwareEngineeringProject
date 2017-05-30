@@ -16,14 +16,12 @@ namespace PortCDM
     {
         private List<Vessel> shipList;
         private string imoQuery;
-        private MessageIdGenerator messageIdGenerator;
         private DateHandler dateHandler;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable ships = DataBaseHandler.getActiveShips();
 
-            messageIdGenerator = new MessageIdGenerator();
             shipList = new List<Vessel>();
             dateHandler = new DateHandler();
             foreach(DataRow ship in ships.Rows)
@@ -236,7 +234,7 @@ namespace PortCDM
             {
                 portCallId = portCallIdHiddenField.Value,
                 vesselId = "urn:mrn:stm:vessel:IMO:" + shipImoHiddenField.Value,
-                messageId = "urn:mrn:stm:portcdm:message:" + messageIdGenerator.generateMessageId(),
+                messageId = "urn:mrn:stm:portcdm:message:" + MessageIdGenerator.generateMessageId(),
                 reportedAt = dateHandler.getCurrentTimeString(),
                 comment = commentBox.Text
             };

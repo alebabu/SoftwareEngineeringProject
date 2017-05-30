@@ -13,11 +13,10 @@ namespace PortCDM.Code
 {
     public class QueueHandler
     {
-	
+        private static readonly HttpClient client = HttpClientInstance.instance;
 		//Creates a Queue with a list of Filters
 		public static async Task<String> createFilteredQueue(List<Filter> filters)
 		{
-
 			PrepareRestCall.postXML();
 			string jsonFilter = "[\n";
 
@@ -35,7 +34,7 @@ namespace PortCDM.Code
 			jsonFilter += "\n]";
 
 			Console.WriteLine("Filters in Json format:\n" + jsonFilter);
-			var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mqs", new StringContent((jsonFilter), Encoding.UTF8, "application/json"));
+			var response = await client.PostAsync("mb/mqs", new StringContent((jsonFilter), Encoding.UTF8, "application/json"));
 			string result = response.Content.ReadAsStringAsync().Result;
 			response.EnsureSuccessStatusCode();
 			return result;
@@ -60,7 +59,7 @@ namespace PortCDM.Code
             jsonFilter += "\n]";
 
             Console.WriteLine("Filters in Json format:\n" + jsonFilter);
-            var response = await PrepareRestCall.HttpClientInstance.PostAsync("mb/mqs?fromTime=" + date, new StringContent((jsonFilter), Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync("mb/mqs?fromTime=" + date, new StringContent((jsonFilter), Encoding.UTF8, "application/json"));
             string result = response.Content.ReadAsStringAsync().Result;
             response.EnsureSuccessStatusCode();
             return result;
@@ -72,7 +71,7 @@ namespace PortCDM.Code
 
 			List<portCallMessage> pcm = null;
 
-			var response = await PrepareRestCall.HttpClientInstance.GetAsync(String.Format("mb/mqs/{0}", queueId));
+			var response = await client.GetAsync(String.Format("mb/mqs/{0}", queueId));
 			if (response.IsSuccessStatusCode)
 			{
 				var responseData = await response.Content.ReadAsStringAsync();

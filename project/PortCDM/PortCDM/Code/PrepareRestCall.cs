@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Net.Http;
 using System.Net.Http.Headers;
 
 namespace PortCDM.Code
 {
     public static class PrepareRestCall
     {
-	    public static HttpClientInstance HttpClientInstance = new HttpClientInstance();
+        private static readonly HttpClient client = HttpClientInstance.instance;
 
 		private const string baseURL = "http://sandbox-5.portcdm.eu:8080/";
 
@@ -19,50 +20,50 @@ namespace PortCDM.Code
 		public static void getJson()
 		{
 			if (!isPrepared)
-				HttpClientInstance.BaseAddress = new Uri(baseURL);
+				client.BaseAddress = new Uri(baseURL);
 
-			HttpClientInstance.DefaultRequestHeaders.Clear();
-			HttpClientInstance.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
+			client.DefaultRequestHeaders.Clear();
+			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+			client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+			client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
 			isPrepared = true;
 		}
 
 		public static void getText()
 		{
 			if (!isPrepared)
-				HttpClientInstance.BaseAddress = new Uri(baseURL);
+				client.BaseAddress = new Uri(baseURL);
 
-			HttpClientInstance.DefaultRequestHeaders.Clear();
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
+			client.DefaultRequestHeaders.Clear();
+			client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+			client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+			client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
 			isPrepared = true;
 		}
 
 		public static void getXML()
 		{
 			if (!isPrepared)
-				HttpClientInstance.BaseAddress = new Uri(baseURL);
+				client.BaseAddress = new Uri(baseURL);
 
-			HttpClientInstance.DefaultRequestHeaders.Clear();
-			HttpClientInstance.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
+			client.DefaultRequestHeaders.Clear();
+			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+			client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+			client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+			client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
 			isPrepared = true;
 		}
 
 		public static void postXML()
 		{
 			if (!isPrepared)
-				HttpClientInstance.BaseAddress = new Uri(baseURL);
+				client.BaseAddress = new Uri(baseURL);
 
-			HttpClientInstance.DefaultRequestHeaders.Clear();
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
-			HttpClientInstance.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
+			client.DefaultRequestHeaders.Clear();
+			client.DefaultRequestHeaders.Add("X-PortCDM-UserId", apiUserName);
+			client.DefaultRequestHeaders.Add("X-PortCDM-Password", apiPassword);
+			client.DefaultRequestHeaders.Add("X-PortCDM-APIKey", apiKey);
 			isPrepared = true;
 		}
     }

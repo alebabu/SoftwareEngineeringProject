@@ -5,13 +5,9 @@ using System.Web;
 
 namespace PortCDM.Code
 {
-    public class MessageIdGenerator
+    public static class MessageIdGenerator
     {
-        public MessageIdGenerator()
-        {
-        }
-
-        public string generateMessageId()
+        public static string generateMessageId()
         {
             string id = Randomizer.genRandomStringAF(8);
             id += "-" + Randomizer.genRandomStringAF(4);
