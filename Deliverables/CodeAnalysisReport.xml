@@ -1,0 +1,1253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft fxcop 10.0\Xml\FxCopReport.xsl"?>
+<FxCopReport Version="10.0">
+ <Namespaces>
+  <Namespace Name="PortCDM">
+   <Messages>
+    <Message Id="CDM" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">Correct the casing of 'CDM' in namespace name 'PortCDM' by changing it to 'Cdm'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+  <Namespace Name="PortCDM.Code">
+   <Messages>
+    <Message Id="CDM" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">Correct the casing of 'CDM' in namespace name 'PortCDM.Code' by changing it to 'Cdm'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+  <Namespace Name="PortCDM.Code.Structs">
+   <Messages>
+    <Message Id="CDM" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">Correct the casing of 'CDM' in namespace name 'PortCDM.Code.Structs' by changing it to 'Cdm'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+ </Namespaces>
+ <Targets>
+  <Target Name="$(ProjectDir)/project/PortCDM/PortCDM/bin/PortCDM.dll">
+   <Modules>
+    <Module Name="portcdm.dll">
+     <Messages>
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+       <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'PortCDM.dll' with a strong name key.</Issue>
+      </Message>
+      <Message Id="CDM" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+       <Issue Name="Assembly" Certainty="85" Level="Error">Correct the casing of 'CDM' in assembly name 'PortCDM.dll' by changing it to 'Cdm'.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithAssemblyVersion" Category="Microsoft.Design" CheckId="CA1016" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Add an AssemblyVersion attribute to 'PortCDM.dll'.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Mark 'PortCDM.dll' with CLSCompliant(true) because it exposes externally visible types.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithComVisible" Category="Microsoft.Design" CheckId="CA1017" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+       <Issue Name="NoAttribute" Certainty="95" Level="CriticalError">Because 'PortCDM.dll' exposes externally visible types, mark it with ComVisible(false) at the assembly level and then mark all types within the assembly that should be exposed to COM clients with ComVisible(true).</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="PortCDM">
+       <Types>
+        <Type Name="Default" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Default' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Page', 'TemplateControl', 'Control'</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Default.aspx.cs" Line="18">Be sure to set the DataTable Locale property wherever 'Default.Page_Load(object, EventArgs)' creates an instance of that type.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="DepartureMessagePage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'DepartureMessagePage' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Page', 'TemplateControl', 'Control'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="FrontEnd" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'FrontEnd' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'MasterPage', 'UserControl', 'TemplateControl', 'Control'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Global" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Global' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'HttpApplication'</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Application_Start()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Warning" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Global.asax.cs" Line="8">The 'this' parameter (or 'Me' in Visual Basic) of 'Global.Application_Start()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Inbox" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Inbox' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Page', 'TemplateControl', 'Control'</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="SendMessage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'SendMessage' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Page', 'TemplateControl', 'Control'</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#atChangeLocationDropDown(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="at" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="SendMessage.aspx.cs" Line="83">Correct the casing of 'at' in member name 'SendMessage.atChangeLocationDropDown(object, EventArgs)' by changing it to 'At'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#fromChangeLocationDropDown(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="from" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="SendMessage.aspx.cs" Line="78">Correct the casing of 'from' in member name 'SendMessage.fromChangeLocationDropDown(object, EventArgs)' by changing it to 'From'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#fromIntToDate(System.Int32)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="SendMessage.aspx.cs" Line="219">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'SendMessage.fromIntToDate(int)' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#messageTypeSelected(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="message" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="SendMessage.aspx.cs" Line="50">Correct the casing of 'message' in member name 'SendMessage.messageTypeSelected(object, EventArgs)' by changing it to 'Message'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sendMessage(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="send" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'send' in member name 'SendMessage.sendMessage(object, EventArgs)' by changing it to 'Send'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#setUpDropDowns()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="SendMessage.aspx.cs" Line="204">Because the behavior of 'int.ToString()' could vary based on the current user's locale settings, replace this call in 'SendMessage.setUpDropDowns()' with a call to 'int.ToString(IFormatProvider)'. If the result of 'int.ToString(IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#shipSelected(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ship" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="SendMessage.aspx.cs" Line="44">Correct the casing of 'ship' in member name 'SendMessage.shipSelected(object, EventArgs)' by changing it to 'Ship'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#toChangeLocationDropDown(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="to" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="SendMessage.aspx.cs" Line="73">Correct the casing of 'to' in member name 'SendMessage.toChangeLocationDropDown(object, EventArgs)' by changing it to 'To'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Ships" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Ships' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Page', 'TemplateControl', 'Control'</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#addNewShip(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="add" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'add' in member name 'Ships.addNewShip(object, EventArgs)' by changing it to 'Add'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#commentChanged(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="comment" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Ships.aspx.cs" Line="30">Correct the casing of 'comment' in member name 'Ships.commentChanged(object, EventArgs)' by changing it to 'Comment'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#deactivateShip(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="deactivate" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Ships.aspx.cs" Line="44">Correct the casing of 'deactivate' in member name 'Ships.deactivateShip(object, EventArgs)' by changing it to 'Deactivate'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#setDataTables()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Ships.aspx.cs" Line="82">Be sure to set the DataTable Locale property wherever 'Ships.setDataTables()' creates an instance of that type.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Timeline" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+           <Issue Certainty="90" Level="Error">'Timeline' is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: 'Page', 'TemplateControl', 'Control'</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#FirstCharToUpper(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="162">Because the behavior of 'string.ToLower()' could vary based on the current user's locale settings, replace this call in 'Timeline.FirstCharToUpper(string)' with a call to 'string.ToLower(CultureInfo)'. If the result of 'string.ToLower(CultureInfo)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="163">Because the behavior of 'string.ToUpper()' could vary based on the current user's locale settings, replace this call in 'Timeline.FirstCharToUpper(string)' with a call to 'string.ToUpper(CultureInfo)'. If the result of 'string.ToUpper(CultureInfo)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#niceTimeFormat(System.Object)" Kind="Method" Static="True" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="nice" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="186">Correct the casing of 'nice' in member name 'Timeline.niceTimeFormat(object)' by changing it to 'Nice'.</Issue>
+            </Message>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="198">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'Timeline.niceTimeFormat(object)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="202">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'Timeline.niceTimeFormat(object)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OnTimedEvent(System.Object,System.Timers.ElapsedEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="240">Consider changing the type of parameter 'e' in 'Timeline.OnTimedEvent(object, ElapsedEventArgs)' from 'ElapsedEventArgs' to its base type 'EventArgs'. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#rptr_ItemDataBound(System.Object,System.Web.UI.WebControls.RepeaterItemEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Sender" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="96">In member 'Timeline.rptr_ItemDataBound(object, RepeaterItemEventArgs)', correct the casing of 'Sender' in parameter name 'Sender' by changing it to 'sender'.</Issue>
+            </Message>
+            <Message Id="rptr" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="96">Correct the casing of 'rptr' in member name 'Timeline.rptr_ItemDataBound(object, RepeaterItemEventArgs)' by changing it to 'Rptr'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#shortenMRN(System.Object)" Kind="Method" Static="True" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="MRN" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="208">Correct the casing of 'MRN' in member name 'Timeline.shortenMRN(object)' by changing it to 'Mrn'.</Issue>
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="208">In member 'Timeline.shortenMRN(object)', correct the casing of 'MRN' in parameter name 'locationMRN' by changing it to 'Mrn'.</Issue>
+            </Message>
+            <Message Id="shorten" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM" File="Timeline.aspx.cs" Line="208">Correct the casing of 'shorten' in member name 'Timeline.shortenMRN(object)' by changing it to 'Shorten'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="PortCDM.Code">
+       <Types>
+        <Type Name="DataBaseHandler" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#activateShip(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="activate" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="129">Correct the casing of 'activate' in member name 'DataBaseHandler.activateShip(string)' by changing it to 'Activate'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#addShip(PortCDM.Code.Structs.Vessel,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="add" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="179">Correct the casing of 'add' in member name 'DataBaseHandler.addShip(Vessel, string)' by changing it to 'Add'.</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternate" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="182">Because the behavior of 'int.Parse(string)' could vary based on the current user's locale settings, replace this call in 'DataBaseHandler.addShip(Vessel, string)' with a call to 'int.Parse(string, IFormatProvider)'. If the result of 'int.Parse(string, IFormatProvider)' will be based on input from the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#addShip(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="add" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="165">Correct the casing of 'add' in member name 'DataBaseHandler.addShip(string, string)' by changing it to 'Add'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#deactivateShip(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="deactivate" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="141">Correct the casing of 'deactivate' in member name 'DataBaseHandler.deactivateShip(string)' by changing it to 'Deactivate'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#editComment(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="edit" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="153">Correct the casing of 'edit' in member name 'DataBaseHandler.editComment(string, string)' by changing it to 'Edit'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getActiveShips()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="23">Correct the casing of 'get' in member name 'DataBaseHandler.getActiveShips()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="40">Be sure to set the DataTable Locale property wherever 'DataBaseHandler.getActiveShips()' creates an instance of that type.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="23">Change 'DataBaseHandler.getActiveShips()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getActiveShipWComments()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="48">Correct the casing of 'get' in member name 'DataBaseHandler.getActiveShipWComments()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="65">Be sure to set the DataTable Locale property wherever 'DataBaseHandler.getActiveShipWComments()' creates an instance of that type.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="48">Change 'DataBaseHandler.getActiveShipWComments()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getAllShips()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'DataBaseHandler.getAllShips()' doesn't nest generic type 'Task&lt;List&lt;PortCall&gt;&gt;'.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'get' in member name 'DataBaseHandler.getAllShips()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning">Change 'DataBaseHandler.getAllShips()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getComment(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="196">Correct the casing of 'get' in member name 'DataBaseHandler.getComment(string)' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getInActiveShips()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="77">Correct the casing of 'get' in member name 'DataBaseHandler.getInActiveShips()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="94">Be sure to set the DataTable Locale property wherever 'DataBaseHandler.getInActiveShips()' creates an instance of that type.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="77">Change 'DataBaseHandler.getInActiveShips()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getNextArrival()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="238">Correct the casing of 'get' in member name 'DataBaseHandler.getNextArrival()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="255">Be sure to set the DataTable Locale property wherever 'DataBaseHandler.getNextArrival()' creates an instance of that type.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="238">Change 'DataBaseHandler.getNextArrival()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getPortCallId(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DataBaseHandler.cs" Line="217">Correct the casing of 'get' in member name 'DataBaseHandler.getPortCallId(string)' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="DateHandler" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#getCurrentTimeString()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DateHandler.cs" Line="8">Correct the casing of 'get' in member name 'DateHandler.getCurrentTimeString()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DateHandler.cs" Line="9">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'DateHandler.getCurrentTimeString()' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DateHandler.cs" Line="8">Change 'DateHandler.getCurrentTimeString()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#stringToDate(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="string" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DateHandler.cs" Line="13">Correct the casing of 'string' in member name 'DateHandler.stringToDate(string)' by changing it to 'String'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="DepartureMessage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+           <Issue Name="CSharp2_0" Certainty="90" Level="Error">Because type 'DepartureMessage' contains only 'static' members, mark it as 'static' to prevent the compiler from adding a default public constructor.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#addComment(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="add" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DepartureMessage.cs" Line="119">Correct the casing of 'add' in member name 'DepartureMessage.addComment(string)' by changing it to 'Add'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#addLocation(portCallMessage)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="add" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DepartureMessage.cs" Line="93">Correct the casing of 'add' in member name 'DepartureMessage.addLocation(portCallMessage)' by changing it to 'Add'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#addObject(portCallMessage)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="add" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DepartureMessage.cs" Line="79">Correct the casing of 'add' in member name 'DepartureMessage.addObject(portCallMessage)' by changing it to 'Add'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#addTime(portCallMessage)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="add" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DepartureMessage.cs" Line="64">Correct the casing of 'add' in member name 'DepartureMessage.addTime(portCallMessage)' by changing it to 'Add'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#appendMessageInfo(portCallMessage)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="append" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DepartureMessage.cs" Line="47">Correct the casing of 'append' in member name 'DepartureMessage.appendMessageInfo(portCallMessage)' by changing it to 'Append'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#createDepartureMessage(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="IMO" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error">In member 'DepartureMessage.createDepartureMessage(string)', correct the casing of 'IMO' in parameter name 'shipIMO' by changing it to 'Imo'.</Issue>
+            </Message>
+            <Message Id="create" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'create' in member name 'DepartureMessage.createDepartureMessage(string)' by changing it to 'Create'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#locationOrService(portCallMessage)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="location" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="DepartureMessage.cs" Line="12">Correct the casing of 'location' in member name 'DepartureMessage.locationOrService(portCallMessage)' by changing it to 'Location'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="HttpClientInstance" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+           <Issue Name="CSharp2_0" Certainty="90" Level="Error">Because type 'HttpClientInstance' contains only 'static' members, mark it as 'static' to prevent the compiler from adding a default public constructor.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#instance" Kind="Property" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="instance" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="HttpSingleton.cs" Line="13">Correct the casing of 'instance' in member name 'HttpClientInstance.instance' by changing it to 'Instance'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="MessageIdGenerator" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#generateMessageId()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="generate" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="MessageIdGenerator.cs" Line="11">Correct the casing of 'generate' in member name 'MessageIdGenerator.generateMessageId()' by changing it to 'Generate'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PortCallMessageGrouper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.Collections.Generic.List`1&lt;portCallMessage&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PortCallMessageGrouper.cs" Line="23">Change 'List&lt;portCallMessage&gt;' in 'PortCallMessageGrouper.PortCallMessageGrouper(List&lt;portCallMessage&gt;)' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#add(portCallMessage)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="add" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PortCallMessageGrouper.cs" Line="32">Correct the casing of 'add' in member name 'PortCallMessageGrouper.add(portCallMessage)' by changing it to 'Add'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getGroups()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PortCallMessageGrouper.cs" Line="47">Change 'List&lt;List&lt;portCallMessage&gt;&gt;' in 'PortCallMessageGrouper.getGroups()' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PortCallMessageGrouper.cs" Line="47">Consider a design where 'PortCallMessageGrouper.getGroups()' doesn't nest generic type 'List&lt;List&lt;portCallMessage&gt;&gt;'.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PortCallMessageGrouper.cs" Line="47">Correct the casing of 'get' in member name 'PortCallMessageGrouper.getGroups()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PortCallMessageGrouper.cs" Line="47">Change 'PortCallMessageGrouper.getGroups()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#isLocationState(portCallMessage)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="is" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PortCallMessageGrouper.cs" Line="52">Correct the casing of 'is' in member name 'PortCallMessageGrouper.isLocationState(portCallMessage)' by changing it to 'Is'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PrepareRestCall" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#apiKey" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="api" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'api' in member name 'PrepareRestCall.apiKey' by changing it to 'Api'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getJson()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PrepareRestCall.cs" Line="21">Correct the casing of 'get' in member name 'PrepareRestCall.getJson()' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getText()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PrepareRestCall.cs" Line="34">Correct the casing of 'get' in member name 'PrepareRestCall.getText()' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getXML()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PrepareRestCall.cs" Line="46">Correct the casing of 'XML' in member name 'PrepareRestCall.getXML()' by changing it to 'Xml'.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PrepareRestCall.cs" Line="46">Correct the casing of 'get' in member name 'PrepareRestCall.getXML()' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#postXML()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="XML" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PrepareRestCall.cs" Line="59">Correct the casing of 'XML' in member name 'PrepareRestCall.postXML()' by changing it to 'Xml'.</Issue>
+            </Message>
+            <Message Id="post" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="PrepareRestCall.cs" Line="59">Correct the casing of 'post' in member name 'PrepareRestCall.postXML()' by changing it to 'Post'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="QueueHandler" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+           <Issue Name="CSharp2_0" Certainty="90" Level="Error">Because type 'QueueHandler' contains only 'static' members, mark it as 'static' to prevent the compiler from adding a default public constructor.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#createFilteredQueue(System.Collections.Generic.List`1&lt;PortCDM.Code.Structs.Filter&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error">Change 'List&lt;Filter&gt;' in 'QueueHandler.createFilteredQueue(List&lt;Filter&gt;)' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+            <Message Id="create" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'create' in member name 'QueueHandler.createFilteredQueue(List&lt;Filter&gt;)' by changing it to 'Create'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#createFilteredQueue(System.Collections.Generic.List`1&lt;PortCDM.Code.Structs.Filter&gt;,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error">Change 'List&lt;Filter&gt;' in 'QueueHandler.createFilteredQueue(List&lt;Filter&gt;, string)' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+            <Message Id="create" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'create' in member name 'QueueHandler.createFilteredQueue(List&lt;Filter&gt;, string)' by changing it to 'Create'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#pollQueue(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'QueueHandler.pollQueue(string)' doesn't nest generic type 'Task&lt;List&lt;portCallMessage&gt;&gt;'.</Issue>
+            </Message>
+            <Message Id="poll" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'poll' in member name 'QueueHandler.pollQueue(string)' by changing it to 'Poll'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Randomizer" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#genRandomNumberString(System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="gen" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Randomizer.cs" Line="13">Correct the casing of 'gen' in member name 'Randomizer.genRandomNumberString(int)' by changing it to 'Gen'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#genRandomString(System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="gen" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Randomizer.cs" Line="34">Correct the casing of 'gen' in member name 'Randomizer.genRandomString(int)' by changing it to 'Gen'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#genRandomStringAB89(System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="gen" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Randomizer.cs" Line="27">Correct the casing of 'gen' in member name 'Randomizer.genRandomStringAB89(int)' by changing it to 'Gen'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#genRandomStringAF(System.Int32)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="gen" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Randomizer.cs" Line="20">Correct the casing of 'gen' in member name 'Randomizer.genRandomStringAF(int)' by changing it to 'Gen'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RestHandler" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+           <Issue Name="CSharp2_0" Certainty="90" Level="Error">Because type 'RestHandler' contains only 'static' members, mark it as 'static' to prevent the compiler from adding a default public constructor.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#createPCM(portCallMessage)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="PCM" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'PCM' in member name 'RestHandler.createPCM(portCallMessage)' by changing it to 'Pcm'.</Issue>
+            </Message>
+            <Message Id="create" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'create' in member name 'RestHandler.createPCM(portCallMessage)' by changing it to 'Create'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#createPortCall(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="create" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'create' in member name 'RestHandler.createPortCall(string)' by changing it to 'Create'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getEvents(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'RestHandler.getEvents(string)' doesn't nest generic type 'Task&lt;List&lt;portCallMessage&gt;&gt;'.</Issue>
+            </Message>
+            <Message Id="ID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="MemberParameterAbbreviation" Certainty="85" Level="Error">In member 'RestHandler.getEvents(string)', correct the casing of 'ID' in parameter name 'callID' by changing it to 'Id'. 'Id' is an abbreviation and therefore is not subject to acronym casing guidelines.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'get' in member name 'RestHandler.getEvents(string)' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getLocations()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'RestHandler.getLocations()' doesn't nest generic type 'Task&lt;List&lt;PortLocation&gt;&gt;'.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'get' in member name 'RestHandler.getLocations()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning">Change 'RestHandler.getLocations()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getPortCallById(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'get' in member name 'RestHandler.getPortCallById(string)' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getPortCallId(System.String,System.DateTime)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="RestHandler.cs" Line="108">Correct the casing of 'get' in member name 'RestHandler.getPortCallId(string, DateTime)' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getPortCallId(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'get' in member name 'RestHandler.getPortCallId(string, string)' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getPortCalls()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'RestHandler.getPortCalls()' doesn't nest generic type 'Task&lt;List&lt;PortCall&gt;&gt;'.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'get' in member name 'RestHandler.getPortCalls()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning">Change 'RestHandler.getPortCalls()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getVesselByImo(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'get' in member name 'RestHandler.getVesselByImo(string)' by changing it to 'Get'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#toXML(portCallMessage)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.IO.StringWriter.#ctor" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternate" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="RestHandler.cs" Line="24">Because the behavior of 'StringWriter.StringWriter()' could vary based on the current user's locale settings, replace this call in 'RestHandler.toXML(portCallMessage)' with a call to 'StringWriter.StringWriter(IFormatProvider)'. If the result of 'StringWriter.StringWriter(IFormatProvider)' will be based on input from the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Subscriptions" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#subscribe(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'Subscriptions.subscribe(string)' doesn't nest generic type 'Task&lt;List&lt;string&gt;&gt;'.</Issue>
+            </Message>
+            <Message Id="subscribe" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'subscribe' in member name 'Subscriptions.subscribe(string)' by changing it to 'Subscribe'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Utils" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#newTime(System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="new" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Utils.cs" Line="33">Correct the casing of 'new' in member name 'Utils.newTime(object)' by changing it to 'New'.</Issue>
+            </Message>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Utils.cs" Line="36">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'Utils.newTime(object)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#niceDate(System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="nice" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Utils.cs" Line="11">Correct the casing of 'nice' in member name 'Utils.niceDate(object)' by changing it to 'Nice'.</Issue>
+            </Message>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Utils.cs" Line="16">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'Utils.niceDate(object)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#niceTime(System.Object)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="nice" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Utils.cs" Line="22">Correct the casing of 'nice' in member name 'Utils.niceTime(object)' by changing it to 'Nice'.</Issue>
+            </Message>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code" File="Utils.cs" Line="27">Because the behavior of 'DateTime.ToString(string)' could vary based on the current user's locale settings, replace this call in 'Utils.niceTime(object)' with a call to 'DateTime.ToString(string, IFormatProvider)'. If the result of 'DateTime.ToString(string, IFormatProvider)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="PortCDM.Code.Structs">
+       <Types>
+        <Type Name="Filter" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#toJson()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="to" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Olle\Desktop\SoftwareEngineeringProject\project\PortCDM\PortCDM\Code\Structs" File="Filter.cs" Line="21">Correct the casing of 'to' in member name 'Filter.toJson()' by changing it to 'To'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="FilterType" Kind="Enum" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#LOCATION_TYPE" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="LOCATION" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'LOCATION' in member name 'FilterType.LOCATION_TYPE' by changing it to 'Location'.</Issue>
+            </Message>
+            <Message Id="TYPE" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'TYPE' in member name 'FilterType.LOCATION_TYPE' by changing it to 'Type'.</Issue>
+            </Message>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error">Remove the underscores from member name 'FilterType.LOCATION_TYPE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#PORT_CALL" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="CALL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'CALL' in member name 'FilterType.PORT_CALL' by changing it to 'Call'.</Issue>
+            </Message>
+            <Message Id="PORT" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'PORT' in member name 'FilterType.PORT_CALL' by changing it to 'Port'.</Issue>
+            </Message>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error">Remove the underscores from member name 'FilterType.PORT_CALL'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#REFERENCE_OBJECT" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="OBJECT" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'OBJECT' in member name 'FilterType.REFERENCE_OBJECT' by changing it to 'Object'.</Issue>
+            </Message>
+            <Message Id="REFERENCE" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'REFERENCE' in member name 'FilterType.REFERENCE_OBJECT' by changing it to 'Reference'.</Issue>
+            </Message>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error">Remove the underscores from member name 'FilterType.REFERENCE_OBJECT'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TIME_SEQUENCE" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="SEQUENCE" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'SEQUENCE' in member name 'FilterType.TIME_SEQUENCE' by changing it to 'Sequence'.</Issue>
+            </Message>
+            <Message Id="TIME" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'TIME' in member name 'FilterType.TIME_SEQUENCE' by changing it to 'Time'.</Issue>
+            </Message>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error">Remove the underscores from member name 'FilterType.TIME_SEQUENCE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#TIME_TYPE" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="TIME" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'TIME' in member name 'FilterType.TIME_TYPE' by changing it to 'Time'.</Issue>
+            </Message>
+            <Message Id="TYPE" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'TYPE' in member name 'FilterType.TIME_TYPE' by changing it to 'Type'.</Issue>
+            </Message>
+            <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error">Remove the underscores from member name 'FilterType.TIME_TYPE'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#VESSEL" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="VESSEL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'VESSEL' in member name 'FilterType.VESSEL' by changing it to 'Vessel'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PortCall" Kind="Struct" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#arrivalDate" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="arrival" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'arrival' in member name 'PortCall.arrivalDate' by changing it to 'Arrival'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#id" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="id" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="MemberAbbreviation" Certainty="85" Level="Error">Correct the casing of 'id' in member name 'PortCall.id' by changing it to 'Id'. 'Id' is an abbreviation and therefore is not subject to acronym casing guidelines.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#vessel" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="vessel" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'vessel' in member name 'PortCall.vessel' by changing it to 'Vessel'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="PortLocation" Kind="Struct" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#coordinates" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="coordinates" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'coordinates' in member name 'PortLocation.coordinates' by changing it to 'Coordinates'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#locationType" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="location" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'location' in member name 'PortLocation.locationType' by changing it to 'Location'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#name" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="name" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'name' in member name 'PortLocation.name' by changing it to 'Name'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#shortName" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="short" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'short' in member name 'PortLocation.shortName' by changing it to 'Short'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#URN" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="URN" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'URN' in member name 'PortLocation.URN' by changing it to 'Urn'.</Issue>
+            </Message>
+            <Message TypeName="UriPropertiesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1056" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Error">Change the type of property 'PortLocation.URN' from string to System.Uri.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Vessel" Kind="Struct" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#arrivalDate" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="arrival" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'arrival' in member name 'Vessel.arrivalDate' by changing it to 'Arrival'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#callSign" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="call" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'call' in member name 'Vessel.callSign' by changing it to 'Call'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#id" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="id" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="MemberAbbreviation" Certainty="85" Level="Error">Correct the casing of 'id' in member name 'Vessel.id' by changing it to 'Id'. 'Id' is an abbreviation and therefore is not subject to acronym casing guidelines.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#imo" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="imo" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'imo' in member name 'Vessel.imo' by changing it to 'Imo'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#mmsi" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="mmsi" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'mmsi' in member name 'Vessel.mmsi' by changing it to 'Mmsi'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#name" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="name" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'name' in member name 'Vessel.name' by changing it to 'Name'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#photoURL" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="URL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'URL' in member name 'Vessel.photoURL' by changing it to 'Url'.</Issue>
+            </Message>
+            <Message Id="photo" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'photo' in member name 'Vessel.photoURL' by changing it to 'Photo'.</Issue>
+            </Message>
+            <Message TypeName="UriPropertiesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1056" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Error">Change the type of property 'Vessel.photoURL' from string to System.Uri.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#portCallId" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="port" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'port' in member name 'Vessel.portCallId' by changing it to 'Port'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#stmVesselId" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="stm" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'stm' in member name 'Vessel.stmVesselId' by changing it to 'Stm'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#type" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="type" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2017-05-30 14:08:34Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'type' in member name 'Vessel.type' by changing it to 'Type'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+   <Name>Assemblies should have valid strong names</Name>
+   <Description>Either the assembly has no strong name, an invalid one, or the strong name is valid only because of the computer configuration. The assembly should not be deployed in this state. The most common causes of this are: 1) The assembly's contents were modified after it was signed. 2) The signing process failed. 3) The assembly was delay-signed. 4) A registry key existed that allowed the check to pass (where it would not have otherwise).</Description>
+   <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182127(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="ComVisibleTypeBaseTypesShouldBeComVisible" Category="Microsoft.Interoperability" CheckId="CA1405">
+   <Name>COM visible type base types should be COM visible</Name>
+   <Description>COM visible types should have an object hierarchy that is uniformly COM visible.</Description>
+   <Resolution Name="Default">{0} is marked ComVisible(true) but has the following ComVisible(false) types in its object hierarchy: {1}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182202(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="InteroperabilityRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+   <Name>Consider passing base types as parameters</Name>
+   <Description>Using base types as parameters to methods improves re-use of these methods if you only use methods &amp; properties from the parameter's base class. E.g. use Stream instead of FileStream as a parameter when only calling Stream.Read(), this makes the method work on all kind of streams instead of just File streams.</Description>
+   <Resolution Name="Default">Consider changing the type of parameter {0} in {1} from {2} to its base type {3}. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/3hk32yyz(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+   <Name>Do not expose generic lists</Name>
+   <Description>Do not expose List&lt;T&gt; in object models. Use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt; instead. List&lt;T&gt; is meant to be used from implementation, not in object model API. List&lt;T&gt; is optimized for performance at the cost of long term versioning. For example, if you return List&lt;T&gt; to the client code, you will not ever be able to receive notifications when client code modifies the collection.</Description>
+   <Resolution Name="Default">Change {0} in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182142(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006">
+   <Name>Do not nest generic types in member signatures</Name>
+   <Description>Avoid API that require users to instantiate a generic type with another generic type as type argument. The syntax gets too complex.</Description>
+   <Resolution Name="Default">Consider a design where {0} doesn't nest generic type {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182144(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>Identifiers should be cased correctly</Name>
+   <Description>Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</Description>
+   <Resolution Name="Assembly">Correct the casing of '{0}' in assembly name {1} by changing it to '{2}'.</Resolution>
+   <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+   <Resolution Name="MemberAbbreviation">Correct the casing of '{0}' in member name {1} by changing it to '{2}'. '{2}' is an abbreviation and therefore is not subject to acronym casing guidelines.</Resolution>
+   <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+   <Resolution Name="MemberParameterAbbreviation">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'. '{3}' is an abbreviation and therefore is not subject to acronym casing guidelines.</Resolution>
+   <Resolution Name="Namespace">Correct the casing of '{0}' in namespace name '{1}' by changing it to '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182240(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707">
+   <Name>Identifiers should not contain underscores</Name>
+   <Description>Do not use underscores when specifying identifiers. Some generated Visual Studio identifiers for applications contain underscore characters. Underscore characters should generally be avoided in public identifiers.</Description>
+   <Resolution Name="Member">Remove the underscores from member name {0}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182245(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithAssemblyVersion" Category="Microsoft.Design" CheckId="CA1016">
+   <Name>Mark assemblies with AssemblyVersionAttribute</Name>
+   <Description>Assemblies should use version numbers. The version number is considered part of an assembly's identity. Versioning is applied by means of the AssemblyVersion attribute.</Description>
+   <Resolution Name="Default">Add an AssemblyVersion attribute to {0}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182155(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+   <Name>Mark assemblies with CLSCompliantAttribute</Name>
+   <Description>Assemblies should explicitly state their CLS compliance using the CLSCompliant attribute. An assembly without this attribute is not CLS-compliant. Assemblies, modules, and types can be CLS-compliant even if some parts of the assembly, module, or type are not CLS-compliant. The following rules apply: 1) If the element is marked CLSCompliant, any noncompliant members must have the CLSCompliant attribute present with its argument set to false. 2) A comparable CLS-compliant alternative member must be supplied for each member that is not CLS-compliant.</Description>
+   <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182156(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithComVisible" Category="Microsoft.Design" CheckId="CA1017">
+   <Name>Mark assemblies with ComVisibleAttribute</Name>
+   <Description>The System.Runtime.InteropServices.ComVisible attribute indicates whether COM clients can use the library. Good design dictates that developers explicitly indicate COM visibility. The default value for this attribute is 'true'. However, the best design is to mark the assembly ComVisible false, and then mark types, interfaces, and individual members as ComVisible true, as appropriate.</Description>
+   <Resolution Name="NoAttribute">Because {0} exposes externally visible types, mark it with ComVisible(false) at the assembly level and then mark all types within the assembly that should be exposed to COM clients with ComVisible(true).</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182157(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError, Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+   <Name>Mark members as static</Name>
+   <Description>Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</Description>
+   <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245046(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306">
+   <Name>Set locale for data types</Name>
+   <Description>In most cases, Locale should be explicitly set to CultureInfo.InvariantCulture on DataSet and DataTable instances. Upon creation of a DataSet or DataTable instance, the Locale is set to the current culture. In most cases, the Locale should be set to CultureInfo.InvariantCulture to guarantee proper sorting behavior in all cultures.</Description>
+   <Resolution Name="Default">Be sure to set the {0} Locale property wherever {1} creates an instance of that type.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182188(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304">
+   <Name>Specify CultureInfo</Name>
+   <Description>If an overload exists that takes a CultureInfo argument, it should always be called in favor of an overload that does not. The CultureInfo type contains culture-specific information required for performing numeric and string operations, such as casing, formatting, and string comparisons. In scenarios where conversion and parsing behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182189(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>Specify IFormatProvider</Name>
+   <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="IFormatProviderAlternate">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be based on input from the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify {4}.</Resolution>
+   <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053">
+   <Name>Static holder types should not have constructors</Name>
+   <Description>Instances of types that define only static members do not need to be created. Many compilers will automatically add a public default constructor if no constructor is specified. To prevent this, adding an empty private constructor may be required.</Description>
+   <Resolution Name="CSharp2_0">Because type {0} contains only 'static' members, mark it as 'static' to prevent the compiler from adding a default public constructor.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182169(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="UriPropertiesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1056">
+   <Name>URI properties should not be strings</Name>
+   <Description>If a property name contains "uri" or "url" or "urn" and it's typed as string, it should be changed to System.Uri.</Description>
+   <Resolution Name="Default">Change the type of property {0} from string to System.Uri.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182175(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+   <Name>Use properties where appropriate</Name>
+   <Description>Properties should be used instead of Get/Set methods in most situations. Methods are preferable to properties in the following situations: the operation is a conversion, is expensive or has an observable side-effect; the order of execution is important; calling the member twice in succession creates different results; a member is static but returns a mutable value; or the member returns an array.</Description>
+   <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182181(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>
