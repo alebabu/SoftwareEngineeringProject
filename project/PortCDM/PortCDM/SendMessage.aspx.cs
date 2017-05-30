@@ -16,14 +16,12 @@ namespace PortCDM
     {
         private List<Vessel> shipList;
         private string imoQuery;
-        private DateHandler dateHandler;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable ships = DataBaseHandler.getActiveShips();
 
             shipList = new List<Vessel>();
-            dateHandler = new DateHandler();
             foreach(DataRow ship in ships.Rows)
             {
                 var v = new Vessel
@@ -87,7 +85,7 @@ namespace PortCDM
         }
 
         //Note(Olle): portCDM 0.6 doesn't want to receive a string generated from their API, so this formats that string
-        private string fixTrafficAreaBug(string location)
+        private static string fixTrafficAreaBug(string location)
         {
             return location.Replace("urn:mrn:stm:location:segot:TRAFFIC_AREA:segot",
                 "urn:mrn:stm:location:segot:TRAFFIC_AREA");
@@ -235,7 +233,7 @@ namespace PortCDM
                 portCallId = portCallIdHiddenField.Value,
                 vesselId = "urn:mrn:stm:vessel:IMO:" + shipImoHiddenField.Value,
                 messageId = "urn:mrn:stm:portcdm:message:" + MessageIdGenerator.generateMessageId(),
-                reportedAt = dateHandler.getCurrentTimeString(),
+                reportedAt = DateHandler.getCurrentTimeString(),
                 comment = commentBox.Text
             };
 
@@ -250,7 +248,7 @@ namespace PortCDM
                 message.serviceState.timeType = (TimeType) Enum.Parse(typeof(TimeType), timeTypeDropDown.SelectedValue);
                 string serviceStateTime = setYearDropDown.SelectedValue + "-" + setMonthDropDown.SelectedValue + "-" +
                                           setDayDropDown.SelectedValue + "T" + setHourDropDown.SelectedValue + ":" + setMinuteDropDown.SelectedValue + ":00Z";
-                message.serviceState.time = dateHandler.stringToDate(serviceStateTime);
+                message.serviceState.time = DateHandler.stringToDate(serviceStateTime);
 
                 //--------- Service state, location At -----------
                 if (atRadioButton.Checked)
@@ -276,7 +274,7 @@ namespace PortCDM
                 message.locationState.referenceObject = LocationReferenceObject.VESSEL;
                 string locationStateTime = setYearDropDown.SelectedValue + "-" + setMonthDropDown.SelectedValue + "-" +
                                           setDayDropDown.SelectedValue + "T" + setHourDropDown.SelectedValue + ":" + setMinuteDropDown.SelectedValue + ":00Z";
-                message.locationState.time = dateHandler.stringToDate(locationStateTime);
+                message.locationState.time = DateHandler.stringToDate(locationStateTime);
                 message.locationState.timeType = (TimeType) Enum.Parse(typeof(TimeType), timeTypeDropDown.SelectedValue);
                 if(messageTypeHiddenField.Value == "DEPARTURE_VESSEL")
                 {

@@ -2,14 +2,14 @@
 
 namespace PortCDM.Code
 {
-    public class DateHandler
+    public static class DateHandler
     {
-        public string getCurrentTimeString()
+        public static string getCurrentTimeString()
         {
             return DateTime.UtcNow.ToString("O");
         }
 
-        public DateTime stringToDate(string date)
+        public static DateTime stringToDate(string date)
         {
             return DateTime.Parse(date, null, System.Globalization.DateTimeStyles.RoundtripKind);
         }

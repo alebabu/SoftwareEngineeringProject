@@ -32,8 +32,7 @@ namespace PortCDM.Code
         public static object newTime(object oldTime)
         {
             String s = (String) oldTime;
-            DateHandler dh = new DateHandler();
-            DateTime time = dh.stringToDate(s);
+            DateTime time = DateHandler.stringToDate(s);
             object newTime = time.ToString("d MMM HH:mm");
             return newTime;
         }

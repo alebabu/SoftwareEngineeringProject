@@ -53,7 +53,7 @@ namespace PortCDM.Code
             return pcm.locationState != null;
         }
 
-        private string getKey(portCallMessage pcm)
+        private static string getKey(portCallMessage pcm)
         {
             string key = "";
             if (pcm == null)

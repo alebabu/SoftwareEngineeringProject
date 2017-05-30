@@ -131,6 +131,7 @@
     <Compile Include="Code\Structs\PortLocation.cs" />
     <Compile Include="Code\Structs\Vessel.cs" />
     <Compile Include="Code\Subscriptions.cs" />
+    <Compile Include="Code\Utils.cs" />
     <Compile Include="DepartureMessagePage.aspx.cs">
       <DependentUpon>DepartureMessagePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
