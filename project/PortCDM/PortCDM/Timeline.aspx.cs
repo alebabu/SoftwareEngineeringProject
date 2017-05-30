@@ -182,24 +182,26 @@ namespace PortCDM
             return locationName;
         }
 
-        protected static object niceTimeFormat(object o)
+        protected static object niceTimeFormat(object badTimeFormat)
         {
-            if (o == null)
+            if (badTimeFormat == null)
                 return null;
-            DateTime dateTime = (DateTime)o;
+            DateTime dateTime = (DateTime)badTimeFormat;
 
             int daysAgo = (DateTime.Now - dateTime).Days;
             daysAgo = 0;
-           
+
+            object newTimeFormat;
+
             if (daysAgo < 365)
             {   // If within a year
-                o = dateTime.ToString("d MMM<br />HH:mm");
+                newTimeFormat = dateTime.ToString("d MMM<br />HH:mm");
             }
             else
             {   // Older date
-                o = dateTime.ToString("yyyy-MM-dd<br />HH:mm");
+                newTimeFormat = dateTime.ToString("yyyy-MM-dd<br />HH:mm");
             }
-            return o;
+            return newTimeFormat;
         }
         
         protected static object shortenMRN(object locationMRN)
