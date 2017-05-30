@@ -216,8 +216,8 @@ namespace PortCDM
         private static string fromIntToDate(int i)
         {
             if (i < 10)
-                return "0" + i.ToString();
-            else
+                return "0" + i;
+
                 return i.ToString();
         }
 
