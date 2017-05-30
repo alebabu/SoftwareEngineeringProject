@@ -7,5 +7,6 @@ http://njord.azurewebsites.net
 
 If an exception is encountered, reload the page.
 
-##Code analysis
+## Code analysis
+
 The code analysis can be found in the deliverables folder on the repo.
