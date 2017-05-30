@@ -6,18 +6,16 @@ namespace PortCDM.Code
 {
     public class DepartureMessage
     {
-		public static StringBuilder departureMessage = new StringBuilder();
+		private static StringBuilder departureMessage = new StringBuilder();
 
-		public static DateTime LocationOrService(portCallMessage pcm)
+		public static DateTime locationOrService(portCallMessage pcm)
 		{
-			if (pcm.locationState != null)
-			{
-				return pcm.locationState.time;
-			}
-			else
-			{
-				return pcm.serviceState.time;
-			}
+		    if (pcm.locationState != null)
+		    {
+		        return pcm.locationState.time;
+		    }
+
+		    return pcm.serviceState.time;
 		}
 
 
@@ -33,7 +31,7 @@ namespace PortCDM.Code
 
 
 			//Sort list based on DateTime time
-			list.Sort((x, y) => DateTime.Compare(LocationOrService(x), LocationOrService(y)));
+			list.Sort((x, y) => DateTime.Compare(locationOrService(x), locationOrService(y)));
 
 			foreach (portCallMessage pcm in list)
 			{
@@ -67,12 +65,12 @@ namespace PortCDM.Code
             //APPEND WITH LOCATIONSTATE TIME
             if (pcm.locationState != null)
 			{
-				object niceDate = NiceDate(pcm.locationState.time);
+				object niceDate = Utils.niceDate(pcm.locationState.time);
 				departureMessage.Append(niceDate + " ");
 			}
             //APPEND WITH SERVICESTATE TIME
             if (pcm.serviceState != null){
-				object niceDate = NiceDate(pcm.serviceState.time);
+				object niceDate = Utils.niceDate(pcm.serviceState.time);
 				departureMessage.Append(niceDate + " ");
 			}
 		}
@@ -123,27 +121,9 @@ namespace PortCDM.Code
 			departureMessage.Append("Comments: " + comment);
 		}
 
-		public static object NiceDate(object o)
-		{
-			if (o == null)
-				return null;
 
-			DateTime dateTime = (DateTime)o;
-			o = dateTime.ToString("yyyy-MM-dd HH:mm ");
 
-			return o;
-		}
 
-		public static object NiceTime(object o)
-		{
-			if (o == null)
-				return null;
-
-			DateTime dateTime = (DateTime)o;
-			o = dateTime.ToString("HH:mm ");
-
-			return o;
-		}
 
 		//Converts String to a nicer formatted string
 		public static string NiceString(string str)
@@ -158,5 +138,5 @@ namespace PortCDM.Code
 			}
 			else return "normal:" + str;
 		}
-	}
+    }
 }
