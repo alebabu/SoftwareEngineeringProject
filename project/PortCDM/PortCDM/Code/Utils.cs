@@ -28,5 +28,14 @@ namespace PortCDM.Code
 
             return niceTime;
         }
+
+        public static object newTime(object oldTime)
+        {
+            String s = (String) oldTime;
+            DateHandler dh = new DateHandler();
+            DateTime time = dh.stringToDate(s);
+            object newTime = time.ToString("d MMM HH:mm");
+            return newTime;
+        }
     }
 }

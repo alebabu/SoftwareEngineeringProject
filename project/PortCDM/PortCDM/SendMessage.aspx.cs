@@ -193,18 +193,18 @@ namespace PortCDM
             string[] hours = new string[24];
             string[] minutes = new string[60];
 
-
-            //TODO(Olle): reuse the loops for performance
-            for (int i = 0; i < 31; i++)
-                days[i] = fromIntToDate(i + 1);
-            for (int i = 0; i < 12; i++)
-                months[i] = fromIntToDate(i + 1);
             for (int i = 0; i < 256; i++)
+            {
+                if(i < 31)
+                    days[i] = fromIntToDate(i + 1);
+                if(i < 12)
+                    months[i] = fromIntToDate(i + 1);
+                if(i < 24)
+                    hours[i] = fromIntToDate(i);
+                if(i < 60)
+                    minutes[i] = fromIntToDate(i);
                 years[i] = (i + 1980).ToString();
-            for (int i = 0; i < 24; i++)
-                hours[i] = fromIntToDate(i);
-            for (int i = 0; i < 60; i++)
-                minutes[i] = fromIntToDate(i);
+            }   
 
             bindDateDropDown(setDayDropDown, days);
             bindDateDropDown(setMonthDropDown, months);
@@ -213,7 +213,7 @@ namespace PortCDM
             bindDateDropDown(setMinuteDropDown, minutes);
         }
 
-        private string fromIntToDate(int i)
+        private static string fromIntToDate(int i)
         {
             if (i < 10)
                 return "0" + i.ToString();
@@ -221,7 +221,7 @@ namespace PortCDM
                 return i.ToString();
         }
 
-        private void bindDateDropDown(DropDownList ddl, string[] data)
+        private static void bindDateDropDown(DropDownList ddl, string[] data)
         {
             ddl.DataSource = data;
             ddl.DataBind();

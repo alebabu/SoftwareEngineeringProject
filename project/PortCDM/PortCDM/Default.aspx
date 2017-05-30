@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="PortCDM.Default"%>
+<%@ Import Namespace="PortCDM.Code" %>
 <asp:Content runat="server" ContentPlaceHolderID="cpHeadContent">
 	<title>Dashboard</title>
 </asp:Content>
@@ -12,7 +13,7 @@
         	<asp:Repeater id="nextArrivalRepeater" runat="server">
 				<ItemTemplate>
 					<p><asp:Literal runat="server" Text='<%# Eval("name") %>'/></p>
-	            	<h2><asp:Literal runat="server" Text='<%# newTime(Eval("arrivalDate")) %>'/></h2>
+	            	<h2><asp:Literal runat="server" Text='<%# Utils.newTime(Eval("arrivalDate")) %>'/></h2>
 				</ItemTemplate>
 			</asp:Repeater>
         </div>

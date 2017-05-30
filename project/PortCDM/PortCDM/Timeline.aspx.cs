@@ -164,7 +164,7 @@ namespace PortCDM
         }
 
         //Note(Olle): this changes the sent string to the string in the api to fetch a location
-        private string fixTrafficAreaBug(string location)
+        private static string fixTrafficAreaBug(string location)
         {
             return location.Replace("urn:mrn:stm:location:segot:TRAFFIC_AREA",
                 "urn:mrn:stm:location:segot:TRAFFIC_AREA:segot");
@@ -182,7 +182,7 @@ namespace PortCDM
             return locationName;
         }
 
-        protected object niceTimeFormat(object o)
+        protected static object niceTimeFormat(object o)
         {
             if (o == null)
                 return null;
@@ -202,7 +202,7 @@ namespace PortCDM
             return o;
         }
         
-        protected object shortenMRN(object locationMRN)
+        protected static object shortenMRN(object locationMRN)
         {        
             String s = (String)locationMRN;            
             if (s != null)
@@ -238,15 +238,6 @@ namespace PortCDM
 		{
 			Console.WriteLine("OnTimedEvent");
 			LoadEvents(source, e);
-		}
-    
-        protected object newTime (object o)
-        {
-            String s = (String)o;           
-            DateHandler dh = new DateHandler();
-            DateTime time = dh.stringToDate(s);
-             o = time.ToString("d MMM HH:mm");
-            return o;
-        }      
+		}  
     }
 }

@@ -1,4 +1,5 @@
 <%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Timeline.aspx.cs" Inherits="PortCDM.Timeline" %>
+<%@ Import Namespace="PortCDM.Code" %>
 
 <asp:Content runat="server" ID="MessageHead" ContentPlaceHolderID="cpHeadContent">
     <script type="text/javascript" src="Scripts/TimeLine.js"></script>
@@ -42,7 +43,7 @@
                                              Reported by:
                                 <asp:Literal runat="server" Text='<%# shortenMRN(Eval("reportedBy")) %>'></asp:Literal>
                                             at
-                                <asp:Literal runat="server" Text='<%# newTime(Eval("reportedAt")) %>'></asp:Literal>
+                                <asp:Literal runat="server" Text='<%# Utils.newTime(Eval("reportedAt")) %>'></asp:Literal>
                                             <br />
                                             Comment: 
                                             <asp:Literal runat="server" Text='<%# Eval("comment") %>'></asp:Literal>

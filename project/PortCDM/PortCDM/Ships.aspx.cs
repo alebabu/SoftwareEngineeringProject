@@ -101,15 +101,7 @@ namespace PortCDM
 
 		}
 
-		protected object newTime(object o)
-		{
-			String s = (String)o;
-			Console.WriteLine(s);
-			DateHandler dh = new DateHandler();
-			DateTime time = dh.stringToDate(s);
-			o = time.ToString("d MMM HH:mm");
-			return o; 			
-		}
+		
 
 	}
 }

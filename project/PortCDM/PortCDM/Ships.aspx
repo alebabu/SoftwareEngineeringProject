@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Ships.aspx.cs" Inherits="PortCDM.Ships" EnableEventValidation="false"%> 
+﻿<%@ Page Language="C#" Async="true" MasterPageFile="~/FrontEnd.master" AutoEventWireup="true" CodeFile="Ships.aspx.cs" Inherits="PortCDM.Ships" EnableEventValidation="false"%>
+<%@ Import Namespace="PortCDM.Code" %>
 <asp:Content runat="server" ContentPlaceHolderID="cpHeadContent">
 	<!-- enableEventValidation should not be false....-->
 
@@ -53,7 +54,7 @@
 									<h3>Comments</h3>
 									<asp:TextBox CssClass="ship-comment" runat="server" placeholder="Add comment..." Text='<%# Eval("comment") %>' onTextChanged="commentChanged" AutoPostBack="true" CommandArgument='<%#Eval("imoNumber")%>' CommandName="ImoNumber"></asp:TextBox>
 									<h3>Arrival date</h3>
-									<p><asp:Literal runat="server" Text='<%# newTime(Eval("arrivalDate")) %>'/></p>
+									<p><asp:Literal runat="server" Text='<%# Utils.newTime(Eval("arrivalDate")) %>'/></p>
 									<h3>PortCall ID</h3>
 									<p><asp:Literal runat="server" Text='<%# Eval("portCallId") %>'/></p>
 								</div>
